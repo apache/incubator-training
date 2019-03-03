@@ -41,6 +41,8 @@ Dev Mailing List: [Archive](https://lists.apache.org/list.html?dev@training.apac
 
 Issues Mailing List: [Archive](https://lists.apache.org/list.html?issues@training.apache.org)  -  [Subscribe](mailto:issues-subscribe@training.apache.org)
 
+Commits Mailing List: [Archive](https://lists.apache.org/list.html?commits@training.apache.org)  -  [Subscribe](mailto:commits-subscribe@training.apache.org)
+
 Wiki: [https://cwiki.apache.org/confluence/display/TRAINING](https://cwiki.apache.org/confluence/display/TRAINING)
 
 Jira: [https://issues.apache.org/jira/browse/TRAINING](https://issues.apache.org/jira/browse/TRAINING)
