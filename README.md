@@ -1,4 +1,4 @@
-Apache Training (Incubating)
+Apache Training (incubating)
 ============================
 
 ### Purpose
@@ -37,10 +37,10 @@ The main resource for any discussion around this project is the dev mailing list
 
 The following resources are currently being used by the project:
 
-Dev Mailing List: [Archive](http://mail-archives.apache.org/mod_mbox/training-dev/)  -  [Subscribe](mailto:dev-subscribe@training.apache.org)
+Dev Mailing List: [Archive](https://lists.apache.org/list.html?dev@training.apache.org)  -  [Subscribe](mailto:dev-subscribe@training.apache.org)
 
-Issues Mailing List: [Archive](http://mail-archives.apache.org/mod_mbox/training-issues/)  -  [Subscribe](mailto:issues-subscribe@training.apache.org)
+Issues Mailing List: [Archive](https://lists.apache.org/list.html?issues@training.apache.org)  -  [Subscribe](mailto:issues-subscribe@training.apache.org)
 
 Wiki: [https://cwiki.apache.org/confluence/display/TRAINING](https://cwiki.apache.org/confluence/display/TRAINING)
 
-Jira: [https://issues.apache.org/jira/projects/TRAINING/issues/TRAINING-2?filter=allopenissues](https://issues.apache.org/jira/projects/TRAINING/issues/TRAINING-2?filter=allopenissues)
+Jira: [https://issues.apache.org/jira/browse/TRAINING](https://issues.apache.org/jira/browse/TRAINING)
