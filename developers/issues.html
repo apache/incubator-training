@@ -9,19 +9,19 @@
           
         <head>
     <meta charset="UTF-8" />
-    <title>Apache Training® (Incubating) - Apache Training™ (Incubating)</title>
+    <title>Apache Training® (Incubating) - Bug & Issue Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
       <meta http-equiv="content-language" content="en" />
-                                                                <link href="./css/bootstrap.min.css" rel="stylesheet" />
-                <link href="./css/docs.css" rel="stylesheet" />
-    <link href="./css/reflow-skin.css" rel="stylesheet" />
+                                                                <link href="../css/bootstrap.min.css" rel="stylesheet" />
+                <link href="../css/docs.css" rel="stylesheet" />
+    <link href="../css/reflow-skin.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="./js/styles/default.min.css" />
+    <link rel="stylesheet" href="../js/styles/default.min.css" />
 
-    <link href="./css/lightbox.css" rel="stylesheet" />
-    <link href="./css/site.css" rel="stylesheet" />
-    <link href="./css/print.css" rel="stylesheet" media="print" />
+    <link href="../css/lightbox.css" rel="stylesheet" />
+    <link href="../css/site.css" rel="stylesheet" />
+    <link href="../css/print.css" rel="stylesheet" media="print" />
 <script>
           document.addEventListener("DOMContentLoaded", function(event) {
             /* Add an image for promoting Apache events below the right banner */
@@ -31,7 +31,7 @@
           });
         </script>
         </head> <!-- end : head -->
-    <body class="page-index project-training-website">
+    <body class="page-developers-issues project-training-website">
 
     <div id="m-top-navbar" class="navbar  navbar-default navbar-fixed-top">
       <div class="container">
@@ -44,21 +44,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                        <a class="navbar-brand" href=".">Apache Training (Incubating)</a>
+                        <a class="navbar-brand" href="..">Apache Training (Incubating)</a>
         </div> <!-- .navbar-header -->
         <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
+                            <li class="dropdown active">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li ><a  href="developers/issues.html"  title="Bug & Issue Tracker" >Bug & Issue Tracker</a></li>
-                    <li ><a  href="developers/building.html"  title="Building Training" >Building Training</a></li>
-                    <li ><a  href="developers/ci.html"  title="Continuous Integration" >Continuous Integration</a></li>
-                    <li ><a  href="developers/contributing.html"  title="Contributing" >Contributing</a></li>
-                    <li ><a  href="developers/decisions.html"  title="Decision Making" >Decision Making</a></li>
-                    <li ><a  href="developers/team.html"  title="Team" >Team</a></li>
-                    <li ><a  href="developers/website.html"  title="Website" >Website</a></li>
-                    <li ><a  href="developers/wiki.html"  title="Wiki" >Wiki</a></li>
+                                    <li  class="active" ><a  href=""  title="Bug & Issue Tracker" >Bug & Issue Tracker</a></li>
+                    <li ><a  href="building.html"  title="Building Training" >Building Training</a></li>
+                    <li ><a  href="ci.html"  title="Continuous Integration" >Continuous Integration</a></li>
+                    <li ><a  href="contributing.html"  title="Contributing" >Contributing</a></li>
+                    <li ><a  href="decisions.html"  title="Decision Making" >Decision Making</a></li>
+                    <li ><a  href="team.html"  title="Team" >Team</a></li>
+                    <li ><a  href="website.html"  title="Website" >Website</a></li>
+                    <li ><a  href="wiki.html"  title="Wiki" >Wiki</a></li>
             </ul>
         </li>
             <li class="dropdown">
@@ -109,11 +109,7 @@
             </div> <!-- .navbar-header -->
         <div class="collapse navbar-collapse" id="toc-nav-collapse">
           <ul id="toc" class="nav navbar-nav">
-                                                            <li class="toplevel"><a href="#_toc_apache_training_incubating1" title="Apache Training™ (Incubating)">Apache Training™ (Incubating)</a></li>
-                        <li class="toplevel"><a href="#_toc_purpose1" title="Purpose">Purpose</a></li>
-                        <li class="toplevel"><a href="#_toc_rationale1" title="Rationale">Rationale</a></li>
-                        <li class="toplevel"><a href="#_toc_next_steps1" title="Next steps">Next steps</a></li>
-                        <li class="toplevel"><a href="#_toc_getting_involved1" title="Getting involved">Getting involved</a></li>
+                                                <li class="toplevel"><a href="#_toc_bug__issue_tracker" title="Bug & Issue Tracker">Bug & Issue Tracker</a></li>
           </ul>
         </div>
       </div> <!-- .container -->
@@ -126,80 +122,11 @@
       <div class="body-content">
 <div class="sect1"> 
  <div class="page-header">
-  <h2 id="_toc_apache_training_incubating1">Apache Training™ (Incubating)</h2>
+  <h2 id="_toc_bug__issue_tracker">Bug &amp; Issue Tracker</h2>
  </div> 
  <div class="sectionbody"> 
-  <div class="sect2"> 
-   <h3 id="_toc_purpose1">Purpose</h3> 
-   <div class="paragraph"> 
-    <p>The purpose of the Training project is to create high-quality training material for various projects in an open source form. Up until now everyone who wants to offer a Training course for one of the Apache projects needs to create her or his own slides/labs and keep them up-to-date. This is a significant investment of time and money. This project aims to spread that burden and help all Apache projects as we can create shared resources and we can also create cross-project trainings.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>To sum up, the main goals for this project:</p> 
-   </div> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p>Develop shared material that can be used for trainings</p> </li> 
-     <li> <p>Cross-project</p> </li> 
-     <li> <p>Focused on Apache but also 3rd party projects where it makes sense</p> </li> 
-     <li> <p>Develop “labs” or “hands-on” exercises</p> </li> 
-     <li> <p>Develop or document an infrastructure that can be used for those labs</p> </li> 
-     <li> <p>Potentially develop tools to manage the material (e.g. a “slide” repository that contains “modules” that can be easily reused and combined)</p> </li> 
-    </ul> 
-   </div> 
-   <div class="paragraph"> 
-    <p>These are non-goals for this project:</p> 
-   </div> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p>Some kind of official “Apache Training Program” with certifications etc.</p> </li> 
-     <li> <p>Based on feedback and future developments this may change but we believe it’s out of scope initially</p> </li> 
-     <li> <p>Project documentation</p> </li> 
-     <li> <p>The training material we develop is not necessarily self-explanatory. It still benefits from an experienced instructor but it will make it possible for talented people without the time and resources to develop material to still train others.</p> </li> 
-    </ul> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="_toc_rationale1">Rationale</h3> 
-   <div class="paragraph"> 
-    <p>There are tons of companies offering training for and around the Apache ecosystem. From our experience everyone is building a very similar set of slides and labs (there’s only so many ways you can explain a concept). This project aims to create and use synergies. By also bringing these resources closer to their origin we hope to improve quality, freshness of the content and versatility (e.g. more language options).</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>It is the mission of the Apache foundation “to provide software for the public good” and we believe this project can help with that mission by making the software more accessible for a broader audience.</p> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="_toc_next_steps1">Next steps</h3> 
-   <div class="paragraph"> 
-    <p>The initial goal for the first few weeks or months is to have discussions and agreements on various scoping and technical issues as well as integrating existing donated material.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>After that we want to start building a library of content.</p> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="_toc_getting_involved1">Getting involved</h3> 
-   <div class="paragraph"> 
-    <p>The main resource for any discussion around this project is the dev mailing list (see below). If you have any specific question or want to get involved in any way, by all means do reach out and say hi!</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>The following resources are currently being used by the project:</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>Dev Mailing List: [Archive](<a href="https://lists.apache.org/list.html?<a href=" mailto:dev@training.apache.org">dev@training.apache.org</a>" class="bare"&gt;https://lists.apache.org/list.html?<a href="mailto:dev@training.apache.org">dev@training.apache.org</a>) - [Subscribe](mailto:dev-subscribe@training.apache.org)</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>Issues Mailing List: [Archive](<a href="https://lists.apache.org/list.html?<a href=" mailto:issues@training.apache.org">issues@training.apache.org</a>" class="bare"&gt;https://lists.apache.org/list.html?<a href="mailto:issues@training.apache.org">issues@training.apache.org</a>) - [Subscribe](mailto:issues-subscribe@training.apache.org)</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>Commits Mailing List: [Archive](<a href="https://lists.apache.org/list.html?<a href=" mailto:commits@training.apache.org">commits@training.apache.org</a>" class="bare"&gt;https://lists.apache.org/list.html?<a href="mailto:commits@training.apache.org">commits@training.apache.org</a>) - [Subscribe](mailto:commits-subscribe@training.apache.org)</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>Wiki: [<a href="https://cwiki.apache.org/confluence/display/TRAINING" class="bare">https://cwiki.apache.org/confluence/display/TRAINING</a>](<a href="https://cwiki.apache.org/confluence/display/TRAINING" class="bare">https://cwiki.apache.org/confluence/display/TRAINING</a>)</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>Jira: [<a href="https://issues.apache.org/jira/browse/TRAINING" class="bare">https://issues.apache.org/jira/browse/TRAINING</a>](<a href="https://issues.apache.org/jira/browse/TRAINING" class="bare">https://issues.apache.org/jira/browse/TRAINING</a>)</p> 
-   </div> 
+  <div class="paragraph"> 
+   <p><a href="https://issues.apache.org/jira/projects/TRAINING" class="bare">https://issues.apache.org/jira/projects/TRAINING</a></p> 
   </div> 
  </div> 
 </div>      </div>
@@ -253,15 +180,15 @@
   <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./js/jquery.min.js"></script>
-  <script src="./js/bootstrap.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
 
-  <script src="./js/lightbox.min.js"></script>
+  <script src="../js/lightbox.min.js"></script>
 
-  <script src="./js/reflow-scroll.js"></script>
-	<script src="./js/highlight.min.js"></script>
-  <script src="./js/reflow-skin.js"></script>
-    <script src="./js/anchor.min.js"></script>
+  <script src="../js/reflow-scroll.js"></script>
+	<script src="../js/highlight.min.js"></script>
+  <script src="../js/reflow-skin.js"></script>
+    <script src="../js/anchor.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
             anchors.options = {

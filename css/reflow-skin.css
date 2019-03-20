@@ -1,0 +1,323 @@
+/* Jumps to in-page links (e.g. page.html#foo) do not honor fixed navbar.
+   Use pseudo element to move them down.
+   Taken from http://nicolasgallagher.com/jump-links-and-viewport-positioning/demo/#method-B
+ */
+h1[id]:before,
+h2[id]:before,
+h3[id]:before,
+h4[id]:before,
+h5[id]:before,
+h6[id]:before,
+a[name]:before {
+    display:block;
+    content:"";
+    height:100px;
+    margin:-100px 0 0;
+}
+
+/*--------------------------------------------------
+ * nav list
+ *--------------------------------------------------*/
+
+.nav-list>li>a, .nav-list .nav-header {
+    margin-left: -15px;
+    margin-right: -15px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.nav-header {
+    display: block;
+    padding: 3px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #999999;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+}
+
+.nav li+.nav-header {
+    margin-top: 9px;
+}
+
+.nav-list {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 0;
+}
+
+.nav-list>li>a, .nav-list .nav-header {
+    margin-left: -15px;
+    margin-right: -15px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.nav-list>li>a {
+    padding: 3px 15px;
+}
+
+.nav-list>.active>a, .nav-list>.active>a:hover, .nav-list>.active>a:focus
+    {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    background-color: #0088cc;
+}
+
+.nav-list [class^="glyphicon"], .nav-list [class*=" glyphicon"] {
+    margin-right: 2px;
+}
+
+.nav-list .divider {
+    *width: 100%;
+    height: 1px;
+    margin: 9px 1px;
+    *margin: -5px 0 5px;
+    overflow: hidden;
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #ffffff;
+}
+
+
+/*--------------------------------------------------
+ * dropdown submmenu
+ *--------------------------------------------------*/
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+    right: auto;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #484848;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+@media (max-width: 767px) {
+    .dropdown-submenu .dropdown-menu {
+        margin-left: 10px;
+    }
+}
+
+
+/*--------------------------------------------------
+ * carousel
+ *--------------------------------------------------*/
+
+.carousel-caption {
+    width: 100%;
+    opacity: 0.7;
+    background-color: black;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    padding-top: 0;
+}
+
+/*--------------------------------------------------
+ * navbar
+ *--------------------------------------------------*/
+
+.navbar.affix {
+    position: fixed;
+    top: 50px;
+    right: 0;
+    left: 0;
+    z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
+    margin-bottom: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.navbar.affix .navbar-inner {
+    border-width: 0 0 1px;
+    padding-right: 0;
+    padding-left: 0;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1), 0 1px 10px rgba(0, 0, 0, 0.1);
+       -moz-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1), 0 1px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1), 0 1px 10px rgba(0, 0, 0, 0.1);
+  }
+
+
+
+/* Other screen sizes navbar container width */
+@media (min-width: 1200px) {
+  .navbar.affix .container {
+    width: 1170px;
+  }
+}
+
+/*--------------------------------------------------
+ * toc top
+ *--------------------------------------------------*/
+
+#toc-bar {
+    z-index:1010; /*must be < nav-bar bootstrap container  1020 */
+}
+
+/*--------------------------------------------------
+ * toc sidebar
+ *--------------------------------------------------*/
+
+/* affix toc aside bar
+*/
+#toc-sidebar {
+    margin-top: 10px;
+    z-index: 1010; /*must be < nav-bar bootstrap container  1020 */
+}
+
+#toc-sidebar.affix {
+    top: 70px;
+    width: 360px;
+}
+
+#toc-sidebar.affix-bottom {
+    position: absolute;
+    width: 360px;
+}
+
+@media (min-width: 1200px) {
+    #toc-sidebar.affix-bottom {
+        width: 360px;
+    }
+}
+
+.m-nav--sidebar .active {
+    background-color: #e2e6ea;
+    border-radius: 3px;
+    border: solid 1px #dadada;
+}
+
+.m-nav--sidebar .m-nav--sidebar .active {
+    border: none;
+}
+
+.m-nav--sidebar > .active {
+    font-weight: bold;
+}
+
+.m-nav--sidebar .m-nav--sidebar {
+    display: none;
+}
+
+.m-nav--sidebar .active .m-nav--sidebar {
+    display: block;
+}
+
+.m-nav--sidebar .active .m-nav--sidebar span {
+    display: inline-block !important;
+}
+
+.m-nav--sidebar .m-nav--sidebar a {
+    font-weight: normal;
+}
+
+.m-nav--sidebar .m-nav--sidebar span {
+    margin: 0 5px 0 2px;
+}
+
+.m-nav--sidebar .m-nav--sidebar > .active  > a,
+.m-nav--sidebar .m-nav--sidebar > .active:hover  > a,
+.m-nav--sidebar .m-nav--sidebar > .active:focus > a {
+    font-weight: bold;
+    padding-left: 25px;
+    border-left: 5px solid rgb(106, 158, 185);
+}
+
+.m-aside-toc.nav > li > a > span, /* remove span first depth */
+.m-nav--sidebar .m-nav--sidebar .active span,
+.m-nav--sidebar .m-nav--sidebar .active:hover span,
+.m-nav--sidebar .m-nav--sidebar .active:focus a span {
+    display: none;
+}
+
+.m-nav--sidebar .m-nav--sidebar li a {
+    padding-left: 30px;
+}
+
+
+/*--------------------------------------------------
+ * breadcrumb
+ *--------------------------------------------------*/
+
+.breadcrumb {
+    z-index: 1000; /*must be < nav-bar bootstrap container  1020 */
+    position: relative;
+}
+
+/*--------------------------------------------------
+ * banner
+ *--------------------------------------------------*/
+
+
+/* Fix for header links - do not color/underline them */
+#banner a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+
+/*--------------------------------------------------
+ * Footer
+ *--------------------------------------------------*/
+
+footer.well {
+  margin-top: 70px;
+}
+
+footer.well p,
+.subfooter p {
+  margin-bottom: 0;
+}
+
+.subfooter {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+    .bottom-description {
+        margin-top: 15px;
+    }
+}
