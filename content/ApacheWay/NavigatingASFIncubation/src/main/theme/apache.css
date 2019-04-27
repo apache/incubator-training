@@ -24,7 +24,7 @@ section.has-light-background h3,
 section.has-light-background h4,
 section.has-light-background h5,
 section.has-light-background h6 {
-  color: #DDD;
+  color: #FFF;
 }
 
 /*********************************************
@@ -32,11 +32,11 @@ section.has-light-background h6 {
  *********************************************/
 body {
   background-size: cover;
-  background-color: #DDD;
+  background-color: #FFF;
 }
 
 .reveal {
-  font-family: Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 34px;
   font-weight: normal;
   color: #222;
@@ -65,11 +65,10 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #000;
-  font-family: Panton-Regular, Helvetica, sans-serif;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;
-  text-transform: uppercase;
   text-shadow: none;
   word-wrap: break-word;
 }
@@ -382,5 +381,5 @@ body {
   position: absolute;
   bottom: 5px;
   left: 5px;
-  background-image: url("../../../images/logo-apache.png");
+  background-image: url("../../../images/small-feather.png");
 }
