@@ -17,11 +17,15 @@
 
 ////
 
-
 == Navigating the ASF Incubator Process
-Justin Mclean +
-V.P. Apache Incubator +
-jmclean@apache.org +
+:description: 45 minute talk on the Apache Way and navigating a project through the incubator
+:keywords: Apache Way,Incubator
+:author: Justin Mclean
+:email: jmclean@apache.org
+:position: V.P. Apache Incubator
+{author} +
+{position} +
+{email} +
 
 image::ApacheLogo.png[]
 
@@ -275,9 +279,9 @@ video::both.mp4[]
 * Licenses
 
 == Questions?
-Ask now, see me after the session, or email me at jmclean@apache.org.
+Ask now, see me after the session, or email me, {author} at {email}.
 
-== Reading
+== Useful Links
 * Legal previously asked questions +
 https://www.apache.org/legal/resolved
 * Incubator release process (DRAFT)
@@ -286,7 +290,7 @@ https://incubator.apache.org/guides/release.html
 * Assembling License and Notice How To +
 http://www.apache.org/dev/licensing-howto.html
 
-== Reading (cont)
+==  Useful Links (cont)
 * Apache Maturity Model +
 http://community.apache.org/apache-way/apache-project-maturity-model.html
 * Legal mailing list archive +
