@@ -379,7 +379,19 @@ body {
 
 .footer .left {
   position: absolute;
+  left: 20px;
   bottom: 5px;
-  left: 5px;
-  background-image: url("../../../images/small-feather.png");
+  width: 40px;
+  height: 80px;
+  background-image: url(../../../images/small-feather.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.footer .right {
+  position: absolute;
+  left: 80px;
+  bottom: 20px;
+  text-align: center;
+  width: 100%;
 }
