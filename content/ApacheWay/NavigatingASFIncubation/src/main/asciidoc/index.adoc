@@ -258,7 +258,7 @@ video::both.mp4[]
 * Probably can’t include in a source release
 * Contain some restriction of use
 * May be able to use binary form to limit chance of corruption
-* Common license include: Common Development and Distribution License (CDDL), Eclipse Public License (EPL), Mozilla Public License (MPL), Creative Common Attribution (CC-A)
+* Common license include:  Common Development and Distribution License (CDDL), Eclipse Public License (EPL), Mozilla Public License (MPL), Creative Common Attribution (CC-A)
 
 == Category X
 * Can’t depend on
