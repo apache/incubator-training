@@ -71,7 +71,7 @@ image::IncubatingProjects.png[]
 * Podling follows the ASF structure of contributors, committers and PMC members
 * Podling grants more responsibility via meritocracy
 * Ensure that decision making is done in the open
-* People act as individuals not the company they work for
+* People act as individuals, not the company they work for
 
 == The Apache Way
 * Charity - For the public good. Software costs nothing.
