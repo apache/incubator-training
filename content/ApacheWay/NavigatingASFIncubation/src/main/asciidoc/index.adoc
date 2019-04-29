@@ -219,7 +219,7 @@ image::VoteData.png[votedata,500]
 * Incubating projects are not expected to get it right first time
 * May not be familiar with policy at start
 * Policy doesn't cover all situations
-* Different project may do things in different ways, policy is in most cases guidance
+* Different projects may do things in different ways, policy is in most cases guidance
 * A release containing no surprises is good thing
 
 === Legal vs Policy
