@@ -83,7 +83,7 @@ image::IncubatingProjects.png[]
 
 === The Apache Way - Charity
 * No charge for Apache software
-* We reply on donations to keep things running
+* We rely on donations to keep things running
 * Few paid staff, everyone is a volunteer
 * Not “pay to play”
 
