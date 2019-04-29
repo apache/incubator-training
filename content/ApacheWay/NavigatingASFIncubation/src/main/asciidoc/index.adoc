@@ -233,7 +233,7 @@ image::VoteData.png[votedata,500]
 * Apache projects tend to be on average a lot better!
 * External project often are:
 ** May have unclear licenses
-** May include code under a different (sometime incompatible) licenses 
+** May include code under a different (sometimes incompatible) licenses 
 ** If Apache 2.0 licensed missing a NOTICE file
 ** Try to be funny
 
