@@ -220,7 +220,7 @@ image::VoteData.png[votedata,500]
 * May not be familiar with policy at the start
 * Policy doesn't cover all situations
 * Different projects may do things in different ways, policy is in most cases guidance
-* A release containing no surprises is good thing
+* A release containing no surprises is a good thing
 
 === Legal vs Policy
 * Licenses provide certain legal obligations you need to comply with
