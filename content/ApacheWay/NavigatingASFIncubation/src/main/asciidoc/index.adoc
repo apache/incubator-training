@@ -269,7 +269,7 @@ video::both.mp4[]
 == Binary Distributions
 * Not considered an official release
 * Need to comply the same way with policy as source distributions
-* LICENSE and NOTICE may be different as the content of the release is often different to the source release
+* LICENSE and NOTICE may be different as the content of the release is often different from the source release
 
 == What I’ve covered
 * Apache incubator
