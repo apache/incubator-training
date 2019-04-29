@@ -217,7 +217,7 @@ image::VoteData.png[votedata,500]
 
 == It Doesn’t Have to be Perfect
 * Incubating projects are not expected to get it right first time
-* May not be familiar with policy at start
+* May not be familiar with policy at the start
 * Policy doesn't cover all situations
 * Different projects may do things in different ways, policy is in most cases guidance
 * A release containing no surprises is good thing
