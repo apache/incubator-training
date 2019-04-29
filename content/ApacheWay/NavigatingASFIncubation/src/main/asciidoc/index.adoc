@@ -290,7 +290,7 @@ https://incubator.apache.org/guides/release.html
 * Assembling License and Notice How To +
 http://www.apache.org/dev/licensing-howto.html
 
-==  Useful Links (cont)
+== Useful Links (cont)
 * Apache Maturity Model +
 http://community.apache.org/apache-way/apache-project-maturity-model.html
 * Legal mailing list archive +
