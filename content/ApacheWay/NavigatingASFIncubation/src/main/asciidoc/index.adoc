@@ -171,7 +171,7 @@ image::IncubatingProjects.png[]
 * JIRA / git discussion also OK (mirrored to list)
 * Project independence with no company influence
 * Welcoming to new people
-* Answer users questions
+* Answer user questions
 * Add new committers and PPMC members
 
 == How to get out
