@@ -17,6 +17,7 @@
 
 ////
 
+
 == Navigating the ASF Incubator Process
 :description: 45 minute talk on the Apache Way and navigating a project through the incubator
 :keywords: Apache Way,Incubator
@@ -38,11 +39,12 @@ image::ApacheLogo.png[]
 * Reviewed 350+ incubator releases at Apache
 
 == What is the ASF?
+include::projectstats.adoc[]
 * World’s largest Open Source Foundation
 * A neutral space where independent projects can prosper
 * Creates open source software for the public good free of charge
 * Business friendly Apache License 2.0
-* 6500+ committers, 700+ members, 196 PMCs, 50+ podlings
+* {committers} committers, {members} members, {PMCs} PMCs, {podlings} podlings
 
 == What is the Apache Incubator?
 * Where communities come to learn the Apache Way
