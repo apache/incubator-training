@@ -190,13 +190,13 @@ image::IncubatingProjects.png[]
 * Contain source code and no compiled code
 
 == Release Vote Process
-* Must be cryptographically signed
-* Must have an incubating disclaimer
-* Have LICENSE and NOTICE file that follow Apache policy 
-* Follow licensing terms of any 3rd party bundled software
-* 3rd party files are compatible with the Apache license
-* Source files have ASF headers
-* Contain source code and no compiled code
+* Podling creates a release candidate
+* Vote on dev mailing list until 3 +1 votes and more +1 than -1
+* If vote fails need to make a new release candidate
+* Vote on incubator general mailing list
+* Need 3 +1 and more +1 than -1 by IPMC members
+* If vote fails need to make a new release candidate
+* Can release once vote passes and 72 hours pass
 
 == Representative Voting
 image::VoteData.png[votedata,500]
