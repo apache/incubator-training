@@ -228,11 +228,11 @@ image::VoteData.png[votedata,500]
 === Developers vs Licensing
 * We’re not the only people who have difficulty or frustration with licensing
 * Apache projects tend to be on average a lot better!
-* External projects are often:
-** May have unclear licenses
-** May include code under a different (sometimes incompatible) licenses 
-** If Apache 2.0 licensed missing a NOTICE file
-** Try to be funny
+* External projects often:
+** Have Unclear licenses
+** Include code under a different (sometimes incompatible) licenses 
+** If Apache 2.0 licensed are missing a NOTICE file
+** Try to have funny licenses
 
 === 33 Copies of BSD
 video::33BSD.mp4[]
