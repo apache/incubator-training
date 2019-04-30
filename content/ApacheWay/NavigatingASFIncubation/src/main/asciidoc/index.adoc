@@ -31,12 +31,7 @@
 image::ApacheLogo.png[]
 
 == Who am I?
-* V.P. Apache Incubator
-* Freelance developer - programming for 30 years
-* Incubator PMC plus a few others
-* Apache member
-* Mentor of several Apache projects including Apache Dubbo
-* Reviewed 350+ incubator releases at Apache
+include::aboutme.adoc[]
 
 == What is the ASF?
 include::projectstats.adoc[]
