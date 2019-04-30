@@ -269,7 +269,7 @@ video::both.mp4[]
 * LICENSE and NOTICE may be different as the content of the release is often different from the source release
 
 == What Been Covered
-* Apache incubator
+* Apache Incubator
 * The Apache Way
 * Releases
 * Community
