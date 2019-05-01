@@ -106,7 +106,7 @@ image::IncubatingProjects.png[]
 * Merit does not expire
 * Committers get access to the repository
 * PMC vote on releases
-* PMC decide direction of the projects via consensus
+* PMC decide the direction of the projects via consensus
 
 === The Apache Way - Open
 * Everything (mostly) is available to the public
@@ -145,10 +145,10 @@ image::IncubatingProjects.png[]
 * Find (usually 3) mentors to help you guide you through the TLP process
 * May take a little while to go through these steps
 * Discuss on the incubator general mailing list (which may attract more potential committers)
-* Vote on proposal - most are accepted
+* IPMC Votes on the proposal - most are accepted
 
 == Acceptance Into the Incubator
-* Champion role is over and they are more like a mentor from this point on
+* The Champion's role is over and they are more like a mentor from this point on
 * Mentors help with setup of the podling
 * Setup includes the mailing lists, version control, bug tracking and web site
 * Have initial committers sign ICLAs and add to podling roster
@@ -197,7 +197,7 @@ image::IncubatingProjects.png[]
 image::VoteData.png[votedata,500]
 
 == Why Your Release May Get a -1
-* Unexpected binary in source release
+* Unexpected binary in the source release
 * Includes Category X licensed software (usually GPL)
 * Included Category B license software
 * LICENSE or NOTICE issue
@@ -213,10 +213,10 @@ image::VoteData.png[votedata,500]
 * That being said a -1 vote is often for a good reason so you should at least look into it
 
 == It Doesn’t Have to be Perfect
-* Incubating projects are not expected to get it right first time
+* Incubating projects are not expected to get it right the first time
 * May not be familiar with policy at the start
 * Policy doesn't cover all situations
-* Different projects may do things in different ways, policy is in most cases guidance
+* Different projects may do things in different ways, policies are in most cases guidance
 * A release containing no surprises is a good thing
 
 === Legal vs Policy
@@ -254,18 +254,20 @@ video::both.mp4[]
 == Category B
 * Probably can’t include in a source release
 * Contain some restriction of use
-* May be able to use binary form to limit chance of corruption
-* Common license include:  Common Development and Distribution License (CDDL), Eclipse Public License (EPL), Mozilla Public License (MPL), Creative Common Attribution (CC-A)
+* May be able to use the binary form to limit the chance of corruption
+* Common license include: +
+Common Development and Distribution License (CDDL), Eclipse Public License (EPL), Mozilla Public License (MPL), Creative Common Attribution (CC-A)
 
 == Category X
 * Can’t depend on
 * Can’t bundle software
 * A few exceptions for build tools and optional dependencies
-* Common Category X include:  GPL, LGPL, CC non commercial, JSON, BSD 4 clause, Apache 1.0?
+* Common Category X include: +
+GPL, LGPL, CC non commercial, JSON, BSD 4 clause, Apache 1.0?
 
 == Binary Distributions
 * Not considered an official release
-* Need to comply the same way with policy as source distributions
+* Need to comply the same way with policies as source distributions
 * LICENSE and NOTICE may be different as the content of the release is often different from the source release
 
 == What Been Covered
