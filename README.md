@@ -38,14 +38,14 @@ The main resource for any discussion around this project is the dev mailing list
 
 The following resources are currently being used by the project:
 
-Dev Mailing List: [Archive](https://lists.apache.org/list.html?dev@training.apache.org)  -  [Subscribe](mailto:dev-subscribe@training.apache.org)
+Dev Mailing List: [Archive](https://lists.apache.org/list.html\?dev@training.apache.org)  -  [Subscribe](mailto:dev-subscribe@training.apache.org)
 
-Issues Mailing List: [Archive](https://lists.apache.org/list.html?issues@training.apache.org)  -  [Subscribe](mailto:issues-subscribe@training.apache.org)
+Issues Mailing List: [Archive](https://lists.apache.org/list.html\?issues@training.apache.org)  -  [Subscribe](mailto:issues-subscribe@training.apache.org)
 
-Commits Mailing List: [Archive](https://lists.apache.org/list.html?commits@training.apache.org)  -  [Subscribe](mailto:commits-subscribe@training.apache.org)
+Commits Mailing List: [Archive](https://lists.apache.org/list.html\?commits@training.apache.org)  -  [Subscribe](mailto:commits-subscribe@training.apache.org)
 
 Wiki: [https://cwiki.apache.org/confluence/display/TRAINING](https://cwiki.apache.org/confluence/display/TRAINING)
 
 Jira: [https://issues.apache.org/jira/browse/TRAINING](https://issues.apache.org/jira/browse/TRAINING)
 
-Git: [Apache Repo](https://gitbox.apache.org/repos/asf?p=incubator-training.git) - [Github Mirror](https://github.com/apache/incubator-training)
+Git: [Apache Repo](https://gitbox.apache.org/repos/asf\?p=incubator-training.git) - [Github Mirror](https://github.com/apache/incubator-training)
