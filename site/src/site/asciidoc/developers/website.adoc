@@ -17,9 +17,9 @@
 
 == Generating the Website
 
-We are currently using the normal `Maven` build to not only generate the project artifacts, but also the projects website.
+We are currently using the normal `Maven` build to not only generate the project artifacts, but also the project's website.
 
-In order to provide content, every module can have a `src/site` directory. This content will be generated to that modules site-part.
+In order to provide content, every module can have a `src/site` directory. This content will be generated to those modules site-part.
 
 The `skin` being used to generate the site is none of the default `Maven` skins, but a more up-to-date looking skin using:
 
@@ -38,13 +38,13 @@ This allows us to generate images like the ones on the http://plc4x.apache.org/p
 
 === Providing new content
 
-Within the `src/site` directory there is a file `site.xml` which generally controls the menu and the look of the site.
+Within the `src/site` directory, there is a file `site.xml` which generally controls the menu and the look of the site.
 
-Most setting are inherited from the `training` parent module. That's also why this is more complicated than the others.
+Most settings are inherited from the `training` parent module. That's also why this is more complicated than the others.
 
 The `site.xml` file is optional. Even if this is not available a site will be generated however no additional content will be linked from any of the navigation menus.
 
-So if we wanted to add a new page on some (hopefully non existent) `Cool content`, we would create a file called:
+So if we wanted to add a new page on some (hopefully non-existent) `Cool content`, we would create a file called:
 
 `index.adoc` in the `src/site/asciidoc/content/cool` directory.
 
@@ -144,11 +144,11 @@ The `menu ref` items hereby reference standard menus provided by the `Maven` bui
 
 The Apache Training project uses Apache `gitpubsub` system for maintaining the website.
 
-In general all content in a repos `asf-site` branch is copied to the Webservers, if that repo is registered for it.
+In general, all content in a repos `asf-site` branch is copied to the web servers, if that repo is registered for it.
 
 The content in this branch is generated and maintained during the `Maven` build as part of the `site` generation if the `site-deploy` phase is executed.
 
-The build system needs to check-in content to the `asf-site` branch and usually ASF Jenkins nodes don't have the permissions to do that.
+The build system needs to check-in content to the `asf-site` branch and usually the ASF Jenkins nodes don't have the permissions to do that.
 
 In order to be able to push to the `asf-site` GIT branch, a dedicated build job is configured to build on nodes with the Jenkins label `git-websites`.
 
