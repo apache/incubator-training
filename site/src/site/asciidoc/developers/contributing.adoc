@@ -97,7 +97,7 @@ This will get all changed from upstream and merge them locally. In order to upda
 
 ===  Bug Reports
 
-We use https://issues.apache.org/jira/projects/TRAINING[JIRA] as our Bug & Issue Tracker.
+We use https://issues.apache.org/jira/projects/TRAINING[JIRA] as our Bug &amp; Issue Tracker.
 
 Feel free to submit `feature requests`, `bug reports`, `patches`, `comment on issues`, ...
 
