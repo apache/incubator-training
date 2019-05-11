@@ -52,7 +52,7 @@ video::167857327[vimeo,width=640,height=420]
 
 === Building the Apache Training Website with Maven
 
-The PLC4X Website is also part of the same GIT repository that contains the code and it is built by Maven as well.
+The Training Website is also part of the same GIT repository that contains the code and it is built by Maven as well.
 
 In order to build the website the following command should be sufficient:
 
