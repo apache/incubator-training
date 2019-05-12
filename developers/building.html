@@ -9,7 +9,7 @@
           
         <head>
     <meta charset="UTF-8" />
-    <title>Apache Training® (Incubating) - Building Training Website</title>
+    <title>Apache Training™ (Incubating) - Building Training Website</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
       <meta http-equiv="content-language" content="en" />
@@ -83,7 +83,7 @@
       <div class="col-md-12">
         <div class="pull-left">
                                       <a href="https://training.apache.org/" id="bannerLeft">
-                    <img src="https://training.apache.org/images/apache_training_logo.png"
+                    <img src="../images/apache_training_logo.png"
                  alt='"'Apache Training (incubating)'"'
  />            </a>
                     <p class="lead">Training material for Apache projects</p>
@@ -133,12 +133,12 @@
    <p>The Apache Training Website is built with <code>Apache Maven</code> and we have tried to make the build as simple as possible.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>For your convenience we also have provided a <code>Maven-Wrapper</code>, that should allow building with only <code>Java 8</code> or greater as requirement.</p> 
+   <p>For your convenience we also have provided a <code>Maven-Wrapper</code>, that should allow building with <code>Java 8</code> or greater as a requirement.</p> 
   </div> 
   <div class="sect2"> 
    <h3 id="_toc_requirements1">Requirements</h3> 
    <div class="paragraph"> 
-    <p>The only requirements to building the Apache Training website should be:</p> 
+    <p>The only requirements for building the Apache Training website should be:</p> 
    </div> 
    <div class="ulist"> 
     <ul> 
@@ -153,7 +153,7 @@
     <p>The so-called <code>Maven-Wrapper</code> is used by calling the Maven-Wrapper scripts <code>mvnw</code> (Mac &amp; Linux) or <code>mvnw.cmd</code> (Windows) instead of the default Maven commands <code>mvn</code> and <code>mvn.cmd</code>.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>These helpers ensure Maven is available in at least the version defined in <code>.mvn/maven-wrapper.properties</code>. If no suitable version can be found, it is automatically downloaded and installed alongside the project (So it doesn’t have to be downloaded every time and every project can have it’s own Maven version)</p> 
+    <p>These helpers ensure Maven is available in at least the version defined in <code>.mvn/maven-wrapper.properties</code>. If no suitable version can be found, it is automatically downloaded and installed alongside the project (So it doesn’t have to be downloaded every time and every project can have its own Maven version)</p> 
    </div> 
    <div class="paragraph"> 
     <p>After the script has ensured a suitable Maven version is available, this is used and all arguments and parameters are transparently forwarded to this. So simply adding the additional <code>w</code> to each of the Maven commands, there should be no difference to using a pre-installed Maven version.</p> 
@@ -165,7 +165,7 @@
     <p>This document can’t provide you with all the details needed to get started with <code>Maven</code> itself. But there is a lot of good documentation out there.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>Justin McLean and Christofer Dutz even recorded a not quite 2 hour Maven training Video some time ago for another Apache project.</p> 
+    <p>Justin Mclean and Christofer Dutz even recorded a not quite 2 hour Maven training Video some time ago for another Apache project.</p> 
    </div> 
    <div class="paragraph"> 
     <p>It should handle all the details needed to get a general understanding of Maven and how it works.</p> 
@@ -182,7 +182,7 @@
   <div class="sect2"> 
    <h3 id="_toc_building_the_apache_training_website_with_maven1">Building the Apache Training Website with Maven</h3> 
    <div class="paragraph"> 
-    <p>The PLC4X Website is also part of the same GIT repository that contains the code and it is built by Maven as well.</p> 
+    <p>The Training Website is also part of the same GIT repository that contains the code and it is built by Maven as well.</p> 
    </div> 
    <div class="paragraph"> 
     <p>In order to build the website the following command should be sufficient:</p> 
@@ -193,7 +193,7 @@
     </div> 
    </div> 
    <div class="paragraph"> 
-    <p>However this will generate the website for each module inside it’s <code>target/site</code> directory. Opening this in a browser and navigating from pages of one module to another will not work as these links expect a different directory structure. In order to create a fully navigatable version of the Website, the following command should be sufficient:</p> 
+    <p>However, this will generate the website for each module inside it’s <code>target/site</code> directory. Opening this in a browser and navigating from pages of one module to another will not work as these links expect a different directory structure. In order to create a fully navigatable version of the Website, the following command should be sufficient:</p> 
    </div> 
    <div class="literalblock"> 
     <div class="content"> 
@@ -207,7 +207,7 @@
     <p>A lot of documentation on Maven suggests to use the <code>site:site</code> goal directly instead of calling the <code>site</code> phase, but in case of Apache Training there is more than just the site generation that has to be executed.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>This is just a quick-start version of the site generation, for a fully detailed documentation please read the <a href="http://training.apache.org/developers/website.html">Website</a> documentation page.</p> 
+    <p>This is just a quick-start version of the site generation, for fully detailed documentation please read the <a href="http://training.apache.org/developers/website.html">Website</a> documentation page.</p> 
    </div> 
   </div> 
  </div> 
