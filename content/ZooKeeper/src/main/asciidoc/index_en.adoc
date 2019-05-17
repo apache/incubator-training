@@ -18,7 +18,7 @@
 ////
 
 
-[%notitle
+[%notitle]
 == Apache ZooKeeper
 :description: Brief introduction to Apache ZooKeeper
 :keywords: Apache ZooKeeper
