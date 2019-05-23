@@ -16,6 +16,9 @@
   limitations under the License.
 
 ////
+:revealjs_progress: true
+:revealjs_slidenumber: true
+
 == What is the Apache Ignite?
 Ignite™ is a memory-centric distributed database, caching, and processing platform
 
