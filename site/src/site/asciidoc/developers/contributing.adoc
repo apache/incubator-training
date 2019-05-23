@@ -61,7 +61,7 @@ For reviews we distinguish between _content_ commits that add content to trainin
 *Code Commits* require one approving review.
 This review has to be done by a committer if the pull request was created by a non-committer. If a committer creates a pull request and explicitly requests a review from a non-committer, then this is review is sufficient.
 
-*Content Commits* require one or more approving reviews. As we do not expect to initially have committers that are also experts in all fields for which we host content there may be a need for two reviews in this case: one for form by a committer and one for content by someone who considers himself an SME.
+*Content Commits* require one or more approving reviews. As we do not expect to initially have committers that are also experts in all fields for which we host content there may be a need for two reviews in this case: one for form by a committer and one for content by someone who considers her- or himself an SME.
 If the committer considers him- or herself to be an expert on the material one review is sufficient, just like for code commits.
 
 *Trivial Changes*
@@ -71,7 +71,7 @@ After this period has passed it can be merged without review.
 
 ===  Bug Reports
 
-We use https://issues.apache.org/Jira/projects/TRAINING[JIRA] as our Issue Tracker.
+We use https://issues.apache.org/jira/projects/TRAINING[JIRA] as our Issue Tracker.
 
 Feel free to submit `feature requests`, `bug reports`, `patches`, `comment on issues`, ...
 
