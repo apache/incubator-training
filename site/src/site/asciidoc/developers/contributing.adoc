@@ -23,7 +23,7 @@
 The Apache Training (Incubating) project welcomes contributions in all forms, sizes, and shapes.
 Below you can find a small list of possible ways that you can contribute if you have some spare time and want to get involved.
 
-This is by no means a finite list, there are without doubt dozens of other useful ways that you can pick, please do not let this limit your creativity!
+This list is by no means finite. There are without doubt dozens of other useful ways that you can pick, please do not let this limit your creativity!
 
 - Adding to the webpage
 - Filing Bug-Reports
@@ -39,14 +39,14 @@ If nothing catches your eye and you come up with something that you want to work
 
 === Code Contributions
 Many of the actions listed above will take the form of contributions to the git repository, for which we have defined a few basic guidelines to ensure we can all collaborate effectively.
-Code contributions can take two forms, you can either create a pull request on github or directly attach patch files to a Jira issue for review.
+Code contributions can take two forms, you can either create a pull request on GitHub or directly attach patch files to a Jira issue for review.
 
-A Jira ticket and a pull request are not mutually exclusive, in fact, we encourage people to create both, first a Jira to discuss the issue, task, improvement in general and later on a pull request for actual implementation discussions.
+A Jira ticket and a pull request are not mutually exclusive, and we encourage people to create both, first a Jira to discuss the issue, task, improvement in general and later on a pull request for actual implementation discussions.
 If you follow this process, please prefix the name of your pull request with the Jira issue number, this will ensure that they automatically get linked.
 If, for example, you open a pull request to fix issue TRAINING-123, then your PR title could read "_TRAINING-123: Fix stuff_".
 
 If you are not familiar with git, how to create pull requests and similar workflows, below is a list of useful links that should help you get started.
-But as with all other things, please do reach out to us on the mailing list if anything is unclear and you need help, we are more than happy to help!
+However as with all other things, please do reach out to us on the mailing list if anything is unclear and you need help, we are more than happy to help!
 
 - https://help.github.com/en/articles/fork-a-repo[Forking a repository]
 - https://help.github.com/en/articles/about-branches[About branches]
@@ -59,17 +59,17 @@ The Training project follows a review-then-commit workflow, which basically mean
 For reviews we distinguish between _content_ commits that add content to training decks and _functional_ commits like code changes to tools or similar things.
 
 *Code Commits* require one approving review.
-This review has to be done by a committer if the pull request was created by a non-committer. If a committer creates a pull request and explicitly requests a review from a non-committer, then this is review is sufficient.
+This review has to be done by a committer if the pull request was created by a non-committer. If a committer creates a pull request and explicitly requests a review from a non-committer, then this review is sufficient.
 
-*Content Commits* require one or more approving reviews. As we do not expect to initially have committers that are also experts in all fields for which we host content there may be a need for two reviews in this case: one for form by a committer and one for content by someone who considers her- or himself an SME.
-If the committer considers him- or herself to be an expert on the material one review is sufficient, just like for code commits.
+*Content Commits* require one or more approving reviews. As we do not expect to initially have committers that are also experts in all fields for which we host content there may be a need for two reviews in this case: one for form by a committer and one for content by someone who considers themselves a subject matter expert.
+If the committer considers themselves to be an expert on the material one review is sufficient, just like for code commits.
 
 *Trivial Changes*
 Committers can, at their discretion, decide that a change is trivial and does not need to be explicitly approved.
 In this case, the pull request or Jira issue should be marked accordingly and left open for review for at least 72 hours.
 After this period has passed it can be merged without review.
 
-===  Bug Reports
+=== Issue Reports
 
 We use https://issues.apache.org/jira/projects/TRAINING[JIRA] as our Issue Tracker.
 
