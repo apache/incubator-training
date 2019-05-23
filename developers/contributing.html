@@ -111,16 +111,17 @@
           <ul id="toc" class="nav navbar-nav">
                                                             <li class="toplevel"><a href="#_toc_contributing1" title="Contributing">Contributing</a></li>
                         <li class="toplevel"><a href="#_toc_forms_of_contribution1" title="Forms of contribution">Forms of contribution</a></li>
+                        <li class="toplevel"><a href="#_toc_finding_a_project1" title="Finding a Project">Finding a Project</a></li>
                         <li class="dropdown">
-                            <a href="#" title="Pull-Requests" class="dropdown-toggle" role="button" data-toggle="dropdown">Pull-Requests <b class="caret"></b></a>
+                            <a href="#" title="Code Contributions" class="dropdown-toggle" role="button" data-toggle="dropdown">Code Contributions <b class="caret"></b></a>
                             <ul class="dropdown-menu" role="menu">
                                 <!-- Repeat the item, otherwise it is not clickable as the dropdown root -->
-                                <li><a href="#_toc_pull-requests" title="Pull-Requests">Pull-Requests</a></li>
+                                <li><a href="#_toc_code_contributions1" title="Code Contributions">Code Contributions</a></li>
                                 <li class="divider"></li>
-                                              <li><a href="#_toc_keeping_your_fork_up_to_date1" title="Keeping your fork up to date">Keeping your fork up to date</a></li>
+                                              <li><a href="#_toc_review_process1" title="Review Process">Review Process</a></li>
                             </ul>
                         </li>
-                        <li class="toplevel"><a href="#_toc_bug_reports1" title="Bug Reports">Bug Reports</a></li>
+                        <li class="toplevel"><a href="#_toc_issue_reports1" title="Issue Reports">Issue Reports</a></li>
                         <li class="toplevel"><a href="#_toc_documentation1" title="Documentation">Documentation</a></li>
           </ul>
         </div>
@@ -140,137 +141,73 @@
   <div class="sect2"> 
    <h3 id="_toc_forms_of_contribution1">Forms of contribution</h3> 
    <div class="paragraph"> 
-    <p>There are multiple forms in which you can become involved with the Apache Training project.</p> 
+    <p>The Apache Training (Incubating) project welcomes contributions in all forms, sizes, and shapes. Below you can find a small list of possible ways that you can contribute if you have some spare time and want to get involved.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>These usually are, but are not limited to:</p> 
+    <p>This list is by no means finite. There are without doubt dozens of other useful ways that you can pick, please do not let this limit your creativity!</p> 
    </div> 
    <div class="ulist"> 
     <ul> 
-     <li> <p>Submitting Pull Requests</p> </li> 
+     <li> <p>Adding to the webpage</p> </li> 
      <li> <p>Filing Bug-Reports</p> </li> 
+     <li> <p>Converting donated materials</p> </li> 
      <li> <p>Active communication on our mailing lists</p> </li> 
      <li> <p>Promoting the project (articles, blog posts, talks at conferences)</p> </li> 
-     <li> <p>Documentation</p> </li> 
+     <li> <p>Writing documentation</p> </li> 
     </ul> 
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="_toc_pull-requests">Pull-Requests</h3> 
+   <h3 id="_toc_finding_a_project1">Finding a Project</h3> 
    <div class="paragraph"> 
-    <p>The simplest way to submit code changes is via a GitHub pull-request.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>In order to do this first create a GitHub account and sign into your account.</p> 
+    <p>If you want to get involved, but do not have a specific project in mind please feel free to check our issue tracker for <a href="https://issues.apache.org/Jira/issues/?jql=project%20%3D%20TRAINING%20AND%20labels%20%3D%20beginner%20AND%20assignee%20in%20(EMPTY)">unassigned issues with the <em>beginner</em> label</a>. These should be good candidates to get your feet wet and gather some experience before tackling larger issues.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>After that’s done, please go to our <a href="https://github.com/apache/incubator-training">GitHub site</a> and create a so-called <code>Fork</code>.</p> 
+    <p>If nothing catches your eye and you come up with something that you want to work on by yourself, please do share your intent by either posting on the mailing list or creating an issue, as this allows us to limit duplication of effort as much as possible.</p> 
    </div> 
-   <div class="imageblock"> 
-    <div class="content"> 
-     <img src="../images/contributing-github-fork.png" alt="contributing github fork" class="img-responsive"> 
-    </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="_toc_code_contributions1">Code Contributions</h3> 
+   <div class="paragraph"> 
+    <p>Many of the actions listed above will take the form of contributions to the git repository, for which we have defined a few basic guidelines to ensure we can all collaborate effectively. Code contributions can take two forms, you can either create a pull request on GitHub or directly attach patch files to a Jira issue for review.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>What happens now, is that GitHub creates a full copy of the Apache Training repo in your account. Only you can commit to this.</p> 
+    <p>A Jira ticket and a pull request are not mutually exclusive, and we encourage people to create both, first a Jira to discuss the issue, task, improvement in general and later on a pull request for actual implementation discussions. If you follow this process, please prefix the name of your pull request with the Jira issue number, this will ensure that they automatically get linked. If, for example, you open a pull request to fix issue TRAINING-123, then your PR title could read "<em>TRAINING-123: Fix stuff</em>".</p> 
    </div> 
    <div class="paragraph"> 
-    <p>Now ideally you check-out your cloned repository:</p> 
+    <p>If you are not familiar with git, how to create pull requests and similar workflows, below is a list of useful links that should help you get started. However as with all other things, please do reach out to us on the mailing list if anything is unclear and you need help, we are more than happy to help!</p> 
    </div> 
-   <div class="literalblock"> 
-    <div class="content"> 
-     <pre>git clone https://github.com/{your-user-id}/incubator-training.git</pre> 
-    </div> 
-   </div> 
-   <div class="paragraph"> 
-    <p>Now you have a copy of Apache Training on your computer and you can change whatever you want and as it’s your copy, you can even commit these changes without any danger of breaking things.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>As soon as you’re finished with your changes and want us to have a look, it’s time to create a so-called <code>Pull-Request</code>.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>You do that by going to your forked repository page on GitHub.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>Every forked repository has an additional button called "New Pull Request":</p> 
-   </div> 
-   <div class="imageblock"> 
-    <div class="content"> 
-     <img src="../images/contributing-github-create-pull-request.png" alt="contributing github create pull request" class="img-responsive"> 
-    </div> 
-   </div> 
-   <div class="paragraph"> 
-    <p>If you click on this, we will receive a notification on your changes and can review them. We also can discuss your changes and have you perfect your pull request before we accept and merge it into Apache Training.</p> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p><a href="https://help.github.com/en/articles/fork-a-repo">Forking a repository</a></p> </li> 
+     <li> <p><a href="https://help.github.com/en/articles/about-branches">About branches</a></p> </li> 
+     <li> <p><a href="https://help.github.com/en/articles/about-pull-requests">About pull requests</a></p> </li> 
+     <li> <p><a href="https://lab.github.com/">Github Learning Lab</a></p> </li> 
+    </ul> 
    </div> 
    <div class="sect3"> 
-    <h4 id="_toc_keeping_your_fork_up_to_date1">Keeping your fork up to date</h4> 
+    <h4 id="_toc_review_process1">Review Process</h4> 
     <div class="paragraph"> 
-     <p>As we are continuously working on Training and you created a copy of our repo, this will become out-of-date pretty soon.</p> 
-    </div> 
-    <div class="paragraph"> 
-     <p>In order to get the changes we introduced in the official repo you have to tell git about that.</p> 
+     <p>The Training project follows a review-then-commit workflow, which basically means that no commit should be made to the repository that has not been reviewed and approved by the required number of persons.</p> 
     </div> 
     <div class="paragraph"> 
-     <p>You do this locally by adding a new so-called <code>remote</code>. Per default, the remote you cloned from is called <code>origin</code>.</p> 
+     <p>For reviews we distinguish between <em>content</em> commits that add content to training decks and <em>functional</em> commits like code changes to tools or similar things.</p> 
     </div> 
     <div class="paragraph"> 
-     <p>Usually you will call the second remote <code>upstream</code> but in general, you can call it whatever you like.</p> 
+     <p><strong>Code Commits</strong> require one approving review. This review has to be done by a committer if the pull request was created by a non-committer. If a committer creates a pull request and explicitly requests a review from a non-committer, then this review is sufficient.</p> 
     </div> 
     <div class="paragraph"> 
-     <p>Add the remote on the command line (or your git gui of choice):</p> 
-    </div> 
-    <div class="literalblock"> 
-     <div class="content"> 
-      <pre>git remote add upstream https://github.com/apache/incubator-training.git</pre> 
-     </div> 
+     <p><strong>Content Commits</strong> require one or more approving reviews. As we do not expect to initially have committers that are also experts in all fields for which we host content there may be a need for two reviews in this case: one for form by a committer and one for content by someone who considers themselves a subject matter expert. If the committer considers themselves to be an expert on the material one review is sufficient, just like for code commits.</p> 
     </div> 
     <div class="paragraph"> 
-     <p>If you list all your remotes, with the following command:</p> 
-    </div> 
-    <div class="literalblock"> 
-     <div class="content"> 
-      <pre>git remote -v</pre> 
-     </div> 
-    </div> 
-    <div class="paragraph"> 
-     <p>It should output something like this:</p> 
-    </div> 
-    <div class="literalblock"> 
-     <div class="content"> 
-      <pre>origin    https://github.com/{your-user-id}/incubator-training.git (fetch)
-origin    https://github.com/{your-user-id}/incubator-training.git (push)
-upstream    https://github.com/apache/incubator-training.git (fetch)
-upstream    https://github.com/apache/incubator-training.git (push)</pre> 
-     </div> 
-    </div> 
-    <div class="paragraph"> 
-     <p>If that’s so, you’re fine to continue, if not …​ well, you could ask for assistance on our dev-list.</p> 
-    </div> 
-    <div class="paragraph"> 
-     <p>In order to get all changes in our upstream-repository, just execute the following command:</p> 
-    </div> 
-    <div class="literalblock"> 
-     <div class="content"> 
-      <pre>git pull upstream</pre> 
-     </div> 
-    </div> 
-    <div class="paragraph"> 
-     <p>This will get all changed from upstream and merge them locally. In order to update your GitHub version, you have to push things back to <code>origin</code>. You can do this by executing the following command:</p> 
-    </div> 
-    <div class="literalblock"> 
-     <div class="content"> 
-      <pre>git push</pre> 
-     </div> 
-    </div> 
-    <div class="paragraph"> 
-     <p>(If no remote is provided, git will use <code>origin</code> per default)</p> 
+     <p><strong>Trivial Changes</strong> Committers can, at their discretion, decide that a change is trivial and does not need to be explicitly approved. In this case, the pull request or Jira issue should be marked accordingly and left open for review for at least 72 hours. After this period has passed it can be merged without review.</p> 
     </div> 
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="_toc_bug_reports1">Bug Reports</h3> 
+   <h3 id="_toc_issue_reports1">Issue Reports</h3> 
    <div class="paragraph"> 
-    <p>We use <a href="https://issues.apache.org/jira/projects/TRAINING">JIRA</a> as our Bug &amp; Issue Tracker.</p> 
+    <p>We use <a href="https://issues.apache.org/jira/projects/TRAINING">JIRA</a> as our Issue Tracker.</p> 
    </div> 
    <div class="paragraph"> 
     <p>Feel free to submit <code>feature requests</code>, <code>bug reports</code>, <code>patches</code>, <code>comment on issues</code>, …​</p> 
