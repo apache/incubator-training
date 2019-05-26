@@ -24,14 +24,13 @@ import org.apache.ignite.configuration.IgniteConfiguration;
 
 import java.io.IOException;
 
-public class StartServerNode {
+public class StartClientNode {
     public static void main(String[] args) throws IOException {
         // tag::contains[]
         IgniteConfiguration cfg = new IgniteConfiguration();
-
+        cfg.setClientMode(true);
         try (Ignite ignite = Ignition.start(cfg)) {
-            System.out.print("Press any key to stop server.");
-            System.in.read();
+
         }
         // end::contains[]
     }
