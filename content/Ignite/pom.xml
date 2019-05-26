@@ -42,6 +42,7 @@
         <asciidoctorj.version>2.0.0-RC.2</asciidoctorj.version>
         <revealjs.version>3.7.0</revealjs.version>
         <asciidoctor-revealjs.version>2.0.0</asciidoctor-revealjs.version>
+        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
     </properties>
 
     <build>
@@ -151,6 +152,12 @@
                             inside the generated-slides directory.
                         -->
                         <revealjsdir>reveal.js-${revealjs.version}</revealjsdir>
+                        <!--
+                            Use our custom theme, which is defined by src/main/theme/apache.css
+                            and copied inside the reveal.js installation by the resources plugin a few lines
+                            up inside this pom.
+                        -->
+                        <revealjs_theme>apache</revealjs_theme>
                     </attributes>
                 </configuration>
                 <executions>
@@ -173,6 +180,31 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resources-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <resources>
+                                <!-- Copy our css-theme to the reveal.js theme directory -->
+                                <resource>
+                                    <directory>src/main/theme</directory>
+                                    <filtering>true</filtering>
+                                    <targetPath>${project.slides.directory}/reveal.js-${revealjs.version}/css/theme</targetPath>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.2</version>
                 <configuration>
@@ -187,4 +219,12 @@
             </plugin>
         </plugins>
     </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.ignite</groupId>
+            <artifactId>ignite-core</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+    </dependencies>
 </project>

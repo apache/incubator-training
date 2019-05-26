@@ -18,34 +18,54 @@
 ////
 :revealjs_progress: true
 :revealjs_slidenumber: true
+:sourcedir: ../java
 
 == What is the Apache Ignite?
-Ignite™ is a memory-centric distributed database, caching, and processing platform
+Ignite™ is a memory-centric distributed database, caching, and processing platform.
 
 2 major use-cases
+- In-Memory Data Grid
+- Memory Centric Database
 
-IMDG
+== IMDG
+IMDG = Stores data (data grid) + Process data (compute grid)
 
 - Stores entries in-memory
+- Data is distributed among the nodes
 - Need external store
-- Caching data
+- Collocated Processing = code goes to data.
 
-IMDB
+== IMDB
+In Memory (or memory-centric) database.
 
-- Ignite Native Persistence
-- Collocated Processing
+- Memory region can be configured with enabled persistence
+- Ignite Native Persistence since V2.1
+- Scalable: Each node stores its data.
 
-Combined usage
+Ignite can be used in combined mode:
+Persistence is enabled per memory region
 
-Persistence per enabled per cache
-(actually, memory region)
+== Why you may need Apache Ignite™
+- To speed up a slow traditional database by caching entries
+- To cache data from remote sources (REST, SOAP, any other network protocols)
+- For projects from scratch: Build a scalable solution with horizontal scaling
+- To remove a computational load from overloaded database
+- Avoid single point of failure by changing traditional database to cluster
 
 == Nodes
-Two (major) type of nodes
+Apache Ignite cluster consists from two (major) type of nodes
 
 - Server node
-Can store data, execute compute jobs
-Usually, standalone JVM
+* Can store data
+* execute compute jobs
+* Usually, standalone JVM
 
 - Client node
-Used to connect to the cluster
+* Used to connect to the cluster
+
+== Starting a server node
+
+[source,java]
+----
+include::{sourcedir}/example/StartServerNode.java[tags=contains,indent=0]
+----
