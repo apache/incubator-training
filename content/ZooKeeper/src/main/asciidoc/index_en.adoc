@@ -32,10 +32,10 @@ ZooKeeper is a distributed, highly available, scalable and strictly consistent h
 
 
 == Introduction
-* Current version is 3.4.14 (April 2019)
-* A new version 3.5 is under development (3.5.5-beta, May 2019)
-** And has been since 2014 or so
+* Current version is 3.5.5 (May 2019)
+** Released after five years of development
 ** Major new features: Dynamic Reconfiguration, "container" znode, more later
+* Other maintained branch is 3.4 with 3.4.14 (April 2019)
 * One of the first tools from the Hadoop ecosystem
 * Built at Yahoo!, now an Apache project
 
@@ -65,9 +65,30 @@ image::data-model.png[]
 
 == Data Model
 * As all updates are strictly ordered and only a single master processes writes ZooKeeper is not meant as a high-volume data store
-* ZooKeeper knows "ephemeral" nodes which get deleted automatically once the session is closed in which it was created
-** Can be used to get notified of failed servers
-** ZNodes can be watched (i.e. notifications on changes)
+* ZooKeeper knows several different types of nodes
+* A connection to ZooKeeper is called a "session" and is also assigned an id
+** Connection setup relatively expensive because it also requires a vote
+* znodes can be watched (i.e. notifications on changes)
+
+== Node Types
+* Ephemeral nodes
+** Ephemeral nodes get deleted automatically once the session is closed in which it was created
+** Can be used to get notified of failed servers (using watches)
+* Persistent nodes
+** These will not be deleted when the session ends
+
+
+== Node Types
+* Time to live (TTL) nodes (as of 3.5)
+** When creating a node a TTL value (in ms) can be specified
+** When the node has not been modified within the TTL and there are no children it may also be deleted automatically
+* Container nodes (as of 3.5)
+** When all child nodes have been deleted the container node may also be deleted automatically at some point
+
+
+== Node Types
+* Ephemeral, Persistent and TTL nodes can additionally be _sequential_
+** This will automatically append a monotonically increasing number to the end of the node name
 
 
 == Implementation Details
@@ -102,15 +123,7 @@ image::data-model.png[]
 * This allows ZooKeeper to scale more easily without sacrificing performance
 
 
-== ZooKeeper 3.5 - Outlook
-* Container nodes
-** When all child nodes have been deleted the container node may also be deleted automatically at some point
-* TTL nodes
-** When creating a node a TTL (in ms) can be specified
-** When the node has not been modified within the TTL and there are no children it may also be deleted automatically
-
-
-== ZooKeeper 3.5 - Outlook
+== Scaling
 * Dynamic Reconfiguration
 ** Before 3.5 the membership of the ensemble and all configuration parameters were static, a restart was required to change this
 ** Starting in 3.5 this (and more) can be changed dynamically without requiring restarts

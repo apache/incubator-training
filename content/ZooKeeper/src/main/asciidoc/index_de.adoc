@@ -32,10 +32,9 @@ ZooKeeper ist ein verteilter, hochverfügbarer, skalierbarer und strikt konsiste
 
 
 == Einführung
-* Current version is 3.4.14 (April 2019)
-* Eine neue Version 3.5 ist in der Entwicklung (3.5.5-beta, aus dem Mai 2019)
-** Schon seit ca. 2014
-** Wichtige neue Features: Dynamic Reconfiguration, "container" znode
+* Aktuelle Version ist 3.5.5 (Mai 2019)
+** Veröffentlicht nach fünf Jahren Entwicklungszeit
+** Wichtige neue Features: Dynamic Reconfiguration, "container" znode und mehr
 * Eines der erste Tools aus dem Hadoop Ökosystem
 * Ursprünglich bei Yahoo! gebaut, nun ein Apache Projekt
 
@@ -57,17 +56,39 @@ image::data-model.png[]
 == Data Model
 * Hierarchie von "nodes" (znode genannt)
 ** Ähnlich wie in Dateisystemen
-* Jeder znode kann sowohl andere nodes als Kinder haben als auch Daten
+* Jeder znode kann sowohl andere Nodes als Kinder haben als auch Daten
 ** Dies ist anders als in herkömmlichen Dateisystemen wo ein Knoten *entweder* eine Datei *oder* ein Verzeichnis ist
 ** Die Daten in einem Knoten sind normalerweise klein
 ** Im Bereich weniger Kilobyte
 
 
 == Data Model
-* Alle Updates sind streng sortiert und nur ein einzelner Master Prozess schreibt Daten, daher ist ZooKeeper nicht als data store für hohes Transaktionsvolumen ausgelegt
-* ZooKeeper kennt "ephemeral" Nodes welche automatisch gelöscht werden wenn die Session geschlossen wird in der sie erstellt wurden
+* Alle Updates sind streng geordnet und nur ein einzelner Master Prozess schreibt Daten, daher ist ZooKeeper nicht als data store für hohes Transaktionsvolumen ausgelegt
+* ZooKeeper kennt mehrere verschiedene Arten von Nodes
+* Eine Verbindung zu ZooKeeper wird "session"genannt und bekommt auch eine Id
+** Verbindungsaufbau ist relativ teuer, da er auch eine Wahl erfordert
+* Man kann ein "Watch" auf ein ZNode setzen und bekommt dann eine Benachrichtigung wenn sich einer ändert
+
+
+== Nodetypen
+* Ephemeral Nodes
+** Werden automatisch gelöscht wenn die Session geschlossen wird in der sie erstellt wurden
 ** Kann benutzt werden um verfügbare Server zu überwachen
-** Man kann ein "Watch" auf ein ZNode setzen und bekommt dann eine Benachrichtigung wenn sich einer ändert
+* Persistent Nodes
+** Diese werden nicht gelöscht wenn die Session endet
+
+
+== Nodetypen
+* Time to live (TTL) nodes (seit 3.5)
+** Wenn ein Node erstellt wird kann ein TTL Wert (in ms) angegeben werden
+** Wenn der Node nicht innerhalb des TTL Zeitraums geändert wird und er keine children hat, kann er automatisch gelöscht werden
+* Container Nodes
+** Wenn alle child nodes gelöscht wurden kann der Container Node selbst auch automatisch gelcöscht werden
+
+
+== Nodetypen
+* Ephemeral, Persistent und TTL Nodes können zusätzlich _sequential_ sein
+** Das fügt automatisch eine monoton ansteigende Zahl ans Ende des Node namens an
 
 
 == Implementation Details
@@ -102,15 +123,7 @@ image::data-model.png[]
 * Das erlaubt es ZooKeeper einfach zu skalieren ohne auf Performanzeinbusse hinzunehmen
 
 
-== ZooKeeper 3.5 - Ausblick
-* Container nodes
-** Wenn all child nodes gelöscht wurden kann auch der container node automatisch gelöscht werden
-* TTL nodes
-** Wenn ein TTL node erstellt wird kann eine Time-to-Live (TTL) in ms angegeben werden
-** Wenn der Knoten innehalb der TTL nicht modifiziert wurde und er keine child nodes hat wird er automatisch gelöscht
-
-
-== ZooKeeper 3.5 - Ausblick
+== Scaling
 * Dynamic Reconfiguration
 ** Vor 3.5 waren die Mitgliedschafen in einem Ensemble statisch, ein Neustart war erforderlich um das zu ändern
 ** Ab Version 3.5 kann dies (und viel mehr) dynamisch geändert werden ohne, dass ein Neustart erforderlich ist
