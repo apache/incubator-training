@@ -20,7 +20,7 @@
 :revealjs_slidenumber: true
 :sourcedir: ../java
 
-== What is the Apache Ignite?
+== What is Apache Ignite?
 Ignite™ is a memory-centric distributed database, caching, and processing platform.
 
 2 major use-cases
