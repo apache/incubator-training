@@ -36,7 +36,7 @@ IMDG = Stores data (data grid) + Processes data (compute grid)
 - Needs external store
 - Collocated Processing = code goes to data
 
-== IMDB
+== In-Memory Database
 In Memory (or memory-centric) database
 
 - Ignite has Native Persistence since V2.1
