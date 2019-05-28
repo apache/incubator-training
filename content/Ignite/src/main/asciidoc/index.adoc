@@ -25,26 +25,25 @@ Ignite™ is a memory-centric distributed database, caching, and processing plat
 
 2 major use-cases
 
-- In-Memory Data Grid
-- Memory Centric Database
+- In-Memory Data Grid (IMDG)
+- In-Memory Database (IMDB)
 
-== IMDG
-IMDG = Stores data (data grid) + Process data (compute grid)
+== In-Memory Data Grid
+IMDG = Stores data (data grid) + Processes data (compute grid)
 
 - Stores entries in-memory
-- Data is distributed among the nodes
-- Need external store
-- Collocated Processing = code goes to data.
+- Data is distributed among nodes
+- Needs external store
+- Collocated Processing = code goes to data
 
 == IMDB
-In Memory (or memory-centric) database.
+In Memory (or memory-centric) database
 
-- Memory region can be configured with enabled persistence
-- Ignite Native Persistence since V2.1
-- Scalable: Each node stores its data.
+- Ignite has Native Persistence since V2.1
+- Scalable: Each node stores only it's own data part
 
-Ignite can be used in combined mode:
-Persistence is enabled per memory region
+Ignite can be used in combined mode
+(part of data is in-memory, part - persisted)
 
 == Why you may need Apache Ignite™
 - To speed up a slow traditional database by caching entries
@@ -54,7 +53,7 @@ Persistence is enabled per memory region
 - Avoid single point of failure by changing traditional database to cluster
 
 == Nodes
-Apache Ignite cluster consists from two (major) type of nodes
+Apache Ignite cluster consists of two (major) type of nodes
 
 - Server node
 * Can store data
@@ -83,7 +82,7 @@ Maven
 ----
 
 == Starting a server node
-By default, Ignite starts server node.
+By default, Ignite starts server node
 [source,java]
 ----
 include::{sourcedir}/example/StartServerNode.java[tags=contains,indent=0]
@@ -95,7 +94,8 @@ Change configuration to start Ignite client
 ----
 include::{sourcedir}/example/StartClientNode.java[tags=contains,indent=0]
 ----
-Server will log
+Both server and client nodes will log
 
 `Topology snapshot [ver=2, locNode=b5fc314f, servers=1, clients=1, state=ACTIVE, CPUs=12, offheap=3.2GB, heap=7.1GB]`
 
+This means nodes detected each other
