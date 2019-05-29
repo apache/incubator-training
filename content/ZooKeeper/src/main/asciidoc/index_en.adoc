@@ -64,10 +64,10 @@ image::data-model.png[]
 
 
 == Data Model
-* As all updates are strictly ordered and only a single master processes writes ZooKeeper is not meant as a high-volume data store
+* As all updates are strictly ordered and a single master processes writes, ZooKeeper is not meant as a high-volume data store
 * ZooKeeper knows several different types of nodes
 * A connection to ZooKeeper is called a "session" and is also assigned an id
-** Connection setup relatively expensive because it also requires a vote
+** Connection setup is relatively expensive because it also requires a quorum/vote
 * znodes can be watched (i.e. notifications on changes)
 
 == Node Types
@@ -103,15 +103,41 @@ image::data-model.png[]
 == Zab Protocol
 * ZooKeeper can use multiple servers in what's called an "Ensemble"
 * ZooKeeper uses an algorithm called Zab to guarantee reliable delivery, total and causal order of messages in the face of unreliable networks
-* In an ensemble there is at most one leader server supported by a majority of followers
+* In an ensemble there is at most one leader server supported by a quorum
+
+
+== Sidebar: Quorum
+* ZooKeeper is heavily based on the concept of a "quorum"
+* It has two implementations to determine the quorum
+** Majority
+** Hierarchical
+
+
+== Sidebar: Majority Quorum
+* This is the default and pretty simple
+* All voting servers get one vote
+** Not all servers vote (more on this later)
+* Quorum is achieved once more than half (i.e. majority) of the voters have acknowledged a write
+* Example: An ensemble of 9 voting servers requires votes from 5 of those servers to succeed
+
+
+== Sidebar: Hierarchical Quorum
+* Servers can belong to a group
+* And servers have a weight (default: 1)
+* Quorum is obtained when we get more than half of the total weight of a group for a majority of groups
+** Example:
+*** 9 servers, 3 groups, weight of 1 for each
+*** This requires two group majorities to obtain quorum
+*** Each group requires a weight of 2 (i.e. 2 servers) to achieve quorum
+*** In total 4 votes are required to achieve quorum
 
 
 == Zab Protocol
-* All servers elect a leader
+* All voting servers elect a leader
 ** Leader is the one with the most votes (i.e. majority or quorum)
 ** For this reason usually an odd number of servers
 * All servers can serve read requests but all write requests are forwarded to the Leader
-** Clients can still talk to any server, they forward the requests appropriately
+** Clients can talk to any server (without having to know its current role), requests are forwarded appropriately
 
 
 == Scaling
@@ -127,3 +153,8 @@ image::data-model.png[]
 * Dynamic Reconfiguration
 ** Before 3.5 the membership of the ensemble and all configuration parameters were static, a restart was required to change this
 ** Starting in 3.5 this (and more) can be changed dynamically without requiring restarts
+
+
+== Resources
+* https://cwiki.apache.org/confluence/display/ZOOKEEPER/ZooKeeperArticles[ZooKeeper Articles]
+** Links to detailed descriptions of the Zab protocol
