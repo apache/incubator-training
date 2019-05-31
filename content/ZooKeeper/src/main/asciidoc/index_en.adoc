@@ -64,7 +64,7 @@ image::data-model.png[]
 
 
 == Data Model
-* As all updates are strictly ordered and a single master processes writes, ZooKeeper is not meant as a high-volume data store
+* As all updates are strictly ordered, and only a single master process performs writes, ZooKeeper is not meant as a high-volume data
 * ZooKeeper knows several different types of nodes
 * A connection to ZooKeeper is called a "session" and is also assigned an id
 ** Connection setup is relatively expensive because it also requires a quorum/vote
@@ -101,9 +101,22 @@ image::data-model.png[]
 
 
 == Zab Protocol
+* ZooKeeper is a distributed system to store data
+* It needs a way for multiple servers to agree on any changes to the data/state
+* This is where the "Zab" protocol comes in
+
+
+== Zab Protocol
 * ZooKeeper can use multiple servers in what's called an "Ensemble"
-* ZooKeeper uses an algorithm called Zab to guarantee reliable delivery, total and causal order of messages in the face of unreliable networks
+* Zab is an algorithm to guarantee reliable delivery, total and causal order of messages in the face of unreliable networks
+** To put it differently: It is a protocol for a bunch of servers to agree on a value
 * In an ensemble there is at most one leader server supported by a quorum
+
+
+== On Votes
+* ZooKeeper sometimes uses the term _vote_ which implies a choice
+* In reality the servers don't have a choice but just need to acknowledge a change
+* This is similar to a two-phase-commit protocol
 
 
 == Sidebar: Quorum
@@ -130,6 +143,12 @@ image::data-model.png[]
 *** This requires two group majorities to obtain quorum
 *** Each group requires a weight of 2 (i.e. 2 servers) to achieve quorum
 *** In total 4 votes are required to achieve quorum
+
+
+== Sidebar: Hierarchical Quorum
+* This is a rarely used feature
+* More information can be found in https://issues.apache.org/jira/browse/ZOOKEEPER-29[ZOOKEEPER-29]
+* The original idea was to use this across (physical) locations on the assumption that failures were more likely to be correlated with a location going down than a single instance
 
 
 == Zab Protocol

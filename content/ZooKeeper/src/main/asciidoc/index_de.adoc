@@ -101,9 +101,21 @@ image::data-model.png[]
 
 
 == Zab Protocol
-* ZooKeeper kann mehrere Server verwenden, dies heißt dann ein "Ensemble"
-* ZooKeeper bentutz ein Protokoll/Algorithmus namens _Zab_ um zuverlässige Lieferungen und totale und kausale Reihenfolge von Nachrichten zu bieten trotz unzuverlässiger Netzwerke
+* ZooKeeper ist ein verteiltes System um Daten zu speichern
+* Es braucht einen Weg damit sich mehrere Server auf Änderungen an Daten einigen können
+* Das ist wo das "Zab" Protokoll ins Spiel kommt
+
+
+== Zab Protocol
+* ZooKeeper kann mehrere Server verwenden, dies nennt sich "Ensemble"
+* _Zab_ ist ein Algorithmus um zuverlässige Lieferungen und totale und kausale Reihenfolge von Nachrichten zu bieten trotz unzuverlässiger Netzwerke
 * In einem Ensemble gibt es höchstens einen Leader welcher unterstüttz wird von einer Mehrheit (ein Quorum) an Followern
+
+
+== Stimmen / Votes
+* ZooKeeper benutzt den Begriff _vote_ was eine Wahlmöglichkeit unterstellt
+* In Wirklichkeit haben Server keine Wahl sondern müssen nur Änderungen bestätigen
+* Das ist ähnlich zu two-phase-commit Protokollen
 
 
 == Exkurs: Quorum
@@ -129,6 +141,12 @@ image::data-model.png[]
 ** Quorum erfordert die Mehrheit in zwei Gruppen
 ** Jede Gruppe benötigt ein Gewicht von 2 (also 2 Server) um Quorum zu erreichen
 ** Insgesamt sind 4 Votes nötig um Quorum zu erreichen
+
+
+== Sidebar: Hierarchical Quorum
+* Ein kaum benutztes Features
+* Mehr Informationen gibt es in https://issues.apache.org/jira/browse/ZOOKEEPER-29[ZOOKEEPER-29]
+* Die ursprüngliche Idee war, dass dieses Feature zu nutzen wenn Cluster über mehrere (phyische) Standorte verteilt sind unter der Annahme, dass Fehler eher mit einem Standort als mit einer einzelnen Instanz korrelieren
 
 
 == Zab Protocol
