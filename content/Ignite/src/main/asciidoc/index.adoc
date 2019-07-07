@@ -115,10 +115,29 @@ Both server and client nodes will log
 This means nodes detected each other
 
 == Save data into Grid
-IgniteCache<K,V>
-extends javax.cache.Cache<K,V>
+Ignite supports JCache JSR 107 API,
+`IgniteCache<K,V> extends javax.cache.Cache<K,V>`
 
 [source,java]
 ----
 include::{sourcedir}/example/PutGetExample.java[tags=contains,indent=0]
 ----
+
+== Dynamic Cache
+ignite.getOrCreateCache - Creates an instance of the cache on the fly
+
+Ignite will create and deploy the cache across all server cluster members
+
+Cache will be deployed to any new joined node.
+
+Limitation - not possible to create under transaction
+
+== Application and cache
+Applications are usually made up of multiple caches
+
+- one for each data type to be stored
+
+-- This is a best practice
+
+-- If you have two classes, Card and Client, you should have two caches
+
