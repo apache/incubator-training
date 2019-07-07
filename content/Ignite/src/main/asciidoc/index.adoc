@@ -81,6 +81,20 @@ Maven
 </dependency>
 ----
 
+== Java Requirements
+JDK 8 and later
+
+
+https://apacheignite.readme.io/docs/getting-started#section-running-ignite-with-java-9-10-11[Running using Java 9+] requires additional parameters
+
+[.small]`--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED
+--add-exports=java.base/sun.nio.ch=ALL-UNNAMED
+--add-exports=java.management/com.sun.jmx.mbeanserver=ALL-UNNAMED
+--add-exports=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED
+--add-exports=java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED
+--illegal-access=permit`
+
+
 == Starting a server node
 By default, Ignite starts server node
 [source,java]
@@ -99,3 +113,12 @@ Both server and client nodes will log
 `Topology snapshot [ver=2, locNode=b5fc314f, servers=1, clients=1, state=ACTIVE, CPUs=12, offheap=3.2GB, heap=7.1GB]`
 
 This means nodes detected each other
+
+== Save data into Grid
+IgniteCache<K,V>
+extends javax.cache.Cache<K,V>
+
+[source,java]
+----
+include::{sourcedir}/example/PutGetExample.java[tags=contains,indent=0]
+----
