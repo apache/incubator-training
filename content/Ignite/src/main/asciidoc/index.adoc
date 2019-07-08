@@ -81,6 +81,10 @@ Maven
 </dependency>
 ----
 
+== Download full dirstibution
+Go to Ignite Projec site https://ignite.apache.org/[https://ignite.apache.org/] -> Downloads -> Binaries
+Download latest binary release from the table here[https://ignite.apache.org/download.cgi#binaries]
+
 == Java Requirements
 JDK 8 and later
 
@@ -93,7 +97,6 @@ https://apacheignite.readme.io/docs/getting-started#section-running-ignite-with-
 --add-exports=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED
 --add-exports=java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED
 --illegal-access=permit`
-
 
 == Starting a server node
 By default, Ignite starts server node
@@ -124,13 +127,31 @@ include::{sourcedir}/example/PutGetExample.java[tags=contains,indent=0]
 ----
 
 == Dynamic Cache
-ignite.getOrCreateCache - Creates an instance of the cache on the fly
+----
+ignite.getOrCreateCache(CacheConfiguration cfg)
+----
+
+Creates an instance of the cache on the fly
 
 Ignite will create and deploy the cache across all server cluster members
 
 Cache will be deployed to any new joined node.
 
 Limitation - not possible to create under transaction
+
+
+== Static cache
+Accessed using method
+----
+ignite.cache(String name)
+----
+Will return existing cache or null
+
+Works under running transaction
+
+- User has to provide configuration before startup
+
+- Call createCache in some init method
 
 == Application and cache
 Applications are usually made up of multiple caches
@@ -140,4 +161,5 @@ Applications are usually made up of multiple caches
 -- This is a best practice
 
 -- If you have two classes, Card and Client, you should have two caches
+
 
