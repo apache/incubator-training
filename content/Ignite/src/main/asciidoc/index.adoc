@@ -19,6 +19,7 @@
 :revealjs_progress: true
 :revealjs_slidenumber: true
 :sourcedir: ../java
+:imagesdir: ../resources/images
 
 == What is Apache Ignite?
 Ignite™ is a memory-centric distributed database, caching, and processing platform.
@@ -82,14 +83,22 @@ Maven
 ----
 
 == Download full dirstibution
-Go to Ignite Projec site https://ignite.apache.org/[https://ignite.apache.org/] -> Downloads -> Binaries
-Download latest binary release from the table here[https://ignite.apache.org/download.cgi#binaries]
+Go to Ignite Project site
+https://ignite.apache.org/[https://ignite.apache.org/] -> Downloads -> Binaries
+
+Download latest binary release from the table https://ignite.apache.org/download.cgi#binaries[here]
+
+Unzip to any folder.
+
+\bin\ignite.sh / ignite.bat will start server node
 
 == Java Requirements
 JDK 8 and later
 
+Start script will auto-detect version of Java
 
-https://apacheignite.readme.io/docs/getting-started#section-running-ignite-with-java-9-10-11[Running using Java 9+] requires additional parameters
+https://apacheignite.readme.io/docs/getting-started#section-running-ignite-with-java-9-10-11[Running using Java 9+]
+from IDE requires additional parameters
 
 [.small]`--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED
 --add-exports=java.base/sun.nio.ch=ALL-UNNAMED
@@ -162,4 +171,6 @@ Applications are usually made up of multiple caches
 
 -- If you have two classes, Card and Client, you should have two caches
 
+== Replicated and partitioned
 
+image::replicated_vs_partitioned.png[]
