@@ -174,3 +174,37 @@ Applications are usually made up of multiple caches
 == Replicated and partitioned
 
 image::replicated_vs_partitioned.png[]
+
+Replicated - Cache A
+Partitioned - Cache B & C
+Replicated, use case:
+rare write, often - read, e.g. dictionary
+
+== Partitioned Caches
+Most common usage of cache
+
+Defaults
+
+. 1024 partitions
+. No redundancy
+. In-memory - volatile
+
+WARNING: Configure backups for fault tolerance
+
+For most cases: 1 backup is enough
+
+== Cache Atomicity Mode
+ATOMIC
+
+- distributed transactions not supported; distributed locking not supported
+- higher performance and throughput ratios
+
+TRANSACTIONAL
+
+- ACID Compliant
+- Transaction over several caches requires all caches to be transactional
+
+TRANSACTIONAL_SNAPSHOT
+
+- ACID for SQL Queries
+
