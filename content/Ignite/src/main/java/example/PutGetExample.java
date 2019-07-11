@@ -23,9 +23,11 @@ import org.apache.ignite.IgniteCache;
 import org.apache.ignite.Ignition;
 import org.apache.ignite.configuration.IgniteConfiguration;
 
+/**
+ * Put and get example. Requires server node to be up and running.
+ */
 public class PutGetExample {
     public static void main(String[] args) {
-
         IgniteConfiguration cfg = new IgniteConfiguration();
         cfg.setClientMode(true);
 
