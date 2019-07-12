@@ -34,7 +34,7 @@ IMDG = Stores data (data grid) + Processes data (compute grid)
 
 - Stores entries in-memory
 - Data is distributed among nodes
-- Needs external store
+- May need external data source (DB, REST, other)
 - Collocated Processing = code goes to data
 
 == In-Memory Database
@@ -142,12 +142,17 @@ ignite.getOrCreateCache(CacheConfiguration cfg)
 
 Creates an instance of the cache on the fly
 
+----
+ignite.createCache(CacheConfiguration cfg)
+----
+
+Creates cache instance
+
 Ignite will create and deploy the cache across all server cluster members
 
-Cache will be deployed to any new joined node.
+Cache will be deployed to any new joined node
 
-Limitation - not possible to create under transaction
-
+Limitation - not possible to create new cache in transaction
 
 == Static cache
 Accessed using method
@@ -156,11 +161,9 @@ ignite.cache(String name)
 ----
 Will return existing cache or null
 
-Works under running transaction
+- No cache creation under running transaction
 
-- User has to provide configuration before startup
-
-- Call createCache in some init method
+- User has to provide configuration before node startup
 
 == Application and cache
 Applications are usually made up of multiple caches
