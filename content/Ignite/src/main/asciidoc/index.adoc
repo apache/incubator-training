@@ -211,3 +211,106 @@ TRANSACTIONAL_SNAPSHOT
 
 - ACID for SQL Queries
 
+== Non SQL query Scan query
+Provides iteration over cache data
+
+May have additional filter
+
+Filter is sent do server
+
+Iterator over cache uses scan query
+
+== Scan query example
+[source,java]
+----
+include::{sourcedir}/example/SqlExample.java[tags=scan,indent=0]
+----
+
+== SQL support
+Provides full ANSI SQL-99 support including
+
+- aggregations
+- distributed joins
+
+Drivers
+
+- JDBC
+- ODBC
+
+DML: SELECT, UPDATE, INSERT, and DELETE queries
+& subset of DDL
+
+== SQL in Apache Ignite
+H2 In memory SQL database part of Ignite process
+
+- parse/execute query
+- not storage
+
+Additional module 'ignite-indexing' is required in the classpath of all Ignite nodes.
+
+== Adding indexing module
+Gradle
+[source,groovy]
+----
+compile group: 'org.apache.ignite', name: 'ignite-indexing', version: '2.7.5'
+----
+
+Maven
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.ignite</groupId>
+  <artifactId>ignite-indexing</artifactId>
+  <version>2.7.5</version>
+</dependency>
+----
+
+== Declare cache visible as table
+[source,java]
+----
+include::{sourcedir}/example/SqlExample.java[tags=entity,indent=0]
+----
+Otherwise:
+----
+IgniteSQLException: Failed to find SQL table for type: Client
+----
+
+== Declare visible entity fields
+[source,java]
+----
+include::{sourcedir}/example/SqlExample.java[tags=field,indent=0]
+----
+
+email is declared to be visible by SQL engine
+
+phoneNumber is declared as visible and index build is required
+
+== SqlQuery
+Result is a number of Java objects (entries)
+
+Only filter condition is specified by user
+
+"Select * from Customer" is always added automatically
+
+Table name based on entry class name
+
+== SqlQuery Example
+[source,java]
+----
+include::{sourcedir}/example/SqlExample.java[tags=query,indent=0]
+----
+
+== SqlFieldsQuery
+"Projection" of entry
+
+Result is List<?> - fields
+
+Subset/specific fields
+
+Full SQL statement is required
+
+== SqlFieldsQuery Example
+[source,java]
+----
+include::{sourcedir}/example/SqlExample.java[tags=fields,indent=0]
+----
