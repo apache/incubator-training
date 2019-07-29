@@ -17,15 +17,15 @@
 
 -->
 
-# Github
+# GitHub
 
-Several projects at the Apache Software Foundation are using Git and Github for
+Several projects at the Apache Software Foundation are using Git and GitHub for
 their daily business. However not all potential contributors are comfortable
 using that toolset - or are aware of how deep their knowledge of that tooling
 is.
 
 This directory contains small challenges that can help gauge interest in
-learning more about Git and Github: One example use case would be printing the
+learning more about Git and GitHub: One example use case would be printing the
 challenges and putting them in a location where people have time for reading and
 chatting - think of your closest coffee machine. Alternatively regularly post
 one in your organisation's favourite chat system.
