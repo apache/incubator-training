@@ -30,3 +30,28 @@ challenges and putting them in a location where people have time for reading and
 chatting - think of your closest coffee machine. Alternatively regularly post
 one in your organisation's favourite chat system.
 
+
+# Solution phrases
+
+The following are the expected phrases for each of the puzzles. To avoid
+spoilers they have been ROT13 encoded.
+
+
+## Solution for workflow-basics
+
+Words/ phrases are top to bottom, first left column then right column
+
+hcfgernz
+chfu hcfgernz
+pbzzvg
+nqq
+fgnfu cbc
+hcfgernz znfgre
+chyy
+pybar
+chyy
+srgpu
+erireg urnq
+fgnfu
+bpgbpng
+
