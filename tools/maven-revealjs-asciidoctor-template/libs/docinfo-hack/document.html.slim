@@ -17,6 +17,11 @@ html lang=(attr :lang, 'en' unless attr? :nolang)
     meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"
     meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"
     link href="#{revealjsdir}/css/reveal.css" rel="stylesheet"
+    / Start adding c3, d3
+    link href="css/c3.min.css" rel="stylesheet"
+    script src="js/d3.min.js" charset="utf-8"
+    script src="js/c3.min.js"
+    / End adding c3, d3
     / Default theme required even when using custom theme
     - if attr? :revealjs_customtheme
       link rel='stylesheet' href=(attr :revealjs_customtheme) id='theme'
