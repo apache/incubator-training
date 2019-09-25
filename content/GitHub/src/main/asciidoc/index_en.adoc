@@ -1,0 +1,813 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+[.octocat]
+== Git / GitHub (with an excursion to the ApacheWay)
+:description: Workshop on Git/Github and the Apache Way
+:keywords: Apache Way, Git, GitHub
+:authors: Enrico, Benjamin, Isabel, Tobias
+
+== !
+Disclaimer: These slides are based on training material created at the Apache Training project. A training using these slides doesn’t imply the training is specially endorsed by the Apache Training project or the Apache Software Foundation.
+
+If you find topics missing (e.g. information on Gerrit, Gitlab or Gitea - patches are welcome.)
+
+[.octocat]
+== Check-In
+* Who am I?
+* What’s my background?
+* Why am I here?
+* What is my favourite author?
+
+[.notes]
+--
+Check-In: Let all participants introduce themselves to get the group together.
+--
+
+[.octocat]
+== Agenda
+[.smaller]
+[cols="2,1,4",grid="none",frame="none"]
+|===
+| | 09:15 | GitHub and the ApacheWay basics
+| | | About Committers
+| | | GitHub Basics
+| |12:00 | Lunch break
+| |13:00 | Life of a Change
+| | | Best Practices
+| |16:00 | “Feierabend”
+|===
+
+[.octocat]
+== Apache projects
+[.columns]
+--
+For me personally, successful participation in a project means...?
+
+image:tree.png[]
+--
+
+[.notes]
+--
+Breakout session - 10 minutes including idea collection and clustering.
+
+What we expect: Fill in the mindset by participants.
+What do I need to participate in a project?
+Which aspects of Github usage should project participants agree on?
+
+Goals should be projects that
+make contributions visible.
+that profit from connecting participants with all sorts of different backgrounds
+that define basic rules for collaboration
+that allow for changes to be traced back to their original motivation
+that allow for early sharing of progress
+that reward all sorts of contributions and pull in those committed to the project early.
+--
+
+== !
+This slide had a link to the 6 basic inner source principles at Europace - what are the basic principles of the ApacheWay that we can link to here?
+
+https://tech.europace.de/europace-inner-source-prinzipien/
+
+
+[.notes]
+--
+Principles should be given to participants as printed handout
+--
+
+== !
+[.funnel]
+* Project users
+
+== !
+[.funnel]
+* Project users
+
+Yonik’s law of Patches: A half-baked patch in Jira, with no
+documentation, no tests and no backwards compatibility is
+better than no patch at all.
+
+https://wiki.apache.org/solr/HowToContribute
+
+== !
+[.funnel]
+* Project users
+* Project contributors
+
+== !
+[.funnel]
+* project users
+* Project contributors
+* Project committers
+
+== !
+[.funnel]
+* project users
+* Project contributors
+* Project committers
+* Project management commitee
+
+== Committer
+[.postits]
+
+[.notes]
+--
+Breakout session - 5-10 minutes: What are the accountabilities of a committer?
+
+reviews
+mentoring
+setting an example for behaviour
+setting rules for collaboration
+setting coding guidelines
+setting contribution guidelines
+Voting in new committers left to PMC members
+--
+
+== !
+https://projects.apache.org/committee.html?flink
+
+image:fink.jpg[]
+
+== Convention over configuration
+video::MO_AVjSPuBw[youtube]
+
+[.notes]
+--
+Configuration: easy to use, avoids mistakes   -  but less flexible
+Convention e.g. in README: more flexible - but needs buy in and discipline and constant education
+--
+
+== Project growth and independence
+
+[.notes]
+--
+Goal with inviting further contributors: Grow the project, increase its independence from individual humans and institutions.
+--
+
+== !
+[.columns]
+--
+* Documentation patches
+* Code patches
+* Social media outreach
+* Press coverage
+* Meetup organisation
+
+//
+
+* User support
+* Packaging
+* Mentoring
+* Conference organisation
+--
+
+[.notes]
+--
+So - which types of contributions come with the risk of people turning you into a committer?
+
+First step to making contributions easier? Have a README that makes getting started with using, developing, extending and contributing to your project easier.
+--
+
+== !
+[.note]
+Imagine you are new to a project
+which kind of information do you expect
+to find in a README in order to be able to start contributing to the project?
+
+[.notes]
+--
+10 min breakout session with clustering of ideas
+--
+
+== !
+[.smaller]
+--
+README.md::
+What is the mission of the project?::
+Getting Started::
+* How To use
+Getting Involved::
+* List all communication channels
+* Indicate preferable channels
+Who are we?::
+How can you become one of us?::
+* What are our expectations of committers?
+Contributing::
+* checkout
+* build
+* test
+--
+
+[.octocat]
+== Git / GitHub Basics
+Authentication and authorization
+
+== !
+image:commits.jpg[]
+
+[.notes]
+--
+How does Github link commits made locally to your Github account?
+https://github.com/settings/emails
+--
+
+== !
+[source]
+--
+$ git config --global user.name "Mona Lisa"
+$ git config --global user.email "mona.lisa@europace.de"
+$ git config --global core.editor vim
+$ git config --global core.autocrlf true # for Windows
+$ git config --global commit.template "path"
+$ git config --global help.autocorrect
+$ git config --list
+--
+
+[.notes]
+--
+Setup your username, mail, which editor to use for drafting commit messages
+https://help.github.com/en/articles/dealing-with-line-endings
+--
+
+== !
+image:sshkeys.jpg[]
+
+== !
+image:twofactor.jpg[]
+
+[.notes]
+--
+Connect Github to your perferred IDE, in this case to IntelliJ
+--
+
+== !
+image:accesstoken.jpg[]
+
+[.notes]
+--
+Usage of Tokens limits access to certain actions
+--
+
+[.octocat]
+== Life of a Change
+Turning a wish to change something to a pull request
+
+[.octocat]
+== Life of a Change
+image:githubflow.jpg[]
+[source]
+--
+$ git checkout -b ABC-123-my-branch
+--
+
+[.note]
+--
+https://guides.github.com/introduction/flow/
+--
+
+[.octocat]
+== !
+[.notes]
+--
+https://guides.github.com/activities/forking/
+--
+
+[.octocat]
+== Collaborating: More than one remote
+How do I contribute changes?
+
+[.notes]
+--
+I want to enable others to contribute changes without giving everyone write permissions
+I want to experiment with the source code but avoid cluttering the central repository with all of my experimental branches - but I still want to back up those branches somewhere non-local
+--
+
+== !
+image:step1.jpg[]
+
+[.notes]
+--
+So you start with an apache/$project-name repository on GitHub that you want to contribute to. This will henceforth be called upstream
+--
+
+== !
+image:step2.jpg[]
+
+[.notes]
+--
+You create a fork of that project in your user account.
+--
+
+== !
+image:step3.jpg[]
+
+[.notes]
+--
+You clone that project locally.
+--
+
+== !
+image:step4.jpg[]
+
+[.notes]
+--
+You clone that project locally.
+--
+
+== !
+image:step5.jpg[]
+
+[.notes]
+--
+You checkout a branch to make your changes on.
+--
+
+== !
+image:step6.jpg[]
+
+[.notes]
+--
+You push that branch to your forked version on GitHub
+--
+
+== !
+image:step7.jpg[]
+
+[.notes]
+--
+You open a pull request to the apache/$projectname upstream repository
+--
+
+== !
+image:step8.jpg[]
+
+[.notes]
+--
+In order to stay up to date with upstream from time to time you will need to pull changes from upstream into your local copy.
+--
+
+== !
+image:step9.jpg[]
+
+[.notes]
+--
+If you want to keep your forked version up to date, occasionally you will push upstream changes into your fork.
+--
+
+[.octocat]
+== Making changes
+
+[.notes]
+--
+Let’s dig a bit deeper into how changes are stored in git
+--
+
+== !
+image:step1b.jpg[]
+
+[.notes]
+--
+Each bubble represents one version of your code-base. Git stores the entire status, not just the diffs. To save space it does work with some clever compression and linking to unchanged files.
+
+Option 1: Give people some modeling clay/ playdough to follow along
+Option 2: Show the above using playdough
+Option 3: Show the above, afterwards give people playdough to reproduce the above.
+--
+
+== !
+image:step2b.jpg[]
+
+[.notes]
+--
+When you create branches, essentially what you create are pointers to commits in the version history.
+That is also true for master.
+--
+
+== !
+image:step3b.jpg[]
+
+[.notes]
+--
+HEAD is a reference to the last commit in your currently checkout version
+--
+
+== !
+image:step4b.jpg[]
+
+[.notes]
+--
+Creating a new branch simply creates a new pointer
+--
+
+
+== !
+image:step5b.jpg[]
+
+[.notes]
+--
+Making commit, moves HEAD along, as long as you don’t checkout another branch
+--
+
+== !
+image:step6b.jpg[]
+
+[.notes]
+--
+Checking out master moves the HEAD pointer to the commit referenced by the pointer called “master”
+--
+
+== !
+image:step7b.jpg[]
+
+[.notes]
+--
+Merging creates a commit that has two ancestors.
+--
+
+== !
+image:step8b.jpg[]
+
+[.notes]
+--
+So what happens if commits happened on master in the meantime?
+--
+
+
+== !
+image:step9b.jpg[]
+
+[.notes]
+--
+For merge - same thing
+--
+
+== !
+image:step10b.jpg[]
+
+[.notes]
+--
+Let’s turn back time and look what happens...
+--
+
+
+== !
+image:step11b.jpg[]
+
+[.notes]
+--
+if instead of merge we use rebase: history becomes linear.
+--
+
+[.octocat]
+== ^ vs. ~
+
+== !
+image:step1c.jpg[]
+
+[.notes]
+--
+HEAD~ references the parent commit of HEAD
+--
+
+== !
+image:step2c.jpg[]
+
+[.notes]
+--
+HEAD~1 references the 1st parent
+--
+
+
+== !
+image:step3c.jpg[]
+
+[.notes]
+--
+HEAD~2 references the second parent
+--
+
+== !
+image:step4c.jpg[]
+
+[.notes]
+--
+HEAD^ and HEAD^1 refers to the first parent
+--
+
+== !
+image:step5c.jpg[]
+
+[.notes]
+--
+HEAD^2 means second parent in terms of commit that is part of the merge.
+--
+
+== !
+image:stashcommitpush.jpg[]
+
+[.octocat]
+== And back again?
+
+
+== !
+image:revertreset.jpg[]
+
+== !
+image:reset.jpg[]
+
+[.octocat]
+== !
+[source]
+--
+git reflog show --all
+$ git reflog ABC-123-my-branch
+$ git reflog stash
+--
+
+Revert a rebase:
+
+[source]
+--
+$ git reflog
+$ git reset --hard HEAD@{N}
+--
+
+N - commit before the rebase
+
+[.notes]
+--
+https://de.atlassian.com/git/tutorials/rewriting-history/git-reflog
+--
+
+
+== !
+[.columns]
+--
+What makes a good changeset?
+
+What can I use to adjust changesets?
+--
+
+[.notes]
+--
+https://git-scm.com/book/de/v1/Git-Tools-%C3%84nderungshistorie-ver%C3%A4ndern
+Breakout session with clustering afterwards
+--
+
+[.octocat]
+== Excercise 1
+Create a sandbox Github repository in your user account to play with. Clone that repository, create a new branch, make a change in the README.md, commit the change, create another change. Then push all of that to Github, revert your changes and push again.
+Depending on which method you chose to revert - what does git tell you and why?
+
+[.octocat]
+== Pull-Requests and Reviews
+
+
+== Release early - release often
+Yonik’s law of Patches: A half-baked patch in Jira, with no
+documentation, no tests and no backwards compatibility is
+better than no patch at all.
+https://wiki.apache.org/solr/HowToContribute
+
+[.notes]
+--
+Instead of spending hours, days or even weeks on polishing your changes - release them early and often to avoid running in the wrong direction.
+--
+
+[.octocat]
+== !
+[.columns]
+--
+When is a pull request review helpful for me?
+
+What does a pull request review look like to be helpful?
+--
+
+[.notes]
+--
+10min breakout session with collection afterwards.
+--
+
+[.octocat]
+== !
+image:pullrequest.jpg[]
+
+[.octocat]
+== !
+image:reviewchanges.jpg[]
+
+[.notes]
+--
+Explain suggestions in reviews
+--
+
+[.octocat]
+== !
+[.columns]
+--
+Or push changes to the pull request branch if you have access
+
+image:sugestions.jpg[]
+--
+
+[.notes]
+--
+What the suggestion looks like for the pull request author
+--
+
+[.octocat]
+== What if there are too many changes for a Pull-Request?
+[.columns]
+--
+Pull-Requests can not only be made against master, but also against other branches.
+
+* Split changes to many commits - easier review.
+* Split changes into multiple pull requests.
+* Link to related pull requests in a common issue.
+--
+
+
+[.octocat]
+== !
+image:reviewchanges.jpg[]
+
+
+[.notes]
+--
+Options to deal with pull requests - ask what each of the options causes in the pull request submitter
+Remind people of the social vs. technical rules talk.
+--
+
+[.octocat]
+== Exercise 2
+Work in pairs. Choose one of your sandbox repositories to work in. Create a new branch in the repository, make a change to the README, commit that and push it - then create a draft pull request. Try out the different things you can do with the pull request (suggestions, make it colourful with all sorts of comments, make direct changes in the pull request…)
+
+[.octocat]
+== Merge or Rebase?
+
+[.octocat]
+== !
+image:merge1.jpg[]
+
+[.octocat]
+== !
+image:merge2.jpg[]
+
+[.octocat]
+== !
+image:merge3.jpg[]
+
+[.octocat]
+== !
+image:merge4.jpg[]
+
+[.octocat]
+== !
+image:rebase.jpg[]
+
+[.octocat]
+== Exercise 3
+Work in the same pairs as before. For this exercise you need to have diverging commits in your branches. Merge them in an interactive rebase (rename, switch and squash commit). Convert your draft pull request to a normal one and merge it into master.
+
+[.octocat]
+== Tips and tricks
+Search 
+
+[source]
+--
+$ git grep
+$ git log -S … Where was the line with that term changed?
+$ git log -L … Where was the function with that name changed?
+--
+
+
+[.octocat]
+== Tips and tricks
+When did it break?
+
+[source]
+--
+$ git praise
+$ git bisect … use binary search to find a commit that broke some functionality
+--
+
+== Tooling
+
+== Review Tooling
+above and beyond the Github UI
+
+== !
+TODO needs screenshots
+
+== History tooling
+above and beyond gitlog
+
+== Project configuration
+Simplify recurring tasks
+
+== !
+[.columns]
+--
+Which information do you expect in an Issue?
+
+Which information do you expect in a pull request
+--
+
+[.notes]
+--
+Breakout sessions our via Token
+--
+
+== !
+image:issuetemplate.jpg[]
+
+== !
+Do we have Templates that new Apache projects can base their’s on?
+
+== !
+TOSO Screenshot needed
+
+== !
+Do we have PR templates that new Apache projects can base theirs on?
+
+== !
+[.columns]
+--
+In your project find and share an example for a particularly unhelpful and an outstandingly helpful issue.
+
+In your project find and share an example for a particularly unhelpful and an outstandingly helpful pull request.
+--
+
+[.notes]
+--
+breakout session
+--
+
+== Branch Protect...wtf?
+Build protection into your branches.
+
+== !
+image:branchprotect.jog[]
+
+== !
+[.columns]
+--
+image:branches.jpg[]
+
+Reminder of convention over configuration.
+Avoiding the “I accidentially broke it”
+--
+
+== Example: Status checks with CI
+image:ci.jpg[]
+
+== Even more tips
+* Link directly to PR, Issues and commit hashes
+* Same for code blocks
+* Magic keywords: close/ resolve
+* ‘?’ in the Github UI shows a help with shortcuts (also works for jira)
+* Link discussions in mailing lists, slack, issues and pull requests together - summarise what is relevant that was discussed synchronously.
+
+== 
+[.notes]
+--
+https://help.github.com/en/articles/closing-issues-using-keywords
+https://help.github.com/en/articles/getting-permanent-links-to-files
+https://help.github.com/en/articles/creating-a-permanent-link-to-a-code-snippet
+automate recurring tasks through the github api
+--
+
+== Tips & Best Practices (2)
+* Use the Github API to automate things
+** Webhooks, triggering CI Builds
+** Settings configuration like branch protection
+** See also https://probot.github.io/ for a collection of bots
+
+== Where to continue the discussion?
+Questions/ experience sharing: DO WE HAVE A SLACK CHANNEL/ MAILING LIST FOR THAT?
+
+Documentation for Git at Apache: INSERT LINK HERE
+
+== Diving deeper
+
+= Git Anatomie: 
+What’s stored in Git?
+
+== !
+TOD Graphics need to be re-done
