@@ -22,7 +22,7 @@
 :imagesdir: ../resources/images
 
 == What is Apache Ignite?
-Ignite™ is a memory-centric distributed database, caching, and processing platform.
+Apache Ignite™ is a memory-centric distributed database, caching, and processing platform.
 
 2 major use-cases
 
@@ -216,7 +216,7 @@ Provides iteration over cache data
 
 May have additional filter
 
-Filter is sent do server
+Filter is sent to server
 
 Iterator over cache uses scan query
 
