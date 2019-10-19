@@ -186,7 +186,7 @@ rare write, often - read, e.g. dictionary
 == Partitioned Caches
 Most common usage of cache
 
-Defaults
+.Defaults
 
 . 1024 partitions
 . No redundancy
