@@ -211,7 +211,7 @@ digraph g {
 }
 ----
 
-=== Seqdag Diagram
+=== Seqdiag Diagram
 
 [seqdiag,s7-communication,svg]
 ....
@@ -528,7 +528,7 @@ validity</panel_attributes><additional_attributes>transparentSelection=false</ad
 
 === Vega
 
-[vega,vega-test, svg]
+[vega,vega-test,svg]
 ....
 {
   "$schema": "https://vega.github.io/schema/vega/v4.json",
