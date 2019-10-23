@@ -33,7 +33,7 @@
 #
 # To build a presentation using this image:
 #
-# cd incubator-training/tools/maven-revealjs-asciidocter-template/
+# cd incubator-training/tools/maven-revealjs-asciidoctor-template/
 # docker run -it --rm --volume $PWD:/opt/workdir training-build:latest -c "mvn clean package"
 #
 # Alternatively, you can include a reference to your local .m2 to speed up the build:
@@ -112,6 +112,14 @@ COPY --from=tool-rust-builder /usr/local/cargo/bin/svgbob /usr/local/bin/svgbob
 RUN dnf install -y nodejs
 RUN dnf install -y python2
 RUN PYTHON=/usr/bin/python2 npm install --unsafe-perm --global vega-cli pango
+
+# https://mermaidjs.github.io/#/ Mermaid markdownish charts -----------------
+# Requires: npm
+
+# This provides the mmdc command, but it looks like asciidoctor still
+# requires the mermaid command.  Version issue?
+
+RUN npm install --unsafe-perm --global mermaid.cli
 
 ## Run as current user, inspired by:
 ## https://jtreminio.com/blog/running-docker-containers-as-current-host-user/#ok-so-what-actually-works
