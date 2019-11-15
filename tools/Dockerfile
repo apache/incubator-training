@@ -17,40 +17,10 @@
 #############################################################################
 # Dockerfile with many of the tools necessary for diagram generation
 #
-# A comprehensive list of asciidoctor diagramming tools and their
-# requirements can be found at:
-# - https://github.com/asciidoctor/asciidoctor-diagram
-#
-# You can find examples in the tools/maven-revealjs-asciidocter-template/
-# presentation. A typical presentation will not use ALL of these tools.
-#
-# To build this image:
-#
-# docker image build --build-arg USER_ID=$(id -u ${USER}) --build-arg GROUP_ID=$(id -g ${USER}) -t training-build .
-#
-# (Passing the `USER_ID` and `GROUP_ID` is useful to build presentations with
-# the same user and permissions inside the docker container.)
-#
-# To build a presentation using this image:
-#
-# cd incubator-training/tools/maven-revealjs-asciidoctor-template/
-# docker run -it --rm --volume $PWD:/opt/workdir training-build:latest -c "mvn clean package"
-#
-# Alternatively, you can include a reference to your local .m2 to speed up the build:
-#
-# docker run -it --rm --volume $HOME/.m2:/home/docker-user/.m2 --volume $PWD:/opt/workdir training-build:latest
-#
-# To run the presentation using jetty:
-#
-# docker run -it --rm --publish 58080:8080/tcp --volume $HOME/.m2:/home/docker-user/.m2 --volume $PWD:/opt/workdir training-build:latest -c "mvn jetty:run-exploded"
-#
-# Alternatively, you can serve the pages in the target/generated-slides/
-# directory using any web server:
-#
-# docker run -d --name my-tmp-httpd -p 58080:80 -v $PWD/target/generated-slides/:/usr/local/apache2/htdocs/:ro httpd:2.4
+# See tools/maven-revealjs-asciidoctor-template/README.md for usage.
 #
 
-# Start bt building some tools using a multistage docker.
+# Start by building some tools using a multistage docker
 # ===========================================================================
 
 FROM haskell:8 as tool-haskell-builder
@@ -89,7 +59,7 @@ RUN python3 -m pip install --upgrade pip setuptools seqdiag blockdiag \
     actdiag nwdiag
 
 # Meme generator ------------------------------------------------------------
-# Requires: ImageMagick (for convert and
+# Requires: ImageMagick (for convert and identify)
 RUN dnf install -y epel-release
 RUN dnf install -y ImageMagick
 
