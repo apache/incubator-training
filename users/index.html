@@ -9,19 +9,19 @@
           
         <head>
     <meta charset="UTF-8" />
-    <title>Apache Training™ (Incubating) - Project Information</title>
+    <title>Apache Training™ (Incubating) - Creating Presentation with Apache Training</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
       <meta http-equiv="content-language" content="en" />
-                                                                <link href="./css/bootstrap.min.css" rel="stylesheet" />
-                <link href="./css/docs.css" rel="stylesheet" />
-    <link href="./css/reflow-skin.css" rel="stylesheet" />
+                                                                <link href="../css/bootstrap.min.css" rel="stylesheet" />
+                <link href="../css/docs.css" rel="stylesheet" />
+    <link href="../css/reflow-skin.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="./js/styles/default.min.css" />
+    <link rel="stylesheet" href="../js/styles/default.min.css" />
 
-    <link href="./css/lightbox.css" rel="stylesheet" />
-    <link href="./css/site.css" rel="stylesheet" />
-    <link href="./css/print.css" rel="stylesheet" media="print" />
+    <link href="../css/lightbox.css" rel="stylesheet" />
+    <link href="../css/site.css" rel="stylesheet" />
+    <link href="../css/print.css" rel="stylesheet" media="print" />
 <script>
           document.addEventListener("DOMContentLoaded", function(event) {
             /* Add an image for promoting Apache events below the right banner */
@@ -31,7 +31,7 @@
           });
         </script>
         </head> <!-- end : head -->
-    <body class="page-project-info project-training-website">
+    <body class="page-users-index project-training-website">
 
     <div id="m-top-navbar" class="navbar  navbar-default navbar-fixed-top">
       <div class="container">
@@ -44,28 +44,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                        <a class="navbar-brand" href=".">Apache Training (Incubating)</a>
+                        <a class="navbar-brand" href="..">Apache Training (Incubating)</a>
         </div> <!-- .navbar-header -->
         <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
+                            <li class="dropdown active">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Users <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li ><a  href="downloads.html"  title="Downloads" >Downloads</a></li>
-                    <li ><a  href="users/index.html"  title="Getting Started" >Getting Started</a></li>
+                    <li ><a  href="../downloads.html"  title="Downloads" >Downloads</a></li>
+                                    <li  class="active" ><a  href=""  title="Getting Started" >Getting Started</a></li>
             </ul>
         </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li ><a  href="developers/issues.html"  title="Bug & Issue Tracker" >Bug & Issue Tracker</a></li>
-                    <li ><a  href="developers/building.html"  title="Building Training" >Building Training</a></li>
-                    <li ><a  href="developers/ci.html"  title="Continuous Integration" >Continuous Integration</a></li>
-                    <li ><a  href="developers/contributing.html"  title="Contributing" >Contributing</a></li>
-                    <li ><a  href="developers/decisions.html"  title="Decision Making" >Decision Making</a></li>
-                    <li ><a  href="developers/team.html"  title="Team" >Team</a></li>
-                    <li ><a  href="developers/website.html"  title="Website" >Website</a></li>
-                    <li ><a  href="developers/wiki.html"  title="Wiki" >Wiki</a></li>
+                    <li ><a  href="../developers/issues.html"  title="Bug & Issue Tracker" >Bug & Issue Tracker</a></li>
+                    <li ><a  href="../developers/building.html"  title="Building Training" >Building Training</a></li>
+                    <li ><a  href="../developers/ci.html"  title="Continuous Integration" >Continuous Integration</a></li>
+                    <li ><a  href="../developers/contributing.html"  title="Contributing" >Contributing</a></li>
+                    <li ><a  href="../developers/decisions.html"  title="Decision Making" >Decision Making</a></li>
+                    <li ><a  href="../developers/team.html"  title="Team" >Team</a></li>
+                    <li ><a  href="../developers/website.html"  title="Website" >Website</a></li>
+                    <li ><a  href="../developers/wiki.html"  title="Wiki" >Wiki</a></li>
             </ul>
         </li>
             <li class="dropdown">
@@ -90,7 +90,7 @@
       <div class="col-md-12">
         <div class="pull-left">
                                       <a href="https://training.apache.org/" id="bannerLeft">
-                    <img src="images/training-logo.svg"
+                    <img src="../images/training-logo.svg"
                  alt='"'Apache Training (incubating)'"'
  />            </a>
                     <p class="lead">Training material for Apache projects</p>
@@ -116,8 +116,9 @@
             </div> <!-- .navbar-header -->
         <div class="collapse navbar-collapse" id="toc-nav-collapse">
           <ul id="toc" class="nav navbar-nav">
-                                                            <li class="toplevel"><a href="#_toc_project_information" title="Project Information">Project Information</a></li>
-                        <li class="toplevel"><a href="#_toc_overview" title="Overview">Overview</a></li>
+                                                <li class="toplevel"><a href="#_toc_creating_presentation_with_apache_training1" title="Creating Presentation with Apache Training">Creating Presentation with Apache Training</a></li>
+                        <li class="divider-vertical"></li>
+                        <li class="toplevel"><a href="#_toc_building_the_apache_training_tooling1" title="Building the Apache Training Tooling">Building the Apache Training Tooling</a></li>
           </ul>
         </div>
       </div> <!-- .container -->
@@ -128,63 +129,85 @@
   <div class="row">
     <div class="col-md-12">
       <div class="body-content">
-<div class="section"> 
+<div class="sect1"> 
  <div class="page-header">
-  <h2 id="_toc_project_information">Project Information</h2>
+  <h2 id="_toc_creating_presentation_with_apache_training1">Creating Presentation with Apache Training</h2>
  </div> 
- <p>This document provides an overview of the various documents and links that are part of this project's general information. All of this content is automatically generated by <a class="externalLink" href="http://maven.apache.org">Maven</a> on behalf of the project.</p> 
- <div class="section"> 
-  <h3 id="_toc_overview">Overview</h3> 
-  <table border="0" class="bodyTable table table-striped table-hover"> 
-   <thead> 
-    <tr class="a"> 
-     <th>Document</th> 
-     <th>Description</th> 
-    </tr> 
-   </thead> 
-   <tbody> 
-    <tr class="b"> 
-     <td><a href="dependency-info.html">Dependency Information</a></td> 
-     <td>This document describes how to to include this project as a dependency using various dependency management tools.</td> 
-    </tr> 
-    <tr class="a"> 
-     <td><a href="distribution-management.html">Distribution Management</a></td> 
-     <td>This document provides informations on the distribution management of this project.</td> 
-    </tr> 
-    <tr class="b"> 
-     <td><a href="index.html">About</a></td> 
-     <td>Website for the Apache Training project</td> 
-    </tr> 
-    <tr class="a"> 
-     <td><a href="issue-management.html">Issue Management</a></td> 
-     <td>This document provides information on the issue management system used in this project.</td> 
-    </tr> 
-    <tr class="b"> 
-     <td><a href="licenses.html">Licenses</a></td> 
-     <td>This document lists the project license(s).</td> 
-    </tr> 
-    <tr class="a"> 
-     <td><a href="mailing-lists.html">Mailing Lists</a></td> 
-     <td>This document provides subscription and archive information for this project's mailing lists.</td> 
-    </tr> 
-    <tr class="b"> 
-     <td><a href="plugin-management.html">Plugin Management</a></td> 
-     <td>This document lists the plugins that are defined through pluginManagement.</td> 
-    </tr> 
-    <tr class="a"> 
-     <td><a href="plugins.html">Plugins</a></td> 
-     <td>This document lists the build plugins and the report plugins used by this project.</td> 
-    </tr> 
-    <tr class="b"> 
-     <td><a href="scm.html">Source Code Management</a></td> 
-     <td>This document lists ways to access the online source repository.</td> 
-    </tr> 
-    <tr class="a"> 
-     <td><a href="summary.html">Summary</a></td> 
-     <td>This document lists other related information of this project</td> 
-    </tr> 
-   </tbody> 
-  </table> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>Currently the setup uses <a href="https://asciidoctor.org/">Asciidoctor</a> to write content and builds the presentation using <a href="https://maven.apache.org/">Apache Maven</a> and <a href="https://revealjs.com/#/">Reveal.JS</a>.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>We have prepared everything that it should be pretty simple to get started with creating a new presentation.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Requirements:</p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p>Java 8 or newer</p> </li> 
+    <li> <p>Maven 3.3 or newer</p> </li> 
+   </ul> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Until we have released the tooling, you will need to build it locally first or the archetype plugin will fail to run. Please read the following chapter on how to do this.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>In order to create an empty presentation to start with, please execute the following command:</p> 
+  </div> 
+  <div class="literalblock"> 
+   <div class="content"> 
+    <pre>mvn archetype:generate -DarchetypeGroupId=org.apache.training -DarchetypeArtifactId=content-archetype -DarchetypeVersion=1.0.0-SNAPSHOT</pre> 
+   </div> 
+  </div> 
+  <div class="paragraph"> 
+   <p>After choosing <code>groupId</code>, <code>artifactId</code>, <code>version</code> and <code>package</code> there should be a new directory that matches the <code>artifactId</code> that you selected.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Change into this directory and run the following command to build the presentation:</p> 
+  </div> 
+  <div class="literalblock"> 
+   <div class="content"> 
+    <pre>mvn package</pre> 
+   </div> 
+  </div> 
+  <div class="paragraph"> 
+   <p>After that, there should be a directory <code>target/generated-slides</code>.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>If you open the <code>index.html</code> in that directory your presentation should open in the browser.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="_toc_building_the_apache_training_tooling1">Building the Apache Training Tooling</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>Additional requirements:</p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p>Git</p> </li> 
+   </ul> 
+  </div> 
+  <div class="paragraph"> 
+   <p>In order to build Apache Training Tooling, please checkout the git repo from:</p> 
+  </div> 
+  <div class="literalblock"> 
+   <div class="content"> 
+    <pre>git clone https://gitbox.apache.org/repos/asf/incubator-training.git
+cd incubator-training
+mvn install</pre> 
+   </div> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Then execute the following command:</p> 
+  </div> 
+  <div class="literalblock"> 
+   <div class="content"> 
+    <pre>mvn clean install</pre> 
+   </div> 
+  </div> 
  </div> 
 </div>      </div>
     </div>
@@ -237,15 +260,15 @@
   <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./js/jquery.min.js"></script>
-  <script src="./js/bootstrap.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
 
-  <script src="./js/lightbox.min.js"></script>
+  <script src="../js/lightbox.min.js"></script>
 
-  <script src="./js/reflow-scroll.js"></script>
-	<script src="./js/highlight.min.js"></script>
-  <script src="./js/reflow-skin.js"></script>
-    <script src="./js/anchor.min.js"></script>
+  <script src="../js/reflow-scroll.js"></script>
+	<script src="../js/highlight.min.js"></script>
+  <script src="../js/reflow-skin.js"></script>
+    <script src="../js/anchor.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
             anchors.options = {
