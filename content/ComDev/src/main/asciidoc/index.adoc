@@ -46,21 +46,29 @@ image::Shaz-Grad1-small.png[scaledwidth=75%]
 
 == What is ComDev?
 * 'Community Development' http://community.apache.org/
-* It is a ASF project that isn't focussed on producing software
+* An Apache project that isn't focussed on producing software
 * It plays a key role in helping support collaboration and attracting new contributors
-* Internal and external role
+* It has an internal and external role
 
 [NOTE.speaker]
 --
 How do we develop communities? We help support and grow them.
-Why is it important to support communities? Shouldn they be able to support themselves? (Yes and No)
-The objective is a self sustainting and supporting communitiy but there is a project lifecycle and sometimes projects need a little help just like anyone else.
+Why is it important to support communities? Shouldn't they be able to support themselves? (Yes and No)
+The objective is to create self sustaining communities but there is a lifecycle for open source projects and sometimes projects need a little help just like anyone else.
+We work internally within the ASF and also externally doing things such as outreach.
 --
 
 == What is Community Development?
-* Providing resources and information developing communities
+* Providing resources and information for developing communities
 * Supporting and helping communities grow 
 * Attracting new contributors
+
+[NOTE.speaker]
+--
+The ASF has lots and lots of projects and so we are a central place they can find out information.
+Also if a project has done something good that has helped the community - why not share it with other ASF projects? They may be looking for the same thing!
+New contributors can come from within the ASF or outside it, which is why ComDev has both an internal and external focus.
+--
 
 == Why is it important to support open source communities?
 [%step]
@@ -78,10 +86,10 @@ The objective is a self sustainting and supporting communitiy but there is a pro
 
 [NOTE.speaker]
 --
-The thing is that a lot of people dont realise that they can contribute, or dont know how to 
-So the first thing we focus on is getting the message out to people to let them know that all our projects and I mean all of them are always looking for contributors. People to help with coding, documentation, event management, graphics, webdesign, training and anything else.
+The most important point to note is that a lot of people dont realise that they can contribute, or dont know how to! 
+So the first thing we focus on is getting the message out to people to let them know that all our projects and are always looking for new contributors. People to help with coding, documentation, event management, graphics, webdesign, training and anything else.
 
-The second is giving them information on how to contribute and participate. So as a new person who doenst know anything. We help you get started.
+The second thing we focus on is giving them information on how to contribute and participate. So as a new person who doesn't know anything. We help you get started.
 --
  
 == Community Development at the ASF
@@ -91,11 +99,29 @@ The second is giving them information on how to contribute and participate. So a
 * We also coordinate and manage common tasks within the ASF (eg GSoC,Logo Repository, Info Brochure, Stickers etc)
 * We create tools (eg projects.a.o, people.a.o, reporter.a.o, helpwanted.a.o
 
+[NOTE.speaker]
+--
+Remember I said we dont focus on producing software? We don't! But that doesn't mean that we don't produce any.
+In fact we do provide software tools that make things easier for our projects. So we have a tool where you can find a full project list, what each project is and what technology it uses. (projects.apache.org).
+We also have a tool that helps you find someone on a project (people.apache.org)
+And for the projects who have identified specific tasks they need help with (helpwanted.apache.org)
+We created reporter.apache.org for all projects to use to generate a template for their quarterly board reports.
+--
+
 == Communication
 
 image::handshake-2009183_1920-1.png[scaledwidth=75%]
 
 * Mailing list dev@community.apache.org
+
+
+[NOTE.speaker]
+--
+All our communication happens via a mailing list - dev@community.apache.org
+We introduce ourselves, have discussions, build relationships, make decisions all on the mailing list.
+If you want to know about and understand any ASF community - take a look at their mailing lists.
+Everything is archived so you can easily go back and search.
+--
 
 == Events and Participation
 * ApacheCon https://www.apachecon.com/
