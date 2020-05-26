@@ -77,7 +77,7 @@ New contributors can come from within the ASF or outside it, which is why ComDev
 * Encourage sustainability and attract new contributors
 
 == Contributors - The missing link?
-* Lots open source projects and lots of potential contributors BUT
+* Lots of open source projects and lots of potential contributors BUT
 ** People dont realise they can contribute 
 ** People dont know how to contribute
 ** People may not know where to find out or even ask
