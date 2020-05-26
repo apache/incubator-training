@@ -79,7 +79,7 @@ New contributors can come from within the ASF or outside it, which is why ComDev
 == Contributors - The missing link?
 * Lots of open source projects and lots of potential contributors BUT
 ** People don't realise they can contribute 
-** People dont know how to contribute
+** People don't know how to contribute
 ** People may not know where to find out or even ask
 ** People think only developers can contribute
 * Projects are looking for you!
