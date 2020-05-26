@@ -97,7 +97,7 @@ The second thing we focus on is giving them information on how to contribute and
 * Central place for basic information about where to start
 * We provide tools, processes and advice
 * We also coordinate and manage common tasks within the ASF (eg GSoC,Logo Repository, Info Brochure, Stickers etc)
-* We create tools (eg projects.a.o, people.a.o, reporter.a.o, helpwanted.a.o
+* We create tools (eg projects.a.o, people.a.o, reporter.a.o, helpwanted.a.o)
 
 [NOTE.speaker]
 --
