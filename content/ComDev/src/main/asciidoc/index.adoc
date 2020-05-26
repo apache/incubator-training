@@ -20,7 +20,7 @@
 include::_settings.adoc[]
 :presenter_name: Sharan Foga
 :presenter_company: Apache Software Foundation
-:description: A short 30 minute introduction talk about the what Community Development is
+:description: A short 30 minute introduction talk about what Community Development is
 :keywords: ComDev, Community Development
 :author: Sharan Foga
 :email: sharan@apache.org
@@ -146,4 +146,3 @@ Everything is archived so you can easily go back and search.
 * Mailing List: dev@community.apache.org
 * Twitter @ApacheCommunity
 * Slack : the-asf.slack.com 
-
