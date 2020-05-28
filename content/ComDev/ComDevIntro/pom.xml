@@ -27,13 +27,13 @@
         <!-- Required in our case as per http://maven.apache.org/ref/3.0.3/maven-model/maven.html#class_parent -->
     </parent>
 
-    <artifactId>ComDev</artifactId>
+    <artifactId>ComDevIntro</artifactId>
 
     <groupId>org.apache.training</groupId>
     <version>1.0.0.SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>Training: Tools: Slide Template: Asciidoc to reveal.js Maven war</name>
-    <description>An war project that demonstrates how to integrate convert Asciidoc to a reveal.js presentation with the Asciidoctor Maven plugin.</description>
+    <name>Introduction to Community Development: What is this ComDev Thing?</name>
+    <description>A short 30 minute introduction talk about what Apache Community Development is.</description>
 
 </project>

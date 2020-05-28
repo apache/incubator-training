@@ -20,7 +20,7 @@
 include::_settings.adoc[]
 :presenter_name: Your Name
 :presenter_company: Your Company
-:description: A short 30 minute introduction talk about what Community Development is
+:description: A short 30 minute introduction talk about what Apache Community Development is
 :keywords: ComDev, Community Development
 :author: Your Name
 :email: Your email 
