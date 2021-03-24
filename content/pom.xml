@@ -36,8 +36,10 @@
 
   <modules>
     <module>ApacheCon</module>
+    <module>ApacheDruid</module>
     <module>ApacheFlink</module>
     <module>ApacheHive</module>
+    <module>ApachePulsar</module>
     <module>ApacheSamza</module>
     <module>ApacheWay</module>
     <module>ComDev</module>
