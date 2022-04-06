@@ -9,7 +9,7 @@
           
         <head>
     <meta charset="UTF-8" />
-    <title>Apache Training™ (Incubating) - Generating the Website</title>
+    <title>Apache Training™ (Incubating) - Building Training Website</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
       <meta http-equiv="content-language" content="en" />
@@ -31,7 +31,7 @@
           });
         </script>
         </head> <!-- end : head -->
-    <body class="page-developers-website project-training-website">
+    <body class="page-developers-building-website project-training-website">
 
     <div id="m-top-navbar" class="navbar  navbar-default navbar-fixed-top">
       <div class="container">
@@ -59,13 +59,13 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li ><a  href="issues.html"  title="Bug & Issue Tracker" >Bug & Issue Tracker</a></li>
-                    <li ><a  href="building-website.html"  title="Building Training Website" >Building Training Website</a></li>
+                                    <li  class="active" ><a  href=""  title="Building Training Website" >Building Training Website</a></li>
                     <li ><a  href="ci.html"  title="Continuous Integration" >Continuous Integration</a></li>
                     <li ><a  href="contributing.html"  title="Contributing" >Contributing</a></li>
                     <li ><a  href="decisions.html"  title="Decision Making" >Decision Making</a></li>
                     <li ><a  href="releasing-tools.html"  title="Releasing (tools)" >Releasing (tools)</a></li>
                     <li ><a  href="team.html"  title="Team" >Team</a></li>
-                                    <li  class="active" ><a  href=""  title="Website" >Website</a></li>
+                    <li ><a  href="website.html"  title="Website" >Website</a></li>
                     <li ><a  href="wiki.html"  title="Wiki" >Wiki</a></li>
             </ul>
         </li>
@@ -117,10 +117,11 @@
             </div> <!-- .navbar-header -->
         <div class="collapse navbar-collapse" id="toc-nav-collapse">
           <ul id="toc" class="nav navbar-nav">
-                                                            <li class="toplevel"><a href="#_toc_generating_the_website1" title="Generating the Website">Generating the Website</a></li>
-                        <li class="toplevel"><a href="#_toc_providing_new_content1" title="Providing new content">Providing new content</a></li>
-                        <li class="toplevel"><a href="#_toc_adding_links_to_menus1" title="Adding links to menus">Adding links to menus</a></li>
-                        <li class="toplevel"><a href="#_toc_deploying_the_website1" title="Deploying the Website">Deploying the Website</a></li>
+                                                            <li class="toplevel"><a href="#_toc_building_training_website1" title="Building Training Website">Building Training Website</a></li>
+                        <li class="toplevel"><a href="#_toc_requirements1" title="Requirements">Requirements</a></li>
+                        <li class="toplevel"><a href="#_toc_using_the_maven-wrapper" title="Using the Maven-Wrapper">Using the Maven-Wrapper</a></li>
+                        <li class="toplevel"><a href="#_toc_using_maven1" title="Using Maven">Using Maven</a></li>
+                        <li class="toplevel"><a href="#_toc_building_the_apache_training_website_with_maven1" title="Building the Apache Training Website with Maven">Building the Apache Training Website with Maven</a></li>
           </ul>
         </div>
       </div> <!-- .container -->
@@ -133,182 +134,88 @@
       <div class="body-content">
 <div class="sect1"> 
  <div class="page-header">
-  <h2 id="_toc_generating_the_website1">Generating the Website</h2>
+  <h2 id="_toc_building_training_website1">Building Training Website</h2>
  </div> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>We are currently using the normal <code>Maven</code> build to not only generate the project artifacts, but also the project’s website.</p> 
+   <p>The Apache Training Website is built with <code>Apache Maven</code> and we have tried to make the build as simple as possible.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>In order to provide content, every module can have a <code>src/site</code> directory. This content will be generated to those modules site-part.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>The <code>skin</code> being used to generate the site is none of the default <code>Maven</code> skins, but a more up-to-date looking skin using:</p> 
-  </div> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p>Bootstrap (For the CSS)</p> </li> 
-    <li> <p>JQuery (For the JavaScript magic)</p> </li> 
-    <li> <p>Fontawesome (For icons and symbols)</p> </li> 
-   </ul> 
-  </div> 
-  <div class="paragraph"> 
-   <p>But we don’t have to worry about the details, all is configured to be used automatically.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>The site content itself is generated from <code>asciidoc</code> files (ending <code>.adoc</code>) which is a simple yet powerful markup language. (See <a href="http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/">AsciiDoc Syntax Quick Reference</a> or <a href="https://powerman.name/doc/asciidoc">AsciiDoc cheatsheet</a> for details)</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Beyond the basic goodies, the build is also configured to generate images from ASCII data using the <code>asciidoctor-diagram</code> plugin.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>This allows us to generate images like the ones on the <a href="http://plc4x.apache.org/plc4j/plc4j-protocols/plc4j-protocol-s7/index.html">S7 Protocol Description page</a></p> 
+   <p>For your convenience we also have provided a <code>Maven-Wrapper</code>, that should allow building with <code>Java 8</code> or greater as a requirement.</p> 
   </div> 
   <div class="sect2"> 
-   <h3 id="_toc_providing_new_content1">Providing new content</h3> 
+   <h3 id="_toc_requirements1">Requirements</h3> 
    <div class="paragraph"> 
-    <p>Within the <code>src/site</code> directory, there is a file <code>site.xml</code> which generally controls the menu and the look of the site.</p> 
+    <p>The only requirements for building the Apache Training website should be:</p> 
+   </div> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>Java 8 JDK (or newer)</p> </li> 
+     <li> <p>Apache Maven (3.1.0 or newer) <strong>(Optional)</strong></p> </li> 
+    </ul> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="_toc_using_the_maven-wrapper">Using the Maven-Wrapper</h3> 
+   <div class="paragraph"> 
+    <p>The so-called <code>Maven-Wrapper</code> is used by calling the Maven-Wrapper scripts <code>mvnw</code> (Mac &amp; Linux) or <code>mvnw.cmd</code> (Windows) instead of the default Maven commands <code>mvn</code> and <code>mvn.cmd</code>.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>Most settings are inherited from the <code>training</code> parent module. That’s also why this is more complicated than the others.</p> 
+    <p>These helpers ensure Maven is available in at least the version defined in <code>.mvn/maven-wrapper.properties</code>. If no suitable version can be found, it is automatically downloaded and installed alongside the project (So it doesn’t have to be downloaded every time and every project can have its own Maven version)</p> 
    </div> 
    <div class="paragraph"> 
-    <p>The <code>site.xml</code> file is optional. Even if this is not available a site will be generated however no additional content will be linked from any of the navigation menus.</p> 
+    <p>After the script has ensured a suitable Maven version is available, this is used and all arguments and parameters are transparently forwarded to this. So simply adding the additional <code>w</code> to each of the Maven commands, there should be no difference to using a pre-installed Maven version.</p> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="_toc_using_maven1">Using Maven</h3> 
+   <div class="paragraph"> 
+    <p>This document can’t provide you with all the details needed to get started with <code>Maven</code> itself. But there is a lot of good documentation out there.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>So if we wanted to add a new page on some (hopefully non-existent) <code>Cool content</code>, we would create a file called:</p> 
+    <p>Justin Mclean and Christofer Dutz even recorded a not quite 2 hour Maven training Video some time ago for another Apache project.</p> 
    </div> 
    <div class="paragraph"> 
-    <p><code>index.adoc</code> in the <code>src/site/asciidoc/content/cool</code> directory.</p> 
+    <p>It should handle all the details needed to get a general understanding of Maven and how it works.</p> 
    </div> 
-   <div class="paragraph"> 
-    <p>For example with this content:</p> 
-   </div> 
-   <div class="listingblock"> 
+   <div class="videoblock"> 
+    <div class="title">
+      Recording of a Maven Training for Apache Flex from 2016 
+    </div> 
     <div class="content"> 
-     <pre class="prettyprint highlight"><code>== Cool Hello World
-
-Here comes some extremely cool content.</code></pre> 
+     <iframe width="640" height="420" src="https://player.vimeo.com/video/167857327" frameborder="0" allowfullscreen></iframe> 
     </div> 
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="_toc_adding_links_to_menus1">Adding links to menus</h3> 
+   <h3 id="_toc_building_the_apache_training_website_with_maven1">Building the Apache Training Website with Maven</h3> 
    <div class="paragraph"> 
-    <p>In order to add links to the menus, you have to create or modify the <code>site.xml</code> for the module you want to add content to.</p> 
+    <p>The Training Website is also part of the same GIT repository that contains the code and it is built by Maven as well.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>The simplest form would probably be something like this:</p> 
+    <p>In order to build the website the following command should be sufficient:</p> 
    </div> 
-   <div class="listingblock"> 
+   <div class="literalblock"> 
     <div class="content"> 
-     <pre class="prettyprint highlight"><code>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
-&lt;!--
-
- Licensed to the Apache Software Foundation (ASF) under one or more
- contributor license agreements.  See the NOTICE file distributed with
- this work for additional information regarding copyright ownership.
- The ASF licenses this file to You under the Apache License, Version 2.0
- (the "License"); you may not use this file except in compliance with
- the License.  You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-
- --&gt;
-&lt;project name="Training"&gt;
-
-  &lt;body&gt;
-    &lt;menu name="content"&gt;
-      &lt;item name="cool" href="https://training.apache.org/content/cool.html"/&gt;
-    &lt;/menu&gt;
-  &lt;/body&gt;
-
-&lt;/project&gt;</code></pre> 
+     <pre>mvn site</pre> 
     </div> 
    </div> 
    <div class="paragraph"> 
-    <p>This will generate a <code>content</code> menu at the end, and this has one link named <code>cool</code>.</p> 
+    <p>However, this will generate the website for each module inside it’s <code>target/site</code> directory. Opening this in a browser and navigating from pages of one module to another will not work as these links expect a different directory structure. In order to create a fully navigatable version of the Website, the following command should be sufficient:</p> 
    </div> 
-   <div class="paragraph"> 
-    <p>Notice that the link has to have a file ending of <code>.html</code> and not <code>.adoc</code>.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>If you want to insert the menu somewhere else, you will have to re-define the entire menu.</p> 
-   </div> 
-   <div class="listingblock"> 
+   <div class="literalblock"> 
     <div class="content"> 
-     <pre class="prettyprint highlight"><code>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
-&lt;!--
-
- Licensed to the Apache Software Foundation (ASF) under one or more
- contributor license agreements.  See the NOTICE file distributed with
- this work for additional information regarding copyright ownership.
- The ASF licenses this file to You under the Apache License, Version 2.0
- (the "License"); you may not use this file except in compliance with
- the License.  You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-
- --&gt;
-&lt;project name="Training"&gt;
-
-  &lt;body&gt;
-
-      &lt;menu ref="reports" inherit="top"/&gt;
-      &lt;menu ref="parent" inherit="top"/&gt;
-
-      &lt;menu name="content"&gt;
-        &lt;item name="cool" href="https://training.apache.org/content/cool.html"/&gt;
-      &lt;/menu&gt;
-
-      &lt;menu ref="modules" inherit="top"/&gt;
-
-  &lt;/body&gt;
-
-&lt;/project&gt;</code></pre> 
+     <pre>mvn site site:stage</pre> 
     </div> 
    </div> 
    <div class="paragraph"> 
-    <p>The <code>menu ref</code> items hereby reference standard menus provided by the <code>Maven</code> build.</p> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="_toc_deploying_the_website1">Deploying the Website</h3> 
-   <div class="paragraph"> 
-    <p>The Apache Training project uses Apache <code>gitpubsub</code> system for maintaining the website.</p> 
+    <p>This will generate an additional <code>target/staging</code> directory which contains the fully functional version.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>In general, all content in a repos <code>asf-site</code> branch is copied to the web servers, if that repo is registered for it.</p> 
+    <p>A lot of documentation on Maven suggests to use the <code>site:site</code> goal directly instead of calling the <code>site</code> phase, but in case of Apache Training there is more than just the site generation that has to be executed.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>The content in this branch is generated and maintained during the <code>Maven</code> build as part of the <code>site</code> generation if the <code>site-deploy</code> phase is executed.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>The build system needs to check-in content to the <code>asf-site</code> branch and usually the ASF Jenkins nodes don’t have the permissions to do that.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>In order to be able to push to the <code>asf-site</code> GIT branch, a dedicated build job is configured to build on nodes with the Jenkins label <code>git-websites</code>.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>Only on these machines are jobs allowed to push changes to a Git repo and here only to a branch named <code>asf-site</code>.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>See <a href="https://builds.apache.org/view/S-Z/view/Training%20(incubating)/job/Training%20Multi-Branch%20Pipeline/" class="bare">https://builds.apache.org/view/S-Z/view/Training%20(incubating)/job/Training%20Multi-Branch%20Pipeline/</a> for details on the Training Jenkins Website build job.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>As soon as the content is updated in the <code>asf-site</code> the <code>gitpubsub</code> mechanism will make those changes available at <a href="https://training.apache.org" class="bare">https://training.apache.org</a></p> 
+    <p>This is just a quick-start version of the site generation, for fully detailed documentation please read the <a href="http://training.apache.org/developers/website.html">Website</a> documentation page.</p> 
    </div> 
   </div> 
  </div> 

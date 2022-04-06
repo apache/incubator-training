@@ -9,19 +9,19 @@
           
         <head>
     <meta charset="UTF-8" />
-    <title>Apache Training™ (Incubating) - Building Training Website</title>
+    <title>Apache Training™ (Incubating) - Project Dependency Management</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
       <meta http-equiv="content-language" content="en" />
-                                                                <link href="../css/bootstrap.min.css" rel="stylesheet" />
-                <link href="../css/docs.css" rel="stylesheet" />
-    <link href="../css/reflow-skin.css" rel="stylesheet" />
+                                                                <link href="./css/bootstrap.min.css" rel="stylesheet" />
+                <link href="./css/docs.css" rel="stylesheet" />
+    <link href="./css/reflow-skin.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="../js/styles/default.min.css" />
+    <link rel="stylesheet" href="./js/styles/default.min.css" />
 
-    <link href="../css/lightbox.css" rel="stylesheet" />
-    <link href="../css/site.css" rel="stylesheet" />
-    <link href="../css/print.css" rel="stylesheet" media="print" />
+    <link href="./css/lightbox.css" rel="stylesheet" />
+    <link href="./css/site.css" rel="stylesheet" />
+    <link href="./css/print.css" rel="stylesheet" media="print" />
 <script>
           document.addEventListener("DOMContentLoaded", function(event) {
             /* Add an image for promoting Apache events below the right banner */
@@ -31,7 +31,7 @@
           });
         </script>
         </head> <!-- end : head -->
-    <body class="page-developers-building project-training-website">
+    <body class="page-dependency-management project-training-website">
 
     <div id="m-top-navbar" class="navbar  navbar-default navbar-fixed-top">
       <div class="container">
@@ -44,28 +44,29 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                        <a class="navbar-brand" href="..">Apache Training (Incubating)</a>
+                        <a class="navbar-brand" href=".">Apache Training (Incubating)</a>
         </div> <!-- .navbar-header -->
         <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Users <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li ><a  href="../downloads.html"  title="Downloads" >Downloads</a></li>
-                    <li ><a  href="../users/index.html"  title="Getting Started" >Getting Started</a></li>
+                    <li ><a  href="downloads.html"  title="Downloads" >Downloads</a></li>
+                    <li ><a  href="users/index.html"  title="Getting Started" >Getting Started</a></li>
             </ul>
         </li>
-                            <li class="dropdown active">
+            <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li ><a  href="issues.html"  title="Bug & Issue Tracker" >Bug & Issue Tracker</a></li>
-                                    <li  class="active" ><a  href=""  title="Building Training" >Building Training</a></li>
-                    <li ><a  href="ci.html"  title="Continuous Integration" >Continuous Integration</a></li>
-                    <li ><a  href="contributing.html"  title="Contributing" >Contributing</a></li>
-                    <li ><a  href="decisions.html"  title="Decision Making" >Decision Making</a></li>
-                    <li ><a  href="team.html"  title="Team" >Team</a></li>
-                    <li ><a  href="website.html"  title="Website" >Website</a></li>
-                    <li ><a  href="wiki.html"  title="Wiki" >Wiki</a></li>
+                    <li ><a  href="developers/issues.html"  title="Bug & Issue Tracker" >Bug & Issue Tracker</a></li>
+                    <li ><a  href="developers/building-website.html"  title="Building Training Website" >Building Training Website</a></li>
+                    <li ><a  href="developers/ci.html"  title="Continuous Integration" >Continuous Integration</a></li>
+                    <li ><a  href="developers/contributing.html"  title="Contributing" >Contributing</a></li>
+                    <li ><a  href="developers/decisions.html"  title="Decision Making" >Decision Making</a></li>
+                    <li ><a  href="developers/releasing-tools.html"  title="Releasing (tools)" >Releasing (tools)</a></li>
+                    <li ><a  href="developers/team.html"  title="Team" >Team</a></li>
+                    <li ><a  href="developers/website.html"  title="Website" >Website</a></li>
+                    <li ><a  href="developers/wiki.html"  title="Wiki" >Wiki</a></li>
             </ul>
         </li>
             <li class="dropdown">
@@ -90,7 +91,7 @@
       <div class="col-md-12">
         <div class="pull-left">
                                       <a href="https://training.apache.org/" id="bannerLeft">
-                    <img src="../images/training-logo.svg"
+                    <img src="images/training-logo.svg"
                  alt='"'Apache Training (incubating)'"'
  />            </a>
                     <p class="lead">Training material for Apache projects</p>
@@ -116,11 +117,8 @@
             </div> <!-- .navbar-header -->
         <div class="collapse navbar-collapse" id="toc-nav-collapse">
           <ul id="toc" class="nav navbar-nav">
-                                                            <li class="toplevel"><a href="#_toc_building_training_website1" title="Building Training Website">Building Training Website</a></li>
-                        <li class="toplevel"><a href="#_toc_requirements1" title="Requirements">Requirements</a></li>
-                        <li class="toplevel"><a href="#_toc_using_the_maven-wrapper" title="Using the Maven-Wrapper">Using the Maven-Wrapper</a></li>
-                        <li class="toplevel"><a href="#_toc_using_maven1" title="Using Maven">Using Maven</a></li>
-                        <li class="toplevel"><a href="#_toc_building_the_apache_training_website_with_maven1" title="Building the Apache Training Website with Maven">Building the Apache Training Website with Maven</a></li>
+                                                            <li class="toplevel"><a href="#_toc_project_dependency_management" title="Project Dependency Management">Project Dependency Management</a></li>
+                        <li class="toplevel"><a href="#_toc_compile1" title="compile">compile</a></li>
           </ul>
         </div>
       </div> <!-- .container -->
@@ -131,92 +129,35 @@
   <div class="row">
     <div class="col-md-12">
       <div class="body-content">
-<div class="sect1"> 
+<div class="section"> 
  <div class="page-header">
-  <h2 id="_toc_building_training_website1">Building Training Website</h2>
+  <h2 id="_toc_project_dependency_management">Project Dependency Management</h2>
  </div> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>The Apache Training Website is built with <code>Apache Maven</code> and we have tried to make the build as simple as possible.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>For your convenience we also have provided a <code>Maven-Wrapper</code>, that should allow building with <code>Java 8</code> or greater as a requirement.</p> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="_toc_requirements1">Requirements</h3> 
-   <div class="paragraph"> 
-    <p>The only requirements for building the Apache Training website should be:</p> 
-   </div> 
-   <div class="ulist"> 
-    <ul> 
-     <li> <p>Java 8 JDK (or newer)</p> </li> 
-     <li> <p>Apache Maven (3.1.0 or newer) <strong>(Optional)</strong></p> </li> 
-    </ul> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="_toc_using_the_maven-wrapper">Using the Maven-Wrapper</h3> 
-   <div class="paragraph"> 
-    <p>The so-called <code>Maven-Wrapper</code> is used by calling the Maven-Wrapper scripts <code>mvnw</code> (Mac &amp; Linux) or <code>mvnw.cmd</code> (Windows) instead of the default Maven commands <code>mvn</code> and <code>mvn.cmd</code>.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>These helpers ensure Maven is available in at least the version defined in <code>.mvn/maven-wrapper.properties</code>. If no suitable version can be found, it is automatically downloaded and installed alongside the project (So it doesn’t have to be downloaded every time and every project can have its own Maven version)</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>After the script has ensured a suitable Maven version is available, this is used and all arguments and parameters are transparently forwarded to this. So simply adding the additional <code>w</code> to each of the Maven commands, there should be no difference to using a pre-installed Maven version.</p> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="_toc_using_maven1">Using Maven</h3> 
-   <div class="paragraph"> 
-    <p>This document can’t provide you with all the details needed to get started with <code>Maven</code> itself. But there is a lot of good documentation out there.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>Justin Mclean and Christofer Dutz even recorded a not quite 2 hour Maven training Video some time ago for another Apache project.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>It should handle all the details needed to get a general understanding of Maven and how it works.</p> 
-   </div> 
-   <div class="videoblock"> 
-    <div class="title">
-      Recording of a Maven Training for Apache Flex from 2016 
-    </div> 
-    <div class="content"> 
-     <iframe width="640" height="420" src="https://player.vimeo.com/video/167857327" frameborder="0" allowfullscreen></iframe> 
-    </div> 
-   </div> 
-  </div> 
-  <div class="sect2"> 
-   <h3 id="_toc_building_the_apache_training_website_with_maven1">Building the Apache Training Website with Maven</h3> 
-   <div class="paragraph"> 
-    <p>The Training Website is also part of the same GIT repository that contains the code and it is built by Maven as well.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>In order to build the website the following command should be sufficient:</p> 
-   </div> 
-   <div class="literalblock"> 
-    <div class="content"> 
-     <pre>mvn site</pre> 
-    </div> 
-   </div> 
-   <div class="paragraph"> 
-    <p>However, this will generate the website for each module inside it’s <code>target/site</code> directory. Opening this in a browser and navigating from pages of one module to another will not work as these links expect a different directory structure. In order to create a fully navigatable version of the Website, the following command should be sufficient:</p> 
-   </div> 
-   <div class="literalblock"> 
-    <div class="content"> 
-     <pre>mvn site site:stage</pre> 
-    </div> 
-   </div> 
-   <div class="paragraph"> 
-    <p>This will generate an additional <code>target/staging</code> directory which contains the fully functional version.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>A lot of documentation on Maven suggests to use the <code>site:site</code> goal directly instead of calling the <code>site</code> phase, but in case of Apache Training there is more than just the site generation that has to be executed.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>This is just a quick-start version of the site generation, for fully detailed documentation please read the <a href="http://training.apache.org/developers/website.html">Website</a> documentation page.</p> 
-   </div> 
-  </div> 
+ <a name="Project_Dependency_Management"></a> 
+ <div class="section"> 
+  <h3 id="_toc_compile1">compile</h3> 
+  <a name="compile"></a> 
+  <p>The following is a list of compile dependencies in the DependencyManagement of this project. These dependencies can be included in the submodules to compile and run the submodule:</p> 
+  <table border="0" class="bodyTable table table-striped table-hover"> 
+   <thead> 
+    <tr class="a"> 
+     <th>GroupId</th> 
+     <th>ArtifactId</th> 
+     <th>Version</th> 
+     <th>Type</th> 
+     <th>License</th> 
+    </tr> 
+   </thead> 
+   <tbody> 
+    <tr class="b"> 
+     <td>org.apache.maven.plugin-tools</td> 
+     <td><a class="externalLink" href="https://maven.apache.org/plugin-tools/maven-plugin-annotations">maven-plugin-annotations</a></td> 
+     <td>3.6.4</td> 
+     <td>jar</td> 
+     <td><a class="externalLink" href="https://www.apache.org/licenses/LICENSE-2.0.txt">Apache License, Version 2.0</a></td> 
+    </tr> 
+   </tbody> 
+  </table> 
  </div> 
 </div>      </div>
     </div>
@@ -259,7 +200,7 @@
     <div class="row">
       <div class="col-md-12">
         <p class="pull-right"><a id="m-scroll-top" href="#">Back to top</a></p>
-        <p class="copyright">Copyright &copy;2019-2020                 <a href="https://www.apache.org/">The Apache Software Foundation</a>
+        <p class="copyright">Copyright &copy;2019-2022                 <a href="https://www.apache.org/">The Apache Software Foundation</a>
 . All Rights Reserved.</p>
         <p><a href="https://github.com/devacfr/reflow-maven-skin" title="Reflow Maven skin">Reflow Maven skin</a> by <a href="http://devacfr.github.io" target="_blank" title="devacfr">devacfr</a>.</p>
 
@@ -269,15 +210,15 @@
   <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../js/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
 
-  <script src="../js/lightbox.min.js"></script>
+  <script src="./js/lightbox.min.js"></script>
 
-  <script src="../js/reflow-scroll.js"></script>
-	<script src="../js/highlight.min.js"></script>
-  <script src="../js/reflow-skin.js"></script>
-    <script src="../js/anchor.min.js"></script>
+  <script src="./js/reflow-scroll.js"></script>
+	<script src="./js/highlight.min.js"></script>
+  <script src="./js/reflow-skin.js"></script>
+    <script src="./js/anchor.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
             anchors.options = {

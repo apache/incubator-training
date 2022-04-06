@@ -9,7 +9,7 @@
           
         <head>
     <meta charset="UTF-8" />
-    <title>Apache Training™ (Incubating) - Generating the Website</title>
+    <title>Apache Training™ (Incubating) - Releasing the tools</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
       <meta http-equiv="content-language" content="en" />
@@ -31,7 +31,7 @@
           });
         </script>
         </head> <!-- end : head -->
-    <body class="page-developers-website project-training-website">
+    <body class="page-developers-releasing-tools project-training-website">
 
     <div id="m-top-navbar" class="navbar  navbar-default navbar-fixed-top">
       <div class="container">
@@ -63,9 +63,9 @@
                     <li ><a  href="ci.html"  title="Continuous Integration" >Continuous Integration</a></li>
                     <li ><a  href="contributing.html"  title="Contributing" >Contributing</a></li>
                     <li ><a  href="decisions.html"  title="Decision Making" >Decision Making</a></li>
-                    <li ><a  href="releasing-tools.html"  title="Releasing (tools)" >Releasing (tools)</a></li>
+                                    <li  class="active" ><a  href=""  title="Releasing (tools)" >Releasing (tools)</a></li>
                     <li ><a  href="team.html"  title="Team" >Team</a></li>
-                                    <li  class="active" ><a  href=""  title="Website" >Website</a></li>
+                    <li ><a  href="website.html"  title="Website" >Website</a></li>
                     <li ><a  href="wiki.html"  title="Wiki" >Wiki</a></li>
             </ul>
         </li>
@@ -117,10 +117,11 @@
             </div> <!-- .navbar-header -->
         <div class="collapse navbar-collapse" id="toc-nav-collapse">
           <ul id="toc" class="nav navbar-nav">
-                                                            <li class="toplevel"><a href="#_toc_generating_the_website1" title="Generating the Website">Generating the Website</a></li>
-                        <li class="toplevel"><a href="#_toc_providing_new_content1" title="Providing new content">Providing new content</a></li>
-                        <li class="toplevel"><a href="#_toc_adding_links_to_menus1" title="Adding links to menus">Adding links to menus</a></li>
-                        <li class="toplevel"><a href="#_toc_deploying_the_website1" title="Deploying the Website">Deploying the Website</a></li>
+                                                            <li class="toplevel"><a href="#_toc_releasing_the_tools1" title="Releasing the tools">Releasing the tools</a></li>
+                        <li class="toplevel"><a href="#_toc_creating_a_release_branch1" title="Creating a release branch">Creating a release branch</a></li>
+                        <li class="toplevel"><a href="#_toc_doing_the_release1" title="Doing the release">Doing the release</a></li>
+                        <li class="toplevel"><a href="#_toc_staging_the_release_candidate1" title="Staging the Release Candidate">Staging the Release Candidate</a></li>
+                        <li class="toplevel"><a href="#_toc_sending_out_the_vote_email1" title="Sending out the VOTE email">Sending out the VOTE email</a></li>
           </ul>
         </div>
       </div> <!-- .container -->
@@ -133,182 +134,198 @@
       <div class="body-content">
 <div class="sect1"> 
  <div class="page-header">
-  <h2 id="_toc_generating_the_website1">Generating the Website</h2>
+  <h2 id="_toc_releasing_the_tools1">Releasing the tools</h2>
  </div> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>We are currently using the normal <code>Maven</code> build to not only generate the project artifacts, but also the project’s website.</p> 
+   <p>The tools contain all the parts we need to actually build our presentations.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>In order to provide content, every module can have a <code>src/site</code> directory. This content will be generated to those modules site-part.</p> 
+   <p>They currently consist of 3 parts:</p> 
+  </div> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>The <code>content-parent-resources</code> which contain all the static resources we need to build the presentations.</p> </li> 
+    <li> <p>The <code>content-parent-pom</code> which is pom, when used as parent for a presentation, will make sure all is configured correcty, dramatically reducing the amount of configuration needed.</p> </li> 
+    <li> <p>The <code>content-archetype</code> which is a maven archetype which can be used to generate a new presentation module based on the current <code>content-parent-pom</code>.</p> </li> 
+   </ol> 
   </div> 
   <div class="paragraph"> 
-   <p>The <code>skin</code> being used to generate the site is none of the default <code>Maven</code> skins, but a more up-to-date looking skin using:</p> 
-  </div> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p>Bootstrap (For the CSS)</p> </li> 
-    <li> <p>JQuery (For the JavaScript magic)</p> </li> 
-    <li> <p>Fontawesome (For icons and symbols)</p> </li> 
-   </ul> 
+   <p>As the parts listed later on in this module listing require the previous ones in the build, we can’t release them all in one go, but have to release them one after the other.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>But we don’t have to worry about the details, all is configured to be used automatically.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>The site content itself is generated from <code>asciidoc</code> files (ending <code>.adoc</code>) which is a simple yet powerful markup language. (See <a href="http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/">AsciiDoc Syntax Quick Reference</a> or <a href="https://powerman.name/doc/asciidoc">AsciiDoc cheatsheet</a> for details)</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Beyond the basic goodies, the build is also configured to generate images from ASCII data using the <code>asciidoctor-diagram</code> plugin.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>This allows us to generate images like the ones on the <a href="http://plc4x.apache.org/plc4j/plc4j-protocols/plc4j-protocol-s7/index.html">S7 Protocol Description page</a></p> 
+   <p>This makes releasing this a little trickier, but in the end it’s a lot simpler for our users.</p> 
   </div> 
   <div class="sect2"> 
-   <h3 id="_toc_providing_new_content1">Providing new content</h3> 
+   <h3 id="_toc_creating_a_release_branch1">Creating a release branch</h3> 
    <div class="paragraph"> 
-    <p>Within the <code>src/site</code> directory, there is a file <code>site.xml</code> which generally controls the menu and the look of the site.</p> 
+    <p>First we need to create a release branch.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>Most settings are inherited from the <code>training</code> parent module. That’s also why this is more complicated than the others.</p> 
+    <p>Do this the following way:</p> 
    </div> 
-   <div class="paragraph"> 
-    <p>The <code>site.xml</code> file is optional. Even if this is not available a site will be generated however no additional content will be linked from any of the navigation menus.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>So if we wanted to add a new page on some (hopefully non-existent) <code>Cool content</code>, we would create a file called:</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p><code>index.adoc</code> in the <code>src/site/asciidoc/content/cool</code> directory.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>For example with this content:</p> 
-   </div> 
-   <div class="listingblock"> 
+   <div class="literalblock"> 
     <div class="content"> 
-     <pre class="prettyprint highlight"><code>== Cool Hello World
-
-Here comes some extremely cool content.</code></pre> 
+     <pre>mvn release:branch -DbranchName=releases/tools/1.0</pre> 
+    </div> 
+   </div> 
+   <div class="admonitionblock note"> 
+    <table> 
+     <tbody> 
+      <tr> 
+       <td class="icon"> 
+        <div class="title">
+          Note 
+        </div> </td> 
+       <td class="content"> We’re not using the full version here, as this branch should also contain the bugfix releases and the tags will have the name using the full version. If we used that for the branch itself we would get name collisions during the release. </td> 
+      </tr> 
+     </tbody> 
+    </table> 
+   </div> 
+   <div class="paragraph"> 
+    <p>After this command is done, we will still be on the <code>develop</code> branch. In order to actually start the release, we need to switch to the release branch which was previously created.</p> 
+   </div> 
+   <div class="literalblock"> 
+    <div class="content"> 
+     <pre>git checkout releases/tools/1.0</pre> 
     </div> 
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="_toc_adding_links_to_menus1">Adding links to menus</h3> 
+   <h3 id="_toc_doing_the_release1">Doing the release</h3> 
    <div class="paragraph"> 
-    <p>In order to add links to the menus, you have to create or modify the <code>site.xml</code> for the module you want to add content to.</p> 
+    <p>The release itself is done via the <code>maven-release-plugin</code>.</p> 
    </div> 
-   <div class="paragraph"> 
-    <p>The simplest form would probably be something like this:</p> 
-   </div> 
-   <div class="listingblock"> 
+   <div class="literalblock"> 
     <div class="content"> 
-     <pre class="prettyprint highlight"><code>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
-&lt;!--
-
- Licensed to the Apache Software Foundation (ASF) under one or more
- contributor license agreements.  See the NOTICE file distributed with
- this work for additional information regarding copyright ownership.
- The ASF licenses this file to You under the Apache License, Version 2.0
- (the "License"); you may not use this file except in compliance with
- the License.  You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-
- --&gt;
-&lt;project name="Training"&gt;
-
-  &lt;body&gt;
-    &lt;menu name="content"&gt;
-      &lt;item name="cool" href="https://training.apache.org/content/cool.html"/&gt;
-    &lt;/menu&gt;
-  &lt;/body&gt;
-
-&lt;/project&gt;</code></pre> 
+     <pre>mvn release:prepare</pre> 
     </div> 
    </div> 
    <div class="paragraph"> 
-    <p>This will generate a <code>content</code> menu at the end, and this has one link named <code>cool</code>.</p> 
+    <p>The plugin will ask some questions.</p> 
+   </div> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>For the new-release version, just hit <code>[Enter]</code> and use the default.</p> </li> 
+     <li> <p>For the release tag use: releases/tools/1.0.0 (Or the version used in the question before)</p> </li> 
+     <li> <p>For the next development version, again just hit <code>[Enter]</code> and use the default.</p> </li> 
+    </ul> 
    </div> 
    <div class="paragraph"> 
-    <p>Notice that the link has to have a file ending of <code>.html</code> and not <code>.adoc</code>.</p> 
+    <p>The plugin will now:</p> 
+   </div> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>Check if there are any uncommitted files in the release and abort if it finds any.</p> </li> 
+     <li> <p>Then it will update the versions of all artifacts in the reactor to the release version.</p> </li> 
+     <li> <p>Then check if now any SNAPSHOT version is used and ask to resolve them to release versions if it finds any (If it finds any, this should be addressed as it should not happen)</p> </li> 
+     <li> <p>Then it does a build including tests in order to see if it builds with the new version.</p> </li> 
+     <li> <p>If this build is ok, it commits the changed poms with the new versions.</p> </li> 
+     <li> <p>Then it tags this version</p> </li> 
+     <li> <p>Then it changes the versions to the next version</p> </li> 
+     <li> <p>Then it commits these changes too</p> </li> 
+     <li> <p>Then it pushes the changes</p> </li> 
+    </ul> 
    </div> 
    <div class="paragraph"> 
-    <p>If you want to insert the menu somewhere else, you will have to re-define the entire menu.</p> 
+    <p>The next step now uses the release tag created in the previous step and builds the release artifacts.</p> 
    </div> 
-   <div class="listingblock"> 
+   <div class="literalblock"> 
     <div class="content"> 
-     <pre class="prettyprint highlight"><code>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
-&lt;!--
-
- Licensed to the Apache Software Foundation (ASF) under one or more
- contributor license agreements.  See the NOTICE file distributed with
- this work for additional information regarding copyright ownership.
- The ASF licenses this file to You under the Apache License, Version 2.0
- (the "License"); you may not use this file except in compliance with
- the License.  You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
-
- --&gt;
-&lt;project name="Training"&gt;
-
-  &lt;body&gt;
-
-      &lt;menu ref="reports" inherit="top"/&gt;
-      &lt;menu ref="parent" inherit="top"/&gt;
-
-      &lt;menu name="content"&gt;
-        &lt;item name="cool" href="https://training.apache.org/content/cool.html"/&gt;
-      &lt;/menu&gt;
-
-      &lt;menu ref="modules" inherit="top"/&gt;
-
-  &lt;/body&gt;
-
-&lt;/project&gt;</code></pre> 
+     <pre>mvn release:perform</pre> 
     </div> 
    </div> 
    <div class="paragraph"> 
-    <p>The <code>menu ref</code> items hereby reference standard menus provided by the <code>Maven</code> build.</p> 
+    <p>This now will:</p> 
+   </div> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>Checkout the tag into the "target/checkout" directory</p> </li> 
+     <li> <p>Run a <code>mvn deploy</code> build in this clean checkout with enabled <code>apache-release</code> profile</p> </li> 
+     <li> <p>In this build - due to the <code>apache-release</code> profile - will also build <code>source</code> jars, <code>javadoc</code> jars, create a source distribution</p> </li> 
+     <li> <p>Create md5 hashes for all artifacts</p> </li> 
+     <li> <p>Sign all artifacts with your GPG Keys</p> </li> 
+     <li> <p>Deploy everything to the <code>Apache Nexus</code> Staging repository</p> </li> 
+    </ul> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Last thing you need to do after a successful execution of the release:perform step, is:</p> 
+   </div> 
+   <div class="ulist"> 
+    <ul> 
+     <li> <p>To log in to Apache’s Nexus at: <a href="https://repository.apache.org/#welcome" class="bare">https://repository.apache.org/#welcome</a> (using your apache credentials)</p> </li> 
+     <li> <p>Select <code>Staging Repositories</code> in the <code>Build Promotion</code> menu on the left-hand side (If you can’t see it, you’ve probably not logged in)</p> </li> 
+     <li> <p>Use the search box of the <code>Staging Repositories</code> tab and search for "training" (It will probably have only one)</p> </li> 
+     <li> <p>Select the entry.</p> </li> 
+     <li> <p>Click on the <code>Close</code> button.</p> </li> 
+     <li> <p>Enter a meaningful message and click <code>Confirm</code></p> </li> 
+     <li> <p>Hit the <code>Refresh</code> button in the tab untill the column <code>Status</code> changes from <code>open</code> to <code>closed</code></p> </li> 
+     <li> <p>Copy the <code>URL</code> displayed in the details tab for the selected staging repo (In my case: <a href="https://repository.apache.org/content/repositories/orgapachetraining-1000" class="bare">https://repository.apache.org/content/repositories/orgapachetraining-1000</a>)</p> </li> 
+    </ul> 
+   </div> 
+   <div class="paragraph"> 
+    <p>We’re now done with the preparation of the RC from a Maven perspective.</p> 
+   </div> 
+   <div class="paragraph"> 
+    <p>Next we need to stage the source bundle we will be voting on.</p> 
    </div> 
   </div> 
   <div class="sect2"> 
-   <h3 id="_toc_deploying_the_website1">Deploying the Website</h3> 
+   <h3 id="_toc_staging_the_release_candidate1">Staging the Release Candidate</h3> 
    <div class="paragraph"> 
-    <p>The Apache Training project uses Apache <code>gitpubsub</code> system for maintaining the website.</p> 
+    <p>What we’ve staged in Nexus is the <code>convenience binaries</code> part of the release, the official release will be the source bundle located in SVN.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>In general, all content in a repos <code>asf-site</code> branch is copied to the web servers, if that repo is registered for it.</p> 
+    <p>These will be located under: <a href="https://dist.apache.org/repos/dist/dev/incubator/training/" class="bare">https://dist.apache.org/repos/dist/dev/incubator/training/</a></p> 
    </div> 
    <div class="paragraph"> 
-    <p>The content in this branch is generated and maintained during the <code>Maven</code> build as part of the <code>site</code> generation if the <code>site-deploy</code> phase is executed.</p> 
+    <p>In our case the tools will be located in a sub-directory <code>tools</code>, so the final path to the <code>RC1</code> of version <code>1.0.0</code> will be: <a href="https://dist.apache.org/repos/dist/dev/incubator/training/tools/1.0.0/rc1" class="bare">https://dist.apache.org/repos/dist/dev/incubator/training/tools/1.0.0/rc1</a></p> 
    </div> 
    <div class="paragraph"> 
-    <p>The build system needs to check-in content to the <code>asf-site</code> branch and usually the ASF Jenkins nodes don’t have the permissions to do that.</p> 
+    <p>I usually prepare a local directory containing all parts and then just import them into SVN in one go.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>In order to be able to push to the <code>asf-site</code> GIT branch, a dedicated build job is configured to build on nodes with the Jenkins label <code>git-websites</code>.</p> 
+    <p>The local structure for this is then:</p> 
+   </div> 
+   <div class="literalblock"> 
+    <div class="content"> 
+     <pre>/tools/1.0.0/rc1/training-tools-1.0.0-source-release.zip
+/tools/1.0.0/rc1/training-tools-1.0.0-source-release.zip.asc
+/tools/1.0.0/rc1/training-tools-1.0.0-source-release.zip.sha512</pre> 
+    </div> 
+   </div> 
+   <div class="admonitionblock note"> 
+    <table> 
+     <tbody> 
+      <tr> 
+       <td class="icon"> 
+        <div class="title">
+          Note 
+        </div> </td> 
+       <td class="content"> Be sure to not take the files form the <code>target</code> directory directly, but that you use the <code>target/checkout/tools/target</code> versions instead! </td> 
+      </tr> 
+     </tbody> 
+    </table> 
    </div> 
    <div class="paragraph"> 
-    <p>Only on these machines are jobs allowed to push changes to a Git repo and here only to a branch named <code>asf-site</code>.</p> 
+    <p>Then I just import the 1.0.0 directory using the following command</p> 
+   </div> 
+   <div class="literalblock"> 
+    <div class="content"> 
+     <pre>svn import tools/1.0.0 https://dist.apache.org/repos/dist/dev/incubator/training/tools/1.0.0 -m"Staged RC1 of version 1.0.0 Apache Training tools"</pre> 
+    </div> 
    </div> 
    <div class="paragraph"> 
-    <p>See <a href="https://builds.apache.org/view/S-Z/view/Training%20(incubating)/job/Training%20Multi-Branch%20Pipeline/" class="bare">https://builds.apache.org/view/S-Z/view/Training%20(incubating)/job/Training%20Multi-Branch%20Pipeline/</a> for details on the Training Jenkins Website build job.</p> 
+    <p>If this is the first time you are releasing something for the Apache Training (incubating) project, be sure to add your PGP key to the <code>KEYS</code> file at: <a href="https://dist.apache.org/repos/dist/dev/incubator/training/KEYS" class="bare">https://dist.apache.org/repos/dist/dev/incubator/training/KEYS</a></p> 
+   </div> 
+  </div> 
+  <div class="sect2"> 
+   <h3 id="_toc_sending_out_the_vote_email1">Sending out the VOTE email</h3> 
+   <div class="paragraph"> 
+    <p>Next step is to actually start the vote by sending out the VOTE email.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>As soon as the content is updated in the <code>asf-site</code> the <code>gitpubsub</code> mechanism will make those changes available at <a href="https://training.apache.org" class="bare">https://training.apache.org</a></p> 
+    <p>Here a template for that:</p> 
    </div> 
   </div> 
  </div> 

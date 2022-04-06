@@ -59,10 +59,11 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li ><a  href="../developers/issues.html"  title="Bug & Issue Tracker" >Bug & Issue Tracker</a></li>
-                    <li ><a  href="../developers/building.html"  title="Building Training" >Building Training</a></li>
+                    <li ><a  href="../developers/building-website.html"  title="Building Training Website" >Building Training Website</a></li>
                     <li ><a  href="../developers/ci.html"  title="Continuous Integration" >Continuous Integration</a></li>
                     <li ><a  href="../developers/contributing.html"  title="Contributing" >Contributing</a></li>
                     <li ><a  href="../developers/decisions.html"  title="Decision Making" >Decision Making</a></li>
+                    <li ><a  href="../developers/releasing-tools.html"  title="Releasing (tools)" >Releasing (tools)</a></li>
                     <li ><a  href="../developers/team.html"  title="Team" >Team</a></li>
                     <li ><a  href="../developers/website.html"  title="Website" >Website</a></li>
                     <li ><a  href="../developers/wiki.html"  title="Wiki" >Wiki</a></li>
@@ -118,6 +119,8 @@
           <ul id="toc" class="nav navbar-nav">
                                                 <li class="toplevel"><a href="#_toc_creating_presentation_with_apache_training1" title="Creating Presentation with Apache Training">Creating Presentation with Apache Training</a></li>
                         <li class="divider-vertical"></li>
+                        <li class="toplevel"><a href="#_toc_using_the_latest_development_version1" title="Using the latest development version">Using the latest development version</a></li>
+                        <li class="divider-vertical"></li>
                         <li class="toplevel"><a href="#_toc_building_the_apache_training_tooling1" title="Building the Apache Training Tooling">Building the Apache Training Tooling</a></li>
           </ul>
         </div>
@@ -157,7 +160,15 @@
   </div> 
   <div class="literalblock"> 
    <div class="content"> 
-    <pre>mvn archetype:generate -DarchetypeGroupId=org.apache.training -DarchetypeArtifactId=content-archetype -DarchetypeVersion=1.0.0-SNAPSHOT</pre> 
+    <pre>mvn archetype:generate -DarchetypeGroupId=org.apache.training -DarchetypeArtifactId=content-archetype -DarchetypeVersion=1.0.0</pre> 
+   </div> 
+  </div> 
+  <div class="paragraph"> 
+   <p>For Windows, you need to wrap every argument in double-quotes:</p> 
+  </div> 
+  <div class="literalblock"> 
+   <div class="content"> 
+    <pre>mvn archetype:generate "-DarchetypeGroupId=org.apache.training" "-DarchetypeArtifactId=content-archetype" "-DarchetypeVersion=1.0.0"</pre> 
    </div> 
   </div> 
   <div class="paragraph"> 
@@ -176,6 +187,37 @@
   </div> 
   <div class="paragraph"> 
    <p>If you open the <code>index.html</code> in that directory your presentation should open in the browser.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="_toc_using_the_latest_development_version1">Using the latest development version</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>If you want to use the latest development version of the Apache Training tooling, please still use the latest released archetype. Otherwise, the archetype plugin will not be able to find the <code>SNAPSHOT</code> version of the archetype. As generally most changes apply to the parent being used in the slides module, you can update to the latest version by:</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Adding the following section to the generated <code>pom.xml</code>:</p> 
+  </div> 
+  <div class="listingblock"> 
+   <div class="content"> 
+    <pre class="prettyprint highlight"><code>  &lt;!-- Make Snapshots of Apache projects available --&gt;
+  &lt;repositories&gt;
+    &lt;repository&gt;
+      &lt;id&gt;apache-snapshots&lt;/id&gt;
+      &lt;url&gt;https://repository.apache.org/content/repositories/snapshots&lt;/url&gt;
+      &lt;releases&gt;
+        &lt;enabled&gt;false&lt;/enabled&gt;
+      &lt;/releases&gt;
+      &lt;snapshots&gt;
+        &lt;enabled&gt;true&lt;/enabled&gt;
+      &lt;/snapshots&gt;
+    &lt;/repository&gt;
+  &lt;/repositories&gt;</code></pre> 
+   </div> 
+  </div> 
+  <div class="paragraph"> 
+   <p>After adding this you can update the parent version to the latest <code>SNAPSHOT</code> version and Maven should be able to find it.</p> 
   </div> 
  </div> 
 </div> 
@@ -242,7 +284,7 @@ mvn install</pre>
     <div class="row">
       <div class="col-md-12">
         <p class="pull-right"><a id="m-scroll-top" href="#">Back to top</a></p>
-        <p class="copyright">Copyright &copy;2019-2020                 <a href="https://www.apache.org/">The Apache Software Foundation</a>
+        <p class="copyright">Copyright &copy;2019-2022                 <a href="https://www.apache.org/">The Apache Software Foundation</a>
 . All Rights Reserved.</p>
         <p><a href="https://github.com/devacfr/reflow-maven-skin" title="Reflow Maven skin">Reflow Maven skin</a> by <a href="http://devacfr.github.io" target="_blank" title="devacfr">devacfr</a>.</p>
 
