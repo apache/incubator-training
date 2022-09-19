@@ -1,0 +1,40 @@
+// ------------------------------------------------------------------
+// Transitive dependencies of this project determined from the
+// maven pom organized by organization.
+// ------------------------------------------------------------------
+
+Training: Content: Apache: Ignite
+
+
+From: 'an unknown organization'
+  - H2 Database Engine (http://www.h2database.com) com.h2database:h2:jar:1.4.197
+    License: MPL 2.0 or EPL 1.0  (http://h2database.com/html/license.html)
+  - JSR107 API and SPI (https://github.com/jsr107/jsr107spec) javax.cache:cache-api:jar:1.0.0
+    License: JSR-000107 JCACHE 2.9 Public Review - Updated Specification
+                License  (https://raw.github.com/jsr107/jsr107spec/master/LICENSE.txt)
+  - ignite-shmem (http://www.gridgain.com) org.gridgain:ignite-shmem:jar:1.0.0
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - JetBrains Java Annotations (https://github.com/JetBrains/java-annotations) org.jetbrains:annotations:jar:16.0.3
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/license/LICENSE-2.0.txt)
+
+From: 'The Apache Software Foundation' (http://www.apache.org/)
+  - Lucene Common Analyzers (http://lucene.apache.org/lucene-parent/lucene-analyzers-common) org.apache.lucene:lucene-analyzers-common:jar:7.4.0
+    License: Apache 2  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Lucene Core (http://lucene.apache.org/lucene-parent/lucene-core) org.apache.lucene:lucene-core:jar:7.4.0
+    License: Apache 2  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Lucene Queries (http://lucene.apache.org/lucene-parent/lucene-queries) org.apache.lucene:lucene-queries:jar:7.4.0
+    License: Apache 2  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Lucene QueryParsers (http://lucene.apache.org/lucene-parent/lucene-queryparser) org.apache.lucene:lucene-queryparser:jar:7.4.0
+    License: Apache 2  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Lucene Sandbox (http://lucene.apache.org/lucene-parent/lucene-sandbox) org.apache.lucene:lucene-sandbox:jar:7.4.0
+    License: Apache 2  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'The Apache Software Foundation' (https://www.apache.org/)
+  - ignite-core (http://ignite.apache.org) org.apache.ignite:ignite-core:jar:2.12.0
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - ignite-indexing (http://ignite.apache.org) org.apache.ignite:ignite-indexing:jar:2.12.0
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+
+
+
