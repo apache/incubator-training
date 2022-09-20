@@ -25,7 +25,7 @@
 :conference_na: APACHECON NA
 :conference_asia: APACHECON ASIA
 :conference_home: APACHECON @Home
-:dates: Oct 3rd - 9th
+:dates: Oct 3rd - 6th
 :year: 2022
 
 [%notitle]
@@ -62,7 +62,7 @@ image::NewOrleans.jpg[canvas]
 --
 
 [.conferenceName]
-{conference_home} +
+{conference_na} +
 {dates}
 
 [.year]
@@ -82,7 +82,7 @@ image::NewOrleansII.jpg[canvas]
 --
 
 [.conferenceName]
-{conference_home} +
+{conference_na} +
 {dates}
 
 [.year]
@@ -102,7 +102,7 @@ image::NewOrleansIII.jpg[canvas]
 --
 
 [.conferenceName]
-{conference_home} +
+{conference_na} +
 {dates}
 
 [.year]
@@ -122,7 +122,7 @@ image::NewOrleansIV.jpg[canvas]
 --
 
 [.conferenceName]
-{conference_home} +
+{conference_na} +
 {dates}
 
 [.year]
