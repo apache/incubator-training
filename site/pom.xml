@@ -230,6 +230,13 @@
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
+                  <artifactId>training-content-apache-comdev-apache-intro</artifactId>
+                  <version>1.0.0.SNAPSHOT</version>
+                  <type>war</type>
+                  <outputDirectory>${project.build.directory}/site/presentations/comdev/apache-intro</outputDirectory>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-comdev-comdev-intro</artifactId>
                   <version>1.0.0.SNAPSHOT</version>
                   <type>war</type>

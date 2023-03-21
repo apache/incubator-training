@@ -1,0 +1,426 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+:presenter_name: Your Name
+:presenter_company: Your Company
+:description: A short 30 minute introduction talk about what Apache Community Development is
+:keywords: ComDev, Community Development
+:author: Christofer Dutz
+:email: cdutz@apache.org
+:position: Board member
+
+== What is the ASF?
+
+image::ApacheLogo.png[]
+
+== Who am I?
+{author} +
+{position} +
+{email} +
+
+[NOTE.speaker]
+--
+Please add your own details here
+--
+
+== What am I going to cover?
+
+image::asf_logo.png[]
+
+* What is the ASF?
+* How is an ASF project structured?
+* How is the ASF structured?
+* How does all of this work?
+
+== What is the ASF?
+
+* ASF = The Apache Software Foundation
+* *US 501(c)3 charity* (Non-profit charity)
+* Community of volunteers
+* Virtual, world-wide organisation
+* Provides organisational, legal and financial support for a large number of open-source projects
+
+== The Apache Group
+
+image::apache_8.png[250,250,float="right",align="center"]
+
+* Before there was the ASF, there was the "Apache Group"
+* Informal corporate structure
+* 8 members
+* Formed in Feb. 1995
+* Continued the work on the NCSA httpd
+* Chose a very promiscuous license
+
+== Growth
+
+[cols="2"]
+|===
+
+| Then (1999)
+| Now (03.2023)
+
+.^a|* 21 Members
+* 2 Projects
+* All servers and services donated
+.^a| * 743 Members
+* 362 Projects (Managed by 207 PMCs)
+* 8833 Committers
+//* 689584 Contributors
+* Cloud infrastructure
+
+|===
+
+[NOTE.speaker]
+--
+// Source:
+// https://whimsy.apache.org/roster/
+* ICLA: Individual Contributor License Agreement
+* CCLA: Corporate Contributor License Agreement
+* 31 Incubator Podlings
+* 5 Special Committees: Infrastructure, Travel Assistance, Security Team, Legal Affairs and Brand Management
+--
+
+== Number of projects over time
+
+image::project-number-over-time.png[]
+// Source https://projects.apache.org/
+
+== Commits over time
+
+image::commits-over-time.png[]
+// Source: https://projects.apache.org/statistics.html
+
+== Language distribution
+
+image::language-distribution.png[]
+// Source https://projects.apache.org/
+== Project categories
+
+image::project-categories.png[]
+// Source https://projects.apache.org/
+
+== The mission
+
+* *Provide software for the public good*
+* Protect the trademark: *Apache* and her software products against misuse by other organisations
+* Provide the technical and legal infrastructure for open-source development
+* Provide all means to protect every volunteer from persecution as long as this persecution is aimed at a project of the foundation
+
+[NOTE.speaker]
+--
+* legal infrastructure = Apache license, ICLA, CCLA, ...
+* legal umbrella: If someone initiates legal action against an Apache committer for things related to the ASF, the ASF takes the place of the accused.
+--
+
+== The vision
+
+The Apache Software Foundation provides support for the Apache community of open-source software projects. The Apache projects are characterized by a *collaborative*, *consensus based* development process, an *open* and pragmatic software license, and a desire to create *high quality* software that leads the way in its field. We consider ourselves not simply a group of projects sharing a server, but rather a *community of developers and users*.
+
+== Projects
+
+* Heart of the ASF are the *projects*
+* Also named "Top Level Project" (TLP)
+* ASF provides services:
+** Mailinglists, code-repositories (SVN, Git, ...)
+** Bug & Issue trackers (Jira, ...), Wiki (Confluence, ...)
+** CI Server (Jenkins, ...), Webservers for project websites
+** ...
+
+[NOTE.speaker]
+--
+* Currently, there is a trend to use GitHub Issues, GitHub Discussions, GitHub Actions (CI)
+* The ASF provides tooling to integrate these
+--
+
+== Structure of a project
+
+[ditaa,project-structure]
+....
+                    +-----------+
+                    |cDFA       |
+                    | PMC Chair |
+                    |           |
+               +----+-----------+----+
+               |c6A1                 |
+               |     Project PMC     |
+               |                     |
+          +----+---------------------+----+
+          |cF71                           |
+          |       Project Committers      |            Total: 8833
+          |                               |
+     +----+-------------------------------+----+
+     |c7CE                                     |
+     |           Project Contributors          |       Total: 689584
+     |                                         |
++----+-----------------------------------------+----+
+|cDDB                                               |
+|                   Project Users                   |  Total: billions
+|                                                   |
++---------------------------------------------------+
+....
+// Numbers (03.2023)
+
+[NOTE.speaker]
+--
+* Contributors: People who have contributed anything to a project
+* Users: Almost every phone, tv, has at least some Apache software in it
+--
+
+== Lifecycle of a project
+
+[ditaa,project-lifecycle]
+....
++---------------------------------------------------+
+|cDFA                                               |
+|                 Outside of Apache                 |
+|                                                   |
++---------------------------------------------------+
+                          |
+                          |
+                          V
++---------------------------------------------------+
+|c6A1                                               |
+|                  Apache Incubator                 |--->
+|                                                   |
++---------------------------------------------------+
+                          |
+                          |
+                          V
++---------------------------------------------------+
+|cF71                                               |
+|                     Apache TLP                    |--->
+|                                                   |
++---------------------------------------------------+
+                          |
+                          |
+                          V
++---------------------------------------------------+
+|c7CE                                               |
+|                    Apache Attic                   |
+|                                                   |
++---------------------------------------------------+
+....
+
+[NOTE.speaker]
+--
+* Projects don't start at Apache
+* Projects can also leave any time
+** Might need to re-brand
+--
+
+== How is the ASF structured?
+
+* *Member* based - only individuals can join (no companies)
+* Members nominate and elect new members
+* Members elect *board* (9 *directors*)
+* Annual members meeting via IRC
+* Monthly board meeting
+* Every project elects a *Chair* as interface to the board
+
+[NOTE.speaker]
+--
+* Projects don't start at Apache
+* Projects can also leave any time
+** Might need to re-brand
+--
+
+== Structure of the ASF
+
+[ditaa,asf-structure]
+....
+Technical Oversight
+
++--------------------+                +--------------------+
+|cDFA                |                |c6A1                |
+| Committers         +--------------->| PMCs               |
+| (8833)             |                | (207)              |
++--------------------+                +---+----------------+
+                                    Report|            ^
+                                 quarterly|            |
+                                          |            |
+------------------------------------------|------------|-----------------
+                                          |            |
+Organizational Oversight                  |            | Create & update
+                                          V            | upon PMC request
++--------------------+                +----------------+---+
+|c7CE                |                |cF71                |
+| Members            +--------------->| Board of Directors |
+| (743)              +--+             | (9)                |
++--------------------+  |             +---+----------------+
+          ^             |          Appoint|            ^
+          |             |         Officers|            |
+          +-------------+                 |            |Report
+          Nominate, elect                 V            |monthly
+          new members                 +----------------+---+
+                                      |cDDB                |
+                                      | Officers           |
+                                      | (10)               |
+                                      +--------------------+
+
+
+
+
+....
+
+== How does this all work?
+
+* The Apache Way
+** A method to develop software
+** A method to run communities
+** A method to run an organisation
+
+== On which principles is it based?
+
+* Meritocracy: Advancement through action & commitment
+* Transparency: Nothing happens in secret
+* Community: Together we are strong
+
+== Ways to be committed
+
+* Documentation, Tutorials, Examples
+* Talks (at conferences & meetups)
+* User groups
+* Helping others (On mailing lists)
+* Filing bug reports
+* Testing and helping fix bugs & issues
+* Bugfixes
+* New features
+* Mentoring, involvement in the foundation itself
+
+== Path of merit
+
+[ditaa,merit-path]
+....
+
+Project                          | Foundation
+                                 |
++------------------------+       |
+|c883                    |       |                  nominated |
+| User                   |       |                 by members |
+|                        |       |                            |
++-----------+------------+       |                            |
+            | Contributes        |                            |
+            |                    |                            |
+            v                    |                            |
++------------------------+       |   nominated                |
+|cD92                    |       |   by members               |
+| Bugreporter/-fixer     +---------------------------+        |
+|                        |       |                   |        |
++-----------+------------+       |                   |        |
+            | elected            |                   |        |
+            | by PMC             |                   |        |
+            v                    |                   |        |
++------------------------+       |  nominated        |        |
+|cDDB                    |       |  by members       |        |
+| Project Committer      +------------------+        |        |
+|                        |       |          |        |        |
++-----------+------------+       |          |        |        |
+            | elected            |          |        |        |
+            | by PMC             |          |        |        |
+            v                    |          V        V        V
++------------------------+       |       +-----------------------+
+|c7CE                    |       |       |cDFA                   |
+| Project PMC Member     +-------------->| ASF Memeber           |
+|                        |   nominated   |                       |
++-----------+------------+   by members  +-----------+-----------+
+            | elected            |                   | elected
+            | by PMC             |                   | by members
+            v                    |                   V
++------------------------+       |       +-----------------------+
+|cF71                    |       |       |c6A1                   |
+| Project Chair          |       |       | Board Member          |
+|                        |       |       |                       |
++------------------------+       |       +-----------------------+
+                                 |
+....
+
+== If it didn't happen on the list, it didn't happen
+
+* If something isn't documented on any of the mailing lists, it didn't happen
+** Every discussion and decision needs to be documented
+* All discussions should happen in the public
+* Off-list discussions can happen, but important information needs to be forwarded to the mailing list
+* Others are need to be able to participate
+
+[NOTE.speaker]
+--
+* Discussions on meetups or at conferences
+* Many things (like votes) require 72 hour periods
+* Private lists: Discussing security issues, voting on new committers and PMC members
+--
+
+== Community over Code
+
+* We're (all) volunteers, life happens and our availability and our interests change
+* A vital community encourages new community members
+* It's normal, that members (temporarily) leave the community
+* *Poisonous people* scare others and must be fought
+* Result of a healthy community -> better code, long-lasting projects
+
+== Consensus-based decisions
+
+* PMC members have *binding votes*
+* Non-PMC members have *non-binding votes*
+* Formally only binding votes count
+* *But* non-binding votes usually are still respected
+* Something is considered decided if:
+** At least 3 binding votes
+** More `+1` as `-1` votes
+
+[NOTE.speaker]
+--
+* Valid votes are `+1` (pro), `0`, `-1` (contra)
+* `-1` votes should be constructive
+--
+
+== Collaborative development
+
+* Code should be developed in community with others
+** Large code-drops are bad
+* Development should happen on-line (Git/SVN, Email, ...)
+* Votes ensure that at least 3 developers are still active
+* In order to allow anyone to participate, votes usually last at least 72 hours
+* Discussions and votes happen only on the mailing-list
+
+[NOTE.speaker]
+--
+* 72h = at least one working day, no matter where on earth you live
+--
+
+== The result
+
+* Vendor neutrality
+* Diversity
+* Trust
+* Safety
+* Security
+
+== How can companies help?
+
+* Companies can allow their employees to contribute during working hours
+* Companies can directly support the ASF financially (Sponsoring)
+* Companies can donate code, so everyone can profit from it
+* Companies can't directly fund development in projects
+* Companies can donate funds towards projects (Targeted donations)
+
+[NOTE.speaker]
+--
+* Targeted donations: Licenses, Hardware costs, Membership fees, ...
+--
