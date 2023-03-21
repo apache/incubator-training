@@ -1,0 +1,105 @@
+:: StoryTitle
+Apache Way
+
+
+:: StoryData
+{
+  "ifid": "E54A9B5E-C681-42E2-A23E-1580469997EA",
+  "format": "Harlowe",
+  "format-version": "3.3.5",
+  "start": "The Apache Way",
+  "zoom": 1
+}
+
+
+:: Community {"position":"600,550","size":"100,100"}
+(size:1.5)[Apache's Community-Driven Development]
+
+<img src="community.jpg">
+
+Apache is a community-driven development project, meaning that decisions are made by the collective of contributors to the project. This allows for different perspectives to be considered and encourages contributions from all backgrounds.
+
+[[Next->Meritocracy]]
+
+
+:: End [End] {"position":"600,1175","size":"100,100"}
+Congrats on completing this micro-course on the Apache Way!
+
+For more on the Apache Way see (link: "The Apache Way")[(goto-url: "https://www.apache.org/theapacheway/")].
+
+
+:: Governance {"position":"600,800","size":"100,100"}
+(size:1.5)[Apache's Open Governance Model]
+
+<img src="governance.jpg">
+
+Apache has an open governance model which allows for anyone to view and take part in the decision-making process. This ensures that projects remains open and transparent.
+
+[[Next->Independence]]
+
+
+:: Important {"position":"600,1050","size":"100,100"}
+(size:1.5)[Community Over Code]
+
+<img src="code.jpg">
+
+The most important thing is to understand the Apache philosophy of open collaboration, meritocracy and community-driven development.
+
+[[Next->End]]
+
+
+:: Independence {"position":"600,925","size":"100,100"}
+(size:1.5)[Project Independence]
+
+Apache projects are managed independently, and decisions are made for the project's benifit. People represent themselves, not who they work for.
+
+<img src="independent.jpg">
+
+[[Next->Important]]
+
+
+:: Meritocracy {"position":"600,675","size":"100,100"}
+(size:1.5)[Apache's Meritocracy]
+
+Apache is a meritocracy, meaning that contributions are judged based on their merit rather than the status of the contributor or who they work for. This encourages contributions from all backgrounds and allows for the best ideas to rise to the top.
+
+<img src="merit.jpg">
+
+[[Next->Governance]]
+
+
+:: Philosophy {"position":"600,425","size":"100,100"}
+(size:1.5)[Apache's Open Source Philosophy]
+
+Apache is an open source software development project, meaning that anyone can contribute to the project and view the source code. This open source philosophy encourages collaboration, innovation, and transparency.
+
+<img src="philosophy.jpg">
+
+[[Next->Community]]
+
+
+:: The Apache Way [TheApacheWay] {"position":"600,300","size":"100,100"}
+(size:1.5)[Understanding the Apache Way]
+
+[[Next->Philosophy]]
+
+
+:: StoryStylesheet [stylesheet]
+tw-story[tags="TheApacheWay"] {
+	background-image: url("open.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+tw-story[tags="End"] {
+	background-image: url("fireworks.gif");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+tw-passage img {
+	display: block;
+	margin: 0 auto;
+    max-width: 100%;
+  	max-height: 100%;
+}
