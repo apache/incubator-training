@@ -337,7 +337,7 @@ Project                          | Foundation
             v                    |          V        V        V
 +------------------------+       |       +-----------------------+
 |c7CE                    |       |       |cDFA                   |
-| Project PMC Member     +-------------->| ASF Memeber           |
+| Project PMC Member     +-------------->| ASF Member            |
 |                        |   nominated   |                       |
 +-----------+------------+   by members  +-----------+-----------+
             | elected            |                   | elected
