@@ -1,0 +1,222 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+:presenter_name: Your Name
+:presenter_company: Your Company
+:description: A short intro into what benefits the industry could have with PLC4X
+:keywords: IIoT, IoT
+:author: Christofer Dutz
+:email: cdutz@apache.org
+:position: Board member
+
+== Revolutionizing IIoT with Apache PLC4X
+
+image::apache_plc4x_logo.png[]
+
+== Who am I?
+{author} +
+{position} +
+{email} +
+
+[NOTE.speaker]
+--
+Please add your own details here
+--
+
+== What am I going to cover?
+
+* What is Apache PLC4X?
+* What can you do with PLC4X?
+* What could you do beyond that?
+
+== What is Apache PLC4X?
+
+image::apache_plc4x_logo.png[]
+
+[quote, Apache PLC4X Project Statement]
+PLC4X is a set of libraries for communicating with industrial programmable logic controllers (PLCs) using a variety of protocols but with a shared API.
+
+== Apache PLC4X
+
+* https://plc4x.apache.org
+* Allows writing software for any type of PLC
+* When changing the PLC, only configuration needs to be adjusted
+* Strong growing number of supported protocols
+* Strong growing number of programming languages
+* Support of features, which protocols generally don't support
+* Strong growing number of integration modules
+* Make PLC Data available in a unified way
+
+[NOTE.speaker]
+--
+* Modbus generally only allows bits and short values
+* Unified data: PlcValues all handled equally over all protocols
+--
+
+== PLC4X Supported Operations
+
+* Read icon:check[role=green]
+* Write icon:check[role=green]
+* Subscription icon:check[role=green]
+** Cyclic
+** On Value Change
+** Event/Alarm
+* Discovery icon:hammer[role=orange]
+* Browse icon:hammer[role=orange]
+
+[NOTE.speaker]
+--
+* We're currently working a lot on Discovery and Browsing
+* Discovery: Which devices do I have and how can I connect to them?
+* Browse: Which resources do these devices have?
+--
+
+== PLC4X Supported Protocols
+
+[.west]
+* Siemens S7 (Step7) icon:check[role=green]
+* Beckhoff ADS icon:check[role=green]
+* Modbus (TCP/RTU) icon:check[role=green]
+* EtherNet/IP icon:check[role=green]
+* OPC-UA icon:check[role=green]
+* Firmata icon:check[role=green]
+* KnxNet/IP icon:check[role=green]
+* CAN icon:check[role=green]
+
+//
+[.east]
+* ProfiNet icon:wrench[role=orange]
+* Allen-Bradley AB-ETH icon:wrench[role=orange]
+* Allen-Bradley DF1 icon:wrench[role=orange]
+* BacNet icon:wrench[role=orange]
+* Emerson DeltaV icon:wrench[role=orange]
+* Luxtronic icon:wrench[role=orange]
+* Siemens S7 (TIA) icon:comments-o[role=red]
+* ...
+
+== Polyglot PLC4X
+
+* Supporting multiple languages was planned from the start
+** The `X` in PLC4X stands for the multiple Languages
+* Writing PLC driver code is easy
+* Understanding the protocols is hard
+* As soon as a protocol is "understood", create drivers in many languages
+* Cross-compiling/wrapping just wouldn't feel right
+* Heavy lifting done by our code-generation framework
+
+[NOTE.speaker]
+--
+* Cross Compiling:
+** Increased Size
+** Strange API feeling in other language
+--
+
+== What can you do with PLC4X?
+
+== Making machine data visible
+
+image::sp-data-explorer-3.png[]
+
+== OEE Overall Equipment Efficiency
+
+Julian's picture comes here ...
+he promised me to send it to me
+If this text is still here, well ...
+guess he didn't
+
+== Predictive Maintenance
+
+== What could you do beyond that?
+
+* Following use-cases not yet fully implemented
+* Would need some extra work
+
+== PLC "Simulator" for unit-tests
+
+* Currently almost no unit-testing done
+* If testing is done, on the real machine
+* Usually only happy-path testing
+* Solution:
+** PLC4X stand-alone application: "Simulator"
+** Built to speak with PLC4X drivers (Not full protocol support)
+** Use PLC4X to set values in the "PLC" from the Unit-Test
+** Test PLC4X Application against the simulator without needing real machinery
+
+[NOTE.speaker]
+--
+* The simulator already exists
+* Need to implement:
+** General memory management
+** "Subscriptions"
+--
+
+== Historian
+
+* Historians are sort of ancient time-series databases
+* Mostly required for regulations
+* Extremely expensive
+* Don't scale
+* Solution:
+** Use Apache PLC4X to get the data
+** Use Apache IoTDB to store the data
+** Add interfaces to replicate Historian interfaces
+
+[NOTE.speaker]
+--
+* We're already working on Apache Historian
+* However mainly me working on it
+--
+
+== Digital Twin
+
+* Everyone is talking about Digital Twins
+* No good products available yet
+* Solution:
+** Use Apache PLC4X to get the data
+** Use Apache IoTDB to store the timeseries data
+** Use Eclipse Dito to store the current state
+** Use Apache KIE (incubating) to do smart things with the data
+
+[NOTE.speaker]
+--
+IoTDB is great for time-series data
+Ditto is great for current state and dependencies
+KIE (Knowledge is everything): Contains Drools, jBPM
+--
+
+== MES replacement
+
+* MES (Manufacturing Execution System) are big, fat, slow and don't scale
+* Products today way more customizable:
+** A lot more interaction between PLC and MES needed
+** A lot more to do for the MES
+** MES becomes the bottleneck
+* Solution:
+** Building a distributed MES based on principle of highly scalable distributed systems
+
+[NOTE.speaker]
+--
+--
+
+== Want to make this happen?
+
+* dev@plc4x.apache.org
+* Twitter: @ApachePLC4X
+

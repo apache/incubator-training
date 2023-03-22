@@ -125,6 +125,9 @@
         <item name="Release Checklist" href="presentations/incubator/release-checklist/index.html" target="_blank"/>
       </item>
       <item name="Apache MyNewt" href="presentations/mynewt/index_en.html" target="_blank"/>
+      <item name="Apache PLC4X">
+        <item name="Revolutionizing IIoT with Apache PLC4X" href="presentations/plc4x/revolutionizing-iiot-with-plc4x/index.html" target="_blank"/>
+      </item>
       <item name="Apache Pulsar" href="presentations/pulsar/index.html" target="_blank"/>
       <item name="Apache Samza" href="presentations/samza/index.html" target="_blank"/>
       <item name="Apache Spark">

@@ -23,32 +23,20 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.apache.training.content</groupId>
-    <artifactId>training-content</artifactId>
-    <version>0.4.0-SNAPSHOT</version>
+    <groupId>org.apache.training</groupId>
+    <artifactId>content-parent-pom</artifactId>
+    <version>1.0.0</version>
   </parent>
 
-  <artifactId>training-content-apache</artifactId>
+  <groupId>org.apache.training.content</groupId>
+  <artifactId>training-content-apache-plc4x</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>Training: Content: Apache</name>
+  <name>Training: Content: Apache: PLC4X</name>
 
   <modules>
-    <module>Airflow</module>
-    <module>ComDev</module>
-    <module>Druid</module>
-    <module>Flink</module>
-    <module>Hadoop</module>
-    <module>Hive</module>
-    <module>Ignite</module>
-    <module>Incubator</module>
-    <module>MyNewt</module>
-    <module>PLC4X</module>
-    <module>Pulsar</module>
-    <module>Samza</module>
-    <module>Spark</module>
-    <module>Training</module>
-    <module>ZooKeeper</module>
+    <module>revolutionizing-iiot-with-plc4x</module>
   </modules>
 
 </project>
