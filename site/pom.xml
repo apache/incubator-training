@@ -666,6 +666,13 @@
       <version>1.0.0-SNAPSHOT</version>
       <type>war</type>
     </dependency>
+    <artifactItem>
+       <groupId>org.apache.training.content.microcourses</groupId>
+       <artifactId>training-content-microcourses-apacheway</artifactId>
+       <version>1.0.0-SNAPSHOT</version>
+       <type>war</type>
+       <outputDirectory>${project.build.directory}/site/microcourses/apacheway</outputDirectory>
+     </artifactItem>
   </dependencies>
 
   <!-- Make Snapshots of Apache projects available -->
