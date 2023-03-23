@@ -156,7 +156,7 @@ image::digital-cockpit.png[]
 == What could you do beyond that?
 
 * Following use-cases not yet fully implemented
-* Form my experience, what the industry is really missing
+* From my experience, what the industry is really missing
 * Would need some extra work
 
 == PLC "Simulator" for unit-tests
@@ -199,7 +199,7 @@ image::digital-cockpit.png[]
 
 * Everyone is talking about Digital Twins
 * No good products available yet
-* Not expecting any OT-vendor products to be usable
+* Not expecting any OT-vendor product to be usable
 * Solution:
 ** Use Apache PLC4X to get the data
 ** Use Apache IoTDB to store the timeseries data
@@ -215,7 +215,7 @@ image::digital-cockpit.png[]
 
 == MES replacement
 
-* MES = Manufacturing Execution System)
+* MES = Manufacturing Execution System
 * Big, fat, slow and don't scale
 * Products today way more customizable:
 ** A lot more interaction between PLC and MES needed
