@@ -46,7 +46,7 @@ Please add your own details here
 * What can you do with PLC4X?
 * What could you do beyond that?
 
-== What is Apache PLC4X?
+== !
 
 image::apache_plc4x_logo.png[]
 
@@ -60,14 +60,15 @@ PLC4X is a set of libraries for communicating with industrial programmable logic
 * When changing the PLC, only configuration needs to be adjusted
 * Strong growing number of supported protocols
 * Strong growing number of programming languages
-* Support of features, which protocols generally don't support
 * Strong growing number of integration modules
+* Support of features, which protocols generally don't support
 * Make PLC Data available in a unified way
 
 [NOTE.speaker]
 --
 * Modbus generally only allows bits and short values
 * Unified data: PlcValues all handled equally over all protocols
+* Unified Namespace
 --
 
 == PLC4X Supported Operations
@@ -134,24 +135,34 @@ PLC4X is a set of libraries for communicating with industrial programmable logic
 
 image::sp-data-explorer-3.png[]
 
-== OEE Overall Equipment Efficiency
+== Overall Equipment Efficiency
 
-Julian's picture comes here ...
-he promised me to send it to me
-If this text is still here, well ...
-guess he didn't
+image::digital-cockpit.png[]
 
 == Predictive Maintenance
+
+* Predict when a device needs maintenance
+* Predict probable failures
+* Run the machine at the right speed to minimize
+** Wear & tear
+** Energy-consumption
+** Resource usage
+
+[NOTE.speaker]
+--
+* Increased energy consumption -> needs maintenance
+--
 
 == What could you do beyond that?
 
 * Following use-cases not yet fully implemented
+* Form my experience, what the industry is really missing
 * Would need some extra work
 
 == PLC "Simulator" for unit-tests
 
-* Currently almost no unit-testing done
-* If testing is done, on the real machine
+* In manufacturing engeineering almost no unit-testing done
+* If testing is done, then only on the real machine
 * Usually only happy-path testing
 * Solution:
 ** PLC4X stand-alone application: "Simulator"
@@ -188,6 +199,7 @@ guess he didn't
 
 * Everyone is talking about Digital Twins
 * No good products available yet
+* Not expecting any OT-vendor products to be usable
 * Solution:
 ** Use Apache PLC4X to get the data
 ** Use Apache IoTDB to store the timeseries data
@@ -196,14 +208,15 @@ guess he didn't
 
 [NOTE.speaker]
 --
-IoTDB is great for time-series data
-Ditto is great for current state and dependencies
-KIE (Knowledge is everything): Contains Drools, jBPM
+* IoTDB is great for time-series data
+* Ditto is great for current state and dependencies
+* KIE (Knowledge is everything): Contains Drools, jBPM
 --
 
 == MES replacement
 
-* MES (Manufacturing Execution System) are big, fat, slow and don't scale
+* MES = Manufacturing Execution System)
+* Big, fat, slow and don't scale
 * Products today way more customizable:
 ** A lot more interaction between PLC and MES needed
 ** A lot more to do for the MES
@@ -213,6 +226,8 @@ KIE (Knowledge is everything): Contains Drools, jBPM
 
 [NOTE.speaker]
 --
+* Cars today usually so customizable, that there are only very few equal configurations
+* PLC needs to ask MES about options for every produced item
 --
 
 == Want to make this happen?
