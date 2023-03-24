@@ -22,9 +22,9 @@ include::_settings.adoc[]
 :presenter_company: Your Company
 :description: A short 30 minute introduction talk about what Apache Community Development is
 :keywords: ComDev, Community Development
-:author: Christofer Dutz
-:email: cdutz@apache.org
-:position: Board member
+:author: Your Name
+:email: Your email
+:position: Your role
 
 == What is the ASF?
 

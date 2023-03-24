@@ -22,9 +22,9 @@ include::_settings.adoc[]
 :presenter_company: Your Company
 :description: A short intro into what benefits the industry could have with PLC4X
 :keywords: IIoT, IoT
-:author: Christofer Dutz
-:email: cdutz@apache.org
-:position: Board member
+:author: Your Name
+:email: Your email
+:position: Your role
 
 == Revolutionizing IIoT with Apache PLC4X
 
