@@ -135,3 +135,6 @@ fabric.properties
 .history
 .vscode
 .classpath
+content/Apache/Wayang/.DS_Store
+content/Apache/Wayang/quickstart-guide/.DS_Store
+content/Apache/Wayang/quickstart-guide/libs/.DS_Store
