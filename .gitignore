@@ -1,7 +1,7 @@
 .idea/**
 *.iml
 
-*/libs/**
+content/Apache/Wayang/**/libs/**
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Maven template
