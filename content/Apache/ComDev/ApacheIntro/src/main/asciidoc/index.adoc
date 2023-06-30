@@ -66,7 +66,7 @@ image::apache_8.png[250,250,float="right",align="center"]
 * 8 members
 * Formed in Feb. 1995
 * Continued the work on the NCSA httpd
-* Chose a very promiscuous license
+* Chose a very permissive license
 
 == Growth
 
@@ -138,9 +138,9 @@ The Apache Software Foundation provides support for the Apache community of open
 * Heart of the ASF are the *projects*
 * Also named "Top Level Project" (TLP)
 * ASF provides services:
-** Mailinglists, code-repositories (SVN, Git, ...)
+** Mailing lists, code-repositories (SVN, Git, ...)
 ** Bug & Issue trackers (Jira, ...), Wiki (Confluence, ...)
-** CI Server (Jenkins, ...), Webservers for project websites
+** CI Server (Jenkins, ...), Web servers for project websites
 ** ...
 
 [NOTE.speaker]
@@ -357,7 +357,7 @@ Project                          | Foundation
 ** Every discussion and decision needs to be documented
 * All discussions should happen in the public
 * Off-list discussions can happen, but important information needs to be forwarded to the mailing list
-* Others are need to be able to participate
+* Others need to be able to participate
 
 [NOTE.speaker]
 --
