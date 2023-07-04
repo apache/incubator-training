@@ -140,3 +140,6 @@ fabric.properties
 content/Apache/Wayang/.DS_Store
 content/Apache/Wayang/quickstart-guide/.DS_Store
 content/Apache/Wayang/quickstart-guide/libs/.DS_Store
+
+/tools/repo-doc-analysis/docs-main/developer.gov.sg/
+/tools/repo-doc-analysis/docs-main/incubator-wayang/
