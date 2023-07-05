@@ -12,8 +12,8 @@ queryies1 = ([
              ], "set_nr_1" )
 
 queryies2 = ([
-                 "What is projects title?",
-                 "What is the project description?",
+                 "What is the projects title?",
+                 "What is the projects description?",
                  "How do I install the system?",
                  "How do I use the project?",
                  "Where do I get the documentation from?",

@@ -148,19 +148,24 @@ def print_problem(query,ex,f):
     # print( output_text )
 
 def print_result(result, query, f):
-  output_text = f"""
+  output_text = """
 ## Question:
-{query}
+{0}
 
 ## Answer:
-{result['answer']}
+{1}
 
 ### Sources:
-  {result['sources']}
+{2}
   
 #### All relevant sources:
-+ {'+ '.join(list(set([doc.metadata['source'] for doc in result['source_documents']])))}
-"""
++ {3}
+""".format(
+      query,
+      result['answer'],
+      result['sources'],
+      '\n+ '.join(list(set([doc.metadata['source'] for doc in result['source_documents']]))),
+  )
 
   f.write( output_text )
   # print( output_text )

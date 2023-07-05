@@ -6,13 +6,13 @@ What is projects title?
 The project's title is "Wayang".
 
 ### Sources:
-  
+
   
 #### All relevant sources:
-+ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/preparing_contribute_code_changes/index.md
-+ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/index.md
-+ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/getting_start/writting_wayang_plan/index.md
 + ../docs-main/incubator-wayang/wayang-docs/src/main/resources/what_is_wayang/index.md
++ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/getting_start/writting_wayang_plan/index.md
++ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/index.md
++ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/preparing_contribute_code_changes/index.md
 
 ## Question:
 What is the project description?
@@ -21,29 +21,28 @@ What is the project description?
 I don't know.
 
 ### Sources:
-  
+
   
 #### All relevant sources:
-+ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/preparing_contribute_code_changes/index.md
 + ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/choosing_what_contribute.md
 + ../docs-main/incubator-wayang/wayang-docs/src/main/resources/getting_start/writting_wayang_plan/index.md
++ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/preparing_contribute_code_changes/index.md
 + ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/documentation_changes.md
 
 ## Question:
 Where do I get the documentation from?
 
 ## Answer:
-The documentation for Wayang can be found on the [Wayang documentation website](https://wayang.apache.org/documentation/). 
-You can also access the Markdown source files for the documentation on the GitHub repository [incubator-wayang/wayang-docs](https://github.com/apache/incubator-wayang/tree/main/wayang-docs).
+The documentation for Wayang can be found on the [Wayang documentation website](https://wayang.apache.org/documentation/). You can also access the Markdown source files for the documentation on the GitHub repository [incubator-wayang/wayang-docs](https://github.com/apache/incubator-wayang/tree/main/wayang-docs).
 
 ### Sources:
-  
+
   
 #### All relevant sources:
-+ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/preparing_contribute_code_changes/index.md
-+ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/index.md
-+ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/documentation_changes.md
 + ../docs-main/incubator-wayang/wayang-docs/src/main/resources/README.md
++ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/index.md
++ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/preparing_contribute_code_changes/index.md
++ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/documentation_changes.md
 
 ## Question:
 How can I contribute?
@@ -64,28 +63,28 @@ For more detailed information on how to contribute, you can refer to the [How to
 
 
 ### Sources:
-  ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/index.md
+../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/index.md
   
 #### All relevant sources:
-+ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/preparing_contribute_code_changes/index.md
-+ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/choosing_what_contribute.md
-+ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/index.md
 + ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/helping_users.md
++ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/choosing_what_contribute.md
++ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/preparing_contribute_code_changes/index.md
++ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/index.md
 
 ## Question:
 What license is used?
 
 ## Answer:
-The license used for the content is the Apache License, Version 2.0. (
+The Apache License, Version 2.0 is used for the content. (
 
 ### Sources:
-  ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/preparing_contribute_code_changes/index.md, ../docs-main/incubator-wayang/wayang-docs/src/main/resources/what_is_wayang/index.md, ../docs-main/incubator-wayang/wayang-docs/src/main/resources/using_wayang/index.md, ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/index.md)
+../docs-main/incubator-wayang/wayang-docs/src/main/resources/what_is_wayang/index.md, ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/preparing_contribute_code_changes/index.md, ../docs-main/incubator-wayang/wayang-docs/src/main/resources/using_wayang/index.md, ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/index.md)
   
 #### All relevant sources:
-+ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/preparing_contribute_code_changes/index.md
-+ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/index.md
 + ../docs-main/incubator-wayang/wayang-docs/src/main/resources/using_wayang/index.md
 + ../docs-main/incubator-wayang/wayang-docs/src/main/resources/what_is_wayang/index.md
++ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/index.md
++ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/preparing_contribute_code_changes/index.md
 
 ## Question:
 Who are the authors?
@@ -94,10 +93,10 @@ Who are the authors?
 I don't have access to the specific authors of the content you provided.
 
 ### Sources:
-  
+
   
 #### All relevant sources:
-+ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/preparing_contribute_code_changes/index.md
++ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/what_is_wayang/index.md
 + ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/choosing_what_contribute.md
 + ../docs-main/incubator-wayang/wayang-docs/src/main/resources/getting_start/writting_wayang_plan/index.md
-+ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/what_is_wayang/index.md
++ ../docs-main/incubator-wayang/wayang-docs/src/main/resources/how_contribute/code_changes/preparing_contribute_code_changes/index.md
