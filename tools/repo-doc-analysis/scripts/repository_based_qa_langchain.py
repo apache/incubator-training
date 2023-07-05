@@ -9,16 +9,13 @@
 import os
 from getpass import getpass
 
+#import project_metadata.kafka as pmd
+import project_metadata.incubator_wayang as pmd
+import question_sets as qs
 
-REPO_URL = "https://github.com/GovTechSG/developer.gov.sg"  # Source URL
-DOCS_FOLDER = "./../docs-main/incubator-wayang/"  # Folder to check out to
-REPO_DOCUMENTS_PATH = "wayang-docs/"  # Set to "" to index the whole data folder
-DOCUMENT_BASE_URL = "https://www.developer.tech.gov.sg/products/categories/devops/ship-hats"  # Actual URL
-DATA_STORE_DIR = "data-store"
 
 """## Build the datastore
 *(Skip to next section to load data store from files if it has been saved locally to save cost of embeddings)*
-
 
 """### Load documents and split them into chunks for conversion to embeddings"""
 
@@ -35,17 +32,17 @@ from langchain.vectorstores import FAISS
 
 name_filter = "**/*.md"
 separator = "\n### "  # This separator assumes Markdown docs from the repo uses ### as logical main header most of the time
-chunk_size_limit = 1000
-max_chunk_overlap = 20
+chunk_size_limit = 1500
+max_chunk_overlap = 100
 
-repo_path = pathlib.Path(os.path.join(DOCS_FOLDER, REPO_DOCUMENTS_PATH))
+repo_path = pathlib.Path(os.path.join(pmd.DOCS_FOLDER, pmd.REPO_DOCUMENTS_PATH))
 document_files = list(repo_path.glob(name_filter))
 
 print( document_files )
 
 def convert_path_to_doc_url(doc_path):
   # Convert from relative path to actual document url
-  return re.sub(f"{DOCS_FOLDER}/{REPO_DOCUMENTS_PATH}/(.*)\.[\w\d]+", f"{DOCUMENT_BASE_URL}/\\1", str(doc_path))
+  return re.sub(f"{pmd.DOCS_FOLDER}/{pmd.REPO_DOCUMENTS_PATH}/(.*)\.[\w\d]+", f"{pmd.DOCUMENT_BASE_URL}/\\1", str(doc_path))
 
 documents = [
     Document(
@@ -76,35 +73,19 @@ print(f"\nEstimated cost of embedding: ${total_token_count * 0.0004 / 1000}")
 
 """### Create Vector Store using OpenAI"""
 
-
-os.environ["OPENAI_API_KEY"] = getpass("Paste your OpenAI API key here and hit enter:")
+key = os.environ["OPENAI_API_KEY"]
+if key is None:
+    os.environ["OPENAI_API_KEY"] = getpass("Paste your OpenAI API key here and hit enter:")
+else:
+    print( "> use OpenAI API-key from ENV variable OPENAI_API_KEY.")
 
 embeddings = OpenAIEmbeddings()
 vector_store = FAISS.from_documents(split_docs, embeddings)
 
-"""### Verify content of Vector Store with a sample query"""
-
-from IPython.display import display, Markdown
-
-search_result = vector_store.similarity_search_with_score("What is SHIP-HATS?")
-search_result
-
-line_separator = "\n"# {line_separator}Source: {r[0].metadata['source']}{line_separator}Score:{r[1]}{line_separator}
-display(Markdown(f"""
-## Search results:{line_separator}
-{line_separator.join([
-  f'''
-  ### Source:{line_separator}{r[0].metadata['source']}{line_separator}
-  #### Score:{line_separator}{r[1]}{line_separator}
-  #### Content:{line_separator}{r[0].page_content}{line_separator}
-  '''
-  for r in search_result
-])}
-"""))
 
 """## (Optional) Save vector store to files and download/save in another location for reuse"""
 
-vector_store.save_local(DATA_STORE_DIR)
+vector_store.save_local(pmd.DATA_STORE_DIR)
 # Download the files `$DATA_STORE_DIR/index.faiss` and `$DATA_STORE_DIR/index.pkl` to local
 
 """#### To load the Vector Store from files:"""
@@ -113,13 +94,13 @@ vector_store.save_local(DATA_STORE_DIR)
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 
-if os.path.exists(DATA_STORE_DIR):
+if os.path.exists(pmd.DATA_STORE_DIR):
   vector_store = FAISS.load_local(
-      DATA_STORE_DIR,
+      pmd.DATA_STORE_DIR,
       OpenAIEmbeddings()
   )
 else:
-  print(f"Missing files. Upload index.faiss and index.pkl files to {DATA_STORE_DIR} directory first")
+  print(f"Missing files. Upload index.faiss and index.pkl files to {pmd.DATA_STORE_DIR} directory first")
 
 """## Query using the vector store with ChatGPT integration
 ### Set up the chat model and specific prompt
@@ -146,7 +127,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQAWithSourcesChain
 
 chain_type_kwargs = {"prompt": prompt}
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0, max_tokens=256)  # Modify model_name if you have access to GPT-4
+llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0, max_tokens=1500)  # Modify model_name if you have access to GPT-4
 chain = RetrievalQAWithSourcesChain.from_chain_type(
     llm=llm,
     chain_type="stuff",
@@ -155,35 +136,56 @@ chain = RetrievalQAWithSourcesChain.from_chain_type(
     chain_type_kwargs=chain_type_kwargs
 )
 
-from IPython.display import display, Markdown
-def print_result(result):
-  output_text = f"""### Question:
+def print_problem(query,ex,f):
+    output_text = f"""\n-------------------------------------------------------------------------------
+  ### Question:
+  -------------------------------------------------------------------------------\n
   {query}
-  ### Answer:
-  {result['answer']}
-  ### Sources:
-  {result['sources']}
-  ### All relevant sources:
-  {' '.join(list(set([doc.metadata['source'] for doc in result['source_documents']])))}
+  -------------------------------------------------------------------------------\n
+  {ex}
   """
-  display(Markdown(output_text))
+    f.write( output_text )
+    # print( output_text )
 
-"""#### Use the chain to query"""
+def print_result(result, query, f):
+  output_text = f"""
+## Question:
+{query}
 
-query = "What is SHIP-HATS?"
-result = chain(query)
-print_result(result)
+## Answer:
+{result['answer']}
 
-"""Turn on debugging to see the OpenAI requests"""
+### Sources:
+  {result['sources']}
+  
+#### All relevant sources:
++ {'+ '.join(list(set([doc.metadata['source'] for doc in result['source_documents']])))}
+"""
+
+  f.write( output_text )
+  # print( output_text )
 
 import logging
 
 logging.getLogger("openai").setLevel(logging.DEBUG) # logging.INFO or logging.DEBUG
 
-query = "What is SHIP-HATS?"
-result = chain(query)
-print_result(result)
+"""#### Use the chain to query"""
 
-"""Print result again without rerunning"""
+QUESTION_SET = qs.queryies2
 
-print_result(result)
+fa = open( f"./../reports/{pmd.PROJECT_FOLDER}/answers_{QUESTION_SET[1]}.md", "w")
+fp = open( f"./../reports/{pmd.PROJECT_FOLDER}/problems_{QUESTION_SET[1]}.md", "w")
+
+for q in QUESTION_SET[0]:
+
+    try:
+        result = chain(q)
+
+        print_result(result, q, fa)
+
+    except Exception as ex:
+        print_problem(q, ex, fp)
+
+fa.close()
+fp.close()
+
