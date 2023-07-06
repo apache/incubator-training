@@ -89,8 +89,8 @@ New contributors can come from within the ASF or outside it, which is why ComDev
 
 [NOTE.speaker]
 --
-The most important point to note is that a lot of people dont realise that they can contribute, or dont know how to! 
-So the first thing we focus on is getting the message out to people to let them know that all our projects and are always looking for new contributors. People to help with coding, documentation, event management, graphics, webdesign, training and anything else.
+The most important point to note is that a lot of people don't realise that they can contribute, or don't know how to! 
+So the first thing we focus on is getting the message out to people to let them know that all our projects and are always looking for new contributors. People to help with coding, documentation, event management, graphics, web design, training and anything else.
 
 The second thing we focus on is giving them information on how to contribute and participate. So as a new person who doesn't know anything. We help you get started.
 --
@@ -100,14 +100,13 @@ The second thing we focus on is giving them information on how to contribute and
 * Central place for basic information about where to start
 * We provide tools, processes and advice
 * We also coordinate and manage common tasks within the ASF (eg GSoC, Logo Repository, Info Brochure, Stickers etc)
-* We create tools (eg projects.a.o, people.a.o, reporter.a.o, helpwanted.a.o)
+* We create tools (eg projects.a.o, people.a.o, reporter.a.o)
 
 [NOTE.speaker]
 --
-Remember I said we dont focus on producing software? We don't! But that doesn't mean that we don't produce any.
+Remember I said we don't focus on producing software? We don't! But that doesn't mean that we don't produce any.
 In fact we do provide software tools that make things easier for our projects. So we have a tool where you can find a full project list, what each project is and what technology it uses. (projects.apache.org).
 We also have a tool that helps you find someone on a project (people.apache.org)
-And for the projects who have identified specific tasks they need help with (helpwanted.apache.org)
 We created reporter.apache.org for all projects to use to generate a template for their quarterly board reports.
 --
 
