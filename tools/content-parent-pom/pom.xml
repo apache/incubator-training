@@ -50,9 +50,7 @@
         <asciidoctorj-revealjs.version>5.0.0.rc1</asciidoctorj-revealjs.version>
         <asciidoctorj.diagram.version>2.2.9</asciidoctorj.diagram.version>
 
-        <!-- Reveal.JS 4.x doesn't seem to work yet -->
-        <revealjs.version>3.9.2</revealjs.version>
-        <!--revealjs.version>4.5.0</revealjs.version-->
+        <revealjs.version>4.5.0</revealjs.version>
 
         <asciidoctor-maven-plugin.version>2.2.4</asciidoctor-maven-plugin.version>
         <download-maven-plugin.version>1.7.0</download-maven-plugin.version>
@@ -145,7 +143,7 @@
                             <goal>wget</goal>
                         </goals>
                         <configuration>
-                            <url>https://github.com/hakimel/reveal.js/archive/${revealjs.version}.zip</url>
+                            <url>https://codeload.github.com/hakimel/reveal.js/zip/refs/tags/${revealjs.version}</url>
                             <unpack>true</unpack>
                             <outputFileName>reveal.js-${revealjs.version}.zip</outputFileName>
                             <outputDirectory>${project.slides.directory}</outputDirectory>
@@ -215,7 +213,7 @@
                                 <resource>
                                     <directory>src/main/theme</directory>
                                     <filtering>true</filtering>
-                                    <targetPath>${project.slides.directory}/reveal.js-${revealjs.version}/css/theme</targetPath>
+                                    <targetPath>${project.slides.directory}/reveal.js-${revealjs.version}/dist/theme</targetPath>
                                 </resource>
                             </resources>
                         </configuration>
