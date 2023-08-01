@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+
+#
+# This module defines the question-sets used to create the PROMPTS for our document analysis automation.
+#
+
 queryies1 = ([
                  "What is projects title?, Clearly state the name of the project.",
                  "What is the project description? Provide a concise overview of what the project does and its main features or purpose.",
@@ -9,7 +15,7 @@ queryies1 = ([
                  "How does the roadmap look like? Outline the project's future plans, upcoming features, or known issues.",
                  "Who are the authors? List the names or usernames of the main contributors to the project.",
                  "Acknowledgments: Express gratitude to individuals, organizations, or resources that have contributed to the project or influenced its development."
-             ], "set_nr_1" )
+             ], "Nr. 001", "qs-001" )
 
 queryies2 = ([
                  "What is the projects title?",
@@ -21,4 +27,4 @@ queryies2 = ([
                  "What license is used?",
                  "How does the roadmap look like?",
                  "Who are the authors?"
-             ], "set_nr_2" )
+             ], "Nr. 002", "qs-002" )
