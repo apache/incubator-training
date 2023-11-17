@@ -1,23 +1,23 @@
 # -*- coding: utf-8 -*-
 
 #
+# This script is inspired by the work of Quy Tang:
+#    https://medium.com/singapore-gds/integrating-chatgpt-with-internal-knowledge-base-and-question-answer-platform-36a3283d6334
+#
+
+#
 # Run the script like this:
 #
 # (1) Provide an OPENAI_API_KEY in your command or as ENV variable.
 #
-# export OPENAI_API_KEY="<YOUR API KEY>";python corpus_analyser_qa_langchain.py
+# source env.sh; export OPENAI_API_KEY="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"; python corpus_analyser_qa_langchain.py
 #
 # (2) Select the project you want to analyse. (Please see folder docs-main for more details to prep the data!)
-#import project_metadata.kafka as pmd
+import project_metadata.kafka as pmd
 import project_metadata.incubator_wayang as pmd
 #
 # (3) Select the question-set you want to work with.
 import question_sets.question_sets as qs
-
-#
-# This script is inspired by the work of Quy Tang:
-#    https://medium.com/singapore-gds/integrating-chatgpt-with-internal-knowledge-base-and-question-answer-platform-36a3283d6334
-#
 
 import os
 from getpass import getpass
@@ -33,16 +33,29 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 
+def get_file_size(file_path):
+    if os.path.exists(file_path):
+        file_size = os.path.getsize(file_path)
+        return file_size
+    else:
+        return -1  # Return -1 if the file is not found
+
 name_filter = "**/*.md"
 separator = "\n### "  # This separator assumes Markdown docs from the repo uses ### as logical main header most of the time
-chunk_size_limit = 1500
+chunk_size_limit = 2500
 max_chunk_overlap = 100
 
 repo_path = pathlib.Path(os.path.join(pmd.DOCS_FOLDER, pmd.REPO_DOCUMENTS_PATH))
 document_files = list(repo_path.glob(name_filter))
 
-print( f"<FILENAMES of indexed documents> in REPO_PATH: {repo_path}")
-print( document_files )
+print( f"*** FILENAMES of indexed documents> in REPO_PATH: {repo_path}")
+for fn in document_files:
+    size = get_file_size( fn )
+    if size > chunk_size_limit:
+        p = "*"
+        print( f"{p}{size} {fn}" )
+    else:
+        p = " "
 
 def convert_path_to_doc_url(doc_path):
   # Convert from relative path to actual document url
@@ -51,6 +64,7 @@ def convert_path_to_doc_url(doc_path):
 documents = [
     Document(
         page_content=open(file, "r").read(),
+        size=get_file_size( file ),
         metadata={"source": convert_path_to_doc_url(file)}
     )
     for file in document_files
@@ -60,8 +74,18 @@ print( "\n<# of documents>")
 print( len(documents) )
 print()
 
+
 text_splitter = CharacterTextSplitter(separator=separator, chunk_size=chunk_size_limit, chunk_overlap=max_chunk_overlap)
 split_docs = text_splitter.split_documents(documents)
+
+print( len(split_docs) )
+
+for doc in split_docs:
+    print( type(doc) )
+    print( doc )
+    print()
+
+exit(-1)
 
 import tiktoken
 
@@ -222,3 +246,14 @@ print( document_files )
 print()
 print( f"\n<# of indexed documents> : {len(documents) }")
 print()
+
+
+
+
+
+
+
+
+
+
+
