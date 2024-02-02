@@ -50,7 +50,7 @@
         <asciidoctorj-revealjs.version>5.1.0</asciidoctorj-revealjs.version>
         <asciidoctorj.diagram.version>2.2.14</asciidoctorj.diagram.version>
 
-        <revealjs.version>4.6.1</revealjs.version>
+        <revealjs.version>5.0.4</revealjs.version>
 
         <asciidoctor-maven-plugin.version>2.2.5</asciidoctor-maven-plugin.version>
         <download-maven-plugin.version>1.8.0</download-maven-plugin.version>
