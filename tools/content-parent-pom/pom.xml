@@ -46,19 +46,19 @@
 
         <java.version>1.8</java.version>
 
-        <asciidoctorj.version>2.5.10</asciidoctorj.version>
-        <asciidoctorj-revealjs.version>5.0.0.rc1</asciidoctorj-revealjs.version>
-        <asciidoctorj.diagram.version>2.2.9</asciidoctorj.diagram.version>
+        <asciidoctorj.version>2.5.11</asciidoctorj.version>
+        <asciidoctorj-revealjs.version>5.1.0</asciidoctorj-revealjs.version>
+        <asciidoctorj.diagram.version>2.2.14</asciidoctorj.diagram.version>
 
-        <revealjs.version>4.5.0</revealjs.version>
+        <revealjs.version>4.6.1</revealjs.version>
 
-        <asciidoctor-maven-plugin.version>2.2.4</asciidoctor-maven-plugin.version>
-        <download-maven-plugin.version>1.7.0</download-maven-plugin.version>
+        <asciidoctor-maven-plugin.version>2.2.5</asciidoctor-maven-plugin.version>
+        <download-maven-plugin.version>1.8.0</download-maven-plugin.version>
         <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
-        <jetty-maven-plugin.version>11.0.15</jetty-maven-plugin.version>
+        <jetty-maven-plugin.version>11.0.20</jetty-maven-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
         <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
-        <maven-dependency-plugin.version>3.6.0</maven-dependency-plugin.version>
+        <maven-dependency-plugin.version>3.6.1</maven-dependency-plugin.version>
     </properties>
 
     <dependencies>
