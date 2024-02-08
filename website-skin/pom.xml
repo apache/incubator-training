@@ -24,7 +24,7 @@
   <parent>
     <groupId>org.apache</groupId>
     <artifactId>apache</artifactId>
-    <version>27</version>
+    <version>31</version>
 
     <!-- Required in our case as per https://maven.apache.org/ref/3.0.3/maven-model/maven.html#class_parent -->
     <relativePath />
