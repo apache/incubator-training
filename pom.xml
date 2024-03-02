@@ -43,4 +43,11 @@
     <module>website-skin</module>
   </modules>
 
+  <scm>
+    <connection>scm:git:https://gitbox.apache.org/repos/asf/incubator-training.git</connection>
+    <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/incubator-training.git</developerConnection>
+    <url>https://github.com/apache/incubator-training</url>
+    <tag>release-1.1-RC</tag>
+  </scm>
+
 </project>
