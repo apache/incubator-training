@@ -38,7 +38,7 @@ This allows us to generate images like the ones on the http://plc4x.apache.org/p
 
 === Providing new content
 
-Within the `src/site` directory, there is a file `site.xml` which generally controls the menu and the look of the site.
+The website content can be found on GitHub, in the /site subdirectory, at https://github.com/apache/incubator-training[github.com/apache/incubator-training]. Within the `src/site` directory, there is a file `site.xml` which generally controls the menu and the look of the site.
 
 Most settings are inherited from the `training` parent module. That's also why this is more complicated than the others.
 

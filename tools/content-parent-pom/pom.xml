@@ -17,18 +17,17 @@
   limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>org.apache.training</groupId>
         <artifactId>training-tools</artifactId>
-        <version>1.1.0-SNAPSHOT</version>
+        <version>1.2.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>content-parent-pom</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>1.2.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Training: Tools: Content Master Pom</name>
@@ -46,21 +45,19 @@
 
         <java.version>1.8</java.version>
 
-        <asciidoctorj.version>2.5.7</asciidoctorj.version>
-        <asciidoctorj-revealjs.version>5.0.0.rc1</asciidoctorj-revealjs.version>
-        <asciidoctorj.diagram.version>2.2.4</asciidoctorj.diagram.version>
+        <asciidoctorj.version>2.5.11</asciidoctorj.version>
+        <asciidoctorj-revealjs.version>5.1.0</asciidoctorj-revealjs.version>
+        <asciidoctorj.diagram.version>2.2.17</asciidoctorj.diagram.version>
 
-        <!-- Reveal.JS 4.x doesn't seem to work yet -->
-        <revealjs.version>3.9.2</revealjs.version>
-        <!--revealjs.version>4.3.1</revealjs.version-->
+        <revealjs.version>5.0.4</revealjs.version>
 
-        <asciidoctor-maven-plugin.version>2.2.3</asciidoctor-maven-plugin.version>
-        <download-maven-plugin.version>1.6.8</download-maven-plugin.version>
+        <asciidoctor-maven-plugin.version>2.2.5</asciidoctor-maven-plugin.version>
+        <download-maven-plugin.version>1.8.0</download-maven-plugin.version>
         <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
-        <jetty-maven-plugin.version>11.0.14</jetty-maven-plugin.version>
-        <maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
-        <maven-war-plugin.version>3.3.2</maven-war-plugin.version>
-        <maven-dependency-plugin.version>3.5.0</maven-dependency-plugin.version>
+        <jetty-maven-plugin.version>11.0.20</jetty-maven-plugin.version>
+        <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+        <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
+        <maven-dependency-plugin.version>3.6.1</maven-dependency-plugin.version>
     </properties>
 
     <dependencies>
@@ -68,7 +65,7 @@
         <dependency>
             <groupId>org.apache.training</groupId>
             <artifactId>content-parent-resources</artifactId>
-            <version>1.1.0-SNAPSHOT</version>
+            <version>1.2.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -145,7 +142,7 @@
                             <goal>wget</goal>
                         </goals>
                         <configuration>
-                            <url>https://github.com/hakimel/reveal.js/archive/${revealjs.version}.zip</url>
+                            <url>https://codeload.github.com/hakimel/reveal.js/zip/refs/tags/${revealjs.version}</url>
                             <unpack>true</unpack>
                             <outputFileName>reveal.js-${revealjs.version}.zip</outputFileName>
                             <outputDirectory>${project.slides.directory}</outputDirectory>
@@ -215,7 +212,7 @@
                                 <resource>
                                     <directory>src/main/theme</directory>
                                     <filtering>true</filtering>
-                                    <targetPath>${project.slides.directory}/reveal.js-${revealjs.version}/css/theme</targetPath>
+                                    <targetPath>${project.slides.directory}/reveal.js-${revealjs.version}/dist/theme</targetPath>
                                 </resource>
                             </resources>
                         </configuration>

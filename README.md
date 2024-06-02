@@ -1,7 +1,7 @@
 Apache Training (incubating)
 ============================
 
-### Purpose
+### Purpose of the project
 The purpose of the Training project is to create high-quality training material for various projects in an open source form. Up until now everyone who wants to offer a Training course for one of the Apache projects needs to create her or his own slides/labs and keep them up-to-date. This is a significant investment of time and money. This project aims to spread that burden and help all Apache projects as we can create shared resources and we can also create cross-project training resources.
 
 To sum up, the main goals for this project:
