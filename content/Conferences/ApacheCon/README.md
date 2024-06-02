@@ -20,9 +20,9 @@ Then run:
 
 ## How to Build with Ruby or Node (minimal support)
 
-It possisble to genrate the slides with other technologies, please see instructions at https://asciidoctor.org/docs/asciidoctor-revealjs/.
+It is possible to generate the slides with other technologies, please see instructions at https://asciidoctor.org/docs/asciidoctor-revealjs/.
 
-For node install the dependacies:
+For node install the dependencies:
 
 `npm i --save asciidoctor@^2.0 @asciidoctor/reveal.js`
 
@@ -40,11 +40,11 @@ Once built, the generated slides can be found at:
 
 Just open the `index_en.html` in a browser to view the slides.
 
-Some features require the slides to be viewed via a http/https url you can do this by running:
+Some features require the slides to be viewed via a http/https URL you can do this by running:
 
 `mvn jetty:run-exploded`
 
-And goto `http://127.0.0.1:8080/index_en.html` in a browser to view.
+And go to `http://127.0.0.1:8080/index_en.html` in a browser to view.
 
 If you add ?print-pdf at the end of the URL, you can then print the slide deck into a PDF document.
 
