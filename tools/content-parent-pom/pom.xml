@@ -435,10 +435,7 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven-compiler-plugin.version}</version>
                     <configuration>
-                        <source>${java.version}</source>
-                        <target>${java.version}</target>
-                        <testSource>${java.version}</testSource>
-                        <testTarget>${java.version}</testTarget>
+                        <release>8</release>
                     </configuration>
                 </plugin>
                 <plugin>
