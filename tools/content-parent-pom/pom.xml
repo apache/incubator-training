@@ -45,19 +45,20 @@
 
         <java.version>1.8</java.version>
 
-        <asciidoctorj.version>2.5.11</asciidoctorj.version>
+        <asciidoctorj.version>3.0.0</asciidoctorj.version>
         <asciidoctorj-revealjs.version>5.1.0</asciidoctorj-revealjs.version>
-        <asciidoctorj.diagram.version>2.2.17</asciidoctorj.diagram.version>
+        <asciidoctorj.diagram.version>2.3.1</asciidoctorj.diagram.version>
 
-        <revealjs.version>5.0.4</revealjs.version>
+        <revealjs.version>5.1.0</revealjs.version>
 
-        <asciidoctor-maven-plugin.version>2.2.5</asciidoctor-maven-plugin.version>
-        <download-maven-plugin.version>1.8.0</download-maven-plugin.version>
+        <asciidoctor-maven-plugin.version>3.0.0</asciidoctor-maven-plugin.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <download-maven-plugin.version>1.9.0</download-maven-plugin.version>
         <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
-        <jetty-maven-plugin.version>11.0.20</jetty-maven-plugin.version>
+        <jetty-maven-plugin.version>11.0.23</jetty-maven-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
         <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
-        <maven-dependency-plugin.version>3.6.1</maven-dependency-plugin.version>
+        <maven-dependency-plugin.version>3.8.0</maven-dependency-plugin.version>
     </properties>
 
     <dependencies>
@@ -82,7 +83,7 @@
             <plugin>
                 <groupId>org.apache.rat</groupId>
                 <artifactId>apache-rat-plugin</artifactId>
-                <version>0.15</version>
+                <version>0.16.1</version>
                 <executions>
                     <execution>
                         <id>license-check</id>
@@ -432,6 +433,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
                     <configuration>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
