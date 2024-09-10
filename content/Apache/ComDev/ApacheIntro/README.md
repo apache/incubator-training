@@ -37,11 +37,14 @@ By running the following command, you can generate the presentation:
 
 In order to start a local web server serving the presentation, execute the following command:
 
-    mvn jetty:run-exploded
+    mvn jetty:run-war
     
 As soon as that's done, just point your browser to:
 
     http://localhost:8080/
+
+Or, you can simply open the file ./target/generated-slides/index.html in
+your favorite browser.
 
 ## Generating PDF versions
 
