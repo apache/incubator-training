@@ -79,7 +79,7 @@ image::apache_8.png[250,250,float="right",align="center"]
 .^a|* 21 Members
 * 2 Projects
 * All servers and services donated
-.^a| * 743 Members
+.^a| * 800 active Members
 * 362 Projects (Managed by 207 PMCs)
 * 8833 Committers
 //* 689584 Contributors
@@ -262,7 +262,7 @@ Organizational Oversight                  |            | Create & update
 +--------------------+                +----------------+---+
 |c7CE                |                |cF71                |
 | Members            +--------------->| Board of Directors |
-| (743)              +--+             | (9)                |
+| (800)              +--+             | (9)                |
 +--------------------+  |             +---+----------------+
           ^             |          Appoint|            ^
           |             |         Officers|            |
