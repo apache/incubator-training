@@ -124,6 +124,7 @@ Concept based on the Fedora badging sysem - https://badges.fedoraproject.org/
 == wg-social
 
 * Orchestrating local gathering of Apache enthusiasts
+* AKA Party Working Group
 
 == wg-social-media
 
@@ -136,10 +137,36 @@ Concept based on the Fedora badging sysem - https://badges.fedoraproject.org/
 == wg-welcome
 
 * Helping projects, and the ASF in general, be more welcoming
+* e.g. ...
+** helping projects write better project definitions
+** answering beginner questions on dev@community or elsewhere
+
+== wg-welcome - Sample answers
+
+* (See Git repo)
+* Provides sample/boilerplate answers to common questions
+
+image::sample-answer.png[]
+
+== Sample answers
+
+* Why?
+** Consistent messaging
+** Thorough, friendly answers with links
+
+[NOTE.speaker]
+--
+Using the recommended sample answer ensures that canonical links are
+provided, and that we are giving people consistent answers.
+
+Perhaps more importantly, it lets *anyone* jump in with the right
+answer, and this gets more people engaged in community support.
+--
 
 == wg-your-idea-here
 
 * Is there something you're passionate about and want to gather a group of like-minded people to work on it?
+* Propose your WG on dev@community.apache.org
 
 == How to communicate
 
@@ -154,4 +181,16 @@ image::wg-email.png[scaledwidth=75%]
 * Introduce yourself
 * Say what you want to work on
 * Then **start doing it**. You are allowed.
+
+[NOTE.speaker]
+--
+The key point here is that **you** are the owner of the working group.
+You don't have to get permission or approval for your idea, as long as
+you are transparent/public about what you're working on, and welcome
+feedback and discussion.
+--
+
+== More Info
+
+https://community.apache.org/workinggroups
 
