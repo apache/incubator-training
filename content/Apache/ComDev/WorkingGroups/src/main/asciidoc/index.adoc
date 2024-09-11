@@ -34,6 +34,7 @@ include::_settings.adoc[]
 * What it is
 * What it is not
 
+[NOTE.speaker]
 --
 * ComDev exists to help projects build their communties
 * Yes, projects should do this themselves, but having common practices and tools lowers the barrier
@@ -42,7 +43,10 @@ include::_settings.adoc[]
 
 == ComDev is you, you are ComDev
 
-ComDev does not do this work *for* you. It's a place for everyone to
-collaborate on best practices and tools that span all projects.
+Key Point: ComDev does not do this work *for* you. It's a place 
+for everyone to collaborate on best practices and tools that 
+span all projects. Come join us.
+
+== People like to be asked
 
 
