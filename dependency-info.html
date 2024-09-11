@@ -59,6 +59,7 @@
                                 <a  title="Apache ComDev"  class="dropdown-item" >Apache ComDev</a>                                <div class="dropdown-menu">
                                     <a href="presentations/comdev/apache-intro/index.html" title="The ASF" target="_blank" class="dropdown-item ">The ASF</a>
                                     <a href="presentations/comdev/comdev-intro/index.html" title="Intro" target="_blank" class="dropdown-item ">Intro</a>
+                                    <a href="presentations/comdev/working-groups/index.html" title="Working Groups" target="_blank" class="dropdown-item ">Working Groups</a>
                                 </div>
                             </div>
                             <a href="presentations/druid/index.html" title="Apache Druid" target="_blank" class="dropdown-item ">Apache Druid</a>
@@ -160,7 +161,6 @@
 
                                     <li class="nav-item toplevel"><a class="nav-link" href="#dependency-information" title="Dependency Information">Dependency Information</a></li>
                         <li class="nav-item toplevel"><a class="nav-link" href="#apache-maven" title="Apache Maven">Apache Maven</a></li>
-                        <li class="nav-item toplevel"><a class="nav-link" href="#apache-buildr" title="Apache Buildr">Apache Buildr</a></li>
                         <li class="nav-item toplevel"><a class="nav-link" href="#apache-ivy" title="Apache Ivy">Apache Ivy</a></li>
                         <li class="nav-item toplevel"><a class="nav-link" href="#groovy-grape" title="Groovy Grape">Groovy Grape</a></li>
                         <li class="nav-item toplevel"><a class="nav-link" href="#gradlegrails" title="Gradle/Grails">Gradle/Grails</a></li>
@@ -178,7 +178,7 @@
  <section> 
   <h3 id="apache-maven">Apache Maven</h3> 
   <a name="Apache_Maven"></a> 
-  <div class="source"> 
+  <div> 
    <pre>&lt;dependency&gt;
   &lt;groupId&gt;org.apache.training&lt;/groupId&gt;
   &lt;artifactId&gt;training-website&lt;/artifactId&gt;
@@ -188,16 +188,9 @@
   </div> 
  </section> 
  <section> 
-  <h3 id="apache-buildr">Apache Buildr</h3> 
-  <a name="Apache_Buildr"></a> 
-  <div class="source"> 
-   <pre>'org.apache.training:training-website:pom:0.4.0-SNAPSHOT'</pre> 
-  </div> 
- </section> 
- <section> 
   <h3 id="apache-ivy">Apache Ivy</h3> 
   <a name="Apache_Ivy"></a> 
-  <div class="source"> 
+  <div> 
    <pre>&lt;dependency org="org.apache.training" name="training-website" rev="0.4.0-SNAPSHOT"&gt;
   &lt;artifact name="training-website" type="pom" /&gt;
 &lt;/dependency&gt;</pre> 
@@ -206,7 +199,7 @@
  <section> 
   <h3 id="groovy-grape">Groovy Grape</h3> 
   <a name="Groovy_Grape"></a> 
-  <div class="source"> 
+  <div> 
    <pre>@Grapes(
 @Grab(group='org.apache.training', module='training-website', version='0.4.0-SNAPSHOT')
 )</pre> 
@@ -215,21 +208,21 @@
  <section> 
   <h3 id="gradlegrails">Gradle/Grails</h3> 
   <a name="Gradle.2FGrails"></a> 
-  <div class="source"> 
-   <pre>compile 'org.apache.training:training-website:0.4.0-SNAPSHOT'</pre> 
+  <div> 
+   <pre>implementation 'org.apache.training:training-website:0.4.0-SNAPSHOT'</pre> 
   </div> 
  </section> 
  <section> 
   <h3 id="scala-sbt">Scala SBT</h3> 
   <a name="Scala_SBT"></a> 
-  <div class="source"> 
+  <div> 
    <pre>libraryDependencies += "org.apache.training" % "training-website" % "0.4.0-SNAPSHOT"</pre> 
   </div> 
  </section> 
  <section> 
   <h3 id="leiningen1">Leiningen</h3> 
   <a name="Leiningen"></a> 
-  <div class="source"> 
+  <div> 
    <pre>[org.apache.training/training-website "0.4.0-SNAPSHOT"]</pre> 
   </div> 
  </section> 
@@ -273,7 +266,7 @@ Apache
   <div class="container subfooter text-center">
     <div class="row">
       <div class="col-md-12">
-        <p class="copyright">Copyright &copy;2019-2023
+        <p class="copyright">Copyright &copy;2019-2024
                  <a href="https://www.apache.org/">The Apache Software Foundation</a>
 . All Rights Reserved.</p>
         <p><a href="https://github.com/devacfr/reflow-maven-skin" title="Reflow Maven skin">Reflow Maven skin</a> by <a href="http://devacfr.github.io" target="_blank" title="devacfr">devacfr</a>.</p>
