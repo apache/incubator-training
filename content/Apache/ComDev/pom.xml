@@ -19,15 +19,10 @@
 --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     
   <modelVersion>4.0.0</modelVersion>
-    
   <parent>
-        
     <groupId>org.apache.training.content</groupId>
-        
     <artifactId>training-content-apache</artifactId>
-        
     <version>0.4.0-SNAPSHOT</version>
-      
   </parent>
     
   <artifactId>training-content-apache-comdev</artifactId>
@@ -37,13 +32,9 @@
   <name>Training: Content: Apache: ComDev</name>
     
   <modules>
-        
     <module>ApacheIntro</module>
-        
     <module>ComDevIntro</module>
-        
     <module>WorkingGroups</module>
-      
   </modules>
   
 </project>
