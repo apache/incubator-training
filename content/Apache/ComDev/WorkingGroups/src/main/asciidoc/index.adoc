@@ -20,6 +20,8 @@
 include::_settings.adoc[]
 :presenter_name: Your Name Here
 :presenter_company: Apache Software Foundation
+// 40 minutes - 5 minutes Q&A = 2100 seconds
+:revealjs_totalTime: 2100
 
 == ComDev Working Groups
 
@@ -32,6 +34,8 @@ include::_settings.adoc[]
 == A bit about ComDev
 
 " ... charged with coordinating community development efforts."
+
+image::cat-herding.jpg[]
 
 [NOTE.speaker]
 --
