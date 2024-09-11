@@ -31,22 +31,127 @@ include::_settings.adoc[]
 
 == A bit about ComDev
 
-* What it is
-* What it is not
+" ... charged with coordinating community development efforts."
 
 [NOTE.speaker]
 --
+
 * ComDev exists to help projects build their communties
 * Yes, projects should do this themselves, but having common practices and tools lowers the barrier
 * ComDev is a PMC - a peer to other PMCs. It does *not* have authority over other PMCs.
+
 --
 
-== ComDev is you, you are ComDev
+== We are all ComDev
 
 Key Point: ComDev does not do this work *for* you. It's a place 
-for everyone to collaborate on best practices and tools that 
+for everyone to **collaborate on best practices** and tools that 
 span all projects. Come join us.
 
-== People like to be asked
+[NOTE.speaker]
+--
 
+ComDev is the ideal place for people with so-called "non-technical"
+skills that they want to contribute to the ASF.
+
+--
+
+== What's a working group?
+
+* Like-minded people ...
+* working towards a common goal ...
+* collaboratively, in public
+
+== Welcome
+
+image::welcome.jpg[scaledwidth=50%]
+
+++++
+<small>CC by "alborzshawn" on Flickr</small>
+++++
+
+[NOTE.speaker]
+--
+
+Yes, it's open source and "everyone knows" that they can come
+contribute. But people like to be asked. They like to be invited. They
+like to be welcomed.
+
+The working groups exist to give explicit welcome and permission to
+anyone who wants to participate. Come join us!
+
+--
+
+== wg-wg
+
+* For discussion of cross-working-group norms, process, or tools
+
+== wg-advisors
+
+* Advising projecdts and PMCs on best practice
+* Seasoned ASF members and community managers
+
+[NOTE.speaker]
+--
+
+This is really no different from going to the project and volunteering
+your expertise, but having the working group emboldens pepole to do this
+work.
+
+Ask first. You will probably be welcome, but don't assume.
+
+--
+
+== wg-badging
+
+image::fas-paranoid-panda.png[]
+
+* "Badges" to celebrate accomplishments
+* Still in idea phase - could use your help
+
+[NOTE.speaker]
+--
+
+Concept based on the Fedora badging sysem - https://badges.fedoraproject.org/
+
+--
+
+== wg-code-of-conduct
+
+* Providing a recommended template for project code of conduct
+* **NOT** an enforcing body, nor are we requiring any project to do anything
+
+== wg-social
+
+* Orchestrating local gathering of Apache enthusiasts
+
+== wg-social-media
+
+* Social media
+
+== wg-website
+
+* Maintenance of the website
+
+== wg-welcome
+
+* Helping projects, and the ASF in general, be more welcoming
+
+== wg-your-idea-here
+
+* Is there something you're passionate about and want to gather a group of like-minded people to work on it?
+
+== How to communicate
+
+image::wg-email.png[scaledwidth=75%]
+
+* Send email to dev@community.apache.org
+* Use a Subject: line tag identifying the working group
+
+== Getting involved
+
+* Show up
+* Introduce yourself
+* Say what you want to work on
+* Then **start doing it**. You are allowed.
 
