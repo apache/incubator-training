@@ -20,28 +20,22 @@
 # Presentation with Reveal.JS and AsciiDoctor
 
 Remarks:
-- Currently it seems as if the system can't detect the 'docinfo' files, so we have to replace the `document.html.slim` file from `asciidoctor-reveal.js` with an updated one, that adds some additional js and css references. This template is located in `libs/docinfo-hack`.
 - In order to use the preview of the IntelliJ asciidoctor plugin, you need to set an attribute in the plugin settings: `imagesdir` = `../resources/images`
-- Even if it is possible to run the presentation directly from the `generated-slides` directory, some JavaScript extensions don't work in this case. Therefore it is required to run the presentation from a local webserver. 
 - In order to generate the diagrams, GraphVIS needs to be installed locally. Get it from: http://www.graphviz.org/
-- The template is adjusted to use the codecentric font `Panton`, so be sure to have that installed on your presentation machine.
-- Any css adjustments can go to `src/main/theme/cc.css` as this is automatically embedded into the themes directory.
+- Any css adjustments can go to `src/main/theme/apache.css` as this is automatically embedded into the themes directory.
 
 ## Building the presentation
 
 By running the following command, you can generate the presentation:
 
-    mvn clean package
+    mvn package
    
 ## Running the presentation
 
-In order to start a local web server serving the presentation, execute the following command:
+In order to show the presentation, go into the `target` directory and look for a directory named {artifactId}-{version}.
+This direcotry contains an `index.html` file.
 
-    mvn jetty:run-exploded
-    
-As soon as that's done, just point your browser to:
-
-    http://localhost:8080/
+Simply open this in any browser of your choice.
 
 ## Generating PDF versions
 
@@ -49,9 +43,9 @@ In order to generate a PDF version of the presentation just add `?print-pdf` to 
 
 The following link should do the trick:
 
-    http://localhost:8080/?print-pdf
+    http:///{someFilePath}/?print-pdf
     
-As soon as that's loaded, just use the normal `print` functionality of the browser and `print as PDF`.
+As soon as that's loaded, the presentation will look a bit odd. Now just use the normal `print` functionality of the browser and select `print as PDF`.
 
 ## Installing third party software:
 
