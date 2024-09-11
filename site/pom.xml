@@ -244,6 +244,13 @@
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
+                  <artifactId>training-content-apache-comdev-working-groups</artifactId>
+                  <version>1.0.0-SNAPSHOT</version>
+                  <type>war</type>
+                  <outputDirectory>${project.build.directory}/site/presentations/comdev/working-groups</outputDirectory>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-druid</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
@@ -580,6 +587,12 @@
     <dependency>
       <groupId>org.apache.training.content</groupId>
       <artifactId>training-content-apache-comdev-comdev-intro</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.training.content</groupId>
+      <artifactId>training-content-apache-comdev-working-groups</artifactId>
       <version>1.0.0-SNAPSHOT</version>
       <type>war</type>
     </dependency>

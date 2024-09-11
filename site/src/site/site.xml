@@ -113,6 +113,7 @@
       <item name="Apache ComDev">
         <item name="The ASF" href="presentations/comdev/apache-intro/index.html" target="_blank"/>
         <item name="Intro" href="presentations/comdev/comdev-intro/index.html" target="_blank"/>
+        <item name="Working Groups" href="presentations/comdev/working-groups/index.html" target="_blank"/>
       </item>
       <item name="Apache Druid" href="presentations/druid/index.html" target="_blank"/>
       <item name="Apache Flink" href="presentations/flink/index.html" target="_blank"/>
