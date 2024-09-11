@@ -49,7 +49,7 @@ Please add your own details here
 
 == What is ComDev?
 * 'Community Development' http://community.apache.org/
-* An Apache project that isn't focussed on producing software
+* An Apache project that isn't focused on producing software
 * It plays a key role in helping support collaboration and attracting new contributors
 * It has an internal and external role
 
@@ -116,7 +116,6 @@ image::handshake-2009183_1920-1.png[scaledwidth=75%]
 
 * Mailing list dev@community.apache.org
 
-
 [NOTE.speaker]
 --
 All our communication happens via a mailing list - dev@community.apache.org
@@ -126,8 +125,7 @@ Everything is archived so you can easily go back and search.
 --
 
 == Events and Participation
-* ApacheCon https://www.apachecon.com/
-* Apache Roadshows 
+* Community Over Code - https://communityovercode.org/
 * Third Party Events:
 ** Levels of participation from stickers, booth to talks or a track
 ** If you want us to participate - please ask!
@@ -137,14 +135,35 @@ Everything is archived so you can easily go back and search.
 * How can we help support you in your open source journey?
 
 == Newcomer resources
-* Getting Started http://community.apache.org/newcomers/index.html
-* FAQs http://community.apache.org/newbiefaq.html
+* Getting Started https://community.apache.org/newcomers/index.html
+* FAQs https://community.apache.org/newbiefaq.html
 * ASF Brochure https://cwiki.apache.org/confluence/display/COMDEV/ASF+Information+Brochure
-** Help Wanted https://helpwanted.apache.org/
-** GSoC http://community.apache.org/gsoc.html
+* GSoC https://community.apache.org/gsoc.html
+* Project listing https://projects.apache.org/
+
+== Apache Local Communities
+
+* ALC creates local groups of ASF enthusiasts
+* https://s.apache.org/alc
+** ALC Bangalore
+** ALC Beijing
+** ALC Budapest
+** ALC Hangzhou
+** ALC Indore
+** ALC Lagos
+** ALC Shanghai
+** ALC Shenzhen
+** ALC Warsaw
+** ALC Xi'an
+
+== Working groups
+
+* Where *you* can get involved doing the things you're passionate about
+* https://community.apache.org/workinggroups
 
 == Contacting ComDev
 * Website: community.apache.org
 * Mailing List: dev@community.apache.org
 * Twitter @ApacheCommunity
 * Slack : the-asf.slack.com 
+
