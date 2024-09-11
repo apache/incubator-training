@@ -52,6 +52,11 @@ Key Point: ComDev does not do this work *for* you. It's a place
 for everyone to **collaborate on best practices** and tools that 
 span all projects. Come join us.
 
+image::barn-raising.jpg[scalewidth=50%]
+++++
+<small>CC by Historic Bremen Indiana on Flickr</small>
+++++
+
 [NOTE.speaker]
 --
 
@@ -70,6 +75,32 @@ before they get more deeply involved.
 * working towards a common goal ...
 * collaboratively, in public
 
+== Each group has
+
+* Git repo - https://github.com/apache/comdev-working-groups
+* A narrowly-defined goal or mission
+
+[NOTE.speaker]
+--
+Narrowly defined so that there's no ambiguity, room for scope creep, or
+potential to overlap/conflict with other efforts.
+--
+
+== Why?
+
+After all, everyone knows that they can just dive in and start doing
+stuff, right?
+
+[NOTE.speaker]
+--
+Yes, it's open source and "everyone knows" that they can come
+contribute. But it can still be intimidating. People don't know where to
+start.
+
+People like to be asked. They like to be invited. They
+like to be welcomed.
+--
+
 == Welcome
 
 image::welcome.jpg[scaledwidth=50%]
@@ -81,18 +112,35 @@ image::welcome.jpg[scaledwidth=50%]
 [NOTE.speaker]
 --
 
-Yes, it's open source and "everyone knows" that they can come
-contribute. But people like to be asked. They like to be invited. They
-like to be welcomed.
+The working groups exist to give explicit welcome and *permission* to
+anyone who wants to participate.
+--
 
-The working groups exist to give explicit welcome and permission to
-anyone who wants to participate. Come join us!
+== Hello, my name is
+
+image::ask-me.jpg[]
+
+[NOTE.speaker]
+--
+Having a "title" (I'm a member of the
+Advisors working group!) gives people a feeling that they are authorized
+to speak with that voice. It gives *explicit permission*. It also
+encourages others to take them seriously ("oh, you're part of the
+working group")
+
+It also gives a structure within which to participate, and a recommended
+way to get started.
 
 --
+
+== Working groups so far
 
 == wg-wg
 
 * For discussion of cross-working-group norms, process, or tools
+* Purely advisory - WGs can do what they want - but wg-wg proposes
+  structure and processes.
+* Defines recommended way to start a new WG
 
 [NOTE.speaker]
 --
@@ -103,7 +151,7 @@ anyone who wants to participate. Come join us!
 
 == wg-advisors
 
-* Advising projecdts and PMCs on best practice
+* Advising projects and PMCs on best practice
 * Seasoned ASF members and community managers
 * It's important to respect a project's autonomy
 
@@ -114,11 +162,24 @@ This is really no different from going to the project and volunteering
 your expertise, but having the working group emboldens pepole to do this
 work.
 
+The primary goal is not so much to force people to do things a
+particular way, but to streamline it for people who don't know how to
+get started.
+
 Ask first. You will probably be welcome, but don't assume. Be clear that
 you're offering advice, but don't have standing to vote or enforce
-anything.
+anything. And once you've done this for a while, there's a chance that
+some projects will invite you to stick around.
 
 --
+
+== wg-advisors, cont'd
+
+* Get involved if
+** You've been around the ASF a long time
+** You're a Community Manager or Developer Advocate in your "real life"
+** You have skills like metrics, doc writing, event planning or anything 
+else that might be of value to an open source project
 
 == wg-badging
 
@@ -127,10 +188,30 @@ image::fas-paranoid-panda.png[]
 * "Badges" to celebrate accomplishments
 * Still in idea phase - could use your help
 
+== Fedora badges
+
+image::fedora-badges.png[]
+
 [NOTE.speaker]
 --
 
-Concept based on the Fedora badging sysem - https://badges.fedoraproject.org/
+Concept based on the Fedora badging system - https://badges.fedoraproject.org/
+
+--
+
+== Reddit badges
+
+image::reddit-badges.png[scalewidth=50%]
+
+[NOTE.speaker]
+--
+
+Worth noting that some people find this frivolous, or that it
+trivializes what we do. Other people like earning achievements,
+celebrating milestones, and trying new things.
+
+If you don't like this idea, then accept that it's not for you, and move
+on. You're not obliged to participate.
 
 --
 
@@ -143,8 +224,8 @@ Concept based on the Fedora badging sysem - https://badges.fedoraproject.org/
 
 == wg-social
 
-* Orchestrating local gathering of Apache enthusiasts
 * AKA Party Working Group
+* Orchestrating local **social** gathering of Apache enthusiasts
 * See also ALC - Apache Local Communities - https://s.apache.org/alc
 * Still in idea/startup stage
 

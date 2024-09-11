@@ -55,9 +55,9 @@ body {
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;
-  text-transform: uppercase;
   text-shadow: none;
   word-wrap: break-word; }
+/*  text-transform: uppercase; */
 
 .reveal h1 {
   font-size: 2.5em; }
