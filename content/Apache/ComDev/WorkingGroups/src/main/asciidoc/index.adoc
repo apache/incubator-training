@@ -1,0 +1,227 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+:presenter_name: Your Name Here
+:presenter_company: Apache Software Foundation
+
+== ComDev Working Groups
+
+[%step]
+* Why we made them.
+* What they're for.
+* Which ones have we started?
+* How to get involved.
+
+== A bit about ComDev
+
+" ... charged with coordinating community development efforts."
+
+[NOTE.speaker]
+--
+
+* ComDev exists to help projects build their communties
+* Yes, projects should do this themselves, but having common practices and tools lowers the barrier
+* ComDev is a PMC - a peer to other PMCs. It does *not* have authority over other PMCs.
+
+--
+
+== We are all ComDev
+
+Key Point: ComDev does not do this work *for* you. It's a place 
+for everyone to **collaborate on best practices** and tools that 
+span all projects. Come join us.
+
+[NOTE.speaker]
+--
+
+ComDev is the ideal place for people with so-called "non-technical"
+skills that they want to contribute to the ASF.
+
+However, there is a tendency for people to wait for someone else to lead
+before they get more deeply involved.
+
+--
+
+== What's a working group?
+
+[%step]
+* Like-minded people ...
+* working towards a common goal ...
+* collaboratively, in public
+
+== Welcome
+
+image::welcome.jpg[scaledwidth=50%]
+
+++++
+<small>CC by "alborzshawn" on Flickr</small>
+++++
+
+[NOTE.speaker]
+--
+
+Yes, it's open source and "everyone knows" that they can come
+contribute. But people like to be asked. They like to be invited. They
+like to be welcomed.
+
+The working groups exist to give explicit welcome and permission to
+anyone who wants to participate. Come join us!
+
+--
+
+== wg-wg
+
+* For discussion of cross-working-group norms, process, or tools
+
+[NOTE.speaker]
+--
+* This is where we document the ways that working groups should work.
+* It's also where we can collaborate on shared resources or processes
+  that benefit all WGs
+--
+
+== wg-advisors
+
+* Advising projecdts and PMCs on best practice
+* Seasoned ASF members and community managers
+* It's important to respect a project's autonomy
+
+[NOTE.speaker]
+--
+
+This is really no different from going to the project and volunteering
+your expertise, but having the working group emboldens pepole to do this
+work.
+
+Ask first. You will probably be welcome, but don't assume. Be clear that
+you're offering advice, but don't have standing to vote or enforce
+anything.
+
+--
+
+== wg-badging
+
+image::fas-paranoid-panda.png[]
+
+* "Badges" to celebrate accomplishments
+* Still in idea phase - could use your help
+
+[NOTE.speaker]
+--
+
+Concept based on the Fedora badging sysem - https://badges.fedoraproject.org/
+
+--
+
+== wg-code-of-conduct
+
+* Providing a recommended template for project code of conduct
+** (Based on the Contributor Covenant)
+** https://www.contributor-covenant.org/
+* **NOT** an enforcing body, nor are we requiring any project to do anything
+
+== wg-social
+
+* Orchestrating local gathering of Apache enthusiasts
+* AKA Party Working Group
+* See also ALC - Apache Local Communities - https://s.apache.org/alc
+* Still in idea/startup stage
+
+== wg-social-media
+
+* Write and publish content on all social media platforms
+* Amplify the messages of our projects, and help them craft better content
+* Coordinate with M&P for consistent messaging
+* Still in idea/startup stage
+
+== wg-website
+
+* Maintenance of the website
+** https://community.apache.org/
+* Yes, our website is objectively terrible. We know. Come help.
+
+== wg-welcome
+
+* Helping projects, and the ASF in general, be more welcoming
+* e.g. ...
+** helping projects write better project definitions
+** answering beginner questions on dev@community or elsewhere
+
+== wg-welcome - Sample answers
+
+* (See Git repo)
+* Provides sample/boilerplate answers to common questions
+
+image::sample-answer.png[]
+
+== Sample answers
+
+* Why?
+** Consistent messaging
+** Thorough, friendly answers with links
+
+[NOTE.speaker]
+--
+Using the recommended sample answer ensures that canonical links are
+provided, and that we are giving people consistent answers.
+
+Perhaps more importantly, it lets *anyone* jump in with the right
+answer, and this gets more people engaged in community support.
+--
+
+== wg-your-idea-here
+
+* Is there something you're passionate about and want to gather a group of like-minded people to work on it?
+* Propose your WG on dev@community.apache.org
+
+== How to communicate
+
+image::wg-email.png[scaledwidth=75%]
+
+* Send email to dev@community.apache.org
+* Use a Subject: line tag identifying the working group
+
+== Getting involved
+
+* Show up
+* Introduce yourself
+* Say what you want to work on
+* Then **start doing it**. You are allowed.
+
+[NOTE.speaker]
+--
+The key point here is that **you** are the owner of the working group.
+You don't have to get permission or approval for your idea, as long as
+you are transparent/public about what you're working on, and welcome
+feedback and discussion.
+--
+
+== More Info
+
+https://community.apache.org/workinggroups
+
+== Questions?
+
+This presentation is part of the Apache Training (Incubating) project,
+and under the AL2.0 license.
+
+https://training.apache.org/
+
+image::training-logo.svg[]
