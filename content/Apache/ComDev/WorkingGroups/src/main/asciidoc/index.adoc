@@ -301,6 +301,17 @@ welcoming, and informative, as well as posting regular topical content,
 would be great.
 --
 
+== !
+image::twitter.png[]
+
+[.notes]
+--
+The official Twitter is handled by M&P, but there are several other
+Twitter handles (@apachecommunity, and many project handles) and there
+are other social media outlets where we do not have a presence, but
+probably should. You can help make that happen.
+--
+
 == wg-website
 
 
@@ -334,10 +345,12 @@ Needs:
 
 image::sample-answer.png[]
 
-== Sample answers
 [NOTE.speaker]
 --
 Picture: Screenshot of one of the sample answers
+--
+
+== Sample Answers
 
 * Why do we need sample answers?
 ** Consistent messaging
