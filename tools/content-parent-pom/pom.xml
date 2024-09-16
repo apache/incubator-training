@@ -96,10 +96,6 @@
                 <configuration>
                     <consoleOutput>true</consoleOutput>
                     <excludes>
-                        <!-- TODO: This is a modified version of an asciidoctor file ... nor sure we can stick an Apache Header on it -->
-                        <exclude>libs/docinfo-hack/document.html.slim</exclude>
-                        <!-- Exclude everything downloaded by the install-deps scripts -->
-                        <exclude>libs/third-party/**</exclude>
                         <!-- Maven related files -->
                         <exclude>**/target/**</exclude>
 
