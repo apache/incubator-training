@@ -125,6 +125,9 @@
 
                         <exclude>licenses/**</exclude>
                         <exclude>README.md</exclude>
+
+                        <!-- Exclude the Docker local repo -->
+                        <exclude>out/**</exclude>
                     </excludes>
                 </configuration>
             </plugin>

@@ -22,7 +22,7 @@ FROM azul/zulu-openjdk:21 as build
 
 # Install some stuff we need to run the build
 RUN apt update -y
-RUN apt install -y maven git graphviz nodejs npm wget bzip2 python3 python3-pip cargo
+RUN apt install -y git graphviz nodejs npm wget bzip2 python3 python3-pip cargo
 RUN python3 -m pip install --upgrade pip setuptools seqdiag blockdiag actdiag nwdiag convert racks opc-diag
 #RUN npm install vega pango
 RUN wget -qO- https://get.haskellstack.org/ | sh
