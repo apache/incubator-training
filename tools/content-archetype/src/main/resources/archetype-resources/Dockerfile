@@ -45,10 +45,10 @@ RUN python3 -m pip install --upgrade pip setuptools==57.5.0 seqdiag blockdiag ac
 
 # Install vg2svg for rendering vega diagrams
 # NOTE: Installing vega-cli doesn't seem to work as dependencies are not available for arm64 (silicon)
-#ENV NODE_VERSION=18.20.4
-#RUN curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-#RUN /root/.nvm/install.sh
-#ENV PATH=/root/.nvm/versions/node/v$NODE_VERSION/bin:$PATH
+ENV NODE_VERSION=18.20.4
+RUN curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+RUN /root/.nvm/install.sh
+ENV PATH=/root/.nvm/versions/node/v$NODE_VERSION/bin:$PATH
 #RUN npm install --no-audit vega
 
 #RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
@@ -68,6 +68,11 @@ RUN apt install -y libcairo2-dev pkg-config python3-dev python3-gi gir1.2-gtk-4.
 RUN python3 -m pip install --upgrade pycairo pango syntrax
 # For some reason, if we install this before the python stuff, it doesn't work
 RUN apt install -y python3-gi-cairo
+
+# Install Mermaid
+# Mermaid seems to have issues with Apple Silicon
+#RUN apt install -y nodejs npm
+RUN npm install -g @mermaid-js/mermaid-cli
 
 # Required for running on Windows systems
 RUN apt install -y dos2unix
