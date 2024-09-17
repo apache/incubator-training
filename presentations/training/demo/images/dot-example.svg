@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg height='260pt' preserveAspectRatio='xMidYMid meet' viewBox='0.00 0.00 89.00 260.00' width='89pt' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg'>
+<g class='graph' id='graph0' transform='scale(1 1) rotate(0) translate(4 256)'>
+<title>g</title>
+<polygon fill='#ffffff' points='-4,4 -4,-256 85,-256 85,4 -4,4' stroke='transparent'/>
+
+<g class='node' id='node1'>
+<title>a</title>
+<ellipse cx='54' cy='-234' fill='none' rx='27' ry='18' stroke='#000000'/>
+<text fill='#000000' font-family='Times,serif' font-size='14.00' text-anchor='middle' x='54' y='-230.3'>a</text>
+</g>
+
+<g class='node' id='node2'>
+<title>b</title>
+<ellipse cx='27' cy='-162' fill='none' rx='27' ry='18' stroke='#000000'/>
+<text fill='#000000' font-family='Times,serif' font-size='14.00' text-anchor='middle' x='27' y='-158.3'>b</text>
+</g>
+
+<g class='edge' id='edge1'>
+<title>a&#45;&gt;b</title>
+<path d='M47.3258,-216.2022C44.2524,-208.0064 40.5384,-198.1024 37.1305,-189.0145' fill='none' stroke='#000000'/>
+<polygon fill='#000000' points='40.3858,-187.7274 33.5974,-179.593 33.8315,-190.1853 40.3858,-187.7274' stroke='#000000'/>
+</g>
+
+<g class='node' id='node3'>
+<title>c</title>
+<ellipse cx='27' cy='-90' fill='none' rx='27' ry='18' stroke='#000000'/>
+<text fill='#000000' font-family='Times,serif' font-size='14.00' text-anchor='middle' x='27' y='-86.3'>c</text>
+</g>
+
+<g class='edge' id='edge2'>
+<title>b&#45;&gt;c</title>
+<path d='M27,-143.8314C27,-136.131 27,-126.9743 27,-118.4166' fill='none' stroke='#000000'/>
+<polygon fill='#000000' points='30.5001,-118.4132 27,-108.4133 23.5001,-118.4133 30.5001,-118.4132' stroke='#000000'/>
+</g>
+
+<g class='node' id='node4'>
+<title>d</title>
+<ellipse cx='54' cy='-18' fill='none' rx='27' ry='18' stroke='#000000'/>
+<text fill='#000000' font-family='Times,serif' font-size='14.00' text-anchor='middle' x='54' y='-14.3'>d</text>
+</g>
+
+<g class='edge' id='edge3'>
+<title>c&#45;&gt;d</title>
+<path d='M33.6742,-72.2022C36.7476,-64.0064 40.4616,-54.1024 43.8695,-45.0145' fill='none' stroke='#000000'/>
+<polygon fill='#000000' points='47.1685,-46.1853 47.4026,-35.593 40.6142,-43.7274 47.1685,-46.1853' stroke='#000000'/>
+</g>
+
+<g class='edge' id='edge4'>
+<title>d&#45;&gt;a</title>
+<path d='M57.7474,-35.9069C59.7466,-46.3759 61.9966,-59.8759 63,-72 66.9591,-119.8364 66.9591,-132.1636 63,-180 62.2945,-188.5247 60.9727,-197.7297 59.5551,-206.083' fill='none' stroke='#000000'/>
+<polygon fill='#000000' points='56.0803,-205.6302 57.7474,-216.0931 62.9689,-206.8742 56.0803,-205.6302' stroke='#000000'/>
+</g>
+</g>
+</svg>
