@@ -34,7 +34,17 @@ RUN cp /root/.cargo/bin/svgbob_cli /usr/local/bin
 # Forced version of pillow as with version 10 the build fails
 RUN python3 -m pip install --upgrade pip setuptools seqdiag blockdiag actdiag nwdiag convert racks opc-diag pillow==9.5.0
 
+#ENV CONDA_DIR /opt/conda
+#RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh -O /root/miniconda.sh
+#RUN sh /root/miniconda.sh -b -p $CONDA_DIR
+#ENV PATH=$CONDA_DIR/bin:$PATH
+#RUN conda update -y conda
+#RUN rm /root/miniconda.sh
+#RUN wget --quiet https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh -O /root/miniconda.sh && sh /root/miniconda.sh -b -p /opt/conda
+#ENV PATH=$CONDA_DIR/bin:$PATH
+
 # Install vg2svg for rendering vega diagrams
+# NOTE: Installing vega-cli doesn't seem to work as dependencies are not available for arm64 (silicon)
 #ENV NODE_VERSION=18.20.4
 #RUN curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 #RUN /root/.nvm/install.sh
@@ -46,7 +56,9 @@ RUN python3 -m pip install --upgrade pip setuptools seqdiag blockdiag actdiag nw
 #RUN tar -xvf phantomjs-2.1.1-linux-x86_64.tar
 
 # Install ERD
-#RUN cabal v2-update && cabal v2-install erd
+RUN apt install -y golang
+ENV PATH=/root/go/bin:$PATH
+RUN go install github.com/kaishuu0123/erd-go@v1.4.6
 
 # Required for running on Windows systems
 RUN apt install -y dos2unix
