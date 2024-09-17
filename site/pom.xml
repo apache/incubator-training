@@ -342,6 +342,13 @@
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
+                  <artifactId>training-content-apache-training-demo</artifactId>
+                  <version>1.0.0-SNAPSHOT</version>
+                  <type>war</type>
+                  <outputDirectory>${project.build.directory}/site/presentations/training/demo</outputDirectory>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-training-presentation</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
@@ -671,6 +678,12 @@
     <dependency>
       <groupId>org.apache.training.content</groupId>
       <artifactId>training-content-apache-spark-basics</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.training.content</groupId>
+      <artifactId>training-content-apache-training-demo</artifactId>
       <version>1.0.0-SNAPSHOT</version>
       <type>war</type>
     </dependency>
