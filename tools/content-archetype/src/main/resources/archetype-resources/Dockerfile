@@ -32,7 +32,7 @@ RUN cargo install svgbob_cli
 RUN cp /root/.cargo/bin/svgbob_cli /usr/local/bin
 
 # Forced version of pillow as with version 10 the build fails
-RUN python3 -m pip install --upgrade pip setuptools seqdiag blockdiag actdiag nwdiag convert racks opc-diag pillow==9.5.0
+RUN python3 -m pip install --upgrade pip setuptools==57.5.0 seqdiag blockdiag actdiag nwdiag convert racks opc-diag pillow==9.5.0
 
 #ENV CONDA_DIR /opt/conda
 #RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh -O /root/miniconda.sh
@@ -59,6 +59,15 @@ RUN python3 -m pip install --upgrade pip setuptools seqdiag blockdiag actdiag nw
 RUN apt install -y golang
 ENV PATH=/root/go/bin:$PATH
 RUN go install github.com/kaishuu0123/erd-go@v1.4.6
+
+# Install Syntrax
+# https://kevinpt.github.io/syntrax/
+# Problem is, that newer versions of python don't have use_2to3
+#RUN apt install -y libcairo2-dev pkg-config python3-dev python3-gi python3-gi-cairo gir1.2-gtk-4.0
+RUN apt install -y libcairo2-dev pkg-config python3-dev python3-gi gir1.2-gtk-4.0
+RUN python3 -m pip install --upgrade pycairo pango syntrax
+# For some reason, if we install this before the python stuff, it doesn't work
+RUN apt install -y python3-gi-cairo
 
 # Required for running on Windows systems
 RUN apt install -y dos2unix
