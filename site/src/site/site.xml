@@ -135,7 +135,7 @@
         <item name="Basics" href="presentations/spark/basics/index.html" target="_blank"/>
       </item>
       <item name="Apache Training">
-        <item name="Demo" href="presentations/training/demo/index.html" target="_blank"/>
+        <!--item name="Demo" href="presentations/training/demo/index.html" target="_blank"/-->
         <item name="Presentation" href="presentations/training/presentation/index_en.html" target="_blank"/>
       </item>
       <item name="Apache Zookeeper" href="presentations/zookeeper/index_en.html" target="_blank"/>
