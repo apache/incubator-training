@@ -107,6 +107,7 @@
     <menu name="Users">
       <item name="Downloads" href="downloads.html"/>
       <item name="Getting Started" href="users/index.html"/>
+      <item name="Creating a new presentation" href="users/new-presentation.html"/>
     </menu>
     <menu name="Presentations">
       <item name="Apache Airflow" href="presentations/airflow/index.html" target="_blank"/>
