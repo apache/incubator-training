@@ -142,19 +142,22 @@ Everything is archived so you can easily go back and search.
 * Project listing https://projects.apache.org/
 
 == Apache Local Communities
+[.twocolumns]
+--
+* ALC Bangalore
+* ALC Beijing
+* ALC Budapest
+* ALC Hangzhou
+* ALC Indore
 
-* ALC creates local groups of ASF enthusiasts
+* ALC Lagos
+* ALC Shanghai
+* ALC Shenzhen
+* ALC Warsaw
+* ALC Xi'an
+--
+
 * https://s.apache.org/alc
-** ALC Bangalore
-** ALC Beijing
-** ALC Budapest
-** ALC Hangzhou
-** ALC Indore
-** ALC Lagos
-** ALC Shanghai
-** ALC Shenzhen
-** ALC Warsaw
-** ALC Xi'an
 
 == Working groups
 

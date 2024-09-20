@@ -31,7 +31,7 @@ body {
   background-color: #fff; }
 
 .reveal {
-  font-family: Panton-Regular, Helvetica, sans-serif;
+  font-family: 'Monserrat', sans-serif;
   font-size: 34px;
   font-weight: normal;
   color: #000; }
@@ -378,4 +378,9 @@ body {
   right: 5%;
 }
 
+.twocolumns {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+}
 
