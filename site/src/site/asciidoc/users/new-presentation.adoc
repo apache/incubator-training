@@ -20,7 +20,7 @@
 
 To create a new Apache Training project, you'll need to generate the
 directory tree of template files. If you've already built the tools, as
-described in the link:index.html[gettng started] doc, you should already
+described in the link:index.html[getting started] doc, you should already
 have all of the prerequisites to make this work. (So start there.)
 
 Move to the directory where you wish to create your new presentation,

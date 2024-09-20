@@ -16,6 +16,15 @@
 //
 :imagesdir: ../images/
 
+== Getting Started with Apache Training
+
+The user documentation is addressed two to main (overlapping) categories
+of people - those producing their own presentations, and those using
+published presentations. If you're interested in developing the code
+that generates those presentations, those docs are link:../developers/contributing.html[here].
+
+
+
 == Creating Presentation with Apache Training
 
 Currently the setup uses https://asciidoctor.org/[Asciidoctor] to write content and builds the presentation using https://maven.apache.org/[Apache Maven] and https://revealjs.com/#/[Reveal.JS].
