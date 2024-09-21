@@ -16,46 +16,55 @@
 //
 :imagesdir: ../images/
 
-== Getting Started with Apache Training
+== Using Apache Training
 
-The user documentation is addressed two to main (overlapping) categories
-of people - those producing their own presentations, and those using
-published presentations. If you're interested in developing the code
+The user documentation is divided into two to main (overlapping) topic
+catetories: producing your own presentations (authors), and presenting those
+presentations (presenters). 
+
+If you're interested in developing the code
 that generates those presentations, those docs are link:../developers/contributing.html[here].
 
+== Getting Started
 
+If you just want to use one of the presentations we have published, as
+is, you can click on 'Presentations' in the site navigation menu, and
+present directly from there. See also
+link:presentation-tips.html[Presentation Tips] for a few ideas of what's
+possible.
 
-== Creating Presentation with Apache Training
-
-Currently the setup uses https://asciidoctor.org/[Asciidoctor] to write content and builds the presentation using https://maven.apache.org/[Apache Maven] and https://revealjs.com/#/[Reveal.JS].
-
-We have prepared everything that it should be pretty simple to get started with creating a new presentation.
-
-Requirements:
+However, you will probably want to make some small edits to personalize,
+and that requires that you get a local copy of the repository. This will
+require, at a minimum:
 
 - Java 8 or newer
 - Maven 3.3 or newer
+- Git
 
-Until we have released the tooling, you will need to build it locally first or the archetype plugin will fail to run.
-Please read the following chapter on how to do this.
+Installation details for your preferred operating system are currently
+**To Be Documented**.
 
-In order to create an empty presentation to start with, please execute the following command:
+To get a local copy of the tools and presentations:
 
-    mvn archetype:generate -DarchetypeGroupId=org.apache.training -DarchetypeArtifactId=content-archetype -DarchetypeVersion=1.3.0
+```
+git clone https://github.com/apache/incubator-training.git
+cd incubator-training
+mvn install
+```
 
-For Windows, you need to wrap every argument in double-quotes:
+This will install (if you don't have them already) all of the tooling,
+and build the default presentations.
 
-    mvn archetype:generate "-DarchetypeGroupId=org.apache.training" "-DarchetypeArtifactId=content-archetype" "-DarchetypeVersion=1.3.0"
+See also:
+* link:new-presentation.html[Creating a new presentation]
+* link:presentation-tips.html[Presentation tips]
+* link:writing-slides.html[Writing slides]
 
-After choosing `groupId`, `artifactId`, `version` and `package` there should be a new directory that matches the `artifactId` that you selected.
+== Technical details
 
-Change into this directory and run the following command to build the presentation:
-
-    mvn package
-
-After that, there should be a directory `target/generated-slides`.
-
-If you open the `index.html` in that directory your presentation should open in the browser.
+Currently the setup uses https://asciidoctor.org/[Asciidoctor] to write
+content and builds the presentation using 
+https://maven.apache.org/[Apache Maven] and https://revealjs.com/#/[Reveal.JS].
 
 == Using the latest development version
 
@@ -81,14 +90,3 @@ Adding the following section to the generated `pom.xml`:
 
 After adding this you can update the parent version to the latest `SNAPSHOT` version and Maven should be able to find it.
 
-== Building the Apache Training Tooling
-
-Additional requirements:
-
-- Git
-
-In order to build Apache Training Tooling, please checkout the git repo from:
-
-    git clone https://gitbox.apache.org/repos/asf/incubator-training.git
-    cd incubator-training
-    mvn install

@@ -83,7 +83,7 @@ Example
 
 ....
 
-=== Editing your new presentation
+== Editing your new presentation
 
 Most of the content you'll need to edit when you're creating your
 presentation  is in `src/main/asciidoc` and `src/main/resources`.
@@ -109,7 +109,7 @@ project. These include:
 `
 Those files are provided purely as examples of what is possible.
 
-=== Building your new presentation
+== Building your new presentation
 
 Change into the directory you have created, and run the following command
 to build the template presentation:
@@ -121,4 +121,8 @@ If this completes with no errors, there will a new directory
 your presentation. Open the `index.html` in that directory in your
 browser to start the presentation.
 
+== See also:
+
+* link:writing-slides.html[Writing Slides]
+* link:presentation-tips[Presentation Tips]
 
