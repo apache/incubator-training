@@ -356,6 +356,7 @@ Person *--1 Location
 --
 --
 
+////
 === Mermaid: Flowchart
 
 mermaid::diagrams/mermaid-flowchart-test.mmd[png]
@@ -401,6 +402,7 @@ gantt
         Create tests for renderer           :2d
         Add to mermaid                      :1d
 ....
+////
 
 === SVGBob: Mindmap
 
@@ -523,6 +525,7 @@ validity</panel_attributes><additional_attributes>transparentSelection=false</ad
 ....
 ////
 
+////
 === Vega
 
 [vega,vega-test,svg]
@@ -588,6 +591,7 @@ validity</panel_attributes><additional_attributes>transparentSelection=false</ad
   ]
 }
 ....
+////
 
 == Embedded HTML/JavaScript
 
