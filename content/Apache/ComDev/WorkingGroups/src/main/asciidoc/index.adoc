@@ -20,8 +20,6 @@
 include::_settings.adoc[]
 :presenter_name: Your Name Here
 :presenter_company: Apache Software Foundation
-// 40 minutes - 5 minutes Q&A = 2100 seconds
-:revealjs_totalTime: 2100
 
 == ComDev Working Groups
 
@@ -31,16 +29,12 @@ include::_settings.adoc[]
 * Which ones have we started?
 * How to get involved.
 
-== !
+== A bit about ComDev
 
-" ComDev is ... charged with coordinating community development efforts."
+" ... charged with coordinating community development efforts."
 
-image::cat-herding.jpg[]
-
-[NOTE.speaker]
+[.notes]
 --
-Picture: "Cat herders" - signifying that coordinating community can be
-challenging.
 
 * ComDev exists to help projects build their communties
 * Yes, projects should do this themselves, but having common practices and tools lowers the barrier
@@ -48,20 +42,18 @@ challenging.
 
 --
 
-== !
-
-Key Point: ComDev does not do this work *for* you. It's a place 
-for everyone to **collaborate on best practices** and tools that 
-span all projects. Come join us.
+== We are all ComDev
 
 image::barn-raising.jpg[scalewidth=50%]
 ++++
-<small>CC by Historic Bremen Indiana on Flickr</small>
+<small>CC by "Elgin County Archives" on Flickr</small>
 ++++
 
-[NOTE.speaker]
+[.notes]
 --
-Picture: A community building a barn together.
+Key Point: ComDev does not do this work *for* you. It's a place 
+for everyone to **collaborate on best practices** and tools that 
+span all projects. Come join us.
 
 ComDev is the ideal place for people with so-called "non-technical"
 skills that they want to contribute to the ASF.
@@ -78,63 +70,7 @@ before they get more deeply involved.
 * working towards a common goal ...
 * collaboratively, in public
 
-== Each group has
-
-* Git repo - https://github.com/apache/comdev-working-groups
-* A narrowly-defined goal or mission
-
-[NOTE.speaker]
---
-Narrowly defined so that there's no ambiguity, room for scope creep, or
-potential to overlap/conflict with other efforts.
---
-
-== Why?
-
-After all, everyone knows that they can just dive in and start doing
-stuff, right?
-
-image::dive.jpg[]
-++++
-<small>CC by "Noirin Shirley" on Flickr</small>
-++++
-
-
-[NOTE.speaker]
---
-Picture: Someone "diving in"
-
-Yes, it's open source and "everyone knows" that they can come
-contribute. But it can still be intimidating. People don't know where to
-start.
-
-People like to be asked. They like to be invited. They
-like to be welcomed.
-
-We get email to the dev@community mailing list almost every week that
-asks "where I can get involved" and invariably someone says "Find a
-place and just start!" which is both true, and incredibly unhelpful.
-Working groups give a more focused answer "pick one of these."
-
---
-
-== !
-
-And, let's be honest, sometimes we we aren't the most welcoming place.
-
-image::shark.jpg[scalewidth=35%]
-
-[NOTE.speaker]
---
-Picture: Rich's kid with a shark (sometimes you don't want to dive in
-with the sharks)
-
-Having clearly defined places to do clearly defined work can lower the
-anxiety of joining something new.
-
---
-
-== !
+== Welcome
 
 image::welcome.jpg[scaledwidth=50%]
 
@@ -142,80 +78,82 @@ image::welcome.jpg[scaledwidth=50%]
 <small>CC by "alborzshawn" on Flickr</small>
 ++++
 
-[NOTE.speaker]
---
-Picture: A "welcome" sign.
-
-The working groups exist to give explicit welcome and *permission* to
-anyone who wants to participate.
+[.notes]
 --
 
-== !
+Yes, it's open source and "everyone knows" that they can come
+contribute. But people like to be asked. They like to be invited. They
+like to be welcomed.
 
-image::ask-me.jpg[scalewidth=35%]
-
-[NOTE.speaker]
---
-Picture: An "Ask me" badge from a long-ago ApacheCon
-
-Having a "title" (I'm a member of the
-Advisors working group!) gives people a feeling that they are authorized
-to speak with that voice. It gives *explicit permission*. It also
-encourages others to take them seriously ("oh, you're part of the
-working group")
-
-It also gives a structure within which to participate, and a recommended
-way to get started.
+The working groups exist to give explicit welcome and permission to
+anyone who wants to participate. Come join us!
 
 --
-
-== Working groups so far
 
 == wg-wg
 
 * For discussion of cross-working-group norms, process, or tools
-* Purely advisory - WGs can do what they want - but wg-wg proposes
-  structure and processes.
-* Defines recommended way to start a new WG
 
-[NOTE.speaker]
+[.notes]
 --
 * This is where we document the ways that working groups should work.
 * It's also where we can collaborate on shared resources or processes
   that benefit all WGs
 --
 
+== wg-wg: why?
+
+image::cookie_cutter.jpg[scalewidth=50%]
+
+[.notes]
+--
+Standardization across working groups makes it easier for people to join
+another WG once they're familiar with how WGs work.
+
+But flexibility is important too, when WGs have different needs. So this
+group must work *with* all of the other groups to figure out what can be
+shared, and what needs to be kept separate.
+
+So far, it's only decided on some vague advice that WGs report up to the
+ComDev PMC about their progress.
+--
+
 == wg-advisors
 
-* Advising projects and PMCs on best practice
+* Advising projecdts and PMCs on best practice
 * Seasoned ASF members and community managers
 * It's important to respect a project's autonomy
 
-[NOTE.speaker]
+[.notes]
 --
 
 This is really no different from going to the project and volunteering
 your expertise, but having the working group emboldens pepole to do this
-work.
-
-The primary goal is not so much to force people to do things a
-particular way, but to streamline it for people who don't know how to
-get started.
+work. And it makes projects more willing to accept the advice, as it's
+part of an "official program".
 
 Ask first. You will probably be welcome, but don't assume. Be clear that
 you're offering advice, but don't have standing to vote or enforce
-anything. And once you've done this for a while, there's a chance that
-some projects will invite you to stick around.
+anything.
 
 --
 
-== wg-advisors, cont'd
+== wg-advisors
 
-* Get involved if
-** You've been around the ASF a long time
-** You're a Community Manager or Developer Advocate in your "real life"
-** You have skills like metrics, doc writing, event planning or anything 
-else that might be of value to an open source project
+image::mentoring.jpg[scalewidth=50%]
+++++
+<small>CC by Open Knowledge Foundation Deutschland, on Flickr</small>
+++++
+
+[.notes]
+--
+Every generation of a project is responsible for mentoring the next
+generation. Failure to do do inevitably results in the drying up of new
+ideas.
+
+wg-advisors helps bridge that gap, and should *always* focus on enabling
+the project community to do the work rather than doing it for them.
+--
 
 == wg-badging
 
@@ -224,111 +162,104 @@ image::fas-paranoid-panda.png[]
 * "Badges" to celebrate accomplishments
 * Still in idea phase - could use your help
 
-[NOTE.speaker]
---
-Picture: An example badge from badges.fedoraproject.org
+[.notes]
 --
 
-== !
-
-image::fedora-badges.png[]
-
-[NOTE.speaker]
---
-Picture: Screenshot of badges.fedoraproject.org
-
-Concept based on the Fedora badging system - https://badges.fedoraproject.org/
-
-Badges could celebrate your first PR, your 100th closed issue, or your
-1000th email message. Or they could be event-based ("Attended Community
-Over Code Denver 2024")
+Concept based on the Fedora badging sysem - https://badges.fedoraproject.org/
 
 --
 
-== !
+== Fedora badges
 
-image::reddit-badges.png[scalewidth=50%]
+image::fedora-badges.png[scalewidth=50%]
 
-[NOTE.speaker]
+[.notes]
 --
-Picture: screenshot of Reddit badges
+Some people love it. Some people say gamification trivializes hard work,
+and rewards the wrong behavior. Come join the conversation.
 
-Worth noting that some people find this frivolous, or that it
-trivializes what we do. Other people like earning achievements,
-celebrating milestones, and trying new things.
-
-If you don't like this idea, then accept that it's not for you, and move
-on. You're not obliged to participate.
-
+What will we celebrate?
+* First commit, 100th commit
+* Becoming a commiter! Becoming a PMC member! Becoming a PMC chair!
+* Attending events
+* Being a RM
+* Voted on a release
 --
 
-== Challenges
+== Why this is hard
 
-* There used to be a variety of open source badging options. Most of
-  them have gone closed, or died out
-* Would probably want it integrated to some degree with participants'
-  ApacheID, which would require knowledge of how that works
+image::reddit-badges.png[]
+
+[.notes]
+--
+There used to be a bunch of open source badging solutions. They have all
+either gone closed source, or simply dried up.
+
+Also, we would need to integrate with ASF LDAP in some way. And adhere
+to GDPR and CRA and who knows what else. Come help.
+--
 
 == wg-code-of-conduct
 
 * Providing a recommended template for project code of conduct
 ** (Based on the Contributor Covenant)
 ** https://www.contributor-covenant.org/
+
+== Code of conduct: What it's *NOT*
+
 * **NOT** an enforcing body, nor are we requiring any project to do anything
+* **NOT** working on a Foundation-level global Code of Conduct
 
 == wg-social
 
-* AKA Party Working Group
-* Orchestrating local **social** gathering of Apache enthusiasts
-* See also ALC - Apache Local Communities - https://s.apache.org/alc
-* Still in idea/startup stage
+image::party.jpg[scalewidth=50%]
 
-== wg-social-media
-
-* Write and publish content on all social media platforms
-* Amplify the messages of our projects, and help them craft better content
-* Coordinate with M&P for consistent messaging
-* Still in idea/startup stage
-
-== !
-image:facebook.png[]
+++++
+<small>CC by Dr. Matthias Ripp, on Flickr</small>
+++++
 
 [.notes]
 --
-The Facebook page gets a lot of beginner questions, as well as a lot of
-spam. Having a rotation of people to handle this, be friendly,
-welcoming, and informative, as well as posting regular topical content,
-would be great.
+
+* Orchestrating local gathering of Apache enthusiasts
+* AKA Party Working Group
+* Still in idea/startup stage
 --
 
-== !
+== ALC
+
+See also ALC - Apache Local Communities - https://s.apache.org/alc -
+that's something different.
+
+== wg-social-media
+
 image::twitter.png[]
 
 [.notes]
 --
-The official Twitter is handled by M&P, but there are several other
-Twitter handles (@apachecommunity, and many project handles) and there
-are other social media outlets where we do not have a presence, but
-probably should. You can help make that happen.
+* Write and publish content on all social media platforms
+* Amplify the messages of our projects, and help them craft better content
+* Coordinate with M&P for consistent messaging
+* Still in idea/startup stage
 --
+
+== wg-social-media
+
+* Should we keep using Twitter?
+* Should we engage more in some other platform?
+* What kind of content do we want to post?
+* And, as always, the focus should remain on building strong ASF
+ communities
 
 == wg-website
 
+https://community.apache.org/
 
 image::website.png[]
 
-[NOTE.speaker]
+[.notes]
 --
-Picture: Screenshot of community.apache.org
-
-Yes, our website is terrible. Please come help us.
-
-Needs:
-* Information architecture.
-* Design.
-* Navigation by audience.
-* Content creation.
-
+* Yes, our website is objectively terrible. We know. Come help.
 --
 
 == wg-welcome
@@ -340,29 +271,50 @@ Needs:
 
 == wg-welcome - Sample answers
 
-* (See Git repo)
-* Provides sample/boilerplate answers to common questions
-
 image::sample-answer.png[]
 
-[NOTE.speaker]
---
-Picture: Screenshot of one of the sample answers
+[.notes]
 --
 
-== Sample Answers
+* (See Git repo)
+* Provides sample/boilerplate answers to common questions
+--
 
-* Why do we need sample answers?
+== Sample answers
+
+* Why?
 ** Consistent messaging
 ** Thorough, friendly answers with links
 
-[NOTE.speaker]
+[.notes]
 --
 Using the recommended sample answer ensures that canonical links are
 provided, and that we are giving people consistent answers.
+--
 
+== !
+
+image::dive.jpg[]
+
+[.notes]
+--
 Perhaps more importantly, it lets *anyone* jump in with the right
-answer, and this gets more people engaged in community support.
+answer, and this gets more people engaged in community support. Over
+time, as they build their confidence, they can do more.
+--
+
+==!
+
+image::shark.jpg[]
+
+[.notes]
+--
+And, let's be honest, we are not always the most welcoming of people.
+Questions like "how do I get involved" are *often* answered by "go look
+at the projects lists and pick one and start doing stuff!" which is not
+anything more than they already knew. Crafting helpful, welcoming
+answers, and encouraging projects to do the same, will lead to more
+welcoming contributor onboarding.
 --
 
 == wg-your-idea-here
@@ -377,11 +329,6 @@ image::wg-email.png[scaledwidth=75%]
 * Send email to dev@community.apache.org
 * Use a Subject: line tag identifying the working group
 
-[NOTE.speaker]
---
-Picture: Email headers showing how to communicate about working groups
---
-
 == Getting involved
 
 * Show up
@@ -389,13 +336,41 @@ Picture: Email headers showing how to communicate about working groups
 * Say what you want to work on
 * Then **start doing it**. You are allowed.
 
-[NOTE.speaker]
+[.notes]
 --
 The key point here is that **you** are the owner of the working group.
 You don't have to get permission or approval for your idea, as long as
 you are transparent/public about what you're working on, and welcome
 feedback and discussion.
 --
+
+== Other working groups
+
+Working groups outside of ComDev
+
+== ORC WG
+
+* Open Regulatory Compliance working group
+
+image::orc_wg.png[]
+
+[.notes]
+--
+Collaboration between Eclipse, Apache, and other open source
+non-profits.
+--
+
+== Member-level working groups
+
+* Governance committee
+* Communication platforms WG
+
+== Not a working group, but ...
+
+TRAINING.apache.org produces training materials for projects, and about
+the ASF as a whole, for use in your presentations, meetups, and so on,
+all under the Apache License, so that you can grab one and use it as a
+starting point.
 
 == More Info
 
@@ -409,3 +384,16 @@ and under the AL2.0 license.
 https://training.apache.org/
 
 image::training-logo.svg[]
+
+[.notes]
+--
+Where not noted, photos are CC by Rich Bowen
+
+== Not a working group, but ...
+
+TRAINING.apache.org produces training materials for projects, and about
+the ASF as a whole, for use in your presentations, meetups, and so on,
+all under the Apache License, so that you can grab one and use it as a
+starting point.
+
+--
