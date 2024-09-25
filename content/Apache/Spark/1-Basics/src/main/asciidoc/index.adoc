@@ -36,7 +36,7 @@ Basics
 . *processing speed*
 . *scaling out* vs. *scaling up*
 
-[NOTE.speaker]
+[.notes]
 --
 BIG DATA: Google, Facebook, Amazon, eBay, Twitter
 big data: internet providers, e-commerce platforms, Last.fm, manufacturing
@@ -112,7 +112,7 @@ DIAGRAM HERE
 TODO: Block framework diagram for Spark
 ////
 
-[NOTE.speaker]
+[.notes]
 --
 Data Integration and ETL
 High performance batch computation

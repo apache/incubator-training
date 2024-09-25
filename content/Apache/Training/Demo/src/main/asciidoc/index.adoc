@@ -38,7 +38,7 @@ Doc Writer <cool.person@apache.org>
 
 Press the `*s*` key to access speaker notes.
 
-[NOTE.speaker]
+[.notes]
 --
 You've unlocked the super secret notes area.
 Neat huh?
@@ -156,7 +156,7 @@ include::{sourcedir}/test/StringUtils.java[tags=contains,indent=0]
 * icon:wrench[]
 * icon:beer[role=orange]
 
-[NOTE.speaker]
+[.notes]
 --
 * Find icons here: https://fontawesome.com/v4.7.0/icons/
 * Color icons by defining css styles in apache.css and referencing them with "role"
@@ -352,7 +352,7 @@ country
 Person *--1 Location
 ....
 
-[NOTE.speaker]
+[.notes]
 --
 --
 
@@ -360,7 +360,7 @@ Person *--1 Location
 
 mermaid::diagrams/mermaid-flowchart-test.mmd[png]
 
-[NOTE.speaker]
+[.notes]
 --
 --
 
