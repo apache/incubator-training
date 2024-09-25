@@ -155,6 +155,16 @@ wg-advisors helps bridge that gap, and should *always* focus on enabling
 the project community to do the work rather than doing it for them.
 --
 
+== How?
+
+* Listen more than you speak
+* Get to know key people, and corporate participants, engaged in the
+  project
+* Read board reports. Identify and solve problems
+* Mentor people attempting to become committers or PMC members, who
+  don't appear to be getting much support
+* Just generally ... become a part of the community
+
 == wg-badging
 
 image::fas-paranoid-panda.png[]
@@ -226,6 +236,29 @@ image::party.jpg[scalewidth=50%]
 * Still in idea/startup stage
 --
 
+== What wg-social might do
+
+* Identify places where there's a concentration of ASF people, and
+  encourage people visiting there to meet for a meal
+* Revive the map? (Needs to respect privacy laws!)
+* Gatherings at major tech events (FOSDEM, OSSummit, and so on)
+* Geeky movie night!
+
+== !
+
+image::eat-together.jpg[]
+
+++++
+<small>CC by Kristopher Traquair, photos.apachecon.com</small>
+++++
+
+[.notes]
+--
+Communities who eat together end up working together better. Identifying
+your colleagues as human, and not just lines of code, tends to make
+dealing with conflict a lot easier.
+--
+
 == ALC
 
 See also ALC - Apache Local Communities - https://s.apache.org/alc -
@@ -243,13 +276,13 @@ image::twitter.png[]
 * Still in idea/startup stage
 --
 
-== wg-social-media
+== Questions to be addressed
 
 * Should we keep using Twitter?
 * Should we engage more in some other platform?
 * What kind of content do we want to post?
 * And, as always, the focus should remain on building strong ASF
- communities
+  communities
 
 == wg-website
 
@@ -322,6 +355,12 @@ welcoming contributor onboarding.
 * Is there something you're passionate about and want to gather a group of like-minded people to work on it?
 * Propose your WG on dev@community.apache.org
 
+[.notes]
+--
+Useful when you really think something should happen, but know that you
+can't do it on your own. Come propose the WG!
+--
+
 == How to communicate
 
 image::wg-email.png[scaledwidth=75%]
@@ -388,12 +427,5 @@ image::training-logo.svg[]
 [.notes]
 --
 Where not noted, photos are CC by Rich Bowen
-
-== Not a working group, but ...
-
-TRAINING.apache.org produces training materials for projects, and about
-the ASF as a whole, for use in your presentations, meetups, and so on,
-all under the Apache License, so that you can grab one and use it as a
-starting point.
-
 --
+
