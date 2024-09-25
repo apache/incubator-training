@@ -82,6 +82,7 @@ pipeline {
             steps {
                 echo 'Building Presentations'
                 sh 'mvn -f content/pom.xml install'
+                //sh 'docker compose up'
             }
         }
 

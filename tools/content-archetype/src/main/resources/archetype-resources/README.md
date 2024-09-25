@@ -21,15 +21,24 @@
 
 Remarks:
 - In order to use the preview of the IntelliJ asciidoctor plugin, you need to set an attribute in the plugin settings: `imagesdir` = `../resources/images`
-- In order to generate the diagrams, GraphVIS needs to be installed locally. Get it from: http://www.graphviz.org/
 - Any css adjustments can go to `src/main/theme/apache.css` as this is automatically embedded into the themes directory.
 
 ## Building the presentation
 
-By running the following command, you can generate the presentation:
+Apache Training makes use of several tools in order to compile the presentations.
+The probably simplest way to build the project is using Docker, as we provide the Dockerfile for installing all prerequisites.
+```
+docker compose up
+```
+This should produce compiled versions of all presentations in your local working copy.
 
-    mvn package
-   
+If you want to build the presentation on your local system the following command should do.
+However, if you are missing prerequisites, then this build will most probably fail.
+
+By running the following command, you can generate the presentation:
+```
+mvn package
+``` 
 ## Running the presentation
 
 In order to show the presentation, go into the `target` directory and look for a directory named {artifactId}-{version}.
@@ -42,19 +51,7 @@ Simply open this in any browser of your choice.
 In order to generate a PDF version of the presentation just add `?print-pdf` to the url. (Keep in mind, that you have to add it before any `#blahblah`)
 
 The following link should do the trick:
-
-    http:///{someFilePath}/?print-pdf
-    
+```
+http:///{someFilePath}/?print-pdf
+```
 As soon as that's loaded, the presentation will look a bit odd. Now just use the normal `print` functionality of the browser and select `print as PDF`.
-
-## Installing third party software:
-
-### Mermaid
-
-    npm install mermaid.cli
-    
-This will install mermaid under `node_modules/.bin/mmdc`.
-
-### PhantomJS
-
-https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-macosx.zip

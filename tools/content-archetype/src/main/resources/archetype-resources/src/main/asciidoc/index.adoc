@@ -525,6 +525,7 @@ validity</panel_attributes><additional_attributes>transparentSelection=false</ad
 ....
 ////
 
+////
 === Vega
 
 [vega,vega-test,svg]
@@ -590,6 +591,7 @@ validity</panel_attributes><additional_attributes>transparentSelection=false</ad
   ]
 }
 ....
+////
 
 == Embedded HTML/JavaScript
 

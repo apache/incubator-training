@@ -31,6 +31,14 @@ The initial goal for the first few weeks or months is to have discussions and ag
 
 From there we want to start building a library of content.
 
+### Building locally
+
+Apache Training makes use of several tools in order to compile the presentations. 
+The probably simplest way to build the project is using Docker, as we provide the Dockerfile for installing all prerequisites.
+```
+docker compose up
+```
+This should produce compiled versions of all presentations in your local working copy. 
 
 ### Getting involved
 

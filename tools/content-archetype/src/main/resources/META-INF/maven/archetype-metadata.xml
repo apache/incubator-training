@@ -27,6 +27,12 @@
     </requiredProperty>
   </requiredProperties>
   <fileSets>
+    <fileSet encoding="UTF-8">
+      <directory>.mvn/wrapper</directory>
+      <includes>
+        <include>**/*.properties</include>
+      </includes>
+    </fileSet>
     <fileSet filtered="true" packaged="true" encoding="UTF-8">
       <directory>src/main/java</directory>
       <includes>
@@ -47,10 +53,20 @@
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
+      <directory>src/main/theme</directory>
+      <includes>
+        <include>**/*.css</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
       <directory></directory>
       <includes>
         <include>install-deps-centos.sh</include>
         <include>install-deps-mac.sh</include>
+        <include>docker-compose.yaml</include>
+        <include>Dockerfile</include>
+        <include>mvnw</include>
+        <include>mvnw.cmd</include>
         <include>pom.xml</include>
         <include>README.md</include>
       </includes>

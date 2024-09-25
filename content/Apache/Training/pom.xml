@@ -34,6 +34,7 @@
   <name>Training: Content: Apache: Training</name>
 
   <modules>
+    <module>Demo</module>
     <module>Presentations</module>
   </modules>
 
