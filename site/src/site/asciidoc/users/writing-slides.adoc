@@ -18,13 +18,70 @@
 
 == Writing slides
 
-This document will include tips for writing a successful presentation.
-This falls into two categories:
+Slides are written using
+https://docs.asciidoctor.org/reveal.js-converter/latest/converter/features/[Asciidoctor]. 
+This document is not an attempt to be comprehensive, but, rather, to
+give some helpful tips to get you started on your first presentation.
 
-* Interesting features of Asciidoctor slides (does not attempt to be
- comprehensive, and links to the Asciidoctor site for the full details
-* Tips (best practice) for writing presentations that will engage your
- audience. This is, of course, mostly opinion, but helping first-time
- presenters makes the world better for everyone.
+=== Slide format
+
+Start each new slide with a title:
+
+[code]
+----
+== Slide one
+
+Text on the slide goes here
+
+== !
+
+no title on this one!
+
+== Slide three
+
+* Bullet
+* List
+
+----
+
+== Images
+
+You can put an image on a slide using the `image` syntax:
+
+[code]
+----
+== Slide with image
+
+image::pony.jpg[width=50%]
+----
+
+=== Advanced tips
+
+For more examples of what you can do in your slides, have a look at the
+default `index.html` files when you create a new presentation.
+
+=== Speaker notes
+
+The most important part of a presentation that you write for the
+Training project is the speaker notes. You should think, while writing,
+of the person who will pick up your presentation and attempt to present
+it at a conference or meetup. Will they understand what it was that you
+intended to communicate on each slide?
+
+To add speaker notes, use the following syntax:
+
+[code]
+----
+== New slide
+
+Clever remarks on slide
+
+[.notes]
+--
+Speaker notes go here, explaining what the speaker should say when this
+slide is up.
+--
+
+----
 
 
