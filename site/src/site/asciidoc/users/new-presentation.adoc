@@ -36,7 +36,9 @@ This command will enter an interactive tool that will ask you some basic
 questions about your new presentation.
 
 In particular, you'll need to provide a `groupID` (to which you should
-answer `org.apache.training`) and the `artifactID`, which will be the
+answer `org.apache.training` if you intend the presentation to
+eventually be part of the Training.apache.org project, but otherwise
+this can be whatever you like) and the `artifactID`, which will be the
 name of the subdirectory that is created, where your presentation will
 live.
 
