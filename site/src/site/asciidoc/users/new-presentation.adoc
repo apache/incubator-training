@@ -88,7 +88,7 @@ Example
 Most of the content you'll need to edit when you're creating your
 presentation  is in `src/main/asciidoc` and `src/main/resources`.
 
-By default, `index.html` will contain many examples of what is possible
+By default, `index.adoc` will contain many examples of what is possible
 in asciidoctor, and you should spend some time reading through that. You
 can also consult the
 https://docs.asciidoctor.org/reveal.js-converter/latest/converter/features/[asciidoctor
