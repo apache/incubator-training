@@ -18,7 +18,7 @@
 
 == Using Apache Training
 
-The user documentation is divided into two to main (overlapping) topic
+The user documentation is divided into two main (overlapping)
 catetories: producing your own presentations (authors), and presenting those
 presentations (presenters). 
 
@@ -28,14 +28,14 @@ that generates those presentations, those docs are link:../developers/contributi
 == Getting Started
 
 If you just want to use one of the presentations we have published, as
-is, you can click on 'Presentations' in the site navigation menu, and
+is, click 'Presentations' in the site navigation menu, and
 present directly from there. See also
 link:presentation-tips.html[Presentation Tips] for a few ideas of what's
 possible.
 
-However, you will probably want to make some small edits to personalize,
-and that requires that you get a local copy of the repository. This will
-require, at a minimum:
+However, you will probably want to make some small edits to adapt the 
+presentation to your topic, and for that you'll need to get a local
+copy of the repository. This will require, at a minimum:
 
 - Java 8 or newer
 - Maven 3.3 or newer
