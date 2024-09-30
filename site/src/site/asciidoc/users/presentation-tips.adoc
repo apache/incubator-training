@@ -23,7 +23,7 @@ This document discusses how to effectively use Apache Training presentations.
 === Opening a presentation
 
 If you are presenting one of our published presentations, without any
-modifications, then click on 'Presentations' in the navigation menu of
+modifications, then click 'Presentations' in the navigation menu of
 https://training.apache.org[training.apache.org], select the
 presentation you want to deliver, and start!
 
@@ -48,16 +48,16 @@ mvn install
 
 Your generated presentation is now in the directory
 `target/generated-slides` and you can open the file `index.html` in that
-director in your browser.
+directory in your browser.
 
 === Speaker tools
 
-Press **S** (for Speaker) to open the speaker tools. This will open a
-second browser window with a preview of the next slide, and show you any
+Press **S** (for Speaker) to open the speaker tools. This opens a
+second browser window with a preview of the next slide, and shows you any
 speaker notes that are available for the current slide.
 
-It will also show you elapsed time, as well as timing advice for the current 
-slide.  This pacing advice is derived from the `totalTime` parameter, divided by
+It also shows you elapsed time, as well as timing advice for the current 
+slide. This pacing advice is derived from the `totalTime` parameter, divided by
 the number of slides. This value defaults to 40 minutes (2400 seconds)
 but you can set this to a desired value by putting the following at the
 top of your `index.adoc` file:
@@ -76,8 +76,8 @@ Giving a good presentation is more than reading the slides. Here are
 some tips for ensuring that you represent the ASF well.
 
 * Read all of the speaker notes before going on stage. Consider
-  rephrasing some of them in your own words to make it feel more
-  natural.
+  rephrasing some of them in your own words to make the presentation 
+  feel more natural.
 * Practice giving the presentation. If you can, record yourself, and
   watch with a critical eye, or perhaps in front of a friend who is
   willing to give constructive feedback.
@@ -88,11 +88,11 @@ some tips for ensuring that you represent the ASF well.
   where you won't be disturbed. Put a sign on your door.
 * Turn off your mobile phone. Empty your pockets. Remove your conference
   badge so that it won't interfere with the microphone.
-* Use the microphone. No you are not loud enough without it. It's not
+* Use the microphone. No, you are not loud enough without it. It's not
   for you, it's for your audience, and makes their experience better.
 * Leave time for questions. Repeat every question, because the people in
   the back didn't hear it.
-* If your talk was recorded, please consider sending us a link to the
-  video, on dev@training.apache.org
+* If your talk was recorded, please consider sending a link to the
+  video to us at dev@training.apache.org
 
 
