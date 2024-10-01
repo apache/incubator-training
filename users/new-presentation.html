@@ -8,7 +8,7 @@
 <html  xml:lang="en" lang="en">
         <head>
     <meta charset="UTF-8" />
-    <title>Apache Training™ (Incubating) - WIKI</title>
+    <title>Apache Training™ (Incubating) - Creating a New Presentation with Apache Training</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
       <meta http-equiv="content-language" content="en" />
@@ -34,7 +34,7 @@
           });
         </script>
         </head> <!-- end : head -->
-<body class="page-developers-wiki project-training-website anchorjs-enabled scrolltop-smooth-enabled m-toc-top-enabled">
+<body class="page-users-new-presentation project-training-website anchorjs-enabled scrolltop-smooth-enabled m-toc-top-enabled">
     <nav id="m-top-navbar" class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
 <div class="container">            <a class="navbar-brand mb-0 h1" href="..">
             Apache Training (Incubating)
@@ -88,28 +88,28 @@
                             <a href="../presentations/zookeeper/index_en.html" title="Apache Zookeeper" target="_blank" class="dropdown-item ">Apache Zookeeper</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown active">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Authors and Presenters <b class="caret"></b></a>
                         <div class="dropdown-menu">
-                            <a href="../users/index.html" title="Getting Started"  class="dropdown-item ">Getting Started</a>
-                            <a href="../users/new-presentation.html" title="Creating a New Presentation"  class="dropdown-item ">Creating a New Presentation</a>
-                            <a href="../users/writing-slides.html" title="Writing Slides"  class="dropdown-item ">Writing Slides</a>
-                            <a href="../users/presentation-tips" title="Presentation Tips"  class="dropdown-item ">Presentation Tips</a>
+                            <a href="index.html" title="Getting Started"  class="dropdown-item ">Getting Started</a>
+                            <a href="" title="Creating a New Presentation"  class="dropdown-item active">Creating a New Presentation</a>
+                            <a href="writing-slides.html" title="Writing Slides"  class="dropdown-item ">Writing Slides</a>
+                            <a href="presentation-tips" title="Presentation Tips"  class="dropdown-item ">Presentation Tips</a>
                             <a href="../downloads.html" title="Downloads"  class="dropdown-item ">Downloads</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown active">
+                    <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Developers <b class="caret"></b></a>
                         <div class="dropdown-menu">
-                            <a href="issues.html" title="Bug & Issue Tracker"  class="dropdown-item ">Bug & Issue Tracker</a>
-                            <a href="building-website.html" title="Building Training Website"  class="dropdown-item ">Building Training Website</a>
-                            <a href="ci.html" title="Continuous Integration"  class="dropdown-item ">Continuous Integration</a>
-                            <a href="contributing.html" title="Contributing"  class="dropdown-item ">Contributing</a>
-                            <a href="decisions.html" title="Decision Making"  class="dropdown-item ">Decision Making</a>
-                            <a href="releasing-tools.html" title="Releasing (tools)"  class="dropdown-item ">Releasing (tools)</a>
-                            <a href="team.html" title="Team"  class="dropdown-item ">Team</a>
-                            <a href="website.html" title="Website"  class="dropdown-item ">Website</a>
-                            <a href="" title="Wiki"  class="dropdown-item active">Wiki</a>
+                            <a href="../developers/issues.html" title="Bug & Issue Tracker"  class="dropdown-item ">Bug & Issue Tracker</a>
+                            <a href="../developers/building-website.html" title="Building Training Website"  class="dropdown-item ">Building Training Website</a>
+                            <a href="../developers/ci.html" title="Continuous Integration"  class="dropdown-item ">Continuous Integration</a>
+                            <a href="../developers/contributing.html" title="Contributing"  class="dropdown-item ">Contributing</a>
+                            <a href="../developers/decisions.html" title="Decision Making"  class="dropdown-item ">Decision Making</a>
+                            <a href="../developers/releasing-tools.html" title="Releasing (tools)"  class="dropdown-item ">Releasing (tools)</a>
+                            <a href="../developers/team.html" title="Team"  class="dropdown-item ">Team</a>
+                            <a href="../developers/website.html" title="Website"  class="dropdown-item ">Website</a>
+                            <a href="../developers/wiki.html" title="Wiki"  class="dropdown-item ">Wiki</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -162,18 +162,118 @@
         <div id="m-toc-topnav-collapse" class="collapse navbar-collapse">
             <ul id="m-toc-topnav" class="navbar-nav">
 
-                        <li class="nav-item toplevel"><a class="nav-link" href="#wiki1" title="WIKI">WIKI</a></li>
+                        <li class="nav-item toplevel"><a class="nav-link" href="#creating-a-new-presentation-with-apache-training" title="Creating a New Presentation with Apache Training">Creating a New Presentation with Apache Training</a></li>
+                        <li class="nav-item divider-vertical"></li>
+                        <li class="nav-item toplevel"><a class="nav-link" href="#editing-your-new-presentation" title="Editing your new presentation">Editing your new presentation</a></li>
+                        <li class="nav-item divider-vertical"></li>
+                        <li class="nav-item toplevel"><a class="nav-link" href="#building-your-new-presentation" title="Building your new presentation">Building your new presentation</a></li>
+                        <li class="nav-item divider-vertical"></li>
+                        <li class="nav-item toplevel"><a class="nav-link" href="#see-also" title="See also:">See also:</a></li>
             </ul>
         </div>
       </div> <!-- .container -->
     </div> <!-- end: m-toc-topbar -->
                     <div class="sect1"> 
  <div class="page-header">
-  <h2 id="wiki1">WIKI</h2>
+  <h2 id="creating-a-new-presentation-with-apache-training">Creating a New Presentation with Apache Training</h2>
  </div> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p><a href="https://cwiki.apache.org/confluence/display/TRAINING" class="bare">https://cwiki.apache.org/confluence/display/TRAINING</a></p> 
+   <p>To create a new Apache Training project, you’ll need to generate the directory tree of template files. If you’ve built the tools, as described in the <a href="index.html">getting started</a> doc, you should already have all of the prerequisites to make this work. (So start there.)</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Move to the directory where you wish to create your new presentation, and run the following command:</p> 
+  </div> 
+  <div class="literalblock"> 
+   <div class="content"> 
+    <pre>mvn archetype:generate -DarchetypeGroupId=org.apache.training -DarchetypeArtifactId=content-archetype -DarchetypeVersion=1.3.0</pre> 
+   </div> 
+  </div> 
+  <div class="paragraph"> 
+   <p>For Windows, you need to wrap every argument in double-quotes:</p> 
+  </div> 
+  <div class="literalblock"> 
+   <div class="content"> 
+    <pre>mvn archetype:generate "-DarchetypeGroupId=org.apache.training" "-DarchetypeArtifactId=content-archetype" "-DarchetypeVersion=1.3.0"</pre> 
+   </div> 
+  </div> 
+  <div class="paragraph"> 
+   <p>This command displays an interactive tool that asks you to provide some basic information about your new presentation</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>In particular, you’ll need to provide a <code>groupID</code> (to which you should answer <code>org.apache.training</code> if you intend the presentation to eventually be part of the Training.apache.org project, but otherwise this can be whatever you like) and the <code>artifactID</code>, which will be the name of the subdirectory that is created, where your presentation will live.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>You can accept the default answers to the remaining questions, by pressing enter at each prompt.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>You’ll then be asked to confirm your information, to which you will need to respond <code>Y</code> for yes.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>image::mvn-training-create.png</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>This will create a new directory tree containing your new presentation, along with some sample content to get you started.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>The directory tree will look like the following diagram:</p> 
+  </div> 
+  <div class="imageblock"> 
+   <div class="content"> 
+    <img src="../images/asciidoctor-diagram-process.png" alt="asciidoctor diagram process" width="600" height="406" class="img-fluid"> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="editing-your-new-presentation">Editing your new presentation</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>Most of the content you’ll need to edit when you’re creating your presentation is in <code>src/main/asciidoc</code> and <code>src/main/resources</code>.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>By default, <code>index.adoc</code> will contain many examples of what is possible in asciidoctor, and you should spend some time reading through that. You can also consult the <a href="https://docs.asciidoctor.org/reveal.js-converter/latest/converter/features/">asciidoctor presentation documentation</a> for a more comprehensive understanding of the available syntax.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Images should go into <code>src/main/resources/images</code>. And the CSS that will be used is in <code>src/main/theme/apache.css</code>.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Some of the default example files can be removed, and you should remove them if you’re planning to contribute your presentation to the Training project. These include:</p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p><code>mermaid-flowchart-test.mmd</code></p> </li> 
+    <li> <p><code>_b.adoc</code></p> </li> 
+    <li> <p><code>_a.acoc</code></p> </li> 
+    <li> <p><code>toddy.jpg</code> ` Those files are provided purely as examples of what is possible.</p> </li> 
+   </ul> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="building-your-new-presentation">Building your new presentation</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>Change into the directory you have created, and run the following command to build the template presentation:</p> 
+  </div> 
+  <div class="literalblock"> 
+   <div class="content"> 
+    <pre>mvn install</pre> 
+   </div> 
+  </div> 
+  <div class="paragraph"> 
+   <p>If this completes with no errors, there will a new directory <code>target/generated-slides</code> which contains the generated HTML content of your presentation. Open the <code>index.html</code> in that directory in your browser to start the presentation.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="see-also">See also:</h2> 
+ <div class="sectionbody"> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p><a href="writing-slides.html">Writing Slides</a></p> </li> 
+    <li> <p><a href="presentation-tips">Presentation Tips</a></p> </li> 
+   </ul> 
   </div> 
  </div> 
 </div>        </main>

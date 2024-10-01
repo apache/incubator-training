@@ -8,7 +8,7 @@
 <html  xml:lang="en" lang="en">
         <head>
     <meta charset="UTF-8" />
-    <title>Apache Training™ (Incubating) - Creating Presentation with Apache Training</title>
+    <title>Apache Training™ (Incubating) - Using Apache Training</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
       <meta http-equiv="content-language" content="en" />
@@ -44,13 +44,6 @@
             </button>
             <div class="collapse navbar-collapse" id="top-navbar-collapse-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item dropdown active">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Users <b class="caret"></b></a>
-                        <div class="dropdown-menu">
-                            <a href="../downloads.html" title="Downloads"  class="dropdown-item ">Downloads</a>
-                            <a href="" title="Getting Started"  class="dropdown-item active">Getting Started</a>
-                        </div>
-                    </li>
                     <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Presentations <b class="caret"></b></a>
                         <div class="dropdown-menu">
@@ -93,6 +86,16 @@
                                 </div>
                             </div>
                             <a href="../presentations/zookeeper/index_en.html" title="Apache Zookeeper" target="_blank" class="dropdown-item ">Apache Zookeeper</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown active">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Authors and Presenters <b class="caret"></b></a>
+                        <div class="dropdown-menu">
+                            <a href="" title="Getting Started"  class="dropdown-item active">Getting Started</a>
+                            <a href="new-presentation.html" title="Creating a New Presentation"  class="dropdown-item ">Creating a New Presentation</a>
+                            <a href="writing-slides.html" title="Writing Slides"  class="dropdown-item ">Writing Slides</a>
+                            <a href="presentation-tips" title="Presentation Tips"  class="dropdown-item ">Presentation Tips</a>
+                            <a href="../downloads.html" title="Downloads"  class="dropdown-item ">Downloads</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -159,70 +162,72 @@
         <div id="m-toc-topnav-collapse" class="collapse navbar-collapse">
             <ul id="m-toc-topnav" class="navbar-nav">
 
-                        <li class="nav-item toplevel"><a class="nav-link" href="#creating-presentation-with-apache-training" title="Creating Presentation with Apache Training">Creating Presentation with Apache Training</a></li>
+                        <li class="nav-item toplevel"><a class="nav-link" href="#using-apache-training" title="Using Apache Training">Using Apache Training</a></li>
+                        <li class="nav-item divider-vertical"></li>
+                        <li class="nav-item toplevel"><a class="nav-link" href="#getting-started" title="Getting Started">Getting Started</a></li>
+                        <li class="nav-item divider-vertical"></li>
+                        <li class="nav-item toplevel"><a class="nav-link" href="#technical-details" title="Technical details">Technical details</a></li>
                         <li class="nav-item divider-vertical"></li>
                         <li class="nav-item toplevel"><a class="nav-link" href="#using-the-latest-development-version" title="Using the latest development version">Using the latest development version</a></li>
-                        <li class="nav-item divider-vertical"></li>
-                        <li class="nav-item toplevel"><a class="nav-link" href="#building-the-apache-training-tooling" title="Building the Apache Training Tooling">Building the Apache Training Tooling</a></li>
             </ul>
         </div>
       </div> <!-- .container -->
     </div> <!-- end: m-toc-topbar -->
                     <div class="sect1"> 
  <div class="page-header">
-  <h2 id="creating-presentation-with-apache-training">Creating Presentation with Apache Training</h2>
+  <h2 id="using-apache-training">Using Apache Training</h2>
  </div> 
  <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Currently the setup uses <a href="https://asciidoctor.org/">Asciidoctor</a> to write content and builds the presentation using <a href="https://maven.apache.org/">Apache Maven</a> and <a href="https://revealjs.com/#/">Reveal.JS</a>.</p> 
+   <p>The user documentation is divided into two main (overlapping) catetories: producing your own presentations (authors), and presenting those presentations (presenters).</p> 
   </div> 
   <div class="paragraph"> 
-   <p>We have prepared everything that it should be pretty simple to get started with creating a new presentation.</p> 
+   <p>If you’re interested in developing the code that generates those presentations, those docs are <a href="../developers/contributing.html">here</a>.</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="getting-started">Getting Started</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>If you just want to use one of the presentations we have published, as is, click 'Presentations' in the site navigation menu, and present directly from there. See also <a href="presentation-tips.html">Presentation Tips</a> for a few ideas of what’s possible.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Requirements:</p> 
+   <p>However, you will probably want to make some small edits to adapt the presentation to your topic, and for that you’ll need to get a local copy of the repository. This will require, at a minimum:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
     <li> <p>Java 8 or newer</p> </li> 
     <li> <p>Maven 3.3 or newer</p> </li> 
+    <li> <p>Git</p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
-   <p>Until we have released the tooling, you will need to build it locally first or the archetype plugin will fail to run. Please read the following chapter on how to do this.</p> 
+   <p>Installation details for your preferred operating system are currently <strong>To Be Documented</strong>.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>In order to create an empty presentation to start with, please execute the following command:</p> 
+   <p>To get a local copy of the tools and presentations:</p> 
   </div> 
-  <div class="literalblock"> 
+  <div class="listingblock"> 
    <div class="content"> 
-    <pre>mvn archetype:generate -DarchetypeGroupId=org.apache.training -DarchetypeArtifactId=content-archetype -DarchetypeVersion=1.3.0</pre> 
+    <pre class="prettyprint highlight"><code>git clone https://github.com/apache/incubator-training.git
+cd incubator-training
+mvn install</code></pre> 
    </div> 
   </div> 
   <div class="paragraph"> 
-   <p>For Windows, you need to wrap every argument in double-quotes:</p> 
-  </div> 
-  <div class="literalblock"> 
-   <div class="content"> 
-    <pre>mvn archetype:generate "-DarchetypeGroupId=org.apache.training" "-DarchetypeArtifactId=content-archetype" "-DarchetypeVersion=1.3.0"</pre> 
-   </div> 
+   <p>This will install (if you don’t have them already) all of the tooling, and build the default presentations.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>After choosing <code>groupId</code>, <code>artifactId</code>, <code>version</code> and <code>package</code> there should be a new directory that matches the <code>artifactId</code> that you selected.</p> 
+   <p>See also: * <a href="new-presentation.html">Creating a new presentation</a> * <a href="presentation-tips.html">Presentation tips</a> * <a href="writing-slides.html">Writing slides</a></p> 
   </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="technical-details">Technical details</h2> 
+ <div class="sectionbody"> 
   <div class="paragraph"> 
-   <p>Change into this directory and run the following command to build the presentation:</p> 
-  </div> 
-  <div class="literalblock"> 
-   <div class="content"> 
-    <pre>mvn package</pre> 
-   </div> 
-  </div> 
-  <div class="paragraph"> 
-   <p>After that, there should be a directory <code>target/generated-slides</code>.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>If you open the <code>index.html</code> in that directory your presentation should open in the browser.</p> 
+   <p>Currently the setup uses <a href="https://asciidoctor.org/">Asciidoctor</a> to write content and builds the presentation using <a href="https://maven.apache.org/">Apache Maven</a> and <a href="https://revealjs.com/#/">Reveal.JS</a>.</p> 
   </div> 
  </div> 
 </div> 
@@ -254,29 +259,6 @@
   </div> 
   <div class="paragraph"> 
    <p>After adding this you can update the parent version to the latest <code>SNAPSHOT</code> version and Maven should be able to find it.</p> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="building-the-apache-training-tooling">Building the Apache Training Tooling</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>Additional requirements:</p> 
-  </div> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p>Git</p> </li> 
-   </ul> 
-  </div> 
-  <div class="paragraph"> 
-   <p>In order to build Apache Training Tooling, please checkout the git repo from:</p> 
-  </div> 
-  <div class="literalblock"> 
-   <div class="content"> 
-    <pre>git clone https://gitbox.apache.org/repos/asf/incubator-training.git
-cd incubator-training
-mvn install</pre> 
-   </div> 
   </div> 
  </div> 
 </div>        </main>
