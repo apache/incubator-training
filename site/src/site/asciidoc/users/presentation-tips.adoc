@@ -1,0 +1,98 @@
+//
+//  Licensed to the Apache Software Foundation (ASF) under one or more
+//  contributor license agreements.  See the NOTICE file distributed with
+//  this work for additional information regarding copyright ownership.
+//  The ASF licenses this file to You under the Apache License, Version 2.0
+//  (the "License"); you may not use this file except in compliance with
+//  the License.  You may obtain a copy of the License at
+//
+//      https://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+:imagesdir: ../images/
+
+== Presentation Tips
+
+This document discusses how to effectively use Apache Training presentations.
+
+=== Opening a presentation
+
+If you are presenting one of our published presentations, without any
+modifications, then click 'Presentations' in the navigation menu of
+https://training.apache.org[training.apache.org], select the
+presentation you want to deliver, and start!
+
+However, since most of us will make at least minor modifications to
+these presentations, you'll probably be presenting from your local build
+of the slides.
+
+You'll do this by getting a checkout of the presentation, making your
+edits, and building it locally. The process for this is covered in
+link::index.html#/getting-started[Getting Started], but is recapped here:
+
+[code]
+----
+git clone https://github.com/apache/incubator-training.git
+cd incubator-training/content
+cd [path to your desired presentation]
+cd ./src/main/asciidoc
+[edit index.adoc to make your desired changes]
+cd ../../../
+mvn install
+----
+
+Your generated presentation is now in the directory
+`target/generated-slides` and you can open the file `index.html` in that
+directory in your browser.
+
+=== Speaker tools
+
+Press **S** (for Speaker) to open the speaker tools. This opens a
+second browser window with a preview of the next slide, and shows you any
+speaker notes that are available for the current slide.
+
+It also shows you elapsed time, as well as timing advice for the current 
+slide. This pacing advice is derived from the `totalTime` parameter, divided by
+the number of slides. This value defaults to 40 minutes (2400 seconds)
+but you can set this to a desired value by putting the following at the
+top of your `index.adoc` file:
+
+[code]
+----
+// 30 minutes - 5 minutes Q&A = 1500 seconds
+:revealjs_totalTime: 1500
+----
+
+This will then require that you rebuild your presentation.
+
+=== Tips
+
+Giving a good presentation is more than reading the slides. Here are
+some tips for ensuring that you represent the ASF well.
+
+* Read all of the speaker notes before going on stage. Consider
+  rephrasing some of them in your own words to make the presentation 
+  feel more natural.
+* Practice giving the presentation. If you can, record yourself, and
+  watch with a critical eye, or perhaps in front of a friend who is
+  willing to give constructive feedback.
+* If you're giving a talk in person, arrive at the venue a little early
+  to be sure you can get your slides on the screen, and that everything
+  is working as desired.
+* If you're giving the talk remotely, be sure you are in a quiet place
+  where you won't be disturbed. Put a sign on your door.
+* Turn off your mobile phone. Empty your pockets. Remove your conference
+  badge so that it won't interfere with the microphone.
+* Use the microphone. No, you are not loud enough without it. It's not
+  for you, it's for your audience, and makes their experience better.
+* Leave time for questions. Repeat every question, because the people in
+  the back didn't hear it.
+* If your talk was recorded, please consider sending a link to the
+  video to us at dev@training.apache.org
+
+

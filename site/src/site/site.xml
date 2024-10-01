@@ -104,10 +104,7 @@
       ]]>
     </head>
 
-    <menu name="Users">
-      <item name="Downloads" href="downloads.html"/>
-      <item name="Getting Started" href="users/index.html"/>
-    </menu>
+    <!-- Published presentations -->
     <menu name="Presentations">
       <item name="Apache Airflow" href="presentations/airflow/index.html" target="_blank"/>
       <item name="Apache ComDev">
@@ -140,6 +137,17 @@
       </item>
       <item name="Apache Zookeeper" href="presentations/zookeeper/index_en.html" target="_blank"/>
     </menu>
+
+    <!-- Users (Authors and presenters) -->
+    <menu name="Authors and Presenters">
+      <item name="Getting Started" href="users/index.html"/>
+      <item name="Creating a New Presentation" href="users/new-presentation.html"/>
+      <item name="Writing Slides" href="users/writing-slides.html">
+      <item name="Presentation Tips" href="users/presentation-tips">
+      <item name="Downloads" href="downloads.html"/>
+    </menu>
+
+    <!-- Developers -->
     <menu name="Developers">
       <item name="Bug &amp; Issue Tracker" href="developers/issues.html"/>
       <item name="Building Training Website" href="developers/building-website.html"/>
@@ -153,6 +161,8 @@
       <item name="Website" href="developers/website.html"/>
       <item name="Wiki" href="developers/wiki.html"/>
     </menu>
+
+    <!-- ASF information -->
     <menu name="Apache" inherit="bottom">
       <item name="Apache Software Foundation" href="http://www.apache.org/"/>
       <item name="How Apache Works" href="https://www.apache.org/foundation/how-it-works.html"/>

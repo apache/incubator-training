@@ -1,0 +1,87 @@
+//
+//  Licensed to the Apache Software Foundation (ASF) under one or more
+//  contributor license agreements.  See the NOTICE file distributed with
+//  this work for additional information regarding copyright ownership.
+//  The ASF licenses this file to You under the Apache License, Version 2.0
+//  (the "License"); you may not use this file except in compliance with
+//  the License.  You may obtain a copy of the License at
+//
+//      https://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+:imagesdir: ../images/
+
+== Writing slides
+
+Slides are written using
+https://docs.asciidoctor.org/reveal.js-converter/latest/converter/features/[Asciidoctor]. 
+This document is not an attempt to be comprehensive, but, rather, to
+give some helpful tips to get you started on your first presentation.
+
+=== Slide format
+
+Start each new slide with a title:
+
+[code]
+----
+== Slide one
+
+Text on the slide goes here
+
+== !
+
+no title on this one!
+
+== Slide three
+
+* Bullet
+* List
+
+----
+
+== Images
+
+You can put an image on a slide using the `image` syntax:
+
+[code]
+----
+== Slide with image
+
+image::pony.jpg[width=50%]
+----
+
+=== Advanced tips
+
+For more examples of what you can do in your slides, have a look at the
+default `index.html` files when you create a new presentation.
+
+=== Speaker notes
+
+The most important part of a presentation that you write for the
+Training project is the speaker notes. You should think, while writing,
+of the person who will pick up your presentation and attempt to present
+it at a conference or meetup. Will they understand what it was that you
+intended to communicate on each slide?
+
+To add speaker notes, use the following syntax:
+
+[code]
+----
+== New slide
+
+Clever remarks on slide
+
+[.notes]
+--
+Speaker notes go here, explaining what the speaker should say when this
+slide is up.
+--
+
+----
+
+
