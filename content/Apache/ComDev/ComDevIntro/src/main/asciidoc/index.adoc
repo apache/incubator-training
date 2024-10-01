@@ -35,7 +35,7 @@ image::ApacheLogo.png[]
 {position} +
 {email} +
 
-[NOTE.speaker]
+[.notes]
 --
 Please add your own details here
 --
@@ -53,7 +53,7 @@ Please add your own details here
 * It plays a key role in helping support collaboration and attracting new contributors
 * It has an internal and external role
 
-[NOTE.speaker]
+[.notes]
 --
 How do we develop communities? We help support and grow them.
 Why is it important to support communities? Shouldn't they be able to support themselves? (Yes and No)
@@ -66,7 +66,7 @@ We work internally within the ASF and also externally doing things such as outre
 * Supporting and helping communities grow 
 * Attracting new contributors
 
-[NOTE.speaker]
+[.notes]
 --
 The ASF has lots and lots of projects and so we are a central place they can find out information.
 Also if a project has done something good that has helped the community - why not share it with other ASF projects? They may be looking for the same thing!
@@ -87,7 +87,7 @@ New contributors can come from within the ASF or outside it, which is why ComDev
 ** People think only developers can contribute
 * Projects are looking for you!
 
-[NOTE.speaker]
+[.notes]
 --
 The most important point to note is that a lot of people don't realise that they can contribute, or don't know how to! 
 So the first thing we focus on is getting the message out to people to let them know that all our projects and are always looking for new contributors. People to help with coding, documentation, event management, graphics, web design, training and anything else.
@@ -102,7 +102,7 @@ The second thing we focus on is giving them information on how to contribute and
 * We also coordinate and manage common tasks within the ASF (eg GSoC, Logo Repository, Info Brochure, Stickers etc)
 * We create tools (eg projects.a.o, people.a.o, reporter.a.o)
 
-[NOTE.speaker]
+[.notes]
 --
 Remember I said we don't focus on producing software? We don't! But that doesn't mean that we don't produce any.
 In fact we do provide software tools that make things easier for our projects. So we have a tool where you can find a full project list, what each project is and what technology it uses. (projects.apache.org).
@@ -116,7 +116,7 @@ image::handshake-2009183_1920-1.png[scaledwidth=75%]
 
 * Mailing list dev@community.apache.org
 
-[NOTE.speaker]
+[.notes]
 --
 All our communication happens via a mailing list - dev@community.apache.org
 We introduce ourselves, have discussions, build relationships, make decisions all on the mailing list.

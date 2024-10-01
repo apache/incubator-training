@@ -35,7 +35,7 @@ image::ApacheLogo.png[]
 {position} +
 {email} +
 
-[NOTE.speaker]
+[.notes]
 --
 Please add your own details here
 --
@@ -87,7 +87,7 @@ image::apache_8.png[250,250,float="right",align="center"]
 
 |===
 
-[NOTE.speaker]
+[.notes]
 --
 // Source:
 // https://whimsy.apache.org/roster/
@@ -123,7 +123,7 @@ image::project-categories.png[]
 * Provide the technical and legal infrastructure for open-source development
 * Provide all means to protect every volunteer from persecution as long as this persecution is aimed at a project of the foundation
 
-[NOTE.speaker]
+[.notes]
 --
 * legal infrastructure = Apache license, ICLA, CCLA, ...
 * legal umbrella: If someone initiates legal action against an Apache committer for things related to the ASF, the ASF takes the place of the accused.
@@ -143,7 +143,7 @@ The Apache Software Foundation provides support for the Apache community of open
 ** CI Server (Jenkins, ...), Web servers for project websites
 ** ...
 
-[NOTE.speaker]
+[.notes]
 --
 * Currently, there is a trend to use GitHub Issues, GitHub Discussions, GitHub Actions (CI)
 * The ASF provides tooling to integrate these
@@ -177,7 +177,7 @@ The Apache Software Foundation provides support for the Apache community of open
 ....
 // Numbers (03.2023)
 
-[NOTE.speaker]
+[.notes]
 --
 * Contributors: People who have contributed anything to a project
 * Users: Almost every phone, tv, has at least some Apache software in it
@@ -218,7 +218,7 @@ The Apache Software Foundation provides support for the Apache community of open
 +---------------------------------------------------+
 ....
 
-[NOTE.speaker]
+[.notes]
 --
 * Projects don't start at Apache
 * Projects can also leave any time
@@ -234,7 +234,7 @@ The Apache Software Foundation provides support for the Apache community of open
 * Monthly board meeting
 * Every project elects a *Chair* as interface to the board
 
-[NOTE.speaker]
+[.notes]
 --
 * Projects don't start at Apache
 * Projects can also leave any time
@@ -359,7 +359,7 @@ Project                          | Foundation
 * Off-list discussions can happen, but important information needs to be forwarded to the mailing list
 * Others need to be able to participate
 
-[NOTE.speaker]
+[.notes]
 --
 * Discussions on meetups or at conferences
 * Many things (like votes) require 72 hour periods
@@ -384,7 +384,7 @@ Project                          | Foundation
 ** At least 3 binding votes
 ** More `+1` as `-1` votes
 
-[NOTE.speaker]
+[.notes]
 --
 * Valid votes are `+1` (pro), `0`, `-1` (contra)
 * `-1` votes should be constructive
@@ -399,7 +399,7 @@ Project                          | Foundation
 * In order to allow anyone to participate, votes usually last at least 72 hours
 * Discussions and votes happen only on the mailing-list
 
-[NOTE.speaker]
+[.notes]
 --
 * 72h = at least one working day, no matter where on earth you live
 --
@@ -420,7 +420,7 @@ Project                          | Foundation
 * Companies can't directly fund development in projects
 * Companies can donate funds towards projects (Targeted donations)
 
-[NOTE.speaker]
+[.notes]
 --
 * Targeted donations: Licenses, Hardware costs, Membership fees, ...
 --

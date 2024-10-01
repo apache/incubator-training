@@ -35,7 +35,7 @@ image::apache_plc4x_logo.png[]
 {position} +
 {email} +
 
-[NOTE.speaker]
+[.notes]
 --
 Please add your own details here
 --
@@ -64,7 +64,7 @@ PLC4X is a set of libraries for communicating with industrial programmable logic
 * Support of features, which protocols generally don't support
 * Make PLC Data available in a unified way
 
-[NOTE.speaker]
+[.notes]
 --
 * Modbus generally only allows bits and short values
 * Unified data: PlcValues all handled equally over all protocols
@@ -82,7 +82,7 @@ PLC4X is a set of libraries for communicating with industrial programmable logic
 * Discovery icon:hammer[role=orange]
 * Browse icon:hammer[role=orange]
 
-[NOTE.speaker]
+[.notes]
 --
 * We're currently working a lot on Discovery and Browsing
 * Discovery: Which devices do I have and how can I connect to them?
@@ -122,7 +122,7 @@ PLC4X is a set of libraries for communicating with industrial programmable logic
 * Cross-compiling/wrapping just wouldn't feel right
 * Heavy lifting done by our code-generation framework
 
-[NOTE.speaker]
+[.notes]
 --
 * Cross Compiling:
 ** Increased Size
@@ -148,7 +148,7 @@ image::digital-cockpit.png[]
 ** Energy-consumption
 ** Resource usage
 
-[NOTE.speaker]
+[.notes]
 --
 * Increased energy consumption -> needs maintenance
 --
@@ -170,7 +170,7 @@ image::digital-cockpit.png[]
 ** Use PLC4X to set values in the "PLC" from the Unit-Test
 ** Test PLC4X Application against the simulator without needing real machinery
 
-[NOTE.speaker]
+[.notes]
 --
 * The simulator already exists
 * Need to implement:
@@ -189,7 +189,7 @@ image::digital-cockpit.png[]
 ** Use Apache IoTDB to store the data
 ** Add interfaces to replicate Historian interfaces
 
-[NOTE.speaker]
+[.notes]
 --
 * We're already working on Apache Historian
 * However mainly me working on it
@@ -206,7 +206,7 @@ image::digital-cockpit.png[]
 ** Use Eclipse Dito to store the current state
 ** Use Apache KIE (incubating) to do smart things with the data
 
-[NOTE.speaker]
+[.notes]
 --
 * IoTDB is great for time-series data
 * Ditto is great for current state and dependencies
@@ -224,7 +224,7 @@ image::digital-cockpit.png[]
 * Solution:
 ** Building a distributed MES based on principle of highly scalable distributed systems
 
-[NOTE.speaker]
+[.notes]
 --
 * Cars today usually so customizable, that there are only very few equal configurations
 * PLC needs to ask MES about options for every produced item
