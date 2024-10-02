@@ -404,7 +404,7 @@ Project                          | Foundation
 * *But* non-binding votes usually are still respected
 * Something is considered decided if:
 ** At least 3 binding votes
-** More `+1` as `-1` votes
+** More `+1` than `-1` votes
 
 [.notes]
 --
