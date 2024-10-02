@@ -62,11 +62,18 @@ image::asf_logo.png[]
 image::apache_8.png[250,250,float="right",align="center"]
 
 * Before there was the ASF, there was the "Apache Group"
-* Informal corporate structure
+* Informal organizational structure
 * 8 members
 * Formed in Feb. 1995
 * Continued the work on the NCSA httpd
-* Chose a very permissive license
+* Wrote a very permissive license, based on previous work
+
+[.notes]
+--
+* The Apache License was intended to be a "universal donor" that
+  projects and organizations could consume.
+* Traded patches on a mailing list
+--
 
 == Growth
 
@@ -74,14 +81,14 @@ image::apache_8.png[250,250,float="right",align="center"]
 |===
 
 | Then (1999)
-| Now (03.2023)
+| Now (10.2024)
 
 .^a|* 21 Members
 * 2 Projects
 * All servers and services donated
-.^a| * 800 active Members
-* 362 Projects (Managed by 207 PMCs)
-* 8833 Committers
+.^a| * 797 active Members
+* 209 PMCs
+* 9546 Committers
 //* 689584 Contributors
 * Cloud infrastructure
 
@@ -94,7 +101,7 @@ image::apache_8.png[250,250,float="right",align="center"]
 * ICLA: Individual Contributor License Agreement
 * CCLA: Corporate Contributor License Agreement
 * 31 Incubator Podlings
-* 5 Special Committees: Infrastructure, Travel Assistance, Security Team, Legal Affairs and Brand Management
+* 9 Special Committees: Data Privacy, Fundraising, Marketing & Publicity, Public Affairs, Infrastructure, Travel Assistance, Security Team, Legal Affairs and Brand Management
 --
 
 == Number of projects over time
@@ -102,10 +109,10 @@ image::apache_8.png[250,250,float="right",align="center"]
 image::project-number-over-time.png[]
 // Source https://projects.apache.org/
 
-== Commits over time
+== Number of podlings over time
 
-image::commits-over-time.png[]
-// Source: https://projects.apache.org/statistics.html
+image::podlings-over-time.png[]
+// Source https://projects.apache.org/
 
 == Language distribution
 
@@ -119,14 +126,14 @@ image::project-categories.png[]
 == The mission
 
 * *Provide software for the public good*
-* Protect the trademark: *Apache* and her software products against misuse by other organisations
-* Provide the technical and legal infrastructure for open-source development
-* Provide all means to protect every volunteer from persecution as long as this persecution is aimed at a project of the foundation
+* Provide all means to protect every volunteer from prosecution as long as this prosecution is aimed at a project of the foundation
+* Provide a place for projects to develop in a vendor-neutral environment
 
 [.notes]
 --
-* legal infrastructure = Apache license, ICLA, CCLA, ...
-* legal umbrella: If someone initiates legal action against an Apache committer for things related to the ASF, the ASF takes the place of the accused.
+* legal umbrella: If someone initiates legal action against an Apache committer for things related to the ASF, the ASF takes the place of the accused
+* Vendor neutrality: Projects are directed by the individual contributors doing the work, not corporate product teams
+
 --
 
 == The vision
@@ -136,17 +143,29 @@ The Apache Software Foundation provides support for the Apache community of open
 == Projects
 
 * Heart of the ASF are the *projects*
-* Also named "Top Level Project" (TLP)
 * ASF provides services:
-** Mailing lists, code-repositories (SVN, Git, ...)
-** Bug & Issue trackers (Jira, ...), Wiki (Confluence, ...)
-** CI Server (Jenkins, ...), Web servers for project websites
-** ...
+** Infrastructure
+** Marketing, Legal, Security services
+** Advice and experience to direct governance and community
 
 [.notes]
 --
-* Currently, there is a trend to use GitHub Issues, GitHub Discussions, GitHub Actions (CI)
-* The ASF provides tooling to integrate these
+
+* Projects ...
+** *Usually* produce software, but we have some outliers
+** Managed by a PMC (more in coming slides)
+* Infra
+** Mailing lists, code-repositories (SVN, Git, ...)
+** Bug & Issue trackers (Jira, ...), Wiki (Confluence, ...)
+** CI Server (Jenkins, ...), Web servers for project websites
+* Other services
+** Conferences
+** M&P
+** Legal
+** Public Policy
+** ComDev
+** etc, etc
+
 --
 
 == Structure of a project
@@ -163,7 +182,7 @@ The Apache Software Foundation provides support for the Apache community of open
                |                     |
           +----+---------------------+----+
           |cF71                           |
-          |       Project Committers      |            Total: 8833
+          |       Project Committers      |            Total: 9546
           |                               |
      +----+-------------------------------+----+
      |c7CE                                     |
@@ -180,7 +199,9 @@ The Apache Software Foundation provides support for the Apache community of open
 [.notes]
 --
 * Contributors: People who have contributed anything to a project
-* Users: Almost every phone, tv, has at least some Apache software in it
+* Users: Every computer, phone, and smart device has at least some Apache software in it
+* Every device in orbit and on Mars has Apache software on it.
+
 --
 
 == Lifecycle of a project
@@ -222,7 +243,8 @@ The Apache Software Foundation provides support for the Apache community of open
 --
 * Projects don't start at Apache
 * Projects can also leave any time
-** Might need to re-brand
+** .. But the ASF owns the marks
+** Will need to re-brand
 --
 
 == How is the ASF structured?
@@ -236,7 +258,7 @@ The Apache Software Foundation provides support for the Apache community of open
 
 [.notes]
 --
-* Projects don't start at Apache
+* Projects (usually) don't start at Apache
 * Projects can also leave any time
 ** Might need to re-brand
 --
@@ -271,7 +293,7 @@ Organizational Oversight                  |            | Create & update
           new members                 +----------------+---+
                                       |cDDB                |
                                       | Officers           |
-                                      | (10)               |
+                                      | (11)               |
                                       +--------------------+
 
 
@@ -281,14 +303,13 @@ Organizational Oversight                  |            | Create & update
 
 == How does this all work?
 
-* The Apache Way
-** A method to develop software
-** A method to run communities
-** A method to run an organisation
+* A method to develop software
+* A method to run communities
+* A method to run an organisation
 
 == On which principles is it based?
 
-* Meritocracy: Advancement through action & commitment
+* Merit (Earned Trust): Advancement through action & commitment
 * Transparency: Nothing happens in secret
 * Community: Together we are strong
 
@@ -297,7 +318,7 @@ Organizational Oversight                  |            | Create & update
 * Documentation, Tutorials, Examples
 * Talks (at conferences & meetups)
 * User groups
-* Helping others (On mailing lists)
+* Helping others (On mailing lists, Chat, third-party sites)
 * Filing bug reports
 * Testing and helping fix bugs & issues
 * Bugfixes
@@ -358,6 +379,7 @@ Project                          | Foundation
 * All discussions should happen in the public
 * Off-list discussions can happen, but important information needs to be forwarded to the mailing list
 * Others need to be able to participate
+* Archived for future reference and research
 
 [.notes]
 --
@@ -369,7 +391,7 @@ Project                          | Foundation
 == Community over Code
 
 * We're (all) volunteers, life happens and our availability and our interests change
-* A vital community encourages new community members
+* A vital community welcomes, mentors, and encourages new community members
 * It's normal, that members (temporarily) leave the community
 * *Poisonous people* scare others and must be fought
 * Result of a healthy community -> better code, long-lasting projects
@@ -382,12 +404,14 @@ Project                          | Foundation
 * *But* non-binding votes usually are still respected
 * Something is considered decided if:
 ** At least 3 binding votes
-** More `+1` as `-1` votes
+** More `+1` than `-1` votes
 
 [.notes]
 --
 * Valid votes are `+1` (pro), `0`, `-1` (contra)
 * `-1` votes should be constructive
+* Non-binding votes should inform decisions. They're also a good way to
+  identify potential contributors.
 --
 
 == Collaborative development
@@ -401,7 +425,9 @@ Project                          | Foundation
 
 [.notes]
 --
-* 72h = at least one working day, no matter where on earth you live
+* 72h = at least one working day, no matter where on earth you live, and
+  give the ability for people to take a weekend off without being cut
+  out of discussion.
 --
 
 == The result
