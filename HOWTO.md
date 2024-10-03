@@ -12,7 +12,7 @@ your presentation to get created under.
 
 And then run:
 
-`mvn archetype:generate -DarchetypeGroupId=org.apache.training -DarchetypeArtifactId=content-archetype -DarchetypeVersion=1.3.0-SNAPSHOT`
+`mvn archetype:generate -DarchetypeGroupId=org.apache.training -DarchetypeArtifactId=content-archetype -DarchetypeVersion=1.3.0`
 
 This will give you a list of questions to answer in order to create the
 new presentation:
@@ -22,7 +22,7 @@ new presentation:
   Define value for property 'version' 1.0.0-SNAPSHOT: :
   Define value for property 'package' org.apache: :
   Confirm properties configuration:
-  apacheTrainingToolsVersion: 1.3.0-SNAPSHOT
+  apacheTrainingToolsVersion: 1.3.0
   groupID: org.apache.training.content
   artifactId: training-content-HowToDoStuff
   version 1.0.0-SNAPSHOT
