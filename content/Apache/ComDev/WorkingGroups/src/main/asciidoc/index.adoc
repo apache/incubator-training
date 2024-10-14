@@ -336,7 +336,7 @@ answer, and this gets more people engaged in community support. Over
 time, as they build their confidence, they can do more.
 --
 
-==!
+== !
 
 image::shark.jpg[]
 
