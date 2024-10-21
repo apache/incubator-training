@@ -20,12 +20,12 @@
 # Presentation with Reveal.JS and AsciiDoctor
 
 Remarks:
-- Currently it seems as if the system can't detect the 'docinfo' files, so we have to replace the `document.html.slim` file from `asciidoctor-reveal.js` with an updated one, that adds some additional js and css references. This template is located in `libs/docinfo-hack`.
-- In order to use the preview of the IntelliJ asciidoctor plugin, you need to set an attribute in the plugin settings: `imagesdir` = `../resources/images`
-- Even if it is possible to run the presentation directly from the `generated-slides` directory, some JavaScript extensions don't work in this case. Therefore it is required to run the presentation from a local webserver. 
-- In order to generate the diagrams, GraphVIS needs to be installed locally. Get it from: http://www.graphviz.org/
+- Currently it seems as if the system can't detect the 'docinfo' files, so we have to replace the `document.html.slim` file from `asciidoctor-reveal.js` with an updated one that adds some additional js and css references. This template is located in `libs/docinfo-hack`.
+- To use the preview of the IntelliJ asciidoctor plugin, you need to set an attribute in the plugin settings: `imagesdir` = `../resources/images`.
+- Even if it is possible to run the presentation directly from the `generated-slides` directory, some JavaScript extensions don't work in this case. Therefore you need to run the presentation from a local webserver. 
+- To generate the diagrams, GraphVIS needs to be installed locally. Get it from: http://www.graphviz.org/
 - The template is adjusted to use the codecentric font `Panton`, so be sure to have that installed on your presentation machine.
-- Any css adjustments can go to `src/main/theme/cc.css` as this is automatically embedded into the themes directory.
+- Any css adjustments can go into `src/main/theme/cc.css` as this is automatically embedded into the `themes` directory.
 
 ## Building the presentation
 
@@ -35,25 +35,25 @@ By running the following command, you can generate the presentation:
    
 ## Running the presentation
 
-In order to start a local web server serving the presentation, execute the following command:
+To start a local web server serving the presentation, execute the following command:
 
     mvn jetty:run-war
     
-As soon as that's done, just point your browser to:
+As soon as that's done, point your browser to:
 
     http://localhost:8080/
 
-Or you can just open target/generated-slides/index.html in your browser.
+Or you can open `target/generated-slides/index.html` in your browser.
 
 ## Generating PDF versions
 
-In order to generate a PDF version of the presentation just add `?print-pdf` to the url. (Keep in mind, that you have to add it before any `#blahblah`)
+To generate a PDF version of the presentation, add `?print-pdf` to the url. (Keep in mind that you have to add it before any `#blahblah`.)
 
 The following link should do the trick:
 
     http://localhost:8080/?print-pdf
     
-As soon as that's loaded, just use the normal `print` functionality of the browser and `print as PDF`.
+As soon as that's loaded, use the normal `print` functionality of the browser and `print as PDF`.
 
 ## Installing third party software:
 
@@ -61,7 +61,7 @@ As soon as that's loaded, just use the normal `print` functionality of the brows
 
     npm install mermaid.cli
     
-This will install mermaid under `node_modules/.bin/mmdc`.
+This installs mermaid under `node_modules/.bin/mmdc`.
 
 ### PhantomJS
 
