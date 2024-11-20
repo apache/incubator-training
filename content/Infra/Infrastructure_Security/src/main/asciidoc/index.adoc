@@ -1,0 +1,122 @@
+= Security Stuff
+:imagesdir: /home/$USER/asf/infrastructure-presentations/presentations/images
+
+[.notes]
+--
+Why are we doing this?
+
+before we get started...
+--
+
+== Definitions
+[%step]
+* Confidentiality
+* Availability
+* Integrity
+
+[.notes]
+--
+Confidentiality -- only people and services who are allowed to see or change data may do so
+Integrity -- data is stored properly and can't be improperly modified
+Availability -- Users can access things when they need to
+--
+
+== Passwords and Authentication
+[%step]
+* Good passwords
+* MFA / 2FA
+* and no SMS doesn't count
+ 
+[.notes]
+--
+Confidentiality -- Authentication is what separates you from the randos
+and bad actors on the interwebs.
+
+Good passwords need to be sufficiently complex with enough entropy bits,
+should be unique, and easily memorable.
+
+but that's hard. Use a password manager. FWIW Bitwarden is awesome and
+free and optionally self hosted.
+--
+
+== Passwords and Authentication (cont'd)
+image::password_strength.png[]
+
+== Secrets and Such
+[%step]
+* Build Secrets
+* Private Subversion areas
+* Private GitHub Repositories
+* Working on a Hashicorp vault implementation
+
+[.notes]
+--
+for Confidentiality and Availability
+We have many ways of handling secrets and private data.
+* Infra can help with build secrets for jenkins, buildbot, GHA etc.
+* PMC members can r/w private SVN areas
+* Private GitHub repositories can be created to develop security patches
+* We're working on a hashicorp vault implementation that will allow PMCs 
+  to manage their own secrets.
+--
+
+== Project Machines
+[%step]
+* Infra applies OS patches and reboots every 90 days.
+* You can help by making sure the software your running on your project VMs is up to date
+
+[.notes]
+--
+Infrastructure doesn't mess with the applications that you have installed on your project
+VM unless you've specifically arranged something. 
+--
+  
+== Hacking You -- Social Engineering
+:image:phish.png[]
+
+[.notes]
+--
+This is a recently submitted (august-ish) phishing attempt one of our members reported.
+note -- this isn't even particularly targeted phishing.
+--
+
+== Hacking You -- Social Engineering
+[%step]
+* You are the target of nation states.
+* This is an extremely public organization.
+* https://infra.apache.org/phishing.html
+* not sure? report it anyway!
+
+[.notes]
+--
+lets talk about nation states for a second: 
+* they act with impunity. their actions are government sanctioned.
+Google yourself and see just how public your work is. it's astonishing really
+Consider this -- It's easier to influence someone with access to do something bad than to hack something.
+Forward phishing emails to root@apache.org or private@infra.apache.org.
+if you're not sure about something or if something feels off, get in touch!
+--
+
+== Protect your code!
+[%step]
+* Enable Branch protection
+** https://github.com/apache/infrastructure-asfyaml#branch-protection
+
+[.notes]
+--
+Branch protection may be difficult for CTR projects.
+--
+
+== Special GitHub things
+[%step]
+for Integrity and Confidentiality
+* Commit GPG Key signing, This is important for CRA
+* We don't allow builds with secrets on forks due to secret exfiltration
+* Please ensure that your GitHub Actions builds are configured properly
+* https://cwiki.apache.org/confluence/display/BUILDS/GitHub+Actions+Security
+
+[.notes]
+--
+We take care to make sure that secrets stay secret.
+please ensure that your builds are properly set up.
+--
