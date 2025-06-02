@@ -56,7 +56,7 @@ This will install (if you don't have them already) all of the tooling,
 and build the default presentations.
 
 See also:
-* link:new-presentation.html[Creating a new presentation]
+* link:new-presentation.html[Creating a presentation]
 * link:presentation-tips.html[Presentation tips]
 * link:writing-slides.html[Writing slides]
 
