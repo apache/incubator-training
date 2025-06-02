@@ -146,7 +146,7 @@
     <!-- Users (Authors and presenters) -->
     <menu name="Authors and Presenters">
       <item name="Getting Started" href="users/index.html"/>
-      <item name="Creating a New Presentation" href="users/new-presentation.html"/>
+      <item name="Creating a Presentation" href="users/new-presentation.html"/>
       <item name="Writing Slides" href="users/writing-slides.html"/>
       <item name="Presentation Tips" href="users/presentation-tips"/>
       <item name="Downloads" href="downloads.html"/>
