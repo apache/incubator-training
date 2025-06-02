@@ -16,14 +16,14 @@
 //
 :imagesdir: ../images/
 
-== Creating a New Presentation with Apache Training
+== Creating a Presentation with Apache Training
 
-To create a new Apache Training project, you'll need to generate the
+To create an Apache Training project, you need to generate the
 directory tree of template files. If you've built the tools, as
 described in the link:index.html[getting started] doc, you should already
 have all of the prerequisites to make this work. (So start there.)
 
-Move to the directory where you wish to create your new presentation,
+Move to the directory where you wish to create your presentation,
 and run the following command:
 
     mvn archetype:generate -DarchetypeGroupId=org.apache.training -DarchetypeArtifactId=content-archetype -DarchetypeVersion=1.3.0
@@ -42,13 +42,12 @@ this can be whatever you like) and the `artifactID`, which will be the
 name of the subdirectory that is created, where your presentation will
 live.
 
-You can accept the default answers to the remaining questions, by
-pressing enter at each prompt.
+You can accept the default answers to the remaining questions by
+pressing `Enter` at each prompt.
 
-You'll then be asked to confirm your information, to which you will need
-to respond `Y` for yes.
+You'll then be asked to confirm your information. Respond `Y` for yes.
 
-image::mvn-training-create.png
+image:./resources/images/mvn-training-create.png
 
 This will create a new directory tree containing your new presentation,
 along with some sample content to get you started.
@@ -88,7 +87,7 @@ Example
 == Editing your new presentation
 
 Most of the content you'll need to edit when you're creating your
-presentation  is in `src/main/asciidoc` and `src/main/resources`.
+presentation is in `src/main/asciidoc` and `src/main/resources`.
 
 By default, `index.adoc` will contain many examples of what is possible
 in asciidoctor, and you should spend some time reading through that. You
