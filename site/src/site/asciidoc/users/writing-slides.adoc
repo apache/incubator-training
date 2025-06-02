@@ -58,7 +58,7 @@ image::pony.jpg[width=50%]
 === Advanced tips
 
 For more examples of what you can do in your slides, have a look at the
-default `index.html` files when you create a new presentation.
+default `index.html` files when you create a presentation.
 
 === Speaker notes
 
