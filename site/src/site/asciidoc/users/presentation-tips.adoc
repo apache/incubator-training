@@ -18,7 +18,7 @@
 
 == Presentation Tips
 
-This document discusses how to effectively use Apache Training presentations.
+This document discusses how to use Apache Training presentations effectively.
 
 === Opening a presentation
 
@@ -32,8 +32,8 @@ these presentations, you'll probably be presenting from your local build
 of the slides.
 
 You'll do this by getting a checkout of the presentation, making your
-edits, and building it locally. The process for this is covered in
-link::index.html#/getting-started[Getting Started], but is recapped here:
+edits, and building it locally. We cover The process for this in
+link:index.html#/getting-started[Getting Started], but recap it here:
 
 [code]
 ----
@@ -79,7 +79,7 @@ some tips for ensuring that you represent the ASF well.
   rephrasing some of them in your own words to make the presentation 
   feel more natural.
 * Practice giving the presentation. If you can, record yourself, and
-  watch with a critical eye, or perhaps in front of a friend who is
+  watch with a critical eye, or perhaps give the presentation for a friend who is
   willing to give constructive feedback.
 * If you're giving a talk in person, arrive at the venue a little early
   to be sure you can get your slides on the screen, and that everything
