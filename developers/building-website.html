@@ -222,7 +222,7 @@
     <p>This document can’t provide you with all the details needed to get started with <code>Maven</code> itself. But there is a lot of good documentation out there.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>Justin Mclean and Christofer Dutz even recorded a not quite 2 hour Maven training Video some time ago for another Apache project.</p> 
+    <p>Justin Mclean and Christofer Dutz even recorded a not quite 2-hour Maven training Video some time ago for another Apache project.</p> 
    </div> 
    <div class="paragraph"> 
     <p>It should handle all the details needed to get a general understanding of Maven and how it works.</p> 
@@ -242,26 +242,12 @@
     <p>The Training Website is also part of the same GIT repository that contains the code and it is built by Maven as well.</p> 
    </div> 
    <div class="paragraph"> 
-    <p>In order to build the website the following command should be sufficient:</p> 
+    <p>To build the website, the following command should be enough:</p> 
    </div> 
    <div class="literalblock"> 
     <div class="content"> 
      <pre>mvn site</pre> 
     </div> 
-   </div> 
-   <div class="paragraph"> 
-    <p>However, this will generate the website for each module inside it’s <code>target/site</code> directory. Opening this in a browser and navigating from pages of one module to another will not work as these links expect a different directory structure. In order to create a fully navigatable version of the Website, the following command should be sufficient:</p> 
-   </div> 
-   <div class="literalblock"> 
-    <div class="content"> 
-     <pre>mvn site site:stage</pre> 
-    </div> 
-   </div> 
-   <div class="paragraph"> 
-    <p>This will generate an additional <code>target/staging</code> directory which contains the fully functional version.</p> 
-   </div> 
-   <div class="paragraph"> 
-    <p>A lot of documentation on Maven suggests to use the <code>site:site</code> goal directly instead of calling the <code>site</code> phase, but in case of Apache Training there is more than just the site generation that has to be executed.</p> 
    </div> 
    <div class="paragraph"> 
     <p>This is just a quick-start version of the site generation, for fully detailed documentation please read the <a href="http://training.apache.org/developers/website.html">Website</a> documentation page.</p> 
