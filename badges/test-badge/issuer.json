@@ -1,0 +1,8 @@
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "type": "Issuer",
+  "id": "https://training.apache.org/badges/test-badge/issuer.json",
+  "name": "Apache Training",
+  "url": "https://training.apache.org",
+  "description": "Open training initiative by the Apache Software Foundation"
+}
