@@ -1,16 +1,16 @@
 {
   "@context": "https://w3id.org/openbadges/v2",
   "type": "Assertion",
-  "id": "https://training.apache.org/badges/test-badge/assertions/bob-example.json",
+  "id": "https://training.apache.org/badges/test-badge/assertions/7a64adf28737.json",
   "recipient": {
     "type": "email",
     "hashed": true,
     "salt": null,
-    "identity": "sha256$686b5e4cf4f963adf8f51468a48028ef8d15bd02fa335f821279a3d1678c9615"
+    "identity": "sha256$7a64adf28737ea90719cbdf0b1a87a5effff3753b79c91d717f4f4153ead0498"
   },
   "badge": "https://training.apache.org/badges/test-badge/badgeclass.json",
   "verification": {
     "type": "Hosted"
   },
-  "issuedOn": "2025-08-03T14:16:22Z"
+  "issuedOn": "2025-08-06T01:31:19Z"
 }
