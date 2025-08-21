@@ -56,11 +56,6 @@ under the License.
     width: 400px;
 }
 
-#bannerRight > img {
-    width: 400px;
-    padding-top: 10px
-}
-
 #apacheEvents {
     position: relative;
     width: 234px;
@@ -91,8 +86,20 @@ body > div.container.subfooter > div > div > p.pull-right {
     text-align: right;
 }
 
+#banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 #bannerLeft > img {
     height: 180px;
     padding-bottom: 10px;
-    padding-top: 10px
+    padding-top: 10px;
+}
+
+#bannerRight > img {
+    width: 400px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
