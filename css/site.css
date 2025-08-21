@@ -88,19 +88,19 @@ body > div.container.subfooter > div > div > p.pull-right {
 
 #banner > .col-md-12 {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
-.bannerLeft img {
-    float: none;
-    width: 300px;
-    height: auto;
-    padding:10px 0;
-    max-width: 100%;
-    display: block;
+.bannerLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.bannerRight h1 {
-    margin:10px 0; 
+.bannerLeft img {
+    height: 300px;
+    width: auto;
+    display: block;
 }
