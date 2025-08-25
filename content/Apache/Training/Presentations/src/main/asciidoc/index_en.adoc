@@ -17,9 +17,12 @@
 
 ////
 
+// 45 minutes = 2700 seconds
+:revealjs_totalTime: 2700
+
 == !
 :description: 45 minute talk on Apache Training
-:keywords: Apache Mynewt
+:keywords: Apache Training
 :authors: Your name here
 :email: Your email here
 image::ApacheLogo.png[]
@@ -155,18 +158,41 @@ video::sydney.mp4[width=640, options=autoplay]
 
 sydney.mp4
 
+[.notes]
+--
+* Note: Three different ways to reference a video - either local or remote.
+* Be sure you have sufficient internet access if you're going to reference
+a remote video.
+--
+
+---
+
 == Background images
-image::stars.jpg[background, size=cover]
+
 [code]
 ----
 image::stars.jpg[background, size=cover]
 ----
 
+== Background images
+image::stars.jpg[background, size=cover]
+
 == Background Video
+
+* Slide attribute, so different syntax
+* Place the following immediately before the slide header (ie, the `==` line)
+
 [code]
 ----
 [background-video="sydney.mp4",background-video-loop=true]
 ----
+
+[background-video="sydney.mp4",background-video-loop=true]
+== Background Video
+
+[code]
+----
+[background-video="sydney.mp4",background-video-loop=true]
 
 == Bullet Lists
 [.columns]
@@ -260,8 +286,9 @@ with urllib.request.urlopen("https://whimsy.apache.org/public/public_ldap_people
 == You can help!
 * Did you speak at this conference?
 * Have some internal training material?
-* Have slide desks from other conference?
-* Consider donating
+* Have slide decks from other conference?
+* Expert on some ASF project?
+* Have strong opinions on how presentation tools *should* work?
 
 == Questions?
 Ask now, see me after the session,
