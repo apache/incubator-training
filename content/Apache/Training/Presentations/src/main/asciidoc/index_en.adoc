@@ -20,6 +20,9 @@
 // 45 minutes = 2700 seconds
 :revealjs_totalTime: 2700
 
+// Highlight code samples
+:source-highlighter: highlight.js
+
 == !
 :description: 45 minute talk on Apache Training
 :keywords: Apache Training
@@ -266,7 +269,7 @@ endif::[]
 ----
 
 == Generating content
-[code, python]
+[source, python]
 ----
 with urllib.request.urlopen("https://whimsy.apache.org/public/public_ldap_people.json") as url:
     data = json.loads(url.read().decode())
