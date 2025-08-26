@@ -1,0 +1,751 @@
+////
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+////
+
+include::_settings.adoc[]
+:presenter_name: Your Name
+:presenter_company: Your Company
+:description: ASF Mentor Training
+:keywords: Apache, Incubator, Mentor, Training
+:author: Your Name
+:email: Your email
+:position: Your role
+:revealjs_plugins: notes
+:revealjs_slideNumber: true
+
+[%notitle]
+== {talk}
+🎓 Welcome to ASF Mentor Training
+
+Supporting Projects Using the Apache Way
+
+[.notes]
+--
+Welcome everyone, explain that this training is designed to prepare mentors for supporting Apache Incubator podlings, emphasize that the focus is on both technical processes and ASF culture, and share briefly your background with ASF to establish context.
+--
+
+== Table of Contents
+
+* 🧭 ASF Values & Culture  
+* 🚀 Releases & Graduation  
+* 👥 Community & Oversight  
+* 🧑‍🏫 Mentoring in Practice  
+* 💥 Handling Conflict  
+* 🧠 Wrap-Up & Resources  
+
+[.notes]
+--
+Present the training roadmap, explain the six main sections, highlight that we will move from values and governance, to releases and graduation, to community and oversight, to practical mentoring and conflict resolution, then finish with resources, and encourage participants to follow along with this structure.
+--
+
+== What You'll Learn
+
+* 🧭 ASF Values & Culture - What makes ASF different  
+* 🚀 Releases & Graduation - Processes and pitfalls  
+* 👥 Community & Oversight - Building sustainable projects  
+* 🧑‍🏫 Mentoring in Practice - What mentors actually do  
+* 💥 Handling Conflict - Resolution and escalation  
+* 🧠 Wrap-Up & Resources - Where to go next  
+
+[.notes]
+--
+Explain that the session covers both theory and practice, emphasize that mentors will learn not just the ASF rules but also how to guide communities through them, and point out that each section has practical examples and advice to take back to real mentoring situations.
+--
+
+== ASF Values & Culture
+
+🌍 ASF Culture: The Foundation of Everything
+
+Understanding the values that make ASF unique 
+
+[.notes]
+--
+Introduce the ASF cultural foundation, stress that this culture is what differentiates ASF from vendor-driven projects, and explain that every decision and process flows from these values.
+--
+
+== Core Values
+
+* 👥 Community over Code  
+* 🌟 Meritocracy: Earned through contribution  
+* 🗳️ Consensus-driven decision-making  
+* 🔍 Transparency in all actions  
+
+[.notes]
+--
+Walk through each value, explain that community over code means people and process come first, meritocracy ensures recognition through contributions, consensus decision-making prioritizes agreement over authority, and transparency requires that discussions and decisions happen publicly on mailing lists.
+--
+
+== Why It Matters
+
+* 🆚 Distinguishes ASF from vendor-led models  
+* 🌱 Enables sustainable growth  
+* 🤝 Builds trust and inclusion  
+
+[.notes]
+--
+Explain that these values protect projects from capture, they allow communities to grow sustainably over time, and they create trust and inclusivity by making participation open to everyone.
+--
+
+== Red Flags to Watch
+
+* 🔒 Private decision-making  
+* 🪖 Leadership by title or company role  
+* 🤐 Silent or disengaged community  
+* 🏢 Over-reliance on one company  
+
+[.notes]
+--
+Warn about these red flags, explain that private decision-making undermines transparency, leadership by company role breaks meritocracy, silence signals disengagement, and reliance on a single company threatens project independence.
+--
+
+== Mentor’s Role (Values & Culture)
+
+* 💬 Model and reinforce ASF values  
+* 👀 Spot and address misalignments  
+* 🙌 Encourage openness and merit  
+
+[.notes]
+--
+Explain that mentors lead by example, they should model ASF values in their behavior, they must point out when podlings drift from those values, and they should encourage contributions and recognition based on merit rather than hierarchy.
+--
+
+== ASF Governance: Where Mentors Fit In
+
+* 👥 ASF Board → Oversees all ASF projects and PMCs  
+* 🏢 IPMC → Manages incubation and mentors podlings  
+* 👨‍👩‍👧‍👦 PPMC → Runs the day-to-day of the podling  
+* 🧑‍🏫 Mentors → Bridge between the ASF and the podling  
+
+[.notes]
+--
+Explain the structure of ASF governance, clarify that mentors serve as a bridge between podlings and the ASF, stress that mentors are not managers but guides, and show how responsibilities flow from Board to IPMC to PPMC.
+--
+
+== Releasing at Apache
+
+🚀 Community, Not Just Code
+  
+Releases are not just technical, they’re community milestones  
+
+[.notes]
+--
+Introduce releases as community achievements, emphasize that releases demonstrate community maturity and collaboration, and highlight that ASF releases go beyond shipping code.
+--
+
+== What Is an ASF Release?
+
+* ✅ Approved by vote (PPMC and IPMC)  
+* 🧾 Legal and license-compliant  
+* 🌐 Distributed via ASF infrastructure  
+
+[.notes]
+--
+Explain that releases must be approved by community votes, they must comply with all legal and licensing requirements, and they must be published using ASF infrastructure to ensure transparency and consistency.
+--
+
+== Key Steps in Releasing
+
+* 🛠️ Prepare artifacts + LICENSE/NOTICE  
+* 📣 Call a [VOTE] on PPMC dev@  
+* 👍 Get 3+ binding +1 votes  
+* 📣 Call a [VOTE] on incubator general@  
+* 👍 Get 3+ binding +1 votes  
+* 🧾 Close with [RESULT]  
+* 📤 Announce + distribute  
+
+[.notes]
+--
+Outline the release process step by step, stress that both podling PPMC and the Incubator PMC must approve, and emphasize that mentors should ensure podlings understand and follow each step.
+--
+
+== Common Pitfalls in Releases
+
+* ⚠️ Missing or wrong license headers  
+* 🧩 Bundled compiled code  
+* 🧩 Non-compatible or unknown-license 3rd party code  
+* 🧾 Incorrect or incomplete LICENSE and NOTICE files  
+
+[.notes]
+--
+Describe the most frequent mistakes, explain why these issues block releases, and stress that mentors should encourage podlings to catch and fix them early.
+--
+
+== Mentor’s Role (Releases)
+
+* 👣 Walk them through the process  
+* 🧼 Review for clarity and correctness  
+* 🙋 Encourage asking questions early  
+
+[.notes]
+--
+Explain that mentors guide podlings through their first releases, review artifacts and process for correctness, and encourage communities to ask questions early instead of waiting until votes fail.
+--
+
+== ASF Branding & Trademarks
+
+🎨 Branding isn’t just visual - it’s how the project represents the ASF  
+
+[.notes]
+--
+Introduce branding as central to ASF identity, stress that it prevents confusion with vendor products, and explain that podlings must respect ASF branding guidelines throughout incubation.
+--
+
+== Branding Rules
+
+* 📛 Respect ASF branding and naming guidelines  
+* 🏷️ Use “Apache Foo (incubating)” during incubation  
+* 🚫 Avoid project names that are already trademarked  
+
+[.notes]
+--
+Explain each branding rule, stress that podlings must include “(incubating)” in the name until graduation, and remind mentors to help communities check for trademark conflicts before finalizing names.
+--
+
+== ASF Name Misuse
+
+* 🏢 Don’t use the ASF Name to Promote Vendor Products  
+* 🔗 ASF project != your product  
+* 📣 Marketing must not imply ASF endorsement  
+* ⚖️ When in doubt, ask trademarks@apache.org  
+
+[.notes]
+--
+Warn against ASF name misuse, explain that ASF projects cannot be tied to commercial marketing, and encourage mentors to tell podlings to contact the trademarks team for advice if unsure.
+--
+
+== Trademarks in Practice
+
+* ✅ Do: Use “Apache Foo (incubating)”, clarify ASF ownership, follow guidelines  
+* 🚫 Don’t: Alter ASF logos, imply ASF endorsement  
+
+[.notes]
+--
+Provide examples of correct and incorrect usage, explain that mentors should review websites and materials for compliance, and emphasize the importance of consistency in branding.
+--
+
+== Mentor’s Role (Branding)
+
+* 🔍 Review websites, logos, presentations
+* ✍️ Correct misleading language early  
+* 📢 Educate about Apache branding policy  
+
+[.notes]
+--
+Explain that mentors must check branding regularly, they should correct mistakes before they spread, and they should educate podlings about why branding rules matter.
+--
+
+== Graduation: Becoming a Top Level Project
+
+🎓 From podling to Top-Level Project  
+
+[.notes]
+--
+Introduce graduation as the ultimate milestone, explain that it signals readiness for independence, and stress that graduation reflects community health more than code maturity.
+--
+
+== Graduation Criteria
+
+* 👥 Diverse, active community  
+* 📦 ASF releases completed  
+* 🧾 IP clearance finalized  
+* 🔄 Self-governance (no mentors needed)  
+* 🏷️ Branding understood  
+
+[.notes]
+--
+Walk through the criteria, explain why each matters, and emphasize that graduation requires both community diversity and process maturity.
+--
+
+== Graduation Process
+
+* 🗣️ PPMC discusses readiness  
+* 🗳️ PPMC votes  
+* 👥 IPMC votes  
+* 🏛️ ASF Board approves  
+
+[.notes]
+--
+Explain the graduation process step by step, stress that each layer of ASF governance must agree, and clarify that this ensures accountability and consensus.
+--
+
+== More Than a Checklist
+
+* 🧩 Independence over dependence  
+* 🧑‍🔬 Meritocracy over control  
+* 🧑‍🌾 Growth over code alone  
+
+[.notes]
+--
+Explain that graduation is not a box-ticking exercise, emphasize that independence, meritocracy, and growth of the community are more important than simply completing requirements.
+--
+
+== What Happens After Graduation
+
+* 🏛️ Project becomes a Top-Level Project  
+* 📋 Reports directly to ASF Board  
+* 📦 Manages own releases and branding  
+* 🔖 Drops “(incubating)” from its name  
+
+[.notes]
+--
+Explain what changes after graduation, emphasize that the podling becomes fully independent, reports directly to the ASF Board, and no longer requires mentor oversight.
+--
+
+== Mentor’s Role (Graduation)
+
+* 💬 Help assess readiness honestly
+* ⚖ Support discussions about retiring if needed  
+* 🪜 Guide the transition to TLP  
+* 👋 Disengage and let PMC lead  
+
+[.notes]
+--
+Explain that mentors must be honest about readiness, even if that means considering retirement, stress that they should help with transition to independence, and remind them that their final role is to step back and let the PMC govern itself.
+--
+
+== Community & Oversight
+
+👋 Podling Community Building  
+
+[.notes]
+--
+Introduce the importance of community building, emphasize that ASF projects succeed because of their people, and stress that mentors should guide communities toward openness and growth.
+--
+
+== What Healthy Communities Look Like
+
+* 🧑‍💻 Multiple active contributors
+* ✍️ Public discussions on dev@  
+* 📬 Timely responses to newcomers  
+* 🎉 Regular addition of committers  
+* 🌍 Diversity across geography and orgs  
+
+[.notes]
+--
+Describe the signs of a healthy community, emphasize active participation, transparency, inclusivity, and diversity, and explain that these are key to long-term sustainability.
+--
+
+== Common Community Pitfalls
+
+* 🔁 Decisions not on dev@  
+* 🏢 One company dominates  
+* 🤐 Silent contributors  
+* 💤 Burnout or loss of contributors  
+
+[.notes]
+--
+List unhealthy patterns, explain that private decision-making reduces transparency, dominance by one company undermines independence, ignoring contributors discourages growth, and burnout signals sustainability risks.
+--
+
+== Mentor’s Role (Community)
+
+* 🙋 Encourage dev@ activity  
+* 🧭 Guide on onboarding and docs  
+* 📣 Promote merit-based recognition  
+* 🔍 Watch for imbalance or stagnation  
+
+[.notes]
+--
+Explain that mentors should encourage active communication, help podlings onboard contributors with good documentation, remind them to recognize contributions fairly, and watch for warning signs of imbalance.
+--
+
+== Community Before Graduation
+
+* 💬 Discuss adding committers/PPMC  
+* 🪜 Show growth over time  
+* ⚖️ Make decisions without mentors  
+* 🔓 Be open and welcoming  
+
+[.notes]
+--
+Explain that before graduation, podlings must demonstrate independence, growth, and openness, emphasize that mentors should support but not lead these decisions.
+--
+
+== ASF Voting & Decision Making
+
+🗳️ Voting isn’t just procedure, it’s consensus  
+
+[.notes]
+--
+Introduce ASF voting, explain that it formalizes consensus, and emphasize that it reflects community agreement rather than authority.
+--
+
+== Decision-Making the Apache Way
+
+* 🗳️ Votes enable consensus  
+* 📬 dev@ is the central place for decisions  
+* 🤝 Consensus > control  
+* 📖 Documented > assumed  
+
+[.notes]
+--
+Explain how ASF makes decisions, stress that votes record consensus, mailing lists ensure transparency, and documentation ensures clarity for everyone.
+--
+
+== What Needs a Vote
+
+* 📦 Releases  
+* 👤 Adding committers/PMC  
+* 📋 Graduation/resolutions  
+* 🏛️ Formal policy changes  
+
+[.notes]
+--
+List the actions that require votes, explain why formal consensus is needed, and remind mentors to teach podlings these requirements.
+--
+
+== How Voting Works
+
+* ✅ +1 = Approve  
+* ➖ 0 = No opinion  
+* ❌ -1 = Block (with explanation)  
+* Binding = IPMC member  
+
+[.notes]
+--
+Explain voting mechanics, stress that binding votes come from IPMC members in incubation, and emphasize that -1 votes must be explained to allow discussion and resolution.
+--
+
+== Lazy Consensus
+
+* 🙊 No objections in 72h → proceed  
+* 📢 Use [DISCUSS]  
+* 🧼 Great for routine changes  
+* 🧑‍🏫 Mentors should model this early on  
+
+[.notes]
+--
+Explain lazy consensus, stress that it enables efficient decision-making when no objections arise, and encourage podlings to use it for non-critical issues while keeping transparency.
+--
+
+== Mentor’s Role (Voting)
+
+* 💬 Explain expectations  
+* 👀 Watch for rushed decisions  
+* 🧭 Encourage discussion first  
+* 🪜 Help shift to self-management  
+
+[.notes]
+--
+Explain that mentors should teach voting expectations, ensure discussions happen before votes, watch for rushed or unclear decisions, and encourage communities to become self-reliant.
+--
+
+== Independence vs Corporate Influence
+
+🏢 Independence isn’t just ideal - it’s essential to ASF governance
+
+[.notes]
+--
+Introduce the principle of independence, emphasize that ASF projects must not be controlled by one company, and explain that mentors are responsible for safeguarding this value.
+--
+
+== Signs of Vendor Control
+
+* 💼 All committers from one company  
+* 🔁 Decisions from internal meetings  
+* 🧵 Little dev@ activity  
+* 🤐 Dismissive or unwelcoming to outside contributors
+
+[.notes]
+--
+Describe the warning signs of vendor control, explain that they threaten ASF values, and stress that mentors should act if they see these patterns.
+--
+
+== Mentor’s Role (Independence)
+
+* 👀 Watch for dominance  
+* 🙋 Encourage diverse voices  
+* 🤝 Broaden participation  
+* 📢 Raise concerns if imbalance persists  
+
+[.notes]
+--
+Explain that mentors must actively encourage diversity, support contributions from multiple organizations, and escalate if vendor control remains unresolved.
+--
+
+== Podling Reporting & Oversight
+
+📋 Reporting isn’t just paperwork - it’s how we ensure accountability and support 
+
+[.notes]
+--
+Introduce reporting as a governance requirement, explain that it builds transparency and allows the IPMC to support projects, and stress that it should not be seen as bureaucracy.
+--
+
+== Why Reporting Matters
+
+* 📌 Keeps ASF informed  
+* 🔍 Identifies risks  
+* 📢 Builds transparency  
+* 🛠️ Enables mentor/IPMC support  
+📮 Due quarterly – add to wiki  
+
+[.notes]
+--
+Explain the value of reports, emphasize that they inform the ASF, surface risks, and invite support from mentors and the IPMC when needed.
+--
+
+== What Goes in a Podling Report
+
+* 🆕 Progress since last report  
+* 👥 Community activity  
+* 📦 Release activity  
+* 🔍 Issues or concerns  
+* 🪜 Steps toward graduation  
+
+[.notes]
+--
+Explain the components of a podling report, stress that honesty is more important than perfection, and remind mentors to help podlings cover each area.
+--
+
+== What the IPMC Looks For
+
+* 🧍 Shared work, not one person  
+* 📬 dev@ activity beyond GitHub  
+* ⏱ Timely releases  
+* 🔄 Evidence of self-governance  
+* 🧭 Alignment with ASF values  
+
+[.notes]
+--
+Describe the IPMC perspective, explain that they want to see broad participation, activity on mailing lists, consistent releases, independence, and cultural alignment with ASF.
+--
+
+== Oversight Red Flags
+
+* 📉 Declining community activity  
+* 🔒 Private decisions  
+* 🏢 One-company dominance  
+* 🚫 Missed or unclear reports  
+* 🗯 Repeated release or IP issues  
+
+[.notes]
+--
+List red flags, explain why they matter, and remind mentors to raise these issues early with the IPMC so support can be provided.
+--
+
+== Mentor’s Role (Reporting)
+
+* ✍️ Help with early reports  
+* ⚖️ Be honest, don’t sugarcoat  
+* 🔔 Raise issues if needed  
+* 📣 Advocate for podling  
+* 🪜 Step back as PPMC takes over  
+
+[.notes]
+--
+Explain that mentors often help with first reports, but must encourage podlings to take ownership, stress honesty, raise issues transparently, and gradually step back.
+--
+
+== Mentoring in Practice
+
+🧠 Mentoring isn’t about control - it’s about enabling independence 
+
+[.notes]
+--
+Introduce mentoring in practice, emphasize that the goal is independence, and explain that mentors guide, support, and teach rather than manage or control.
+--
+
+== What Mentors Actually Do
+
+* ✅ Guide process  
+* 📦 Assist releases  
+* 🎓 Help with graduation  
+* 🧭 Reinforce ASF values  
+
+[.notes]
+--
+List the tasks mentors do, explain that they provide process guidance, review and support releases, help communities prepare for graduation, and consistently reinforce ASF culture.
+--
+
+== Hands-On vs Hands-Off
+
+* 🛠️ Early: proactive  
+* 🧑‍🎓 Mid: let them lead  
+* 🧘 Late: intervene only if needed  
+* Goal: success without you  
+
+[.notes]
+--
+Explain the mentoring lifecycle, describe how involvement shifts from proactive to advisory, and stress that the goal is for the community to succeed without mentor intervention.
+--
+
+== What Mentors Are Not
+
+* 🚫 Not project managers  
+* 🚫 Not release approvers  
+* 🚫 Not the boss  
+* 🚫 Not responsible for doing the work  
+
+[.notes]
+--
+Clarify what mentors are not, emphasize that they do not manage tasks, approve releases on behalf of podlings, act as authority figures, or perform the community’s work.
+--
+
+== Common Mentor Pitfalls
+
+* 👻 Absent mentor  
+* 🧮 Micromanaging  
+* 💼 Corporate bias  
+* 🤐 Silent observer  
+
+[.notes]
+--
+Warn against pitfalls, explain that absent mentors leave podlings unsupported, micromanagers stifle independence, biased mentors undermine trust, and silent observers fail to guide effectively.
+--
+
+== Good Mentor Practices
+
+* 🗨️ Join dev@ and private@  
+* 📚 Point to ASF docs  
+* 👂 Listen more  
+* 🙋 Encourage merit  
+* 🚨 Raise issues early  
+
+[.notes]
+--
+List good practices, stress that mentors should actively participate on lists, direct podlings to ASF resources, listen to understand challenges, recognize contributions, and raise issues promptly.
+--
+
+== Mentorship Lifecycle
+
+* 🧭 Orientation → 🧑‍💻 Advising → 👀 Observing → 👐 Letting go  
+* 🎓 Graduation = exit  
+
+[.notes]
+--
+Explain the lifecycle of mentorship, describe the stages from onboarding to advising to observing, and emphasize that graduation marks the mentor’s exit as the community takes full ownership.
+--
+
+== Mentor Collaboration & Burnout
+
+* 🤝 Collaborate with co-mentors  
+* 🔄 Share responsibility  
+* ⚠️ Watch for burnout  
+* 📣 Reach out for help  
+
+[.notes]
+--
+Encourage mentors to work with co-mentors, share responsibilities, watch for signs of burnout, and seek help from other mentors or the IPMC when overloaded.
+--
+
+== Conflict Resolution and Escalation Paths
+
+💥 Conflict isn’t failure - it’s a chance to reinforce community values
+
+[.notes]
+--
+Normalize conflict, explain that it occurs even in healthy communities, and emphasize that how conflict is handled defines community health.
+--
+
+== 💥 Conflict Happens
+
+* 🧠 Technical debates  
+* 🗣️ Interpersonal friction  
+* 🏢 Company-driven tension  
+* 😶 Silence or passive resistance  
+
+[.notes]
+--
+Conflict is a natural part of ASF projects, it can show up as technical debates where contributors strongly disagree, interpersonal friction between community members, company-driven tension when corporate interests clash with community goals, or silence and passive resistance where contributors disengage instead of voicing concerns, mentors should normalize conflict as a chance to reinforce ASF values, encourage open discussion on the mailing list, and help guide the community toward collaborative solutions.
+--
+
+== Signs of Dysfunction
+
+* 😡 Heated arguments  
+* 🏃 Decisions without discussion  
+* 🤐 Newcomers ignored  
+* 📉 Declining dev@ engagement  
+* 🧍 One person doing all work  
+
+[.notes]
+--
+List dysfunction signs, explain that unresolved conflict, lack of discussion, ignoring newcomers, declining participation, or over-reliance on one person are warning signals that mentors should act on.
+--
+
+== Conflict Resolution Strategies
+
+* 🧘 De-escalate  
+* 🗨️ Focus on facts  
+* 💬 Move to dev@  
+* 🧑‍💼 Mediate neutrally  
+* 🔄 Return to ASF values  
+
+[.notes]
+--
+Provide strategies for resolving conflict, explain that de-escalation calms tension, focusing on facts keeps discussion rational, moving to dev@ ensures transparency, mediation helps balance, and ASF values provide a common framework.
+--
+
+== Mentor’s Role (Conflict)
+
+* 👂 Listen first  
+* 🧾 Keep conversations on dev@  
+* 🔍 Find root causes  
+* 🙋 Intervene early  
+* 📢 Know when to escalate  
+
+[.notes]
+--
+Explain that mentors should listen to all sides, ensure transparency by keeping discussions on list, identify underlying issues, step in early to guide resolution, and escalate if needed.
+--
+
+== Escalation Paths
+
+* 🤝 Resolve on dev@ first  
+* 📧 Contact private@incubator.apache.org  
+* ⚖️ Escalate to IPMC  
+* 🏛 ️Legal/misconduct → ASF Board  
+
+[.notes]
+--
+Explain the escalation ladder, emphasize starting with dev@, then moving to private@ if unresolved, escalating to the IPMC for ongoing issues, and involving the ASF Board for legal or serious misconduct.
+--
+
+== What’s Next?
+
+🌱 Mentoring at ASF means growing communities, not just guiding projects  
+
+[.notes]
+--
+Summarize the role of mentors, emphasize that their goal is to grow sustainable communities that can thrive independently, and remind participants that mentoring is about enabling, not directing.
+--
+
+== Key Takeaways
+
+* 🌱 Model ASF culture  
+* 👥 Support diversity  
+* 📦 Releases show readiness  
+* 🎓 Graduation = independence  
+* 🚩 Spot red flags early  
+* 🧭 Guide, don’t control  
+
+[.notes]
+--
+Reinforce the most important lessons, remind mentors to model culture, encourage diversity, treat releases as milestones, aim for graduation independence, watch for red flags, and remember that guidance is different from control.
+--
+
+== Where to Go Next
+
+* 📄 Incubator Policy  
+* 📬 Join: general@ & private@  
+* 🧑‍🏫 Mentor Guide  
+* ✉️ Contact IPMC for help  
+
+[.notes]
+--
+Close with resources, explain where mentors can find more information, encourage participation on mailing lists, remind them of the mentor guide, and point out that IPMC support is always available.
+--
+
