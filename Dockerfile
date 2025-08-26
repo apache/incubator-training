@@ -24,8 +24,8 @@ FROM azul/zulu-openjdk:21 as build
 RUN apt update -y
 RUN apt install -y git graphviz wget bzip2 python3 python3-pip imagemagick curl protobuf-compiler mc
 
-# Install the version 1.76.0 of the Rust toolchain
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s  -- -y --default-toolchain=1.88.0
+# Install the version 1.89.0 of the Rust toolchain
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s  -- -y --default-toolchain=1.89.0
 ENV PATH="/root/.cargo/bin:$PATH"
 # Install svgbob
 RUN cargo install svgbob_cli
