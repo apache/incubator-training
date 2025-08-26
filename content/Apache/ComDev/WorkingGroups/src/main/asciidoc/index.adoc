@@ -105,6 +105,10 @@ anyone who wants to participate. Come join us!
 
 image::cookie_cutter.jpg[scalewidth=50%]
 
+++++
+<small>CC by "rbowen" on Flickr</small>
+++++
+
 [.notes]
 --
 Standardization across working groups makes it easier for people to join
@@ -318,36 +322,12 @@ image::sample-answer.png[]
 * Why?
 ** Consistent messaging
 ** Thorough, friendly answers with links
+** Lets anyone participate with confidence
 
 [.notes]
 --
 Using the recommended sample answer ensures that canonical links are
 provided, and that we are giving people consistent answers.
---
-
-== !
-
-image::dive.jpg[]
-
-[.notes]
---
-Perhaps more importantly, it lets *anyone* jump in with the right
-answer, and this gets more people engaged in community support. Over
-time, as they build their confidence, they can do more.
---
-
-== !
-
-image::shark.jpg[]
-
-[.notes]
---
-And, let's be honest, we are not always the most welcoming of people.
-Questions like "how do I get involved" are *often* answered by "go look
-at the projects lists and pick one and start doing stuff!" which is not
-anything more than they already knew. Crafting helpful, welcoming
-answers, and encouraging projects to do the same, will lead to more
-welcoming contributor onboarding.
 --
 
 == wg-your-idea-here
