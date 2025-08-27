@@ -20,62 +20,114 @@
 # Fixed version of this in order to have a fixed JDK version
 FROM azul/zulu-openjdk:21 as build
 
-# Install some stuff we need to run the build
-RUN apt update -y
-RUN apt install -y git graphviz wget bzip2 python3 python3-pip imagemagick curl protobuf-compiler mc
+# --- Versions in one place ---
+ARG RUST_TOOLCHAIN=1.89.0
+ARG SVGBOB_VERSION=0.7.6
+ARG NODE_VERSION=22.18.0
+ARG NVM_VERSION=0.40.3
+ARG GO_VERSION=1.25.0
+# mermaid-cli 10.x is broadly compatible and avoids breaking changes in 11
+ARG MERMAID_CLI_VERSION=10.9.1
+ARG ERD_GO_VERSION=1.4.6
 
-# Install the version 1.89.0 of the Rust toolchain
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s  -- -y --default-toolchain=1.89.0
-ENV PATH="/root/.cargo/bin:$PATH"
-# Install svgbob
-RUN cargo install svgbob_cli
-RUN cp /root/.cargo/bin/svgbob_cli /usr/local/bin
+ENV DEBIAN_FRONTEND=noninteractive
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Forced version of pillow as with version 10 the build fails
-RUN python3 -m pip install --upgrade pip setuptools==57.5.0 seqdiag blockdiag actdiag nwdiag convert racks opc-diag pillow==9.5.0
+# System dependencies
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+      ca-certificates \
+      git \
+      graphviz \
+      wget \
+      bzip2 \
+      python3 \
+      python3-pip \
+      python3-dev \
+      python3-dbus \
+      pkg-config \
+      imagemagick \
+      curl \
+      protobuf-compiler \
+      mc \
+      libcairo2-dev \
+      python3-gi \
+      gir1.2-gtk-4.0 \
+      dos2unix \
+     build-essential \
+ && rm -rf /var/lib/apt/lists/*
 
-#ENV CONDA_DIR /opt/conda
-#RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh -O /root/miniconda.sh
-#RUN sh /root/miniconda.sh -b -p $CONDA_DIR
-#ENV PATH=$CONDA_DIR/bin:$PATH
-#RUN conda update -y conda
-#RUN rm /root/miniconda.sh
-#RUN wget --quiet https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh -O /root/miniconda.sh && sh /root/miniconda.sh -b -p /opt/conda
-#ENV PATH=$CONDA_DIR/bin:$PATH
+# -------------------------
+# Rust
+# -------------------------
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
+  | sh -s -- -y --default-toolchain="${RUST_TOOLCHAIN}"
+ENV PATH="/root/.cargo/bin:${PATH}"
 
-# Install vg2svg for rendering vega diagrams
-# NOTE: Installing vega-cli doesn't seem to work as dependencies are not available for arm64 (silicon)
-ENV NODE_VERSION=18.20.4
-RUN curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-RUN /root/.nvm/install.sh
-ENV PATH=/root/.nvm/versions/node/v$NODE_VERSION/bin:$PATH
-#RUN npm install --no-audit vega
+# svgbob_cli pinned (use --locked to respect Cargo.lock of the crate and ensure reproducibility)
+RUN cargo install svgbob_cli --version "${SVGBOB_VERSION}" --locked \
+ && cp /root/.cargo/bin/svgbob_cli /usr/local/bin/
 
-#RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-#RUN bunzip2 phantomjs-2.1.1-linux-x86_64.tar.bz2
-#RUN tar -xvf phantomjs-2.1.1-linux-x86_64.tar
+# -------------------------
+# Python
+# -------------------------
+COPY requirements-legacy.txt /tmp/requirements-legacy.txt
+COPY requirements-modern.txt /tmp/requirements-modern.txt
 
-# Install ERD
-RUN apt install -y golang
-ENV PATH=/root/go/bin:$PATH
-RUN go install github.com/kaishuu0123/erd-go@v1.4.6
+# 1) Ensure old setuptools is present and *kept* for legacy packages
+RUN python3 -m pip install --no-cache-dir "pip==24.2" "setuptools==57.5.0" "wheel<0.40"
 
-# Install Syntrax
-# https://kevinpt.github.io/syntrax/
-# Problem is, that newer versions of python don't have use_2to3
-#RUN apt install -y libcairo2-dev pkg-config python3-dev python3-gi python3-gi-cairo gir1.2-gtk-4.0
-RUN apt install -y libcairo2-dev pkg-config python3-dev python3-gi gir1.2-gtk-4.0
-RUN python3 -m pip install --upgrade pycairo pango syntrax
-# For some reason, if we install this before the python stuff, it doesn't work
-RUN apt install -y python3-gi-cairo
+# 2) Install legacy packages using that setuptools (no isolated build env!)
+RUN python3 -m pip install --no-cache-dir --no-build-isolation -r /tmp/requirements-legacy.txt
 
-# Install Mermaid
-# Mermaid seems to have issues with Apple Silicon
-#RUN apt install -y nodejs npm
-RUN npm install -g @mermaid-js/mermaid-cli
+# 3) Install the rest (these can use modern build behavior)
+RUN python3 -m pip install --no-cache-dir -r /tmp/requirements-modern.txt
 
-# Required for running on Windows systems
-RUN apt install -y dos2unix
+# -------------------------
+# Node
+# -------------------------
+ENV NVM_DIR=/root/.nvm
+RUN curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh -o /root/install_nvm.sh \
+ && bash /root/install_nvm.sh \
+ && . "$NVM_DIR/nvm.sh" \
+ && nvm install ${NODE_VERSION} \
+ && nvm alias default ${NODE_VERSION} \
+ && nvm use default
+ENV PATH="${NVM_DIR}/versions/node/v${NODE_VERSION}/bin:${PATH}"
 
-# Change the working directory (where commands are executed) into the new "ws" directory
+# Mermaid CLI pinned
+RUN npm install -g @mermaid-js/mermaid-cli@${MERMAID_CLI_VERSION}
+
+# -------------------------
+# Go
+# -------------------------
+RUN arch="$(uname -m)"; \
+    case "$arch" in \
+      x86_64) go_arch=amd64 ;; \
+      aarch64|arm64) go_arch=arm64 ;; \
+      *) echo "Unsupported arch: $arch" && exit 1 ;; \
+    esac; \
+    curl -fsSL "https://go.dev/dl/go${GO_VERSION}.linux-${go_arch}.tar.gz" -o /tmp/go.tgz \
+ && tar -C /usr/local -xzf /tmp/go.tgz \
+ && rm /tmp/go.tgz
+ENV PATH="/usr/local/go/bin:${PATH}"
+ENV GOPATH="/root/go"
+ENV PATH="${GOPATH}/bin:${PATH}"
+
+# erd-go pinned
+RUN go install github.com/kaishuu0123/erd-go@v${ERD_GO_VERSION}
+
+# -------------------------
+# GTK Cairo Python bridge (must be after Python deps for syntrax)
+# -------------------------
+# python3-gi-cairo is separate and sometimes needs to be installed last
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends python3-gi-cairo \
+ && rm -rf /var/lib/apt/lists/*
+
+RUN python3 -m pip freeze > /requirements-frozen.txt
+
+# -------------------------
+# Final touches
+# -------------------------
 WORKDIR /ws

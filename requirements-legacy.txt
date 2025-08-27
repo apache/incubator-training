@@ -1,0 +1,5 @@
+syntrax==1.0
+blockdiag==3.0.0
+actdiag==3.0.0
+nwdiag==3.0.0
+seqdiag==3.0.0
