@@ -265,7 +265,7 @@ ifdef::IANAL[]
 endif::[]
 ----
 
-== Generating content
+== Syntax highlighting
 [source, python]
 ----
 with urllib.request.urlopen("https://whimsy.apache.org/public/public_ldap_people.json") as url:
