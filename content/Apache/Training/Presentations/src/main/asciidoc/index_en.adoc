@@ -52,10 +52,25 @@ image:training.png[width=50%]
 * Review of material
 * Free to reuse or re-purpose under the ALv2
 
+[.notes]
+--
+* 900 "Apache Way" talks with very different perspectives
+* Crowdsource a shared view, with peer review of materials
+* IP approved resources (appropriate image attribution, for example)
+* Presenters can give it their own personality, and then contribute to
+  the shared presentation, all under the Apache 2.0 license.
+--
+
 == What it is Not 
 * A repo for all protects material
 * A place to create "official" material
 * To provide certifications
+
+[.notes]
+--
+* We are not providing professional skills certification
+* We *may* offer some kind of "badge" for completion of training, in the future. Come help us figure out what that looks like.
+--
 
 == Issues to Sort Out
 * Content and releases
@@ -74,23 +89,46 @@ Fonts, stock images, slide templates, graphics
 * They do have advantages and neat features
 * ...but lots of disadvantages
 
-== Text vs Other formats
+== Slide format: AsciiDoctor
+
+image:asciidoctor-logo.png[width=15%]
+
+* Simple markdown style markup
+* MIT license
+* Multiple outputs
+* https://github.com/asciidoctor/asciidoctor
+
+image:asciidoc-qr.png[]
+
+[.notes]
+--
+There are strong feelings in the AsciiDoctor vs Markdown vs
+reStructuredText debate. I find them pretty much the same for practical
+purposes.
+--
+
+== AsciiDoctor Reveal.js
+
+https://docs.asciidoctor.org/reveal.js-converter/latest/
+
+* HTML / CSS
+* Reveal.js
+* Ruby, Node, Maven
+
+image:reveal-qr.png[]
+
+[.notes]
+--
+* Creates HTML and CSS output from your AsciiDoctor slides
+* Provides several mechanisms for conversion. We're using the Maven one
+--
+
+== Text vs other formats
+
 * Easy to edit
 * Easy to translate
 * Real version control
 * Searchable
-
-== AsciiDoctor
-* Simple markdown style markup
-* OS license (MIT license)
-* Multiple outputs
-* Looks nice by default
-* https://github.com/asciidoctor/asciidoctor
-
-== AsciiDoctor Reveal.js
-* HTML / CSS
-* Reveal.js
-* Ruby, Node, Maven
 
 == Slide Features
 * Speaker notes / timer
@@ -100,16 +138,36 @@ Fonts, stock images, slide templates, graphics
 * Styled via CSS
 * PDF generation
 
+== Steps to build slides
+
+Content goes in `src/main`
+
+* Edit the `index.adoc` file in `asciidoc`
+* Images go in `resources/images`
+* Build with `mvn install`
+
+== Converting ...
+
+video::mvn-install.mp4[options=autoplay]
+
+[.notes]
+--
+Yes, it's a bit of a hassle having to manually rebuild every time you
+make an edit. If you have ideas of how to fix that, come help.
+--
+
 == Presenting
+
 * HTML in browser
+
+[source]
+----
+./target/generated-slides/index.html
+----
+
 * Self hosted web server
 
-== Steps to Convert
-* Copy text
-* Markup
-* Convert assets
-* ...
-* Profit!
+== Slide formatting:
 
 == Text
 [source]
@@ -188,6 +246,7 @@ image::stars.jpg[background, size=cover]
 [source]
 ----
 [background-video="sydney.mp4",background-video-loop=true]
+== Background Video
 ----
 
 [background-video="sydney.mp4",background-video-loop=true]
@@ -233,6 +292,8 @@ Some content
 [.notes]
 --
 * your notes go here
+* Slides should contain sufficient notes that a reasonably knowledgeable
+  individual could pick them up and present confidently.
 --
 ----
 
@@ -251,8 +312,17 @@ image:speakernotes.jpg[]
 === Next Slide
 ----
 
+[.note]
+--
+Use this when you want a 'deep dive' on a topic, or expect additional
+questions on a particular slide.
+--
+
 === Next slide
 This is the next slide
+
+=== And another
+How deep does the rabbit hole go?
 
 == Conditional slides
 [source]
@@ -279,16 +349,41 @@ with urllib.request.urlopen("https://whimsy.apache.org/public/public_ldap_people
  Uses highlight.js
 --
 
-== Progress so far
-* Made one release (Incubator set of slide)
-* Several other donations in progress 
+=== Languages
+
+Works for 34 "commonly used" languages.
+
+[source,perl]
+----
+use Acme::Bleach;
+print "Hello world!";
+----
+
+=== Turning on
+
+May need to put at the top of your doc:
+
+[source,adoc]
+----
+// Highlight code samples
+:source-highlighter: highlight.js
+----
+
+== Project status
+
+* Graduated as a TLP in August 2025
+* Working with a few projects on content
 
 == You can help!
 * Did you speak at this conference?
 * Have some internal training material?
 * Have slide decks from other conference?
-* Expert on some ASF project?
-* Have strong opinions on how presentation tools *should* work?
+* Consider donating
+
+== Other skills?
+* Writer? Work with a project to produce materials.
+* Designer? Help us make presentations more appealing.
+* Programmer? Improve the tools and developer experience.
 
 == Questions?
 Ask now, see me after the session,
