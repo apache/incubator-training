@@ -40,10 +40,13 @@ image::ApacheLogo.png[]
 image:training.png[width=50%]
 
 == Apache Training
-* New TLP project
-* Open source training material
-* Create shared resources
-* Slides, workshops and labs
+
+image:training.png[width=15%]
+
+* 💥 New TLP project (As of last month!)
+* Open source training material, and the tools to maintain and publish them
+* Slides! Workshops! Labs! Tutorials!
+* Come help us!
 
 == Why Apache Training?
 * Duplicated effort
