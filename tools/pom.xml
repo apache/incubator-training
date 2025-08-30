@@ -24,7 +24,7 @@
   <parent>
     <groupId>org.apache</groupId>
     <artifactId>apache</artifactId>
-    <version>33</version>
+    <version>35</version>
 
     <!-- Required in our case as per http://maven.apache.org/ref/3.0.3/maven-model/maven.html#class_parent -->
     <relativePath />
@@ -38,9 +38,9 @@
   <name>Training: Tools</name>
 
   <scm>
-    <connection>scm:git:https://gitbox.apache.org/repos/asf/incubator-training.git</connection>
-    <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/incubator-training.git</developerConnection>
-    <url>https://github.com/apache/incubator-training</url>
+    <connection>scm:git:https://gitbox.apache.org/repos/asf/training.git</connection>
+    <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/training.git</developerConnection>
+    <url>https://github.com/apache/training</url>
     <tag>HEAD</tag>
   </scm>
 

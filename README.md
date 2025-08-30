@@ -56,4 +56,4 @@ Wiki: [https://cwiki.apache.org/confluence/display/TRAINING](https://cwiki.apach
 
 Jira: [https://issues.apache.org/jira/browse/TRAINING](https://issues.apache.org/jira/browse/TRAINING)
 
-Git: [Apache Repo](https://gitbox.apache.org/repos/asf\?p=incubator-training.git) - [Github Mirror](https://github.com/apache/incubator-training)
+Git: [Apache Repo](https://gitbox.apache.org/repos/asf\?p=training.git) - [Github Mirror](https://github.com/apache/training)

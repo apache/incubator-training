@@ -37,8 +37,8 @@ link:index.html#/getting-started[Getting Started], but recap it here:
 
 [code]
 ----
-git clone https://github.com/apache/incubator-training.git
-cd incubator-training/content
+git clone https://github.com/apache/training.git
+cd training/content
 cd [path to your desired presentation]
 cd ./src/main/asciidoc
 [edit index.adoc to make your desired changes]

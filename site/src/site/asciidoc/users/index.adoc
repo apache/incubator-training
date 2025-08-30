@@ -48,8 +48,8 @@ Installation details for your preferred operating system are currently
 To get a local copy of the tools and presentations:
 
 ```
-git clone https://github.com/apache/incubator-training.git
-cd incubator-training
+git clone https://github.com/apache/training.git
+cd training
 mvn install
 ```
 

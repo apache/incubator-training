@@ -80,6 +80,6 @@ Additional requirements:
 
 In order to build Apache Training Tooling, please checkout the git repo from:
 
-    git clone https://gitbox.apache.org/repos/asf/incubator-training.git
-    cd incubator-training
+    git clone https://gitbox.apache.org/repos/asf/training.git
+    cd training
     mvn install

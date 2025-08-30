@@ -25,7 +25,7 @@
   <parent>
     <groupId>org.apache</groupId>
     <artifactId>apache</artifactId>
-    <version>31</version>
+    <version>35</version>
     <!-- Otherwise maven complains about the pom upstairs having different coordinates. -->
     <relativePath/>
   </parent>
@@ -41,9 +41,9 @@
   <inceptionYear>2019</inceptionYear>
 
   <scm>
-    <connection>scm:git:https://gitbox.apache.org/repos/asf/incubator-training.git</connection>
-    <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/incubator-training.git</developerConnection>
-    <url>https://github.com/apache/incubator-trainingx</url>
+    <connection>scm:git:https://gitbox.apache.org/repos/asf/training.git</connection>
+    <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/training.git</developerConnection>
+    <url>https://github.com/apache/trainingx</url>
     <tag>HEAD</tag>
   </scm>
 
@@ -51,7 +51,7 @@
   <distributionManagement>
     <site>
       <id>apache.website</id>
-      <url>scm:git:https://gitbox.apache.org/repos/asf/incubator-training.git</url>
+      <url>scm:git:https://gitbox.apache.org/repos/asf/training.git</url>
     </site>
   </distributionManagement>
 
