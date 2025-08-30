@@ -7,22 +7,27 @@ WS_DIR=${WS_DIR:-/ws}
 HOST_UID=$(stat -c '%u' "$WS_DIR" 2>/dev/null || echo 1000)
 HOST_GID=$(stat -c '%g' "$WS_DIR" 2>/dev/null || echo 1000)
 
-# If the bind mount is owned by root (0), allow env overrides; else use stat values
-if [ "$HOST_UID" = "0" ] && [ "${UID:-}" != "" ]; then HOST_UID="$UID"; fi
-if [ "$HOST_GID" = "0" ] && [ "${GID:-}" != "" ]; then HOST_GID="$GID"; fi
-if [ "$HOST_UID" = "0" ]; then HOST_UID=1000; fi
-if [ "$HOST_GID" = "0" ]; then HOST_GID=1000; fi
+# Create group if needed (skip if GID already exists)
+if ! getent group "$HOST_GID" >/dev/null; then
+  groupadd -g "$HOST_GID" hostgrp
+fi
 
-# Create group/user if missing (ids-only; no home needed)
-if ! getent group "$HOST_GID" >/dev/null; then groupadd -g "$HOST_GID" hostgrp; fi
-if ! id -u "$HOST_UID" >/dev/null 2>&1; then useradd -u "$HOST_UID" -g "$HOST_GID" -M -s /bin/bash hostusr; fi
+# Ensure a writable HOME inside the workspace
+HOST_HOME="$WS_DIR/.home"
+mkdir -p "$HOST_HOME"
+# Make sure it's owned by the target uid:gid; this only changes the small .home dir
+chown "$HOST_UID:$HOST_GID" "$HOST_HOME"
 
-# Ensure a writable HOME inside the bind mount for tools writing dotfiles
-export HOME="$WS_DIR/.home"
-mkdir -p "$HOME"
+# Create user if needed, with home set to $WS_DIR/.home but do NOT auto-create /home/*
+if ! id -u "$HOST_UID" >/dev/null 2>&1; then
+  useradd -u "$HOST_UID" -g "$HOST_GID" -M -d "$HOST_HOME" -s /bin/bash hostusr
+fi
 
-# Prefer Maven repo inside the workspace unless caller overrides
+# Export HOME so tools that honor env use it; matches passwd home to avoid surprises
+export HOME="$HOST_HOME"
+
+# Optional: Maven config inside HOME (prevents writing to /root/.m2)
 export MAVEN_CONFIG="${MAVEN_CONFIG:-$HOME/.m2}"
 
-# Exec final command as host uid:gid
+# Drop privileges and run the requested command
 exec gosu "$HOST_UID:$HOST_GID" "$@"
