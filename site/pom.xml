@@ -84,7 +84,7 @@
 
     <!-- Site properties -->
     <reflow.skin.version>2.3.0</reflow.skin.version>
-    <fontawesome.version>6.2.0</fontawesome.version>
+    <fontawesome.version>7.0.0</fontawesome.version>
   </properties>
 
   <modules>
@@ -197,7 +197,7 @@
               <artifactItems>
                 <artifactItem>
                   <groupId>io.github.devacfr.maven.skins</groupId>
-                  <artifactId>reflow-default-webdeps</artifactId>
+                  <artifactId>c</artifactId>
                   <version>${reflow.skin.version}</version>
                   <type>jar</type>
                   <overWrite>false</overWrite>
