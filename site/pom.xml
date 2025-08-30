@@ -443,12 +443,6 @@
                   </directory>
                   <targetPath>${project.build.directory}/site/fonts</targetPath>
                 </resource>
-                <resource>
-                  <directory>
-                    ${project.basedir}/src/content
-                  </directory>
-                  <targetPath>${project.build.directory}/site/contnet</targetPath>
-                </resource>
               </resources>
             </configuration>
           </execution>
