@@ -195,6 +195,18 @@
             </goals>
             <configuration>
               <artifactItems>
+                  <artifactItem>
+                      <groupId>org.webjars</groupId>
+                      <artifactId>font-awesome</artifactId>
+                      <version>${fontawesome.version}</version>
+                      <type>jar</type>
+                      <overWrite>false</overWrite>
+                      <outputDirectory>${project.build.directory}/dependency/fontawesome</outputDirectory>
+                      <includes>
+                          META-INF/resources/webjars/font-awesome/${fontawesome.version}/css/all.min.css,
+                          META-INF/resources/webjars/font-awesome/${fontawesome.version}/webfonts/*
+                      </includes>
+                  </artifactItem>
                 <artifactItem>
                   <groupId>io.github.devacfr.maven.skins</groupId>
                   <artifactId>reflow-default-webdeps</artifactId>
@@ -203,7 +215,6 @@
                   <overWrite>false</overWrite>
                   <includes>
                     **/css/bootstrap.min.css,
-                    **/css/fontawesome/*,
                     **/js/*.js,
                     **/js/languages/*,
                     **/js/styles/default.min.css
@@ -388,31 +399,6 @@
         </executions>
       </plugin>
 
-      <!--
-        Replace the bootstrap css with the version of the theme
-      -->
-      <plugin>
-        <groupId>com.googlecode.maven-download-plugin</groupId>
-        <artifactId>download-maven-plugin</artifactId>
-        <version>1.6.8</version>
-        <executions>
-          <execution>
-            <id>get-fontawesome</id>
-            <!-- Only execute this for the parent module -->
-            <inherited>false</inherited>
-            <phase>pre-site</phase>
-            <goals>
-              <goal>wget</goal>
-            </goals>
-            <configuration>
-              <url>https://use.fontawesome.com/releases/v${fontawesome.version}/fontawesome-free-${fontawesome.version}-web.zip</url>
-              <unpack>true</unpack>
-              <outputDirectory>${project.build.directory}/dependency/fontawesome</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
@@ -431,17 +417,8 @@
               <resources>
                 <resource>
                   <directory>
-                    ${project.build.directory}/dependency/fontawesome/fontawesome-free-${fontawesome.version}-web
+                    ${project.build.directory}/dependency/fontawesome/META-INF/resources/webjars/font-awesome/${fontawesome.version}
                   </directory>
-                  <includes>
-                    <include>css/all.min.css</include>
-                  </includes>
-                </resource>
-                <resource>
-                  <directory>
-                    ${project.build.directory}/dependency/fontawesome/fontawesome-free-${fontawesome.version}-web/webfonts
-                  </directory>
-                  <targetPath>${project.build.directory}/site/fonts</targetPath>
                 </resource>
               </resources>
             </configuration>
