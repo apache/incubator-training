@@ -197,7 +197,7 @@
               <artifactItems>
                 <artifactItem>
                   <groupId>io.github.devacfr.maven.skins</groupId>
-                  <artifactId>c</artifactId>
+                  <artifactId>reflow-default-webdeps</artifactId>
                   <version>${reflow.skin.version}</version>
                   <type>jar</type>
                   <overWrite>false</overWrite>
