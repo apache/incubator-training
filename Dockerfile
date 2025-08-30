@@ -54,7 +54,8 @@ RUN apt-get update \
       python3-gi \
       gir1.2-gtk-4.0 \
       dos2unix \
-     build-essential \
+      build-essential \
+      gosu \
  && rm -rf /var/lib/apt/lists/*
 
 # -------------------------
@@ -71,8 +72,8 @@ RUN cargo install svgbob_cli --version "${SVGBOB_VERSION}" --locked \
 # -------------------------
 # Python
 # -------------------------
-COPY requirements-legacy.txt /tmp/requirements-legacy.txt
-COPY requirements-modern.txt /tmp/requirements-modern.txt
+COPY docker/requirements-legacy.txt /tmp/requirements-legacy.txt
+COPY docker/requirements-modern.txt /tmp/requirements-modern.txt
 
 # 1) Ensure old setuptools is present and *kept* for legacy packages
 RUN python3 -m pip install --no-cache-dir "pip==24.2" "setuptools==57.5.0" "wheel<0.40"
@@ -130,4 +131,7 @@ RUN python3 -m pip freeze > /requirements-frozen.txt
 # -------------------------
 # Final touches
 # -------------------------
+COPY docker/entrypoint.sh /usr/local/bin/entrypoint
+RUN chmod +x /usr/local/bin/entrypoint
+ENTRYPOINT ["/usr/local/bin/entrypoint"]
 WORKDIR /ws
