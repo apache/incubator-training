@@ -37,6 +37,23 @@
     <name>Training: Tools: Slide Template: Asciidoc to reveal.js Maven ${package}</name>
     <description>An ${package} project that demonstrates how to integrate convert Asciidoc to a reveal.js presentation with the Asciidoctor Maven plugin.</description>
 
+    <!-- Comment in, if you don't want/can't/don't want to add apache headers to every file -->
+    <!--build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                <plugin>
+                    <groupId>org.apache.rat</groupId>
+                    <artifactId>apache-rat-plugin</artifactId>
+                    <version>0.16.1</version>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build-->
+
     <!-- Make Snapshots of Apache projects available -->
     <repositories>
         <repository>
