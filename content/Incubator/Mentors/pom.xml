@@ -27,14 +27,11 @@
     </parent>
 
     <artifactId>incubator-mentors</artifactId>
-    <name>Training: Content: Incubator: Mentors</name>
-
     <groupId>org.apache.training.content</groupId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>Training: Tools: Slide Template: Asciidoc to reveal.js Maven org.apache.training</name>
-    <description>An org.apache.training project that demonstrates how to integrate convert Asciidoc to a reveal.js presentation with the Asciidoctor Maven plugin.</description>
+    <name>Training: Content: Incubator: Mentors</name>
 
     <!-- Make Snapshots of Apache projects available -->
     <repositories>
