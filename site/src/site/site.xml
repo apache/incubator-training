@@ -100,41 +100,42 @@
 
     <!-- Published presentations -->
     <menu name="Presentations">
-      <item name="Apache Airflow" href="presentations/airflow/index.html" target="_blank"/>
+      <item name="Apache Airflow" href="presentations/apache/airflow/index.html" target="_blank"/>
       <item name="Apache ComDev">
-        <item name="The ASF" href="presentations/comdev/apache-intro/index.html" target="_blank"/>
-        <item name="Intro" href="presentations/comdev/comdev-intro/index.html" target="_blank"/>
-        <item name="Working Groups" href="presentations/comdev/working-groups/index.html" target="_blank"/>
+        <item name="The ASF" href="presentations/apache/comdev/apache-intro/index.html" target="_blank"/>
+        <item name="Intro" href="presentations/apache/comdev/comdev-intro/index.html" target="_blank"/>
+        <item name="Working Groups" href="presentations/apache/comdev/working-groups/index.html" target="_blank"/>
       </item>
-      <item name="Apache Druid" href="presentations/druid/index.html" target="_blank"/>
-      <item name="Apache Flink" href="presentations/flink/index.html" target="_blank"/>
-      <item name="Apache Hadoop" href="presentations/hadoop/index.html" target="_blank"/>
-      <item name="Apache Hive" href="presentations/hive/index.html" target="_blank"/>
-      <item name="Apache Ignite" href="presentations/ignite/index.html" target="_blank"/>
+      <item name="Apache Druid" href="presentations/apache/druid/index.html" target="_blank"/>
+      <item name="Apache Flink" href="presentations/apache/flink/index.html" target="_blank"/>
+      <item name="Apache Hadoop" href="presentations/apache/hadoop/index.html" target="_blank"/>
+      <item name="Apache Hive" href="presentations/apache/hive/index.html" target="_blank"/>
+      <item name="Apache Ignite" href="presentations/apache/ignite/index.html" target="_blank"/>
       <item name="Apache Incubator">
-        <item name="Incubator Releases" href="presentations/incubator/incubator-releases/index.html" target="_blank"/>
-        <item name="Navigating ASF Incubator" href="presentations/incubator/navigating-asf-incubation/index.html" target="_blank"/>
-        <item name="Release Checklist" href="presentations/incubator/release-checklist/index.html" target="_blank"/>
-        <item name="Mentors Onboarding" href="presentations/incubator/mentors/index.html" target="_blank"/>
+        <item name="Incubator Releases" href="presentations/apache/incubator/incubator-releases/index.html" target="_blank"/>
+        <item name="Mentors Onboarding" href="presentations/apache/incubator/mentors/index.html" target="_blank"/>
+        <item name="Navigating ASF Incubator" href="presentations/apache/incubator/navigating-asf-incubation/index.html" target="_blank"/>
+        <item name="Release Checklist" href="presentations/apache/incubator/release-checklist/index.html" target="_blank"/>
       </item>
-      <item name="Apache MyNewt" href="presentations/mynewt/index_en.html" target="_blank"/>
+      <item name="Apache MyNewt" href="presentations/apache/mynewt/index_en.html" target="_blank"/>
       <item name="Apache PLC4X">
-        <item name="Revolutionizing IIoT with Apache PLC4X" href="presentations/plc4x/revolutionizing-iiot-with-plc4x/index.html" target="_blank"/>
+        <item name="Revolutionizing IIoT with Apache PLC4X" href="presentations/apache/plc4x/revolutionizing-iiot-with-plc4x/index.html" target="_blank"/>
       </item>
-      <item name="Apache Pulsar" href="presentations/pulsar/index.html" target="_blank"/>
-      <item name="Apache Samza" href="presentations/samza/index.html" target="_blank"/>
+      <item name="Apache Pulsar" href="presentations/apache/pulsar/index.html" target="_blank"/>
+      <item name="Apache Samza" href="presentations/apache/samza/index.html" target="_blank"/>
       <item name="Apache Spark">
-        <item name="Basics" href="presentations/spark/basics/index.html" target="_blank"/>
+        <item name="Basics" href="presentations/apache/spark/basics/index.html" target="_blank"/>
       </item>
       <item name="Apache Training">
         <!--item name="Demo" href="presentations/training/demo/index.html" target="_blank"/-->
-        <item name="Presentation" href="presentations/training/presentation/index_en.html" target="_blank"/>
+        <item name="Presentation" href="presentations/apache/training/presentation/index_en.html" target="_blank"/>
       </item>
-      <item name="Apache Zookeeper" href="presentations/zookeeper/index_en.html" target="_blank"/>
+      <item name="Apache Zookeeper" href="presentations/apache/zookeeper/index_en.html" target="_blank"/>
       <item name="IoT">
-        <item name="Magic Industrial Data Acquisition" href="iot/magic-industrial-data-acquisition-with-apache-plc4x-tsfile-and-iotdb/index.html" target="_blank"/>
-        <item name="Apache MyNewt" href="presentations/mynewt/index_en.html" target="_blank"/>
-        <item name="Revolutionizing IIoT with Apache PLC4X" href="presentations/plc4x/revolutionizing-iiot-with-plc4x/index.html" target="_blank"/>
+        <item name="Magic Industrial Data Acquisition" href="presentations/iot/magic-industrial-data-acquisition-with-apache-plc4x-tsfile-and-iotdb/index.html" target="_blank"/>
+        <!-- There are double-linked here -->
+        <item name="Apache MyNewt" href="presentations/apache/mynewt/index_en.html" target="_blank"/>
+        <item name="Revolutionizing IIoT with Apache PLC4X" href="presentations/apache/plc4x/revolutionizing-iiot-with-plc4x/index.html" target="_blank"/>
       </item>
     </menu>
 

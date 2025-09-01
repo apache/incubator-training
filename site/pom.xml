@@ -237,140 +237,147 @@
                   <artifactId>training-content-apache-airflow</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/airflow</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/airflow</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-comdev-apache-intro</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/comdev/apache-intro</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/comdev/apache-intro</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-comdev-comdev-intro</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/comdev/comdev-intro</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/comdev/comdev-intro</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-comdev-working-groups</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/comdev/working-groups</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/comdev/working-groups</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-druid</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/druid</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/druid</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-flink</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/flink</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/flink</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-hadoop</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/hadoop</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/hadoop</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-hive</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/hive</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/hive</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-ignite</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/ignite</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/ignite</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-incubator-incubator-releases</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/incubator/incubator-releases</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/incubator/incubator-releases</outputDirectory>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.apache.training.content</groupId>
+                  <artifactId>incubator-mentors</artifactId>
+                  <version>1.0.0-SNAPSHOT</version>
+                  <type>war</type>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/incubator/mentors</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-incubator-navigating-asf-incubation</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/incubator/navigating-asf-incubation</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/incubator/navigating-asf-incubation</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-incubator-incubator-release-checklist</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/incubator/release-checklist</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/incubator/release-checklist</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-mynewt</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/mynewt</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/mynewt</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-plc4x-revolutionizing-iiot-with-plc4x</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/plc4x/revolutionizing-iiot-with-plc4x</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/plc4x/revolutionizing-iiot-with-plc4x</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-pulsar</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/pulsar</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/pulsar</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-samza</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/samza</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/samza</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-spark-basics</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/spark/basics</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/spark/basics</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-training-demo</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/training/demo</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/training/demo</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-training-presentation</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/training/presentation</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/training/presentation</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-zookeeper</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/zookeeper</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/zookeeper</outputDirectory>
                 </artifactItem>
                 <!--artifactItem>
                   <groupId>org.apache.training.content.microcourses</groupId>
@@ -381,17 +388,10 @@
                 </artifactItem-->
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
-                  <artifactId>incubator-mentors</artifactId>
-                  <version>1.0.0-SNAPSHOT</version>
-                  <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/incubator/mentors</outputDirectory>
-                </artifactItem>
-                <artifactItem>
-                  <groupId>org.apache.training.content</groupId>
                   <artifactId>magic-industrial-data-acquisition-with-apache-plc4x-tsfile-and-iotdb</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/iot/magic-industrial-data-acquisition-with-apache-plc4x-tsfile-and-iotdb</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/iot/magic-industrial-data-acquisition-with-apache-plc4x-tsfile-and-iotdb</outputDirectory>
                 </artifactItem>
               </artifactItems>
             </configuration>
@@ -632,6 +632,12 @@
     </dependency>
     <dependency>
       <groupId>org.apache.training.content</groupId>
+      <artifactId>incubator-mentors</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.training.content</groupId>
       <artifactId>training-content-apache-incubator-navigating-asf-incubation</artifactId>
       <version>1.0.0-SNAPSHOT</version>
       <type>war</type>
@@ -696,12 +702,6 @@
        <version>1.0.0-SNAPSHOT</version>
        <type>war</type>
      </dependency-->
-    <dependency>
-      <groupId>org.apache.training.content</groupId>
-      <artifactId>incubator-mentors</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
-      <type>war</type>
-    </dependency>
     <dependency>
       <groupId>org.apache.training.content</groupId>
       <artifactId>magic-industrial-data-acquisition-with-apache-plc4x-tsfile-and-iotdb</artifactId>

@@ -35,6 +35,7 @@
 
   <modules>
     <module>IncubatorReleases</module>
+    <module>Mentors</module>
     <module>NavigatingASFIncubation</module>
     <module>ReleaseChecklist</module>
   </modules>

@@ -37,7 +37,6 @@
   <modules>
     <module>Apache</module>
     <module>Conferences</module>
-    <module>Incubator</module>
     <module>IoT</module>
   </modules>
 
