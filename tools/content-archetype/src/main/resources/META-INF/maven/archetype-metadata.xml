@@ -61,8 +61,6 @@
     <fileSet encoding="UTF-8">
       <directory></directory>
       <includes>
-        <include>install-deps-centos.sh</include>
-        <include>install-deps-mac.sh</include>
         <include>docker-compose.yaml</include>
         <include>Dockerfile</include>
         <include>mvnw</include>
