@@ -40,7 +40,6 @@
     <module>site</module>
     <module>tools</module>
     <module>content</module>
-    <module>website-skin</module>
   </modules>
 
   <scm>
