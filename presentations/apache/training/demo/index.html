@@ -414,7 +414,7 @@ ul.byline li + li {
   margin-top: 0.25em;
 }
 </style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/v4-shims.min.css" /></head><body><div class="header"><div class="left"></div><div class="right"></div></div><div class="reveal"><div class="slides"><section id="example-presentation"><h2>Example Presentation</h2><div class="slide-content"><div class="paragraph"><p>Doc Writer &lt;<a href="mailto:cool.person@apache.org">cool.person@apache.org</a>&gt;
-2025-08-30
+2025-09-10
 :revnumber: 1.0.0-SNAPSHOT
 :example-caption!:</p></div></div></section>
 <section id="introduction"><h2>Introduction</h2><div class="slide-content"><div class="ulist"><ul><li class="fragment"><p>This is a presentation for an example project.</p></li><li class="fragment"><p>This project does something.</p></li><li class="fragment"><p>We just haven&#8217;t decided what that is yet.</p></li></ul></div></div></section>
@@ -440,9 +440,92 @@ Neat huh?</p></div></aside></div></section>
 <div class="ulist east"><ul><li><p>Blah</p></li><li><p>Blah</p></li><li><p>Blah</p></li><li><p>Blah</p></li><li><p>Blah</p></li></ul></div></div></section>
 <section id="fontawesome-icons"><h2>Fontawesome Icons</h2><div class="slide-content"><div class="ulist"><ul><li><p><span class="icon green"><i class="fa fa-check"></i></span></p></li><li><p><span class="icon"><i class="fa fa-wrench"></i></span></p></li><li><p><span class="icon orange"><i class="fa fa-beer"></i></span></p></li></ul></div>
 <aside class="notes"><div class="ulist"><ul><li><p>Find icons here: <a href="https://fontawesome.com/v4.7.0/icons/" class="bare">https://fontawesome.com/v4.7.0/icons/</a></p></li><li><p>Color icons by defining css styles in apache.css and referencing them with "role"</p></li></ul></div></aside></div></section>
-<section><section id="diagrams"><h2>Diagrams</h2><div class="slide-content"><div class="paragraph"><p>Press the down arrow key to see the different types of diagrams</p></div></div></section><section id="ditaa-diagram"><h2>Ditaa Diagram</h2><div class="slide-content"><div class="imageblock"><img src="images/asciidoctor-diagram-process.png" alt="asciidoctor diagram process"></div></div></section><section id="plantuml-diagram"><h2>PlantUML Diagram</h2><div class="slide-content"><div class="imageblock"><img src="images/auth-protocol.png" alt="auth protocol"></div></div></section><section id="graphviz-diagram"><h2>GraphVIZ Diagram</h2><div class="slide-content"><div class="imageblock"><img src="images/dot-example.svg" alt="dot example"></div></div></section><section id="seqdiag-diagram"><h2>Seqdiag Diagram</h2><div class="slide-content"><div class="imageblock"><img src="images/s7-communication.svg" alt="s7 communication"></div></div></section><section id="blockdiag-diagram"><h2>Blockdiag Diagram</h2><div class="slide-content"><div class="imageblock"><img src="images/blockdiag-test.png" alt="blockdiag test"></div></div></section><section id="actdiag-diagram"><h2>Actdiag Diagram</h2><div class="slide-content"><div class="imageblock"><img src="images/actdiag-test.png" alt="actdiag test"></div></div></section><section id="nwdiag-diagram"><h2>Nwdiag Diagram</h2><div class="slide-content"><div class="imageblock"><img src="images/nwdiag-test.png" alt="nwdiag test"></div></div></section><section id="rackdiag-diagram"><h2>Rackdiag Diagram</h2><div class="slide-content"><div class="imageblock"><img src="images/rackdiag-test.png" alt="rackdiag test"></div></div></section><section id="packetdiag-diagram"><h2>Packetdiag Diagram</h2><div class="slide-content"><div class="imageblock"><img src="images/packetdiag-test.svg" alt="packetdiag test"></div></div></section><section id="meme-diagram"><h2>Meme Diagram</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre>Failed to generate image: convert failed: convert: unable to read font `Impact' @ warning/annotate.c/RenderType/949.
+<section><section id="diagrams"><h2>Diagrams</h2><div class="slide-content"><div class="paragraph"><p>Press the down arrow key to see the different types of diagrams</p></div></div></section><section id="ditaa-diagram"><h2>Ditaa Diagram</h2><div class="slide-content"><div class="imageblock"><img src="images/asciidoctor-diagram-process.png" alt="asciidoctor diagram process"></div></div></section><section id="plantuml-diagram"><h2>PlantUML Diagram</h2><div class="slide-content"><div class="imageblock"><img src="images/auth-protocol.png" alt="auth protocol"></div></div></section><section id="graphviz-diagram"><h2>GraphVIZ Diagram</h2><div class="slide-content"><div class="imageblock"><img src="images/dot-example.svg" alt="dot example"></div></div></section><section id="seqdiag-diagram"><h2>Seqdiag Diagram</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre>Failed to generate image: seqdiag failed: ERROR: 'ImageDraw' object has no attribute 'textsize'
+
+{
+    A -&gt; B -&gt; C;
+         B -&gt; D;
+}</pre></div></div></div></section><section id="blockdiag-diagram"><h2>Blockdiag Diagram</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre>Failed to generate image: blockdiag failed: ERROR: module 'PIL.Image' has no attribute 'ANTIALIAS'
+
+{
+   A -&gt; B -&gt; C -&gt; D;
+   A -&gt; E -&gt; F -&gt; G;
+}</pre></div></div></div></section><section id="actdiag-diagram"><h2>Actdiag Diagram</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre>Failed to generate image: actdiag failed: ERROR: module 'PIL.Image' has no attribute 'ANTIALIAS'
+
+{
+  write -&gt; convert -&gt; image
+
+  lane user {
+     label = "User"
+     write [label = "Writing reST"];
+     image [label = "Get diagram IMAGE"];
+  }
+  lane actdiag {
+     convert [label = "Convert reST to Image"];
+  }
+}</pre></div></div></div></section><section id="nwdiag-diagram"><h2>Nwdiag Diagram</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre>Failed to generate image: nwdiag failed: ERROR: module 'PIL.Image' has no attribute 'ANTIALIAS'
+
+{
+  network dmz {
+      address = "210.x.x.x/24"
+
+      web01 [address = "210.x.x.1"];
+      web02 [address = "210.x.x.2"];
+  }
+  network internal {
+      address = "172.x.x.x/24";
+
+      web01 [address = "172.x.x.1"];
+      web02 [address = "172.x.x.2"];
+      db01;
+      db02;
+  }
+}</pre></div></div></div></section><section id="rackdiag-diagram"><h2>Rackdiag Diagram</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre>Failed to generate image: rackdiag failed: ERROR: 'ImageDraw' object has no attribute 'textsize'
+
+{
+  // Change order of rack-number as ascending
+  ascending;
+
+  // define height of rack
+  12U;
+
+  // define description of rack
+  description = "Tokyo/1234 East";
+
+  // define rack units
+  1: UPS [2U];   // define height of unit
+  3: DB Server [5kg]  // define weight of unit
+  4: Web Server [0.5A]  // define ampere of unit
+  5: Web Server
+  6: Web Server
+  7: Load Balancer
+  8: L3 Switch
+}</pre></div></div></div></section><section id="packetdiag-diagram"><h2>Packetdiag Diagram</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre>Failed to generate image: packetdiag failed: ERROR: 'ImageDraw' object has no attribute 'textsize'
+
+{
+  colwidth = 32
+  node_height = 72
+
+  0-15: Source Port
+  16-31: Destination Port
+  32-63: Sequence Number
+  64-95: Acknowledgment Number
+  96-99: Data Offset
+  100-105: Reserved
+  106: URG [rotate = 270]
+  107: ACK [rotate = 270]
+  108: PSH [rotate = 270]
+  109: RST [rotate = 270]
+  110: SYN [rotate = 270]
+  111: FIN [rotate = 270]
+  112-127: Window
+  128-143: Checksum
+  144-159: Urgent Pointer
+  160-191: (Options and Padding)
+  192-223: data [colheight = 3]
+}</pre></div></div></div></section><section id="meme-diagram"><h2>Meme Diagram</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre>Failed to generate image: convert failed: convert: unable to read font `Impact' @ warning/annotate.c/RenderType/949.
 convert: unable to read font `Impact' @ error/annotate.c/RenderFreetype/1396.
-convert: no images defined `/tmp/meme20250910-1-dih6ju.png' @ error/convert.c/ConvertImageCommand/3229.</pre></div></div></div></section><section id="entity-relation-diagram"><h2>Entity Relation Diagram</h2><div class="slide-content"><div class="imageblock"><img src="images/erd-test.svg" alt="erd test"></div>
+convert: no images defined `/tmp/meme20250916-1-dpk4e6.png' @ error/convert.c/ConvertImageCommand/3229.</pre></div></div></div></section><section id="entity-relation-diagram"><h2>Entity Relation Diagram</h2><div class="slide-content"><div class="imageblock"><img src="images/erd-test.svg" alt="erd test"></div>
 <aside class="notes"></aside></div></section><section id="mermaid-flowchart"><h2>Mermaid: Flowchart</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre>Failed to generate image: mmdc failed:
 Error: Failed to launch the browser process!
 /root/.cache/puppeteer/chrome/linux-1108766/chrome-linux/chrome: error while loading shared libraries: libnss3.so: cannot open shared object file: No such file or directory
