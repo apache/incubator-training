@@ -33,7 +33,7 @@
 #
 # To build a presentation using this image:
 #
-# cd incubator-training/tools/maven-revealjs-asciidoctor-template/
+# cd training/tools/maven-revealjs-asciidoctor-template/
 # docker run -it --rm --volume $PWD:/opt/workdir training-build:latest -c "mvn clean package"
 #
 # Alternatively, you can include a reference to your local .m2 to speed up the build:

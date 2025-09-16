@@ -32,15 +32,15 @@
 
   <groupId>org.apache.training</groupId>
   <artifactId>training-tools</artifactId>
-  <version>1.4.0-SNAPSHOT</version>
+  <version>1.5.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Training: Tools</name>
 
   <scm>
-    <connection>scm:git:https://gitbox.apache.org/repos/asf/incubator-training.git</connection>
-    <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/incubator-training.git</developerConnection>
-    <url>https://github.com/apache/incubator-training</url>
+    <connection>scm:git:https://gitbox.apache.org/repos/asf/training.git</connection>
+    <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/training.git</developerConnection>
+    <url>https://github.com/apache/training</url>
     <tag>HEAD</tag>
   </scm>
 
@@ -74,8 +74,6 @@
               <resourceBundles>
                 <!-- Will generate META-INF/{DEPENDENCIES,LICENSE,NOTICE} -->
                 <resourceBundle>org.apache:apache-jar-resource-bundle:1.4</resourceBundle>
-                <!-- Will generate META-INF/DISCLAIMER  -->
-                <resourceBundle>org.apache:apache-incubator-disclaimer-resource-bundle:1.1</resourceBundle>
               </resourceBundles>
               <!-- Content in this directory will be appended to generated resources -->
               <appendedResourcesDirectory>${basedir}/src/remote-resources</appendedResourcesDirectory>
@@ -92,7 +90,7 @@
           <artifactId>maven-assembly-plugin</artifactId>
           <version>3.7.1</version>
           <configuration>
-            <finalName>apache-training-incubating-tools-${project.version}</finalName>
+            <finalName>apache-training-tools-${project.version}</finalName>
           </configuration>
         </plugin>
         <!--
@@ -112,7 +110,7 @@
               <fileSet>
                 <directory>${project.build.directory}</directory>
                 <includes>
-                  <include>apache-training-incubating-tools-${project.version}-source-release.zip</include>
+                  <include>apache-training-tools-${project.version}-source-release.zip</include>
                 </includes>
               </fileSet>
             </fileSets>

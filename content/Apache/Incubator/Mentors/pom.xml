@@ -22,36 +22,16 @@
     <parent>
         <groupId>org.apache.training</groupId>
         <artifactId>content-parent-pom</artifactId>
-        <version>${apacheTrainingToolsVersion}</version>
-
-        <!-- Required in our case as per http://maven.apache.org/ref/3.0.3/maven-model/maven.html#class_parent -->
-        <relativePath></relativePath>
+        <version>1.4.0</version>
+        <relativePath>../../../../tools/content-parent-pom/pom.xml</relativePath>
     </parent>
 
-    <artifactId>${artifactId}</artifactId>
-
-    <groupId>${groupId}</groupId>
-    <version>${version}</version>
+    <artifactId>incubator-mentors</artifactId>
+    <groupId>org.apache.training.content</groupId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>Training: Tools: Slide Template: Asciidoc to reveal.js Maven ${package}</name>
-    <description>An ${package} project that demonstrates how to integrate convert Asciidoc to a reveal.js presentation with the Asciidoctor Maven plugin.</description>
-
-    <!-- Comment in, if you don't want/can't/don't want to add apache headers to every file -->
-    <!--build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.rat</groupId>
-                    <artifactId>apache-rat-plugin</artifactId>
-                    <version>0.16.1</version>
-                    <configuration>
-                        <skip>true</skip>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build-->
+    <name>Training: Content: Incubator: Mentors</name>
 
     <!-- Make Snapshots of Apache projects available -->
     <repositories>

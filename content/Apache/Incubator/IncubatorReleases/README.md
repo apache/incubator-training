@@ -12,7 +12,7 @@ The purpose of the Training project is to create high-quality training material 
 ## How to Get Involved
 
 Vist [Apache Training](https://training.apache.org) for more information on the project.
-These slides can be found in [github](https://github.com/apache/incubator-training/tree/master/content/ApacheWay/NavigatingASFIncubation.). Pull requests welcome.
+These slides can be found in [github](https://github.com/apache/training/tree/master/content/ApacheWay/NavigatingASFIncubation.). Pull requests welcome.
 
 ## Technology Used
 

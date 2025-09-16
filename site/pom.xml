@@ -25,7 +25,7 @@
   <parent>
     <groupId>org.apache</groupId>
     <artifactId>apache</artifactId>
-    <version>31</version>
+    <version>35</version>
     <!-- Otherwise maven complains about the pom upstairs having different coordinates. -->
     <relativePath/>
   </parent>
@@ -41,9 +41,9 @@
   <inceptionYear>2019</inceptionYear>
 
   <scm>
-    <connection>scm:git:https://gitbox.apache.org/repos/asf/incubator-training.git</connection>
-    <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/incubator-training.git</developerConnection>
-    <url>https://github.com/apache/incubator-trainingx</url>
+    <connection>scm:git:https://gitbox.apache.org/repos/asf/training.git</connection>
+    <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/training.git</developerConnection>
+    <url>https://github.com/apache/trainingx</url>
     <tag>HEAD</tag>
   </scm>
 
@@ -51,7 +51,7 @@
   <distributionManagement>
     <site>
       <id>apache.website</id>
-      <url>scm:git:https://gitbox.apache.org/repos/asf/incubator-training.git</url>
+      <url>scm:git:https://gitbox.apache.org/repos/asf/training.git</url>
     </site>
   </distributionManagement>
 
@@ -84,7 +84,7 @@
 
     <!-- Site properties -->
     <reflow.skin.version>2.3.0</reflow.skin.version>
-    <fontawesome.version>6.2.0</fontawesome.version>
+    <fontawesome.version>7.0.0</fontawesome.version>
   </properties>
 
   <modules>
@@ -195,6 +195,18 @@
             </goals>
             <configuration>
               <artifactItems>
+                  <artifactItem>
+                      <groupId>org.webjars</groupId>
+                      <artifactId>font-awesome</artifactId>
+                      <version>${fontawesome.version}</version>
+                      <type>jar</type>
+                      <overWrite>false</overWrite>
+                      <outputDirectory>${project.build.directory}/dependency/fontawesome</outputDirectory>
+                      <includes>
+                          META-INF/resources/webjars/font-awesome/${fontawesome.version}/css/all.min.css,
+                          META-INF/resources/webjars/font-awesome/${fontawesome.version}/webfonts/*
+                      </includes>
+                  </artifactItem>
                 <artifactItem>
                   <groupId>io.github.devacfr.maven.skins</groupId>
                   <artifactId>reflow-default-webdeps</artifactId>
@@ -203,7 +215,6 @@
                   <overWrite>false</overWrite>
                   <includes>
                     **/css/bootstrap.min.css,
-                    **/css/fontawesome/*,
                     **/js/*.js,
                     **/js/languages/*,
                     **/js/styles/default.min.css
@@ -226,140 +237,147 @@
                   <artifactId>training-content-apache-airflow</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/airflow</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/airflow</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-comdev-apache-intro</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/comdev/apache-intro</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/comdev/apache-intro</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-comdev-comdev-intro</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/comdev/comdev-intro</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/comdev/comdev-intro</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-comdev-working-groups</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/comdev/working-groups</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/comdev/working-groups</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-druid</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/druid</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/druid</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-flink</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/flink</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/flink</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-hadoop</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/hadoop</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/hadoop</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-hive</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/hive</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/hive</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-ignite</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/ignite</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/ignite</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-incubator-incubator-releases</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/incubator/incubator-releases</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/incubator/incubator-releases</outputDirectory>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.apache.training.content</groupId>
+                  <artifactId>incubator-mentors</artifactId>
+                  <version>1.0.0-SNAPSHOT</version>
+                  <type>war</type>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/incubator/mentors</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-incubator-navigating-asf-incubation</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/incubator/navigating-asf-incubation</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/incubator/navigating-asf-incubation</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-incubator-incubator-release-checklist</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/incubator/release-checklist</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/incubator/release-checklist</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-mynewt</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/mynewt</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/mynewt</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-plc4x-revolutionizing-iiot-with-plc4x</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/plc4x/revolutionizing-iiot-with-plc4x</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/plc4x/revolutionizing-iiot-with-plc4x</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-pulsar</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/pulsar</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/pulsar</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-samza</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/samza</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/samza</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-spark-basics</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/spark/basics</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/spark/basics</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-training-demo</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/training/demo</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/training/demo</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-training-presentation</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/training/presentation</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/training/presentation</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-zookeeper</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/zookeeper</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/zookeeper</outputDirectory>
                 </artifactItem>
                 <!--artifactItem>
                   <groupId>org.apache.training.content.microcourses</groupId>
@@ -373,34 +391,9 @@
                   <artifactId>magic-industrial-data-acquisition-with-apache-plc4x-tsfile-and-iotdb</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/iot/magic-industrial-data-acquisition-with-apache-plc4x-tsfile-and-iotdb</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/iot/magic-industrial-data-acquisition-with-apache-plc4x-tsfile-and-iotdb</outputDirectory>
                 </artifactItem>
               </artifactItems>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <!--
-        Replace the bootstrap css with the version of the theme
-      -->
-      <plugin>
-        <groupId>com.googlecode.maven-download-plugin</groupId>
-        <artifactId>download-maven-plugin</artifactId>
-        <version>1.6.8</version>
-        <executions>
-          <execution>
-            <id>get-fontawesome</id>
-            <!-- Only execute this for the parent module -->
-            <inherited>false</inherited>
-            <phase>pre-site</phase>
-            <goals>
-              <goal>wget</goal>
-            </goals>
-            <configuration>
-              <url>https://use.fontawesome.com/releases/v${fontawesome.version}/fontawesome-free-${fontawesome.version}-web.zip</url>
-              <unpack>true</unpack>
-              <outputDirectory>${project.build.directory}/dependency/fontawesome</outputDirectory>
             </configuration>
           </execution>
         </executions>
@@ -424,23 +417,8 @@
               <resources>
                 <resource>
                   <directory>
-                    ${project.build.directory}/dependency/fontawesome/fontawesome-free-${fontawesome.version}-web
+                    ${project.build.directory}/dependency/fontawesome/META-INF/resources/webjars/font-awesome/${fontawesome.version}
                   </directory>
-                  <includes>
-                    <include>css/all.min.css</include>
-                  </includes>
-                </resource>
-                <resource>
-                  <directory>
-                    ${project.build.directory}/dependency/fontawesome/fontawesome-free-${fontawesome.version}-web/webfonts
-                  </directory>
-                  <targetPath>${project.build.directory}/site/fonts</targetPath>
-                </resource>
-                <resource>
-                  <directory>
-                    ${project.basedir}/src/content
-                  </directory>
-                  <targetPath>${project.build.directory}/site/contnet</targetPath>
                 </resource>
               </resources>
             </configuration>
@@ -649,6 +627,12 @@
     <dependency>
       <groupId>org.apache.training.content</groupId>
       <artifactId>training-content-apache-incubator-incubator-releases</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.training.content</groupId>
+      <artifactId>incubator-mentors</artifactId>
       <version>1.0.0-SNAPSHOT</version>
       <type>war</type>
     </dependency>

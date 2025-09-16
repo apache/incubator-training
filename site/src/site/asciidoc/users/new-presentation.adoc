@@ -26,11 +26,11 @@ have all of the prerequisites to make this work. (So start there.)
 Move to the directory where you wish to create your presentation,
 and run the following command:
 
-    mvn archetype:generate -DarchetypeGroupId=org.apache.training -DarchetypeArtifactId=content-archetype -DarchetypeVersion=1.3.0
+    mvn archetype:generate -DarchetypeGroupId=org.apache.training -DarchetypeArtifactId=content-archetype -DarchetypeVersion=1.4.0
 
 For Windows, you need to wrap every argument in double-quotes:
 
-    mvn archetype:generate "-DarchetypeGroupId=org.apache.training" "-DarchetypeArtifactId=content-archetype" "-DarchetypeVersion=1.3.0"
+    mvn archetype:generate "-DarchetypeGroupId=org.apache.training" "-DarchetypeArtifactId=content-archetype" "-DarchetypeVersion=1.4.0"
 
 This command displays an interactive tool that asks you to provide
 some basic information about your new presentation

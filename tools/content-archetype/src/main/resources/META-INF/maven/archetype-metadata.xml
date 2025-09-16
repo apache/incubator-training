@@ -61,14 +61,14 @@
     <fileSet encoding="UTF-8">
       <directory></directory>
       <includes>
-        <include>install-deps-centos.sh</include>
-        <include>install-deps-mac.sh</include>
         <include>docker-compose.yaml</include>
         <include>Dockerfile</include>
         <include>mvnw</include>
         <include>mvnw.cmd</include>
         <include>pom.xml</include>
         <include>README.md</include>
+        <include>requirements-legacy.txt</include>
+        <include>requirements-modern.txt</include>
       </includes>
     </fileSet>
   </fileSets>
