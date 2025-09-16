@@ -38,6 +38,8 @@
     <module>Mentors</module>
     <module>NavigatingASFIncubation</module>
     <module>ReleaseChecklist</module>
+    <module>PPMC</module>
+    <module>Committers</module>
   </modules>
 
 </project>

@@ -1,0 +1,244 @@
+////
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+////
+
+include::_settings.adoc[]
+:presenter_name: Your Name
+:presenter_company: Your Company
+:description: ASF Podling PPMC Onboarding
+:keywords: Apache, Incubator, Podling, PPMC
+:author: Your Name
+:email: Your email
+:position: Your role
+:revealjs_plugins: notes
+:revealjs_slideNumber: true
+:customcss: apache.css
+
+
+== Welcome to the PPMC
+* Podling Project Management Committee (PPMC)
+* Oversees podling during incubation
+* Goal: healthy, self-governing community
+
+[.notes]
+--
+Welcome the new members warmly.  
+Explain that being on the PPMC means stepping into both a **leadership and stewardship role**.  
+This isn’t only about writing or reviewing code. It’s about helping the podling become a self-sustaining Apache community.  
+The PPMC helps the podling grow until it is ready to graduate to a Top-Level Project (TLP).  
+--
+
+== The Apache Way
+* Transparency
+* Meritocracy
+* Consensus
+* Community over Code
+
+[.notes]
+--
+Introduce the Apache Way as the **cultural foundation** of the ASF.  
+- Transparency: All important decisions happen on public mailing lists.  
+- Meritocracy: People gain influence through their contributions.  
+- Consensus: Strive for agreement; silence usually means consent.  
+- Community over Code: The project’s long-term health is more important than any single technical feature.  
+Reinforce that PPMC members are guardians of these principles.  
+--
+
+== Your Role
+* Active participation
+* Guide decisions “the Apache Way”
+* Mentor contributors
+* Support inclusivity
+
+[.notes]
+--
+Your role is broader than writing code:  
+- Be active in discussions; inactivity weakens the podling.  
+- Ensure decisions follow ASF culture, not just personal preference.  
+- Help bring in and mentor new contributors so the community grows.  
+- Support inclusivity: welcome different viewpoints, time zones, and backgrounds.  
+--
+
+== ASF Basics
+* ASF is a 501(c)(3) nonprofit
+* Podlings are not independent legal entities
+* Trademarks and assets owned by the ASF
+* PPMC manages the project with the help of the IPMC
+
+[.notes]
+--
+Clarify the legal structure:  
+The ASF is the legal umbrella, a US nonprofit.  
+Podlings don’t own their trademarks, domains, or infrastructure, the ASF does.  
+The PPMC manages the podling’s community and technical direction but **cannot sign contracts or act as a separate legal entity**.  
+This helps avoid legal risk and ensures consistency.  
+--
+
+== Committer vs. PPMC
+* Initial committers are PPMC members
+* Committers: can commit code changes
+* PPMC: sets technical direction & community growth
+
+[.notes]
+--
+Clarify the distinction:  
+- Committers have write access to the repository. They review and commit code, but they do not “vote” on patches or PRs.  
+- The PPMC, however, looks after the bigger picture: community health, project direction, releases, and oversight.  
+Both roles overlap in practice, but PPMC has assumed additional governance responsibilities.  
+--
+
+== Relationship with IPMC
+* PPMC reports to Incubator PMC
+* IPMC oversees incubation
+* Some votes (e.g., releases, graduation) need IPMC approval
+
+[.notes]
+--
+The PPMC is not alone, it works under the supervision of the **Incubator PMC (IPMC)**.  
+The IPMC has final oversight during the incubation period.  
+Release votes, for example, require approval by both the PPMC *and* the IPMC.  
+When the PPMC feels ready for graduation, it proposes it to the IPMC, which decides whether to recommend graduation to the ASF Board.  
+--
+
+== Responsibilities
+* Review/vote on releases
+* Ensure IP/licensing compliance
+* Nurture community health
+* Engage in discussions
+
+[.notes]
+--
+The PPMC’s responsibilities include:  
+- Reviewing releases to ensure they comply with ASF legal and policy requirements.  
+- Checking for license compliance (dependencies must be compatible with ALv2).  
+- Supporting and maintaining a healthy, respectful, and diverse community.  
+- Being active in discussions, and decisions require participation.  
+--
+
+== Voting
+* +1, 0, -1
+* Lazy consensus common
+* PPMC votes are binding
+
+[.notes]
+--
+Quick primer on voting:  
+- +1 = approve, -1 = veto (with reasoning), 0 = neutral.  
+- Most ASF decisions use “lazy consensus”, silence is consent.  
+- Not all votes are equal: only PPMC members cast **binding votes** in incubation.  
+Encourage members to vote, even if it’s just +1, to show engagement.  
+--
+
+== Communication
+* Use `dev@` mailing list
+* Keep decisions public
+* Escalate when needed
+
+[.notes]
+--
+Reinforce that the **mailing list is the official record**.  
+Decisions in Slack, Discord, or private chat don’t count unless summarized to the list.  
+This ensures transparency, maintains a historical record, and keeps everyone informed.  
+If a discussion is stalled or contentious, escalate it early instead of letting it fester.  
+--
+
+== Escalation Path
+* Start with the PPMC
+* Escalate to IPMC if unresolved
+* Further escalation: ASF President or Board
+
+[.notes]
+--
+Explain the chain of escalation:  
+1. Try to resolve issues within the PPMC.  
+2. If that fails, involve the IPMC, they are responsible for podlings.  
+Knowing the path helps avoid confusion when problems arise.  
+--
+
+== Infra Basics
+* ASF GitHub repos
+* Mailing lists
+* Issue tracker
+* Website on ASF infra
+
+[.notes]
+--
+Cover infrastructure at a high level:  
+- Use ASF GitHub repos, not personal ones.  
+- Mailing lists are the heart of communication.  
+- Use JIRA or GitHub Issues as your tracker.  
+- Project websites are hosted on ASF infrastructure.  
+Refer to Infra documentation for technical details; there's no need to overload newcomers here.  
+--
+
+== Releases
+* Follow ASF release policy
+* Generally 72h minimum vote
+* Source = official release
+* Distribute via `dist.apache.org`
+
+[.notes]
+--
+Releases are **the most important PPMC duty**.  
+- They must comply with ASF release policy.  
+- Voting should run at least 72 hours to give everyone a fair chance.  
+- Source is the official release artifact.  
+- Binaries are for convenience but must always be built from the source.  
+- Final distribution is through ASF’s infrastructure at `dist.apache.org`.  
+--
+
+== Diversity of Community
+* Broad, diverse participation
+* Avoid vendor dominance
+* Needed for graduation
+
+[.notes]
+--
+Graduation requires a diverse community.  
+If the project depends on a single vendor or group, it’s at risk.  
+The PPMC should actively encourage participation from new people and different organizations.  
+This helps ensure long-term sustainability.  
+--
+
+== Growth & Graduation
+* Add new committers and PPMC members
+* Support project diversity
+* Graduation depends on community health
+
+[.notes]
+--
+Graduation is not automatic.  
+The PPMC should regularly nominate and vote in new committers and PPMC members.  
+A podling that doesn’t grow its community usually won’t graduate.  
+Graduation is about proving the project can sustain itself independently as a TLP.  
+--
+
+== Next Steps
+* Join discussions
+* Review PRs/issues
+* Vote on releases
+* Help onboard contributors
+
+[.notes]
+--
+Conclude with a call to action:  
+- Engage right away on the mailing list.  
+- Review open issues and PRs, activity shows leadership.  
+- Take part in release votes, even as a reviewer.  
+- Help onboard new contributors, they are the future of the project.  
+Encourage members to see themselves as stewards of both code and community.  
+--
+

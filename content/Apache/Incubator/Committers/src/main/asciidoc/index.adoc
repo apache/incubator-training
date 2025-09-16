@@ -1,0 +1,278 @@
+////
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+////
+
+include::_settings.adoc[]
+:presenter_name: Your Name
+:presenter_company: Your Company
+:description: ASF Committer Onboarding
+:keywords: Apache, Incubator, Podling, Committer
+:author: Your Name
+:email: Your email
+:position: Your role
+:revealjs_plugins: notes
+:revealjs_slideNumber: true
+:customcss: apache.css
+
+== Welcome Committers
+* You now have write access to the project repository
+* Recognition of your sustained contributions
+* Trust comes with responsibility
+
+[.notes]
+--
+Give the new committer a warm welcome. This is an important milestone.
+Becoming a committer means the community recognizes your sustained, high-quality contributions.  
+This is an earned role: you’ve shown reliability, respect for process, and technical ability.  
+With this new access comes responsibility. The community trusts you, and you now help protect the project's integrity.
+--
+
+== The Apache Way
+* Transparency
+* Meritocracy
+* Consensus
+* Community over Code
+
+[.notes]
+--
+These four principles shape everything we do:  
+- **Transparency**: all important decisions happen on public mailing lists, not in private.  
+- **Meritocracy**: influence is earned by contributing, not assigned by title.  
+- **Consensus**: aim for agreement; disagreements are worked out in the open.  
+- **Community over Code**: Code can always be changed, but strong relationships and a healthy community keep projects going over time.
+As a committer, you are expected to embody and model these values.  
+--
+
+== ICLA Requirement
+* An Individual Contributor License Agreement (ICLA) must be on file
+* Required before commit access is granted
+* Ensures legal clarity for contributions
+
+[.notes]
+--
+Every committer must have an ICLA on file with the ASF Secretary.  
+This ensures that contributions are legally valid and the ASF can distribute them.  
+If you’re not sure whether your ICLA is recorded, you can confirm through project or ASF records.  
+--
+
+== Your Role
+* Contribute code, docs, tests
+* Review pull requests and patches
+* Help new contributors
+* Follow project norms
+
+[.notes]
+--
+Your role is to keep the project healthy and moving forward.  
+- Write code, improve documentation, and add tests. Quality matters.  
+- Review contributions from others: thoughtful reviews are as valuable as code.  
+- Help onboard new contributors, answer questions, point them to resources, and encourage them to stick around.  
+- Every project has its own working norms: some are review-then-commit, others are commit-then-review. Learn and follow them.  
+--
+
+== Commit-Then-Review vs. Review-Then-Commit
+* Some projects allow direct commits
+* Others require review before commit
+* Always follow your project’s chosen practice
+
+[.notes]
+--
+This is one of the biggest variations between ASF projects.  
+- **Commit-then-review**: committers can commit directly, but all changes are subject to later review and possible rollback.  
+- **Review-then-commit**: commits only happen after someone else has reviewed and approved.  
+Both models are valid. What matters is following the norms of your project.  
+If you’re unsure, ask the PPMC about the expected workflow.  
+--
+
+== Responsibilities
+* Keep the codebase healthy
+* Write clear commit messages
+* Respect licenses and IP
+* Coordinate on bigger changes
+
+[.notes]
+--
+Day-to-day responsibilities:  
+- Keep the build green: don’t commit code that breaks tests or CI.  
+- Use clear, descriptive commit messages. This helps with history and release notes.  
+- Respect IP rules: don’t copy in code or docs from incompatible licenses. Always check license compatibility when adding dependencies.  
+- For larger refactors or behavior changes, coordinate early so the team is aligned.  
+--
+
+== Releases & Your Role
+* Committers do not cast binding votes
+* But you can test and review releases
+* Feedback helps ensure quality
+
+[.notes]
+--
+Committers are encouraged to participate in release testing and reviews.  
+Although your votes are not binding, your feedback is still important.  
+This is a great way to learn the ASF release policy and contribute to the project’s quality and compliance.  
+--
+
+== Security Awareness
+* Follow ASF security policy
+* Do not commit fixes to public repos before disclosure
+* Ask the PPMC if in doubt
+
+[.notes]
+--
+Security issues must be handled carefully:  
+- ASF has a defined process for reporting and handling vulnerabilities.  
+- Never push security fixes directly to a public repo before coordination.  
+- If unsure, pause and ask the PPMC or ASF Security team.  
+This protects users and the ASF’s reputation.  
+--
+
+== ASF Infrastructure Basics
+* Use the project issue tracker
+* Follow project GitHub rules
+* Project websites are on ASF infra
+
+[.notes]
+--
+Committers are expected to:  
+- Use the official issue tracker (GitHub Issues or JIRA) to plan and track work.  
+- Follow ASF GitHub norms: don’t rewrite history; don’t use personal repos for official work.  
+- Remember that websites and download areas are ASF property, not individually owned.  
+--
+
+== What Committers Do Not Do
+* No binding votes on releases
+* Do not set project direction
+* Do not speak on behalf of the ASF
+
+[.notes]
+--
+This slide is about boundaries:  
+- Committers can participate in release votes, but only PPMC members have binding votes in incubation.  
+- Committers don’t set overall project direction, that’s the PPMC’s responsibility.  
+- Committers do not speak for the ASF in public or legal matters. Only the Board and officers have that authority.  
+Understanding these limits helps avoid confusion.  
+--
+
+== Code of Conduct
+* Be respectful and constructive
+* Assume good faith
+* No personal attacks
+* Everyone deserves a safe community
+
+[.notes]
+--
+Committers set the tone for new contributors.  
+- Be constructive in reviews, especially with newcomers.  
+- Assume good intentions, many are learning.  
+- Never use personal attacks or hostile language.  
+The ASF Code of Conduct applies to all, and committers are role models.  
+--
+
+== Working with the PPMC
+* Committers are part of the community
+* PPMC provides project oversight
+* Both roles are essential
+
+[.notes]
+--
+Explain the relationship clearly:  
+- Committers focus on technical contributions and daily development.  
+- The PPMC oversees governance, ensures ASF rules are followed, and represents the podling to the IPMC.  
+Both roles are essential: without committers, there’s no project; without the PPMC, there’s no path to graduation.  
+Committers who demonstrate sustained, thoughtful involvement are often invited to join the PPMC.  
+--
+
+== Communication
+* Discuss on `dev@`
+* Summarize any off-list progress to the list
+* Be respectful and constructive
+
+[.notes]
+--
+Reinforce mailing list culture:  
+- `dev@` is the canonical archive of project discussions and decisions.  
+- If you make progress in Slack, Discord, or GitHub issues, *summarize the outcome to the list*.  
+- Be professional and constructive: disagreements happen, but personal attacks are never acceptable.  
+Transparency and respect keep the community healthy.  
+--
+
+== Diversity & Growth
+* Welcome new contributors
+* Encourage diverse participation
+* Help the community grow
+
+[.notes]
+--
+Part of your role is to make the project welcoming:  
+- Be encouraging when new contributors send a PR, even if it needs work.  
+- Encourage contributions from people with different skills (not just code, docs, testing, design matters too).  
+- Diversity of contributors and organizations is key to project health and eventual graduation.  
+Committers are often the first “friendly face” new people interact with.  
+--
+
+== Next Steps
+* Make your first commit
+* Join and participate in mailing list discussions
+* Review and help with pull requests
+* Grow into a community leader
+
+[.notes]
+--
+Encourage the new committer to take action right away:  
+- Make a small but visible first commit; it’s a great way to mark the milestone.  
+- Participate in discussions, not just coding; community input matters.  
+- Review others’ PRs: giving feedback builds trust and reduces bottlenecks.  
+- Over time, committers who show leadership and maturity are invited to join the PPMC.  
+This marks the beginning of a journey toward greater responsibility within the ASF.  
+--
+
+== Where to Get Help
+* Ask on `dev@` first
+* PPMC members can guide you
+* ASF documentation & Infra resources
+* It’s always OK to ask questions
+
+[.notes]
+--
+New committers will have questions. Reassure them.  
+- Start with the project’s `dev@` list.  
+- PPMC members are responsible for guidance.  
+- ASF has extensive documentation, including infra FAQs and committer guides.  
+Most importantly: no one expects you to know everything right away. Asking questions is a strength.  
+--
+
+== Looking Ahead
+* Committer is a starting point
+* Continued participation builds trust
+* Active committers may be invited to PPMC
+* Leadership grows from contribution
+
+[.notes]
+--
+Set expectations for the future:  
+Becoming a committer is not the end of the journey. It’s the beginning of deeper involvement.  
+Sustained, constructive participation often leads to being invited to the PPMC.  
+Leadership at Apache grows naturally out of contribution, not titles.  
+--
+
+== Final Thoughts
+* Respect and collaboration build trust
+* Stewardship matters as much as code
+* Strong communities create great software
+
+[.notes]
+--
+Leave them with the culture: be a good teammate, think like a steward, and prioritize community health alongside technical excellence.
+--
