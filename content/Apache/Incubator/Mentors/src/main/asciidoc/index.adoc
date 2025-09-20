@@ -164,7 +164,8 @@ Explain that releases must be approved by community votes, they must comply with
 * 📣 Call a [VOTE] on incubator general@  
 * 👍 Get 3+ binding +1 votes  
 * 🧾 Close with [RESULT]  
-* 📤 Announce + distribute  
+* 🌐 Publish download page  
+* 📤 Send announcement 
 
 [.notes]
 --
@@ -177,6 +178,8 @@ Outline the release process step by step, stress that both podling PPMC and the 
 * 🧩 Bundled compiled code  
 * 🧩 Non-compatible or unknown-license 3rd party code  
 * 🧾 Incorrect or incomplete LICENSE and NOTICE files  
+* 🔗 Issue on download page (no KEYS/sigs/checksums)  
+* 📣 Announcement missing links  
 
 [.notes]
 --
@@ -186,12 +189,13 @@ Describe the most frequent mistakes, explain why these issues block releases, an
 == Mentor’s Role (Releases)
 
 * 👣 Walk them through the process  
-* 🧼 Review for clarity and correctness  
+* 🧼 Review artifacts/process  
+* 🔗 Check download page + announcement email
 * 🙋 Encourage asking questions early  
 
 [.notes]
 --
-Explain that mentors guide podlings through their first releases, review artifacts and process for correctness, and encourage communities to ask questions early instead of waiting until votes fail.
+Explain that mentors guide podlings through their first releases, review artifacts and process for correctness, announcement must clearly point to release notes and download page, download page must have closer.lua, sigs, checksums, KEYS file and encourage communities to ask questions early instead of waiting until votes fail.
 --
 
 == ASF Branding & Trademarks
