@@ -1,0 +1,16 @@
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "type": "Assertion",
+  "id": "https://training.apache.org/badges/test-badge/assertions/121eacc3d632.json",
+  "recipient": {
+    "type": "email",
+    "hashed": true,
+    "salt": null,
+    "identity": "sha256$121eacc3d632f9676bc880d29edd4fb4e9f0ffbf41baa9bd619daa8eedce76a6"
+  },
+  "badge": "https://training.apache.org/badges/test-badge/badgeclass.json",
+  "verification": {
+    "type": "Hosted"
+  },
+  "issuedOn": "2025-08-06T01:29:32Z"
+}
