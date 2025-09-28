@@ -16,6 +16,7 @@
 ////
 
 include::_settings.adoc[]
+:talk: ASF Mentor Training
 :presenter_name: Your Name
 :presenter_company: Your Company
 :description: ASF Mentor Training
@@ -26,11 +27,7 @@ include::_settings.adoc[]
 :revealjs_plugins: notes
 :revealjs_slideNumber: true
 
-[%notitle]
-== {talk}
-🎓 Welcome to ASF Mentor Training
-
-Supporting Projects Using the Apache Way
+= 🎓 {talk}: Supporting Projects Using the Apache Way
 
 [.notes]
 --
