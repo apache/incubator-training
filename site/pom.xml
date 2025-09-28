@@ -318,6 +318,13 @@
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
+                  <artifactId>incubator-ipmc</artifactId>
+                  <version>1.0.0-SNAPSHOT</version>
+                  <type>war</type>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/incubator/IPMC</outputDirectory>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.apache.training.content</groupId>
                   <artifactId>incubator-committers</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
