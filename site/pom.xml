@@ -321,7 +321,7 @@
                   <artifactId>incubator-committers</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/apache/incubator/Committers</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/incubator/committers</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
@@ -647,6 +647,18 @@
     <dependency>
       <groupId>org.apache.training.content</groupId>
       <artifactId>incubator-mentors</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.training.content</groupId>
+      <artifactId>incubator-ppmc</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.training.content</groupId>
+      <artifactId>incubator-committers</artifactId>
       <version>1.0.0-SNAPSHOT</version>
       <type>war</type>
     </dependency>

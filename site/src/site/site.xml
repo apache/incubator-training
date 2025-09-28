@@ -114,8 +114,8 @@
       <item name="Apache Incubator">
         <item name="Incubator Releases" href="presentations/apache/incubator/incubator-releases/index.html" target="_blank"/>
         <item name="Mentors Onboarding" href="presentations/apache/incubator/mentors/index.html" target="_blank"/>
-        <item name="PPMC Onboarding" href="presentations/Apache/Incubator/PPMC/index.html"/>
-        <item name="Committers Onboarding" href="presentations/Apache/Incubator/Committers/index.html"/>
+        <item name="PPMC Onboarding" href="presentations/apache/incubator/PPMC/index.html"/>
+        <item name="Committers Onboarding" href="presentations/apache/incubator/committers/index.html"/>
         <item name="Navigating ASF Incubator" href="presentations/apache/incubator/navigating-asf-incubation/index.html" target="_blank"/>
         <item name="Release Checklist" href="presentations/apache/incubator/release-checklist/index.html" target="_blank"/>
       </item>
