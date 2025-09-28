@@ -1,0 +1,281 @@
+== Welcome to the IPMC Community
+* Thank you for joining the IPMC
+* Your participation strengthens the Incubator
+* Even small contributions make a difference
+
+[.notes]
+--
+This is a collective welcome from the IPMC.
+Thank new members for volunteering their time.  
+The Incubator only works because IPMC members actively engage — reading reports, voting on releases, giving feedback.  
+Even small actions (a quick vote, a short comment on a report) help podlings succeed.  
+The message: you are valued, and your involvement matters to the whole Foundation.  
+--
+
+== First Steps
+* Subscribe to:
+** general@incubator.apache.org  
+** private@incubator.apache.org
+* Review the Incubator Policy
+* Familiarize yourself with current podlings and mentors
+
+[.notes]
+--
+Onboarding starts with connecting to communication channels.  
+- The **general@ list** is where most public discussions, votes, and community guidance happen.  
+- The **private@ list** is reserved for sensitive matters like conflicts, Code of Conduct issues, or legal concerns.  
+Next, review the Incubator Policy so you understand the rules and expectations.  
+Finally, take time to look at the current list of podlings and their assigned mentors. This gives you a picture of where oversight and support may be needed.  
+--
+
+== IPMC Responsibilities
+* Review/vote on releases and graduations
+* Monitor podling health and governance
+* Help resolve mentor-escalated issues
+* Uphold ASF policies
+
+[.notes]
+--
+The IPMC exists to ensure consistency and quality across all podlings.  
+Your main duties are:  
+- Reviewing and voting on podling releases and graduation proposals.  
+- Monitoring podling health by looking at reports, community activity, and signs of progress.  
+- Helping resolve issues that mentors raise when they can’t resolve them within the podling.  
+- Acting as a safeguard to ensure ASF legal, branding, and cultural policies are followed.  
+Think of yourself as part mentor, part auditor, part cultural ambassador.  
+--
+
+== Key Activities
+* Join list discussions
+* Vote on releases and graduations
+* Share observations and raise flags
+* Celebrate podling successes
+
+[.notes]
+--
+It’s not about huge time commitments but about steady presence.  
+- Read and occasionally post on general@; even short “+1” or “looks good” replies help.  
+- Participate in votes, especially on releases—these need binding IPMC votes to pass.  
+- If you see risks, like a single vendor dominating, raise it for discussion.  
+- And don’t forget to celebrate progress! Positive feedback helps motivate podlings and reinforces good ASF practices.  
+--
+
+== Voting in the IPMC
+* Binding votes on releases and graduations
+* Lazy consensus is common
+* Broad participation is essential
+
+[.notes]
+--
+Remember: votes are a **record of consensus**, not the process of oversight itself.  
+Oversight comes from discussions and careful review; the vote is how we document the outcome and show compliance.  
+Votes on releases and graduations are **binding** when cast by IPMC members.  
+Lazy consensus means silence is taken as agreement, but please don’t stay silent—visible participation is important for demonstrating active oversight.  
+--
+
+== How Oversight Actually Happens
+* Mentoring and day-to-day guidance by mentors
+* Public discussion on ASF lists (general@, dev@)
+* Review of reports, releases, branding/licensing
+* Escalation only when needed (PPMC → IPMC → Board)
+
+[.notes]
+--
+Oversight is primarily cultural and process-driven, not bureaucratic.  
+- Mentors are the first line of support, guiding podlings daily.  
+- The IPMC monitors discussions and makes sure important matters stay on ASF lists.  
+- Reports, releases, and branding checks are practical tools to assess progress.  
+- Escalation is a safety net: if the PPMC or mentors can’t resolve something, it comes to the IPMC, and in rare cases further to the ASF President or Board.  
+--
+
+== Reviewing Releases
+Check for:
+* LICENSE and NOTICE files
+* Dependency license compliance
+* Correct process (vote on dev@, 72h minimum)
+* Branding and naming compliance
+* No compiled code in source
+
+[.notes]
+--
+Releases are where the IPMC’s role is most visible.  
+Things to check:  
+- Are the LICENSE and NOTICE files present and correct?  
+- Do all dependencies have ASF-compatible licenses?  
+- Was the vote run properly on the dev@ list, with at least 72 hours?  
+- Is branding correct (e.g., “Apache Foo (incubating)”), and no misuse of ASF trademarks?  
+- Source must be authoritative: no compiled code should sneak into the source release.  
+Mentors may catch many issues, but a second set of eyes is critical.  
+--
+
+== Graduation Criteria
+Podlings must show:
+* A sustainable, diverse community
+* ASF infrastructure and process use
+* Transparent, merit-based governance
+* At least one ASF release without mentor intervention
+* Licensing and branding compliance
+
+[.notes]
+--
+Graduation isn’t automatic—it’s a judgment call by the IPMC and Board.  
+Key signals:  
+- The community is active and not dominated by one vendor.  
+- They’ve switched to ASF infrastructure (lists, repos, website).  
+- Governance is transparent and merit-based: new committers and PPMC members are added openly.  
+- They’ve produced at least one proper ASF release, ideally more.  
+- Licensing and branding issues have been addressed.  
+The Maturity Model can be a helpful checklist, but human judgment is always required.  
+--
+
+== Reviewing Graduation Proposals
+Look for:
+* Community diversity and independence
+* Recent ASF-compliant releases
+* Mailing list engagement and transparency
+* Signs of self-governance
+* Questions or concerns — raise them!
+
+[.notes]
+--
+Graduation reviews are critical — they decide if a podling becomes a Top-Level Project.  
+When reviewing, check:  
+- **Diversity**: Is the community broad, or dominated by one vendor?  
+- **Releases**: Have they done at least one proper ASF release without heavy mentor intervention?  
+- **Mailing list activity**: Are discussions happening openly and consistently?  
+- **Self-governance**: Is the PPMC leading, not just mentors or one company?  
+Don’t be afraid to ask questions. A graduation vote is a good moment to double-check readiness.  
+Your feedback helps the Board and the community feel confident about graduation.  
+--
+
+== Monitoring Podling Health
+Watch for:
+* Stalled communication
+* No release progress
+* Single-vendor dominance
+* Weak mentorship
+* Community stagnation
+
+[.notes]
+--
+Podling health issues usually show up in predictable ways:  
+- If mailing list traffic drops or questions go unanswered, that’s a red flag.  
+- A podling that doesn’t produce releases may never prove it can operate as an ASF project.  
+- If one company controls all the committers, it threatens long-term sustainability.  
+- If mentors are silent, podlings lose vital guidance.  
+- Stagnant or shrinking communities rarely graduate.  
+The earlier the IPMC notices and raises these concerns, the better chance the podling has to fix them.  
+--
+
+== Communication & Conduct
+* Use ASF mailing lists for decisions
+* Avoid private channels
+* Model respectful, inclusive behavior
+* Escalate problems if needed
+
+[.notes]
+--
+Communication at ASF is about transparency and respect.  
+- All important project decisions must be on ASF mailing lists, not Slack or private chats.  
+- Keep discussions inclusive—welcome contributions from different backgrounds and time zones.  
+- If you see abusive or disruptive behavior, escalate it. Mentors can start, but the IPMC may need to step in.  
+- Remember that your tone sets an example. As IPMC members, we’re modeling ASF culture.  
+--
+
+== Common Pitfalls
+* Overly passive mentors
+* Podlings “parking” in the Incubator
+* Releases with licensing issues
+* Vendor dominance limiting community growth
+* Off-list or private decision-making
+
+[.notes]
+--
+The IPMC should be alert to recurring traps:  
+- Mentors who never engage or sign off weaken incubation.  
+- Some podlings get stuck in the Incubator for years without progress—sometimes due to low community activity.  
+- Release licensing problems are the #1 technical blocker; catching them early helps.  
+- Vendor dominance is a cultural blocker: a podling dominated by one company risks becoming a pseudo-product, not an ASF project.  
+- Off-list decisions (on Slack, GitHub, or private email) violate ASF transparency and must be redirected to mailing lists.  
+--
+
+== Conflict of Interest
+* Step back when conflicts arise
+* Be transparent
+* Ask on private@ if unsure
+
+[.notes]
+--
+Conflicts of interest aren’t bad if handled properly.  
+Examples: voting on a podling release where your employer has a stake, or discussing a community where you’re directly involved.  
+If you have a conflict, declare it and step back. Transparency maintains trust.  
+If you’re not sure whether something counts, ask privately on private@ and get advice.  
+--
+
+== Time Commitment
+* Expect a few hours per month
+* Focus on release/graduation votes
+* Participate in discussions
+* More involvement always welcome
+
+[.notes]
+--
+The time requirement is modest: a couple of hours per month.  
+At minimum, read the mailing lists, vote on a few releases, and weigh in on graduation proposals.  
+But the more you contribute, the healthier the Incubator becomes. Even small, steady contributions go a long way.  
+--
+
+== Stepping Down
+* Membership is voluntary
+* Notify private@ if you want to step back
+* Better to go inactive formally than silently
+* You can rejoin later
+
+[.notes]
+--
+Membership is not permanent or obligatory. If you no longer have time, step down formally.  
+It’s far better than silently disappearing. This way, the active IPMC list stays accurate.  
+You can always rejoin later when you have the time or interest again.  
+--
+
+== Resources & Support
+* Incubator General: general@incubator.apache.org
+* Incubator Private: private@incubator.apache.org
+* Incubator Cookbook: https://incubator.apache.org/cookbook/
+* ASF Infra: https://infra.apache.org
+* ASF Legal: https://www.apache.org/legal/
+* Maturity Model: https://community.apache.org/apache-way/apache-project-maturity-model.html
+
+[.notes]
+--
+You don’t need to know everything—resources exist to help.  
+The Cookbook has many “how-to”s, Infra supports technical issues, Legal provides licensing guidance, and the Maturity Model explains what graduation looks like.  
+Don’t hesitate to point podlings or mentors to these resources when issues arise.  
+--
+
+== Ongoing Training
+* Training resources are available for IPMC members
+* Mentoring and release review guides
+* Scenario-based exercises and quizzes
+* Training evolves as policies and practices change
+
+[.notes]
+--
+The Incubator has developed training materials to support both mentors and IPMC members.  
+These include guides, scenario-based exercises, and quizzes that walk through real-world situations (like release reviews, community conflicts, and graduation readiness).  
+Training is not a one-time step — it evolves as ASF policies and Incubator practices change.  
+Encourage members to revisit the materials periodically and use them to stay aligned on best practices.  
+--
+
+== Improving the Incubator
+* Policies evolve
+* Docs can always improve
+* Share suggestions on general@ (or private@ if sensitive)
+
+[.notes]
+--
+The Incubator is itself a project. It relies on contributions from the IPMC to improve.  
+If you see a policy gap, unclear documentation, or new challenges, propose improvements.  
+Discussions normally happen on general@; sensitive matters can go to private@.  
+This is how the Incubator keeps pace with the ASF’s growth and evolving needs.  
+--
