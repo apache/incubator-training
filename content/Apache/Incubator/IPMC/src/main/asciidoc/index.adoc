@@ -118,17 +118,17 @@ Oversight is primarily cultural and process-driven, not bureaucratic.
 --
 
 == Reviewing Releases
-Check for\:
-* LICENSE and NOTICE files
-* Dependency license compliance
-* Correct process (vote on dev@, 72h minimum)
-* Branding and naming compliance
-* No compiled code in source
+* Check for:
+** LICENSE and NOTICE files
+** Dependency license compliance
+** Correct process (vote on dev@, 72h minimum)
+** Branding and naming compliance
+** No compiled code in source
 
 [.notes]
 --
 Releases are where the IPMC’s role is most visible.  
-Things to check\:  
+Things to check:
 - Are the LICENSE and NOTICE files present and correct?  
 - Do all dependencies have ASF-compatible licenses?  
 - Was the vote run properly on the dev@ list, with at least 72 hours?  
@@ -138,17 +138,17 @@ Mentors may catch many issues, but a second set of eyes is critical.
 --
 
 == Graduation Criteria
-Podlings must show\:
-* A sustainable, diverse community
-* ASF infrastructure and process use
-* Transparent, merit-based governance
-* At least one ASF release without mentor intervention
-* Licensing and branding compliance
+* Podlings must show:
+** A sustainable, diverse community
+** ASF infrastructure and process use
+** Transparent, merit-based governance
+** At least one ASF release without mentor intervention
+** Licensing and branding compliance
 
 [.notes]
 --
 Graduation isn’t automatic - it’s a judgment call by the IPMC and Board.  
-Key signals:  
+Key signals:
 - The community is active and not dominated by one vendor.  
 - They’ve switched to ASF infrastructure (lists, repos, website).  
 - Governance is transparent and merit-based: new committers and PPMC members are added openly.  
@@ -158,12 +158,12 @@ The Maturity Model can be a helpful checklist, but human judgment is always requ
 --
 
 == Reviewing Graduation Proposals
-Look for\:
-* Community diversity and independence
-* Recent ASF-compliant releases
-* Mailing list engagement and transparency
-* Signs of self-governance
-* Questions or concerns — raise them!
+* Look for:
+** Community diversity and independence
+** Recent ASF-compliant releases
+** Mailing list engagement and transparency
+** Signs of self-governance
+** Questions or concerns — raise them!
 
 [.notes]
 --
@@ -178,12 +178,12 @@ Your feedback helps the Board and the community feel confident about graduation.
 --
 
 == Monitoring Podling Health
-Watch for\:
-* Stalled communication
-* No release progress
-* Single-vendor dominance
-* Weak mentorship
-* Community stagnation
+* Watch for:
+** Stalled communication
+** No release progress
+** Single-vendor dominance
+** Weak mentorship
+** Community stagnation
 
 [.notes]
 --
