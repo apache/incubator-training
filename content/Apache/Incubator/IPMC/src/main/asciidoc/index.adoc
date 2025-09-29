@@ -16,6 +16,16 @@
   limitations under the License.
 
 ////
+:revealjs_theme: white
+:revealjs_slideNumber: false
+:revealjs_progress: false
+:revealjs_center: true
+:revealjs_controls: false
+:revealjs_history: true
+:revealjs_transition: fade
+:icons: font
+:sectanchors:
+:customcss: apache.css
 
 == Welcome to the IPMC Community
 * Thank you for joining the IPMC
@@ -108,7 +118,7 @@ Oversight is primarily cultural and process-driven, not bureaucratic.
 --
 
 == Reviewing Releases
-Check for:
+Check for\:
 * LICENSE and NOTICE files
 * Dependency license compliance
 * Correct process (vote on dev@, 72h minimum)
@@ -118,7 +128,7 @@ Check for:
 [.notes]
 --
 Releases are where the IPMC’s role is most visible.  
-Things to check:  
+Things to check\:  
 - Are the LICENSE and NOTICE files present and correct?  
 - Do all dependencies have ASF-compatible licenses?  
 - Was the vote run properly on the dev@ list, with at least 72 hours?  
@@ -128,7 +138,7 @@ Mentors may catch many issues, but a second set of eyes is critical.
 --
 
 == Graduation Criteria
-Podlings must show:
+Podlings must show\:
 * A sustainable, diverse community
 * ASF infrastructure and process use
 * Transparent, merit-based governance
@@ -137,7 +147,7 @@ Podlings must show:
 
 [.notes]
 --
-Graduation isn’t automatic—it’s a judgment call by the IPMC and Board.  
+Graduation isn’t automatic - it’s a judgment call by the IPMC and Board.  
 Key signals:  
 - The community is active and not dominated by one vendor.  
 - They’ve switched to ASF infrastructure (lists, repos, website).  
@@ -148,7 +158,7 @@ The Maturity Model can be a helpful checklist, but human judgment is always requ
 --
 
 == Reviewing Graduation Proposals
-Look for:
+Look for\:
 * Community diversity and independence
 * Recent ASF-compliant releases
 * Mailing list engagement and transparency
@@ -168,7 +178,7 @@ Your feedback helps the Board and the community feel confident about graduation.
 --
 
 == Monitoring Podling Health
-Watch for:
+Watch for\:
 * Stalled communication
 * No release progress
 * Single-vendor dominance
