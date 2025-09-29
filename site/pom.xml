@@ -665,6 +665,12 @@
     </dependency>
     <dependency>
       <groupId>org.apache.training.content</groupId>
+      <artifactId>incubator-ipmc</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.training.content</groupId>
       <artifactId>incubator-committers</artifactId>
       <version>1.0.0-SNAPSHOT</version>
       <type>war</type>
