@@ -26,7 +26,7 @@ lxml==6.0.1
 nwdiag==3.0.0
 opc-diag==1.1.1
 pango==0.0.1
-Pillow==9.5.0
+Pillow==10.3.0
 pycairo==1.28.0
 PyGObject==3.42.1
 racks==1.0.0
