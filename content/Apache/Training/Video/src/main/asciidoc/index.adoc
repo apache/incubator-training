@@ -1,0 +1,94 @@
+// Licensed to the Apache Software Foundation (ASF) under one
+// or more contributor license agreements.  See the NOTICE file
+// distributed with this work for additional information
+// regarding copyright ownership.  The ASF licenses this file
+// to You under the Apache License, Version 2.0 (the
+// "License"); you may not use this file except in compliance
+// with the License.  You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied.  See the License for the
+// specific language governing permissions and limitations
+// under the License.
+
+:revealjs_theme: white
+:revealjs_slideNumber: false
+:revealjs_progress: false
+:revealjs_center: true
+:revealjs_controls: false
+:revealjs_history: true
+:icons: font
+:sectanchors:
+:customcss: apache.css
+
+// ----- Intro - Frame 1 -----
+[%notitle]
+== Title
+image::ASF_oak.png[ASF Oak Leaf, width=220]
+
+[.series-title]
+Apache Incubator Training Series
+
+[.notes]
+--
+Universal intro slide (frame 1).
+Logo centered, series title in ASF blue.
+Hold ~3 seconds.
+--
+
+
+// ----- Intro - Frame 2 (Module Title) -----
+[%notitle]
+== Title
+
+[.module-title]
+*IPMC Onboarding*
+
+[.module-subtitle]
+Supporting Podlings the Apache Way
+
+[.notes]
+--
+Module intro slide (frame 2).
+Replace title/subtitle per module.
+Hold ~7–10 seconds.
+--
+
+// ----- Blamk -----
+[%notitle]
+== Title
+
+// ----- Outro - Frame 1 -----
+[%notitle]
+== Title
+image::asf_oak.png[ASF Oak Leaf, width=220]
+
+[.tagline]
+*Community Over Code*
+
+[.notes]
+--
+Outro frame 1: logo centered, tagline in ASF red.
+Hold ~5 seconds.
+--
+
+
+// ----- Outro - Frame 2 -----
+[%notitle]
+== Title
+image::asf_oak.png[ASF Oak Leaf, width=220, role=top-right]
+
+Thanks for watching this Incubator module.
+
+[.url]
+https://incubator.apache.org/training
+
+[.notes]
+--
+Outro frame 2: site URL in ASF blue.
+Hold ~5 seconds and fade out.
+--
