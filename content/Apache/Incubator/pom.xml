@@ -41,6 +41,7 @@
     <module>IPMC</module>
     <module>PPMC</module>
     <module>Committers</module>
+    <module>ASFValues</module>
   </modules>
 
 </project>

@@ -36,6 +36,7 @@
   <modules>
     <module>Demo</module>
     <module>Presentations</module>
+    <module>Video</module>
   </modules>
 
 </project>

@@ -1,0 +1,391 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+:revealjs_theme: white
+:revealjs_slideNumber: false
+:revealjs_progress: false
+:revealjs_center: true
+:revealjs_controls: false
+:revealjs_history: true
+:revealjs_transition: fade
+:icons: font
+:sectanchors:
+:customcss: apache.css
+
+== 🌱 ASF Culture Modules
+Learning the Values Behind the Apache Way
+
+[.notes]
+--
+Welcome participants.  
+Explain that incubation isn’t just about technical milestones or ticking boxes.  
+It’s about learning and living the cultural values that make Apache projects sustainable.  
+These modules are designed to help podlings understand those values and apply them in daily work.  
+Encourage participants to see this not as abstract philosophy but as practical skills for building healthy communities.  
+--
+
+== Why Culture Matters
+- Processes can be copied; culture must be learned  
+- Sustaining a project requires more than code  
+- ASF values guide how communities make decisions, grow, and resolve conflict  
+
+[.notes]
+--
+Point out that any group can copy Apache’s mailing lists, repos, and voting rules — but without the cultural understanding, the project may still fail.  
+Highlight that long-lived projects survive because they have communities who know how to handle conflict, invite newcomers, and adapt.  
+This is why ASF culture is core to incubation, not just governance paperwork.  
+--
+
+== What We’ll Cover
+Six modules aligned with the typical podling journey
+
+1. Transparency  
+2. Consensus Decision-Making  
+3. Meritocracy & Community Growth  
+4. Community over Code  
+5. Vendor Neutrality  
+6. Branding & Trademarks  
+
+[.notes]
+--
+Explain the order: new podlings often struggle first with transparency and consensus, then questions of meritocracy and growth, then deeper challenges like vendor dominance and branding issues.  
+This sequence mirrors real podling journeys, but each module also stands alone.  
+--
+
+== How to Use These Modules
+- Best followed in sequence, but each stands alone  
+- Embedded in podling training, checkpoints, and mentor discussions  
+- Reflection questions are prompts for mailing list or mentor conversations  
+- Quizzes are for self-check, not grading  
+
+[.notes]
+--
+Stress that this isn’t school — no one is grading answers.  
+Reflection questions are designed to spark useful discussions.  
+Encourage participants to take examples back to their podling lists, where conversations matter most.  
+--
+
+== Reflection Question
+Which of these ASF values do you think your podling already practices well, and which might need more work?  
+
+[.notes]
+--
+This is a warm-up question. Encourage participants to be candid — no podling is perfect.  
+Answers can help mentors focus support where it’s most needed.  
+--
+
+== 🔍 Transparency
+*Decisions in the Open*
+
+[.notes]
+--
+Introduce transparency as Apache’s foundational cultural value.  
+At Apache, important decisions must be visible to the entire community, archived, and open to participation.  
+Without transparency, other values like consensus and meritocracy cannot function.  
+--
+
+== What Transparency Means
+- Technical and governance discussions happen on public lists  
+- Private channels (chat, calls, Slack) are fine for brainstorming, but outcomes must be written back to the list  
+- Mailing lists are the **source of record** for project decisions  
+- “If it didn’t happen on the list, it didn’t happen.”  
+
+== Why Transparency Matters
+- Ensures accountability and trust within the community  
+- Allows new contributors to follow history and context  
+- Prevents “insider” and “outsider” dynamics  
+- Protects ASF’s reputation for open governance  
+
+[.notes]
+--
+Give an example: a newcomer reading archives should be able to trace how a decision was made and why.  
+Without this, they may feel excluded or distrustful.  
+Transparency levels the playing field and makes community growth possible.  
+--
+
+== Reflection Question
+Your podling makes most decisions on company Slack and only posts summaries to the list afterwards.  
+**What specific steps would you take to move decisions back to the list?**  
+
+[.notes]
+--
+Possible answers:  
+- Politely remind team members on Slack that final decisions must be recorded on the list.  
+- Summarize Slack discussions yourself and ask others to confirm.  
+- Encourage people to “take it to the list” when conversations turn into decisions.  
+- If issues persist, mentors can escalate gently by reminding the community of ASF policy.  
+--
+
+== 🗳️ Consensus Decision-Making
+*How Apache Projects Decide Together*
+
+[.notes]
+--
+Explain that Apache decisions are made by consensus, not by fiat or corporate mandate.  
+Consensus ensures buy-in, avoids surprises, and keeps governance collective.  
+Contrast with corporate cultures where decisions might be dictated top-down.  
+--
+
+== What Consensus Means
+- Everyone on the mailing list can contribute to discussions  
+- Objections must be heard and addressed — not ignored  
+- “Lazy consensus”: silence is treated as agreement unless someone objects  
+- Votes are public, transparent, and archived  
+
+[.notes]
+--
+Introduce lazy consensus: a default that keeps things moving unless someone objects.  
+Explain that explicit votes are used for key decisions like releases or adding committers.  
+Stress that objections are valuable signals — they highlight risks or perspectives that need attention.  
+--
+
+== Why Consensus Matters
+- Ensures decisions reflect the whole community, not just one group  
+- Builds durable buy-in and trust  
+- Reduces surprises and prevents domination by any vendor or individual  
+- Protects ASF’s reputation for neutral, open governance  
+
+[.notes]
+--
+Use an example: if only one company pushes changes without consensus, outsiders will hesitate to contribute.  
+Consensus is what makes a project feel like a community effort rather than corporate property.  
+--
+
+== Reflection Question
+A decision was announced as “already made” without mailing list discussion.  
+**How would you move the decision back to the list and involve the community?**  
+
+[.notes]
+--
+Possible responses:  
+- Ask for the decision to be restated on the list for confirmation.  
+- Invite feedback and objections openly.  
+- Remind participants that off-list decisions are not valid in ASF governance.  
+--
+
+== 🌟 Meritocracy & Community Growth
+*Earning Trust Through Contribution*
+
+[.notes]
+--
+Explain that meritocracy at Apache is about earned trust through contributions, not about status, company, or seniority.  
+It’s how newcomers can grow into leaders over time.  
+--
+
+== What Meritocracy Means
+- Contributors gain responsibility by demonstrating commitment  
+- Merit is judged by community, not employers  
+- Roles: contributor → committer → PMC/PPMC  
+- Contributions can be code, docs, reviews, community work  
+
+== Meritocracy Myths
+- ❌ “Meritocracy means the loudest voice wins”  
+- ❌ “Only code counts”  
+- ❌ “Seniority at a company equals merit at Apache”  
+- ✅ Reality: Merit is earned through consistent, constructive contributions across many forms  
+
+[.notes]
+--
+Clear up common misconceptions: being loud or senior doesn’t equal merit.  
+Meritocracy at Apache is practical, earned, and reviewed by peers.  
+--
+
+== Why Meritocracy Matters
+- Encourages open participation — anyone can rise through contribution  
+- Builds a sustainable pipeline of new leaders  
+- Prevents concentration of control in a small group or one company  
+- Demonstrates ASF’s fairness and openness to the wider community  
+
+[.notes]
+--
+Link to sustainability: without new committers and PMC members, projects stagnate.  
+Meritocracy creates a natural pipeline of leadership.  
+--
+
+== Reflection Question
+Most contributors in your podling come from one company.  
+**What concrete actions could you take to attract and support new contributors from outside that company?**  
+
+[.notes]
+--
+Possible actions:  
+- Improve documentation and onboarding.  
+- Label “good first issues.”  
+- Mentor newcomers explicitly.  
+- Encourage non-company committers to join decision-making.  
+--
+
+== 🤝 Community over Code
+*Why People Matter Most*
+
+[.notes]
+--
+This is a core ASF motto: “Community over Code.”  
+Even perfect code won’t save a project if the community is weak.  
+Strong communities can always improve code.  
+--
+
+== What It Means
+- Strong communities can always fix weak code  
+- Weak communities cannot sustain even great code  
+- Decision-making, mentoring, and inclusivity are as important as technical output  
+- Graduation depends on community health, not just releases  
+
+== Why It Matters
+- Ensures projects outlast individual contributors or companies  
+- Encourages collaboration and mentorship  
+- Builds resilience against burnout or “bus factor” risks  
+- Reinforces ASF’s mission of sustainable, diverse communities  
+
+[.notes]
+--
+Use examples: projects with 1–2 dominant developers often fail when those developers leave.  
+Healthy communities spread knowledge, reduce risk, and create continuity.  
+--
+
+== Reflection Question
+Your podling ships features quickly but most discussions come from just 2–3 people.  
+**What risks do you see, and what actions could you take to spread participation?**  
+
+[.notes]
+--
+Possible answers:  
+- Risk of burnout, low diversity, and project collapse.  
+- Actions: encourage more list discussion, assign reviews, mentor new contributors.  
+--
+
+== 🏢 Vendor Neutrality
+*Balancing Company Involvement*
+
+[.notes]
+--
+Vendor neutrality is crucial: Apache projects must not be dominated by any single company.  
+Individuals contribute in their own name, not on behalf of their employer.  
+--
+
+== What It Means
+- No single company controls the project or its direction  
+- Contributors act as individuals, not company representatives  
+- Technical merit matters more than employer or sponsorship  
+- Governance is balanced across diverse participants  
+
+== Why It Matters
+- Protects ASF’s reputation for independence and fairness  
+- Encourages outside contributors to join without fear of corporate control  
+- Reduces legal and trademark risks tied to company ownership  
+- Builds long-term sustainability as companies come and go  
+
+[.notes]
+--
+Example: if a podling is 90% run by one vendor, outsiders will see it as that company’s project, not Apache’s.  
+This undermines recruitment and credibility.  
+--
+
+== Reflection Question
+Most code in your podling comes from one company’s employees.  
+**What steps could you take to balance this and make the project more welcoming to outsiders?**  
+
+[.notes]
+--
+Actions could include:  
+- Recognizing and mentoring external contributors.  
+- Rotating release managers.  
+- Encouraging diverse representation in PPMC.  
+--
+
+== ™️ Branding & Trademarks
+*Protecting the Project’s Identity*
+
+[.notes]
+--
+Branding may feel like a legal detail, but it’s vital.  
+Apache owns names and logos so projects remain community property, not company assets.  
+--
+
+== What It Means
+- The ASF owns project names and logos  
+- Podlings must follow ASF branding guidelines  
+- Names, marks, and domains cannot be controlled by individuals or companies  
+- Projects must consistently use the **“Apache <Project>”** name in all materials  
+- Consistent use of ASF trademarks protects both the project and the Foundation  
+
+== Why It Matters
+- Safeguards ASF’s credibility and independence  
+- Ensures users know they are getting the official ASF project  
+- Prevents legal disputes and confusion  
+- Reinforces the project’s status as a community-driven effort  
+
+[.notes]
+--
+Example: a podling using a company domain or logo confuses users about ownership.  
+ASF branding protects both the project and its contributors.  
+--
+
+== Reflection Question
+A major contributing company is using your podling’s name and logo in its marketing in a way that suggests it “owns” the project.  
+**How should your podling respond to protect ASF branding while maintaining a good relationship with that contributor?**  
+
+[.notes]
+--
+Tricky because the company is a major contributor.  
+Podling should:  
+- Thank them for their contributions.  
+- Remind the list that ASF owns names/logos and branding must not imply company ownership.  
+- Suggest compliant wording (e.g., “Company X contributes to Apache <Project>”).  
+- Keep the discussion on-list so all see the rule.  
+- Escalate to trademarks@apache.org if needed.  
+
+Balance diplomacy with protecting ASF’s independence.  
+--
+
+== 🌟 Wrapping Up
+Living the Apache Way
+
+[.notes]
+--
+Close by reminding participants: culture is what sustains Apache projects.  
+Code changes, but values endure.  
+--
+
+== Key Takeaways
+- ASF values are as important as technical milestones  
+- Healthy communities grow through transparency and consensus  
+- Responsibility is earned by merit, not granted by employers  
+- Projects thrive when community comes before code  
+- Neutrality and branding protect the ASF and its projects  
+
+== Next Steps
+- Apply these principles in your podling community  
+- Discuss reflection questions with your mentors and peers  
+- Use these modules as a reference throughout incubation  
+- Remember: incubation is about learning the Apache Way, not just checking boxes  
+
+[.notes]
+--
+Encourage participants to use these values as a checklist during podling discussions and reports.  
+Remind them that mentors are available to help reinforce these values.  
+--
+
+== Reflection Question
+Which Apache cultural value will you commit to strengthening in your podling over the next 6 months?  
+
+[.notes]
+--
+End with a forward-looking commitment.  
+This helps podlings set goals and track cultural progress alongside technical milestones.  
+--

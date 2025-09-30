@@ -112,11 +112,12 @@
       <item name="Apache Hive" href="presentations/apache/hive/index.html" target="_blank"/>
       <item name="Apache Ignite" href="presentations/apache/ignite/index.html" target="_blank"/>
       <item name="Apache Incubator">
+        <item name="ASF Values" href="presentations/apache/incubator/ASFvalues/index.html" target="_blank"/>
         <item name="Incubator Releases" href="presentations/apache/incubator/incubator-releases/index.html" target="_blank"/>
-        <item name="IPMC Onboarding" href="presentations/apache/incubator/IPMC/index.html" target="_blank"//>
+        <item name="IPMC Onboarding" href="presentations/apache/incubator/IPMC/index.html" target="_blank"/>
         <item name="Mentors Onboarding" href="presentations/apache/incubator/mentors/index.html" target="_blank"/>
-        <item name="PPMC Onboarding" href="presentations/apache/incubator/PPMC/index.html" target="_blank"//>
-        <item name="Committers Onboarding" href="presentations/apache/incubator/committers/index.html" target="_blank"//>
+        <item name="PPMC Onboarding" href="presentations/apache/incubator/PPMC/index.html" target="_blank"/>
+        <item name="Committers Onboarding" href="presentations/apache/incubator/committers/index.html" target="_blank"/>
         <item name="Navigating ASF Incubator" href="presentations/apache/incubator/navigating-asf-incubation/index.html" target="_blank"/>
         <item name="Release Checklist" href="presentations/apache/incubator/release-checklist/index.html" target="_blank"/>
       </item>
