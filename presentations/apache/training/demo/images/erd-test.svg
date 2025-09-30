@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg height='133pt' preserveAspectRatio='xMidYMid meet' viewBox='0.00 0.00 352.80 132.80' width='353pt' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg'>
+<g class='graph' id='graph0' transform='scale(1 1) rotate(0) translate(14.4 118.4)'>
+<title>%3</title>
+<polygon fill='white' points='-14.4,14.4 -14.4,-118.4 338.4,-118.4 338.4,14.4 -14.4,14.4' stroke='transparent'/>
+
+<g class='node' id='node1'>
+<title>Person</title>
+<path d='M12,-0.5C12,-0.5 132,-0.5 132,-0.5 138,-0.5 144,-6.5 144,-12.5 144,-12.5 144,-91.5 144,-91.5 144,-97.5 138,-103.5 132,-103.5 132,-103.5 12,-103.5 12,-103.5 6,-103.5 0,-97.5 0,-91.5 0,-91.5 0,-12.5 0,-12.5 0,-6.5 6,-0.5 12,-0.5' fill='none' stroke='black'/>
+<text font-family='Helvetica bold' font-size='14.00' font-weight='bold' text-anchor='start' x='44.5' y='-88.8'>Person</text>
+<polyline fill='none' points='0,-80.5 144,-80.5 ' stroke='black'/>
+<text font-family='Times,serif' font-size='12.00' text-anchor='start' x='9' y='-62.9'>*name</text>
+<text font-family='Times,serif' font-size='12.00' text-anchor='start' x='9' y='-45.9'>height</text>
+<text font-family='Times,serif' font-size='12.00' text-anchor='start' x='9' y='-28.9'>weight</text>
+<text font-family='Times,serif' font-size='12.00' text-anchor='start' x='9' y='-11.9'>+birth_location_id</text>
+</g>
+
+<g class='node' id='node2'>
+<title>Location</title>
+<path d='M192,-0.5C192,-0.5 312,-0.5 312,-0.5 318,-0.5 324,-6.5 324,-12.5 324,-12.5 324,-91.5 324,-91.5 324,-97.5 318,-103.5 312,-103.5 312,-103.5 192,-103.5 192,-103.5 186,-103.5 180,-97.5 180,-91.5 180,-91.5 180,-12.5 180,-12.5 180,-6.5 186,-0.5 192,-0.5' fill='none' stroke='black'/>
+<text font-family='Helvetica bold' font-size='14.00' font-weight='bold' text-anchor='start' x='218' y='-88.8'>Location</text>
+<polyline fill='none' points='180,-80.5 324,-80.5 ' stroke='black'/>
+<text font-family='Times,serif' font-size='12.00' text-anchor='start' x='189' y='-62.9'>*id</text>
+<text font-family='Times,serif' font-size='12.00' text-anchor='start' x='189' y='-45.9'>city</text>
+<text font-family='Times,serif' font-size='12.00' text-anchor='start' x='189' y='-28.9'>state</text>
+<text font-family='Times,serif' font-size='12.00' text-anchor='start' x='189' y='-11.9'>country</text>
+</g>
+
+<g class='edge' id='edge1'>
+<title>Person&#45;&#45;Location</title>
+<path d='M153.33,-52C159.16,-52 165.05,-52 170.88,-52' fill='none' stroke='black'/>
+<polygon fill='black' points='153.12,-52 144.12,-47.95 148.62,-52 144.12,-52 144.12,-52 144.12,-52 148.62,-52 144.12,-56.05 153.12,-52 153.12,-52' stroke='black'/>
+<polyline fill='none' points='180,-52 175.5,-52 ' stroke='black'/>
+<polygon fill='black' points='174.6,-47.5 174.6,-56.5 172.8,-56.5 172.8,-47.5 174.6,-47.5' stroke='black'/>
+<polyline fill='none' points='175.5,-52 171,-52 ' stroke='black'/>
+<text font-family='Times,serif' font-size='12.00' text-anchor='start' x='160.73' y='-39.36'>1</text>
+<text font-family='Times,serif' font-size='12.00' text-anchor='start' x='146.38' y='-58.44'>0..N</text>
+</g>
+</g>
+</svg>

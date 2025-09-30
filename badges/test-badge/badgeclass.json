@@ -1,0 +1,12 @@
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "type": "BadgeClass",
+  "id": "https://training.apache.org/badges/test-badge/badgeclass.json",
+  "name": "Test Badge",
+  "description": "This is a test badge for testing purposes.",
+  "image": "https://training.apache.org/badges/test-badge/badge.png",
+  "criteria": {
+    "narrative": "This is a test badge and not awarded for any reason."
+  },
+  "issuer": "https://training.apache.org/badges/test-badge/issuer.json"
+}
