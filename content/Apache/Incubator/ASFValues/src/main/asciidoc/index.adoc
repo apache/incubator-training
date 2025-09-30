@@ -27,7 +27,7 @@
 :sectanchors:
 :customcss: apache.css
 
-== 🌱 ASF Culture Modules
+== 🌱 ASF Culture
 Learning the Values Behind the Apache Way
 
 [.notes]
@@ -35,7 +35,7 @@ Learning the Values Behind the Apache Way
 Welcome participants.  
 Explain that incubation isn’t just about technical milestones or ticking boxes.  
 It’s about learning and living the cultural values that make Apache projects sustainable.  
-These modules are designed to help podlings understand those values and apply them in daily work.  
+These are designed to help podlings understand those values and apply them in daily work.  
 Encourage participants to see this not as abstract philosophy but as practical skills for building healthy communities.  
 --
 
@@ -52,7 +52,7 @@ This is why ASF culture is core to incubation, not just governance paperwork.
 --
 
 == What We’ll Cover
-Six modules aligned with the typical podling journey
+Six areas aligned with the typical podling journey
 
 1. Transparency  
 2. Consensus Decision-Making  
@@ -67,7 +67,7 @@ Explain the order: new podlings often struggle first with transparency and conse
 This sequence mirrors real podling journeys, but each module also stands alone.  
 --
 
-== How to Use These Modules
+== How to Use These
 - Best followed in sequence, but each stands alone  
 - Embedded in podling training, checkpoints, and mentor discussions  
 - Reflection questions are prompts for mailing list or mentor conversations  
@@ -372,7 +372,7 @@ Code changes, but values endure.
 == Next Steps
 - Apply these principles in your podling community  
 - Discuss reflection questions with your mentors and peers  
-- Use these modules as a reference throughout incubation  
+- Use these as a reference throughout incubation  
 - Remember: incubation is about learning the Apache Way, not just checking boxes  
 
 [.notes]
