@@ -87,7 +87,7 @@ The PPMC manages the podling’s community and technical direction but **cannot 
 This helps avoid legal risk and ensures consistency.  
 --
 
-== Committer vs. PPMC
+== Committer vs. PPMC Member
 * Initial committers are PPMC members
 * Committers: can commit code changes
 * PPMC: sets technical direction & community growth
