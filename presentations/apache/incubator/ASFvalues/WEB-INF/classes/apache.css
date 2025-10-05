@@ -379,3 +379,20 @@ body {
   position: fixed;
   right: 5%;
 }
+
+/* Force left alignment for slide body content */
+.reveal .slides section,
+.reveal .slides section p,
+.reveal .slides section ul,
+.reveal .slides section ol,
+.reveal .slides section blockquote,
+.reveal .slides section pre {
+  text-align: left !important;
+}
+
+/* Optional: keep headings centered (remove if you want headings left too) */
+.reveal .slides section h1,
+.reveal .slides section h2,
+.reveal .slides section h3 {
+  text-align: center !important;
+}
