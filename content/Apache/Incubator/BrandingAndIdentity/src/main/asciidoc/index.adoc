@@ -1,0 +1,314 @@
+////
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+////
+
+:revealjs_theme: white
+:revealjs_slideNumber: false
+:revealjs_progress: false
+:revealjs_center: false
+:revealjs_controls: false
+:revealjs_history: true
+:revealjs_transition: fade
+:icons: font
+:sectanchors:
+
+:customcss: apache.css
+
+[.title-slide]
+== Branding and Identity in the Apache Incubator
+
+_Guidance for Podlings on Name and Logo Use_
+
+[.notes]
+--
+Introduce that this session explains how podlings can use Apache names and logos correctly  
+and maintain a clear, neutral identity while in incubation.  
+
+Key points:  
+* Podlings represent both their own community and the ASF.  
+* Correct branding builds trust and avoids confusion.  
+* Third parties can use ASF marks if they follow policy,  
+  but projects share responsibility for oversight and clarity.  
+
+Encourage participants to think about whether their project’s public presence  
+clearly shows it is part of the Apache Incubator.  
+--
+
+
+== Introduction
+
+Incubating projects carry both the Apache name and their own identity.  
+
+Guiding third-party use of the project’s name and logo is an important part of community responsibility.
+
+Misuse can:
+
+* Confuse users  
+* Create the impression of ASF endorsement  
+* Undermine ASF’s vendor-neutral reputation  
+
+[.notes]
+--
+Explain that branding is about **clarity, not restriction**.  
+Podlings should check how their name and logo appear publicly and step in early if there’s confusion.  
+A few simple checks early in incubation prevent bigger issues later.  
+--
+
+== Why Third-Party Branding Matters
+
+* Protecting the Apache Name  
+* Preventing Misrepresentation  
+* Preserving Vendor Neutrality  
+* Reducing Graduation Risks  
+
+[.notes]
+--
+Introduce these four themes as the foundation of the session.  
+Each connects to ASF principles: shared stewardship, transparency, and independence.  
+You’ll expand on each with real-world examples and good practices.  
+--
+
+== Protecting the Apache Name
+
+* Every podling carries the prefix **Apache** 
+* Third parties may use ASF marks, but only **when following ASF trademark policy.** 
+* Clear and consistent use protects both the podling and the ASF’s reputation.  
+* Safeguarding this shared brand is part of being a responsible community.
+
+[.notes]
+--
+“Apache” is a trademark that represents open governance and community trust.  
+It’s fine for others to reference a project name — like “compatible with Apache Foo” — as long as it’s accurate and non-endorsing.  
+Encourage podlings to review the ASF trademark policy: https://www.apache.org/foundation/marks/  
+Protecting the brand helps maintain ASF’s collective credibility.  
+--
+
+== Preventing Misrepresentation
+
+* Third parties may promote software or services as “official” when they are not.  
+* Without clarification, users may assume the ASF endorses a product or company.  
+* Friendly early conversations help maintain trust and avoid confusion.
+
+[.notes]
+--
+Misrepresentation is often unintentional.  
+Vendors may not understand ASF’s structure or naming requirements.  
+Approach corrections gently: thank them for their enthusiasm, explain how ASF works, and share the branding page link.  
+Positive engagement builds relationships while protecting integrity.  
+--
+
+== Preserving Vendor Neutrality
+
+ASF projects are vendor-neutral. If one company markets a podling as its own product, it can create the impression of ownership.  
+
+This may lead to:
+
+* Less participation from others
+* Reduced diversity
+* Graduation delays
+
+[.notes]
+--
+Neutrality supports openness and inclusion.  
+A healthy project has visible participation from multiple companies and individuals.  
+If the public face appears tied to one company, new contributors may hesitate to join.  
+Encourage podlings to share event presence, website updates, and outreach across organizations.  
+--
+
+== Reducing Graduation Risks
+
+* Branding and trademark management are part of ASF graduation criteria.
+* Projects that handle name and logo use responsibly tend to move through graduation more smoothly.
+
+[.notes]
+--
+Branding is a checkpoint in the ASF Maturity Model and the Incubator graduation review.  
+Demonstrating consistent use of “(incubating)” and proper responses to misuse shows readiness.  
+This is about building good habits, not bureaucracy.  
+--
+
+== Common Risks (Part 1)
+
+* A vendor markets “Apache Foo Enterprise Edition”, implying ASF endorsement  
+* A company displays the ASF logo on its commercial website  
+* Blogs or press refer to it as “Company X’s project” 
+* Promotional material describes it as “owned” or “developed by Company X”
+
+[.notes]
+--
+These are frequent issues across the Incubator.  
+Such phrasing can confuse the public into thinking a company controls or created the project.  
+Podlings should watch how their names appear online and correct issues politely.  
+Provide helpful resources like the “Proper Use of Apache Marks” page.  
+Tone matters — be collaborative, not confrontational.  
+--
+
+== Common Risks (Part 2)
+
+* Only one vendor is visibly active or commercializing the podling  
+* The podling omits “(incubating)” on its website or releases  
+* One company’s employees dominate governance or mailing lists  
+* Third-party materials (whitepapers, training, blogs) present the project as proprietary  
+* Event booths or swag show the logo without “(incubating)” or alongside corporate branding
+
+[.notes]
+--
+These subtle patterns can develop gradually.  
+The goal isn’t to assign blame but to restore balance and transparency.  
+Encourage diversity by recognizing contributions from multiple organizations.  
+Ensure the incubating qualifier appears on all visuals and communications.  
+If issues persist, mentors can reach out privately or contact trademarks@apache.org.  
+--
+
+== Branding in Incubator Reports
+
+* Quarterly reports invite a short branding update.
+* Consider noting:
+** Use of the correct name (“Apache Foo (incubating)”)
+** Third-party mentions checked and any corrections requested
+** Outreach with vendors/events and links to ASF guidance
+
+[.notes]
+--
+Don’t leave this blank or just write “none.”  
+Even “Reviewed public mentions; confirmed consistent use; corrected 2 listings” shows oversight.  
+Mentors can remind podlings to keep a small log of branding checks to make quarterly reporting easy.  
+--
+
+== The “(Incubating)” Disclaimer
+
+Until graduation, use the full name: **Apache Foo (incubating)**  
+
+Display it on:
+
+* Website, README, docs, and slides  
+* Release artifacts and notices  
+* Event listings and talk abstracts  
+
+[.notes]
+--
+This qualifier helps users understand status and governance.  
+Third parties should mirror the same form when naming the project.  
+Once the Board approves graduation and infra completes renames, the qualifier can be dropped.  
+If space is tight (e.g., slides), show it in a footer or sub-title.  
+--
+
+== Visual Identity and Logos
+
+Podlings may design logos. Aim to:
+
+* Follow ASF branding guidance  
+* Keep project identity distinct from corporate marks  
+* Avoid compositions implying endorsement  
+
+[.notes]
+--
+Logos are strong symbols.  
+Combining ASF or podling logos with corporate marks can suggest endorsement.  
+If unsure, mentors or trademarks@apache.org can review designs quickly.  
+Keep vector originals, color specs, and a grayscale version for consistent use.  
+--
+
+== Events, Press, and Mentions
+
+Proactively check how your project appears in:
+
+* Conference schedules and CFP sites  
+* Vendor blogs, docs, and whitepapers  
+* Press releases and analyst notes  
+
+[.notes]
+--
+Mislabeling often happens in conference or marketing materials.  
+Offer a friendly correction: request “Apache Foo (incubating)” and remove ownership phrasing.  
+Provide a concise, correct project description for editors to use.  
+--
+
+== Consequences of Not Acting
+
+Unresolved branding issues can:
+
+* Confuse users and contributors  
+* Signal weak neutrality  
+* Delay graduation reviews  
+
+[.notes]
+--
+Keep the focus on outcomes, not blame.  
+Projects that track and close branding issues early find graduation smoother.  
+Establish a simple “notice → ask → fix → record” practice.  
+--
+
+== Good Practices for Podlings
+
+* Start early: review name/logo use on all surfaces  
+* Monitor public mentions periodically  
+* Offer polite, specific corrections with ASF links  
+* Summarize progress in quarterly reports  
+* Ask mentors or trademarks@apache.org when unsure  
+
+[.notes]
+--
+Create a light “branding hygiene” routine—maybe once per quarter.  
+Rotate the task so it’s shared.  
+Thank third parties who make updates; collaboration fosters goodwill.  
+--
+
+== Branding and Graduation Readiness
+
+Before graduation, reviewers look for:
+
+* Consistent use of the full name and “(incubating)” qualifier  
+* Evidence that the community understands ASF branding principles  
+* Balanced, vendor-neutral presentation across project channels  
+
+[.notes]
+--
+This ties branding directly to graduation success.  
+It’s not just compliance—it’s proof of maturity and shared stewardship.  
+Remind that graduation reviews often note branding as either a strength or a blocker.  
+By demonstrating awareness and balance, a podling shows it’s ready to operate independently as an Apache TLP.  
+--
+
+== Getting Help
+
+Unsure about a use case?
+
+* Ask mentors or the IPMC for a quick review  
+* Email trademarks@apache.org for assistance  
+
+[.notes]
+--
+The ASF Trademark team is collaborative and responsive.  
+Include URLs and screenshots when asking questions—it speeds up guidance.  
+Early questions save time versus fixes during graduation.  
+--
+
+== Conclusion
+
+Taking branding seriously from the start helps podlings:
+
+* Provide clear signals to users  
+* Demonstrate independence and neutrality  
+* Show steady progress toward graduation  
+
+[.notes]
+--
+Wrap up by linking branding to community health and trust.  
+Encourage podlings to make branding checks a normal part of incubation practice.  
+Small, steady attention builds long-term credibility and smoother graduation.  
+--
+

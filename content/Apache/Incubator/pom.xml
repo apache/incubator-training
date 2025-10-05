@@ -43,6 +43,7 @@
     <module>Committers</module>
     <module>ASFValues</module>
     <module>VendorNeutrality</module>
+    <module>BrandingAndIdentity</module>
   </modules>
 
 </project>
