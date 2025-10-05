@@ -1,0 +1,298 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+:revealjs_theme: white
+:revealjs_slideNumber: false
+:revealjs_progress: false
+:revealjs_center: false
+:revealjs_controls: false
+:revealjs_history: true
+:revealjs_transition: fade
+:icons: font
+:sectanchors:
+:customcss: apache.css
+
+== Vendor Neutrality
+
+- Understand why vendor neutrality is essential for ASF project health and independence  
+- Learn how to identify and prevent single-vendor dominance  
+- Explore practices mentors and podlings can adopt to build balanced, sustainable communities  
+
+[.notes]
+--
+Purpose of this module.
+
+Set expectations: this session is for mentors, PPMC members, and anyone guiding a podling to graduation.  
+Neutrality is a key graduation indicator — a measure of how independent and open the community has become.  
+Encourage participants to think about their own project’s balance: who decides, who releases, and how transparent decisions are.
+--
+
+== What Is Vendor Neutrality?
+
+Vendor neutrality means an Apache project isn’t controlled by any one company or sponsor.  
+
+It supports three ASF principles:
+
+- *Meritocracy*: influence comes from contribution, not employment  
+- *Consensus*: decisions reflect community agreement, not one company’s goals  
+- *Transparency*: work and discussions happen openly on ASF lists  
+
+These principles turn vendor-led efforts into community-led Apache projects.
+
+[.notes]
+--
+Define neutrality through the Apache Way itself.  
+Meritocracy → who gets a voice; Consensus → how decisions form; Transparency → where they happen.  
+Ask: which of these feels strongest in your podling today, and which could improve?
+--
+
+== Why It Matters
+
+Vendor neutrality keeps Apache projects open, decisions belong to the community, not a company.
+
+Projects that start under one sponsor succeed when they invite others to share ownership and grow together.
+
+[.notes]
+--
+This is the “why” slide — explain that neutrality is the foundation of ASF sustainability.  
+Single-vendor origins are normal, but long-term success comes from openness and collaboration.  
+Keep tone positive and forward-looking: neutrality isn’t a restriction, it’s how projects last.
+--
+
+== Single-Vendor Projects: Risk vs. Problem
+
+A single-vendor start is common and can bootstrap early success.  
+
+It becomes a risk when:
+
+- Committers or PPMC are mostly from one employer  
+- Decisions are made privately, then rubber-stamped on-list  
+- External contributors struggle to gain traction  
+
+What matters most is visible progress toward independence.
+
+[.notes]
+--
+Distinguish between “risk” and “problem.”  
+Origin doesn’t matter — stagnation does.  
+Mentors should watch for signs of progress: new committers, open design threads, shared release roles.
+--
+
+== Common Pitfalls
+
+- One vendor dominates with no plan to diversify  
+- Chair and PMC majority from the same employer  
+- Decisions happen off-list (Slack, internal meetings)  
+- Brand confusion between company and project  
+- One vendor drives outcomes despite numerical diversity  
+
+[.notes]
+--
+Quickly review these as red flags mentors can spot early.  
+Perception matters — even unintentional dominance undermines trust.  
+Branding issues are particularly serious and can delay graduation.
+--
+
+== Signs of Healthy Neutrality
+
+- Visible roles (e.g., release managers) span multiple organizations  
+- Independent individuals contribute and are recognized by merit  
+- Roadmaps include externally proposed features  
+- Lists show real debate and consensus across affiliations  
+
+[.notes]
+--
+Shift focus to the positive.  
+Neutrality shows up in visible participation, not just numbers.  
+Encourage podlings to highlight new contributors and affiliations in reports.
+--
+
+== Examples in Practice
+
+*Good practice*
+
+- A contributor from another org proposes a feature and is later invited as a committer  
+- Release management rotates across employers  
+- Companies collaborate in public, not in private first  
+
+*Bad practice*
+
+- Roadmaps follow a company’s product cycle  
+- Decisions drafted internally, then “announced” on-list  
+- Marketing presents the Apache project as a company product  
+
+[.notes]
+--
+Use this for discussion: ask attendees to identify what makes each example good or risky.  
+Encourage thinking about small changes that could make private collaboration more transparent.
+--
+
+== Mentors’ Role
+
+Mentors help podlings move from single-vendor control to balanced, community-led governance by:
+
+- Watching for dominance and raising concerns early  
+- Encouraging rotation of leadership roles  
+- Reinforcing that decisions happen on ASF lists  
+- Helping identify and onboard outside contributors  
+- Reporting progress and risks to the IPMC  
+
+[.notes]
+--
+Mentors act as guides and models, not enforcers.  
+Celebrate improvement in reports, not just problems.  
+Encouragement is often more effective than correction.
+--
+
+== Practicing Vendor Neutrality
+
+- Welcome contributors from multiple organizations  
+- Keep decisions and discussions on ASF mailing lists  
+- Disclose employer affiliations in nominations and votes  
+- Rotate key responsibilities to distribute influence  
+- Use Apache project names consistently and correctly  
+- Mentor independent contributors toward committership  
+
+[.notes]
+--
+Use this as a daily practice checklist.  
+Transparency, rotation, and consistent naming are easy wins that build long-term trust.
+--
+
+== Cultural Sensitivity
+
+- Encourage contributors to share their own views, not just their employer’s  
+- Welcome global participation and different working styles  
+- Value both paid and volunteer contributions  
+
+[.notes]
+--
+Neutrality extends beyond company affiliation — time zones, languages, and motivation all shape participation.  
+Creating space for everyone strengthens resilience and inclusion.
+--
+
+== Conflict Prevention and Resolution
+
+- Open consensus prevents vendor-driven conflict  
+- Keep all substantive decisions on-list  
+
+[.notes]
+--
+When disagreements arise, bring them to the mailing list where everyone can contribute and consensus can form.  
+Private discussions often deepen divides — transparency restores trust.
+--
+
+== Brand Independence
+
+ASF brand policy requires clear separation between Apache projects and any company’s products or marketing.
+
+[.notes]
+--
+Brand independence protects both the ASF and companies.  
+Ensure project websites, documentation, and logos follow ASF branding guidance.  
+Misaligned branding is one of the easiest issues to fix early.
+--
+
+== What Podlings Should Aim For
+
+- **Balanced PPMC:** no single employer holds majority control  
+- **Independent perception:** seen as an Apache project, not a vendor asset  
+- **Community-driven roadmap:** consensus on-list, not corporate deadlines  
+- **Distributed leadership:** roles shared across employers and individuals  
+
+[.notes]
+--
+These are graduation-ready indicators.  
+Encourage podlings to show concrete progress — who’s leading releases, who’s voting, and how diverse the leadership looks.
+--
+
+== Encouragement to Companies
+
+Companies benefit from neutrality:
+
+- Builds community trust  
+- Shares maintenance and innovation  
+- Strengthens the ecosystem  
+- Enhances open-source reputation  
+
+[.notes]
+--
+Remind companies that neutrality isn’t loss of control — it’s long-term stability and credibility.  
+Shared ownership attracts contributors and users alike.
+--
+
+== Encouragement to Individuals
+
+Independent contributors are vital:
+
+- They prove the project can outlast any one employer  
+- They bring balance and fresh ideas  
+
+[.notes]
+--
+Encourage projects to mentor and recognize unaffiliated contributors early.  
+It sets the tone for inclusivity and independence.
+--
+
+== Board and Incubator Expectations
+
+Graduation reviews look for:
+
+- Diversity across employers in the PPMC  
+- Evidence of list-based decision making  
+- Clear distinction between Apache identity and vendor branding  
+
+[.notes]
+--
+The IPMC and Board check for *evidence*, not statements.  
+List archives, votes, and community behavior show whether neutrality is real.
+--
+
+== Consequences of Ignoring Neutrality
+
+- *Delayed graduation*  
+- *Board pushback*  
+- *Possible retirement* for vendor-dominated projects  
+
+[.notes]
+--
+This isn’t punishment - it’s about sustainability.  
+Projects must be able to thrive without corporate direction to graduate successfully.
+--
+
+== Key Takeaway
+
+Neutrality is inclusion - everyone can contribute, no one dominates.  
+A balanced, diverse community is what makes Apache projects thrive and endure.
+
+[.notes]
+--
+End with optimism and clarity.  
+Neutrality protects freedom, fairness, and sustainability — the essence of the Apache Way.
+--
+
+== Discussion Prompt
+
+- How can your podling show progress toward neutrality?  
+- Which roles could rotate next to build balance?  
+
+[.notes]
+--
+End with reflection and discussion.  
+Ask participants for one practical change they’ll make in their podling this quarter to support neutrality.
+--
