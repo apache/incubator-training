@@ -27,6 +27,18 @@
 :sectanchors:
 :customcss: apache.css
 
+[.title-slide]
+== Vendor Neutrality
+
+_Why balanced governance keeps Apache projects healthy_
+
+[.notes]
+--
+Set expectations: this session is for mentors, PPMC members, and anyone guiding a podling to graduation.  
+Briefly explain that the session explores how Apache projects maintain independence from any single vendor,  
+and why this principle matters for graduation and long-term sustainability.
+--
+
 == Vendor Neutrality
 
 - Understand why vendor neutrality is essential for ASF project health and independence  
@@ -37,7 +49,6 @@
 --
 Purpose of this module.
 
-Set expectations: this session is for mentors, PPMC members, and anyone guiding a podling to graduation.  
 Neutrality is a key graduation indicator — a measure of how independent and open the community has become.  
 Encourage participants to think about their own project’s balance: who decides, who releases, and how transparent decisions are.
 --

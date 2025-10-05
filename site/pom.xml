@@ -342,7 +342,7 @@
                   <artifactId>incubator-vendor-neutrality</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
-                  <outputDirectory>${project.build.directory}/site/presentations/apache/incubator/ASFvalues</outputDirectory>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/incubator/VendorNeturality</outputDirectory>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>

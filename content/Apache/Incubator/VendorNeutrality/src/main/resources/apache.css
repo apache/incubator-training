@@ -390,9 +390,19 @@ body {
   text-align: left !important;
 }
 
-/* Optional: keep headings centered (remove if you want headings left too) */
+/* Keep headings centered (remove if you want headings left too) */
 .reveal .slides section h1,
 .reveal .slides section h2,
 .reveal .slides section h3 {
   text-align: center !important;
+}
+
+/* Center only the subtitle line on title slides */
+.reveal .slides section.title-slide em,
+.reveal .slides section.title-slide p em {
+  display: block;
+  text-align: center !important;
+  margin-top: 0.5em;
+  font-size: 1.2em;
+  color: #555;
 }
