@@ -70,15 +70,17 @@ A few simple checks early in incubation prevent bigger issues later.
 == Why Third-Party Branding Matters
 
 * Protecting the Apache Name  
-* Preventing Misrepresentation  
-* Preserving Vendor Neutrality  
-* Reducing Graduation Risks  
+* Ensuring proper use of the brand
+* Promoting vendor neutrality  
+* Supporting graduation  
 
 [.notes]
 --
-Introduce these four themes as the foundation of the session.  
-Each connects to ASF principles: shared stewardship, transparency, and independence.  
-You’ll expand on each with real-world examples and good practices.  
+Branding shapes how the project is seen and trusted.  
+The Apache name can be used by third parties, but only with proper attribution and context.  
+Clarify or correct misleading use early.  
+Keep messaging vendor-neutral.  
+Clear, consistent branding shows maturity and readiness to graduate.
 --
 
 == Protecting the Apache Name
@@ -98,16 +100,14 @@ Protecting the brand helps maintain ASF’s collective credibility.
 
 == Preventing Misrepresentation
 
-* Third parties may promote software or services as “official” when they are not.  
-* Without clarification, users may assume the ASF endorses a product or company.  
-* Friendly early conversations help maintain trust and avoid confusion.
+* Third parties must not present software or services as “official” Apache offerings.  
+* If this occurs, a friendly early clarification helps maintain trust and prevent confusion.
 
 [.notes]
 --
-Misrepresentation is often unintentional.  
-Vendors may not understand ASF’s structure or naming requirements.  
-Approach corrections gently: thank them for their enthusiasm, explain how ASF works, and share the branding page link.  
-Positive engagement builds relationships while protecting integrity.  
+Misrepresentation is usually unintentional, many vendors simply don’t understand ASF’s naming or branding rules.  
+Respond early and politely: acknowledge their support, explain how ASF naming works, and share the branding guidance link.  
+A friendly clarification protects community trust and the reputation of the Apache brand.
 --
 
 == Preserving Vendor Neutrality
