@@ -1,0 +1,318 @@
+////
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+////
+
+:revealjs_theme: white
+:revealjs_slideNumber: false
+:revealjs_progress: false
+:revealjs_center: false
+:revealjs_controls: false
+:revealjs_history: true
+:revealjs_transition: fade
+:icons: font
+:sectanchors:
+:customcss: apache.css
+
+[%notitle]
+== Title
+
+[.title-slide]
+== Welcome to the Apache Incubator
+
+_An introduction to joining the Apache Software Foundation through the Incubator_
+
+[.notes]
+--
+Welcome to the Apache Incubator orientation.
+This session introduces new podlings to the incubation process and what to expect as they become part of the Apache Software Foundation (ASF).
+The Incubator helps projects learn ASF processes, build sustainable communities, and graduate as Apache Top-Level Projects (TLPs).
+We’ll cover how projects enter incubation, the roles of mentors and the PPMC, how releases and reporting work, and what graduation looks like.
+--
+
+== What Is a Podling?
+
+A *podling* is a project accepted into the Apache Incubator on its journey to becoming an Apache Top-Level Project (TLP).
+
+Before entering, a proposal is submitted with a **Champion**, a **Sponsor**, and at least one **ASF Member mentor**.
+
+Incubation is not only about technology it’s about learning and practicing *The Apache Way*.
+
+[.notes]
+--
+A “podling” is an incubating project that has been accepted into the ASF.
+Before acceptance, a proposal is reviewed and sponsored by an existing ASF entity (a Top-Level Project or the Incubator PMC).  
+Each project must have at least one ASF Member mentor.
+Incubation is primarily a learning process — projects adopt ASF culture, legal compliance, and transparent governance.
+--
+
+== Goals of Incubation
+
+- Adopt ASF values: **transparency**, **consensus**, **meritocracy**, **community over code**, **vendor neutrality**.  
+- Build a diverse and sustainable community.  
+- Demonstrate ASF-compliant releases.  
+- Ensure legal and policy compliance.  
+- Graduate as an independent Apache project.
+
+[.notes]
+--
+Incubation ensures projects adopt ASF values, operate transparently, and build diverse communities.
+The process culminates in graduation, when the project demonstrates independence and alignment with ASF standards.
+--
+
+== First Steps
+
+- Subscribe to project mailing lists (`dev@`, `commits@`, `private@`).  
+- Introduce the community and mentors on `dev@`.  
+- Set up ASF infrastructure (Git, website, issue tracker, lists).  
+- Review code import with mentor and IPMC guidance.  
+- Begin practicing open, list-based decision making.
+
+[.notes]
+--
+The first few weeks establish your foundation.
+Subscribe to all mailing lists and move project work there — decisions must be archived publicly.
+Introduce mentors and participants on `dev@`, then set up ASF infrastructure using standard request processes.  
+Infrastructure remains under ASF/Incubator administration until graduation.
+When importing code, confirm provenance and licensing with mentors.  
+Operate openly from the start - all decisions should be made and recorded on `dev@`.
+--
+
+== Role of Mentors
+
+- Guide the podling in applying ASF policies and culture.  
+- Help interpret ASF rules and avoid common pitfalls.  
+- Review and sign off on reports and releases.  
+- Provide continuity between the podling and the IPMC.
+
+[.notes]
+--
+Mentors are ASF Members who volunteer to guide your project.
+They interpret ASF processes, review releases and reports, and provide a bridge to the Incubator PMC (IPMC).  
+Mentors advise but do not lead - their goal is to help you become self-governing.  
+Regular mentor engagement is one of the strongest predictors of success.
+--
+
+== Podling Project Management Committee (PPMC)
+
+- Composed of initial committers, mentors, and voted-in PPMC.  
+- Oversees the podling’s growth and governance.  
+- Votes on releases and community decisions under IPMC oversight.  
+- Uses ASF infrastructure, which remains managed by the Foundation during incubation.
+
+[.notes]
+--
+The PPMC manages the podling day-to-day.  
+It includes committers, mentors, and others invited based on merit.
+The PPMC oversees governance and community health, votes on releases, and ensures transparency.  
+All infrastructure (lists, repos, website) is ASF-managed — podlings don’t host their own systems independently.
+--
+
+== The Apache Way in Practice
+
+- **Transparency:** discussions and decisions on public lists.  
+- **Consensus:** seek agreement; hold formal votes when needed.  
+- **Meritocracy:** influence earned through contribution.  
+- **Community over Code:** people and collaboration come first.  
+- **Vendor Neutrality:** avoid single-company dominance.
+
+[.notes]
+--
+The Apache Way defines how the ASF operates.
+Transparency — open discussion on public lists.  
+Consensus — decisions through dialogue, not authority.  
+Meritocracy — recognition based on contribution.  
+Community over Code — long-term sustainability depends on people.  
+Vendor neutrality — equal participation across organizations.
+--
+
+== Releases
+
+- Each release involves **two votes**:  
+** 1️⃣ Podling (PPMC) vote on `dev@` (72-hour minimum).  
+** 2️⃣ IPMC vote on `general@incubator.apache.org`.  
+- Must receive **at least 3 +1 votes** and **more +1s than -1s**.  
+- A `-1` vote is **not a veto**, but signals a concern to resolve.  
+- Include the incubating name and ASF disclaimer.  
+- Source releases must be staged under `dist/dev/incubator/<podling>`.  
+- Choose the appropriate disclaimer: *standard* or *work-in-progress*.
+
+[.notes]
+--
+Releases demonstrate that your project can follow ASF’s legal and procedural standards.
+Each release requires two voting stages:
+1. A **PPMC vote on `dev@`**, open for at least 72 hours.  
+2. A **binding IPMC vote on `general@`** for final approval.
+A valid IPMC vote must achieve **at least three +1 votes** and **more +1s than -1s**.  
+A `-1` is **not a veto** — it highlights an issue to resolve through discussion and revision.
+Releases must include the "(incubating)" name and an ASF disclaimer.  
+Podlings may use the *work-in-progress* disclaimer if needed.
+Only source releases are official ASF releases.  
+They must be staged under `dist/dev/incubator/<podling>` and promoted only after IPMC approval.
+--
+
+== Reporting
+
+- File monthly reports for the first 3 months, then quarterly.  
+- Summarize community growth, releases, and challenges.  
+- Include mentor comments where appropriate.  
+- Reports are reviewed by the IPMC and aggregated for the ASF Board.
+
+[.notes]
+--
+Reports track progress and health.
+The IPMC reviews podling reports and compiles them into the Foundation’s monthly report to the ASF Board.  
+Regular reporting demonstrates accountability and identifies where help may be needed.
+--
+
+== Common Pitfalls
+
+- Making decisions in private chats or company channels.  
+- Delaying the first release too long.  
+- Expecting mentors to handle process work.  
+- Ignoring reports or feedback.  
+- Not taking care of project branding and trademarks.
+
+[.notes]
+--
+These are common mistakes in early incubation.
+All decision-making must occur on public lists.  
+Don’t postpone your first release — it’s your main learning milestone.  
+Mentors guide but don’t manage.  
+Always file reports on time.  
+Remeber to make sure 3rd parties are your branding and tradmarks correctly.
+--
+
+== Graduation
+
+Podlings are ready to graduate when they:
+
+- Have a diverse and active community.  
+- Operate independently using ASF practices.  
+- Have made multiple compliant releases.  
+- No longer rely on mentor oversight.
+
+Graduation requires an IPMC vote and ASF Board approval.
+
+[.notes]
+--
+Graduation is based on readiness, not time.
+The IPMC reviews several indicators: community diversity, multiple compliant releases, independence in governance, and a completed *status file*.  
+When ready, the IPMC votes to recommend graduation to the ASF Board, which gives final approval.
+--
+
+== Legal Essentials
+
+- **Licensing:** confirm provenance and correct headers.  
+- **CLAs:** individual or corporate contributor agreements as needed.  
+- **Trademarks:** names and logos must be approved and transferred if applicable.  
+- **Cryptography:** follow ASF export and distribution policies.  
+- **AI-generated content:** follow ASF generative-tooling policy and document provenance.  
+- **ASF Legal Shield:** contributors are protected when following ASF-approved processes.  
+- **Disclaimers:** use the *standard* or *work-in-progress* disclaimer as appropriate.
+
+[.notes]
+--
+ASF legal policies protect contributors and users.
+All code must have clear provenance and correct headers.  
+Ensure all contributors have signed CLAs (and companies, CCLAs).  
+Coordinate branding and naming with ASF Brand Management — existing trademarks must be transferred or cleared.  
+Follow cryptography export rules.  
+Document and disclose any AI-generated materials per ASF policy.
+ASF provides a **legal shield** to protect contributors who follow approved ASF procedures.  
+Always use the correct disclaimer until graduation.
+--
+
+== Working in a Global Community
+
+- Apache is global — account for time zones, languages, and norms.  
+- Be inclusive and avoid culture-specific references.  
+- Respect volunteer time and differing availability.
+
+[.notes]
+--
+Apache is a worldwide, volunteer-driven community.
+Use clear, respectful language and be mindful of time zones.  
+Avoid idioms or local references that may exclude others.  
+Remember that contributors volunteer their time — inclusiveness builds resilience and trust.
+--
+
+== Key Takeaways
+
+- Incubation is about *community* as much as code.  
+- *The Apache Way* guides all decisions.  
+- Mentors and the IPMC are here to help.  
+- Graduation is the destination — openness is the path.
+
+[.notes]
+--
+To summarize:
+Incubation teaches governance, collaboration, and compliance.  
+The Apache Way provides the framework.  
+Mentors and the IPMC ensure support and accountability.  
+Transparency and inclusion pave the way to graduation.
+--
+
+== Getting Help
+
+- Ask mentors on the `dev@` list — they’re your first contact.  
+- Use `general@incubator.apache.org` for Incubator-wide questions.  
+- Browse link:https://lists.apache.org/[lists.apache.org] for archived examples.  
+- Check the Incubator Wiki for templates, FAQs, and checklists.
+
+[.notes]
+--
+Support is always available.
+Mentors should be your first stop for questions.  
+If something affects multiple podlings, use `general@incubator.apache.org`.  
+Review list archives for examples, and use the Incubator Wiki’s templates and checklists to stay aligned with best practices.
+--
+
+== Resources
+
+- link:https://incubator.apache.org[Apache Incubator Website]  
+- link:https://incubator.apache.org/guides/[Podling Guides]  
+- link:https://www.apache.org/theapacheway/[The Apache Way]  
+- link:https://www.apache.org/legal/release-policy.html[ASF Release Policy]  
+- link:https://www.apache.org/foundation/marks/[ASF Trademark Policy]
+
+[.notes]
+--
+These are your official references.
+The Incubator site and guides detail every aspect of the process.  
+“The Apache Way” explains the Foundation’s culture.  
+Release and Trademark Policies ensure your work meets ASF standards.  
+When in doubt, check the policy — it’s the authoritative source.
+--
+
+== Next Steps
+
+- Read the link:https://cwiki.apache.org/confluence/display/INCUBATOR/Podling+Orientation+Guide[Podling Orientation Guide].  
+- Watch the link:https://training.apache.org/presentations/apache/incubator/PPMC/index.html[PPMC Onboarding] presentation.  
+- Explore link:https://training.apache.org/presentations/apache/incubator/ASFvalues/index.html[ASF Values] to understand ASF culture.  
+- Stay active on `dev@` — transparency builds trust and trust builds community.  
+- Reach out to your mentors early and often — collaboration is the Apache Way.
+
+[.notes]
+--
+Encourage participants to keep learning and engaging.  
+The Orientation Guide and related decks reinforce these lessons.  
+Participation on `dev@` builds credibility and community.  
+Close with this message: incubation is a shared journey — openness, patience, and collaboration lead to success.
+--
+
+
+[%notitle]
+== Title

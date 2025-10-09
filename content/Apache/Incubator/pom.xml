@@ -44,6 +44,7 @@
     <module>ASFValues</module>
     <module>VendorNeutrality</module>
     <module>BrandingAndIdentity</module>
+    <module>PodlingOrientation</module>
   </modules>
 
 </project>
