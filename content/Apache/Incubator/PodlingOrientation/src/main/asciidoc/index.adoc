@@ -26,9 +26,6 @@
 :sectanchors:
 :customcss: apache.css
 
-[%notitle]
-== Title
-
 [.title-slide]
 == Welcome to the Apache Incubator
 
@@ -312,7 +309,3 @@ The Orientation Guide and related decks reinforce these lessons.
 Participation on `dev@` builds credibility and community.  
 Close with this message: incubation is a shared journey — openness, patience, and collaboration lead to success.
 --
-
-
-[%notitle]
-== Title
