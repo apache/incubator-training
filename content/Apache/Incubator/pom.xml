@@ -45,6 +45,7 @@
     <module>VendorNeutrality</module>
     <module>BrandingAndIdentity</module>
     <module>PodlingOrientation</module>
+    <module>Goverance</module>
   </modules>
 
 </project>

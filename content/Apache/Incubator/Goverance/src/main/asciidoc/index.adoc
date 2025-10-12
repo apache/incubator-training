@@ -1,0 +1,205 @@
+////
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+////
+
+:revealjs_theme: white
+:revealjs_slideNumber: false
+:revealjs_progress: false
+:revealjs_center: false
+:revealjs_controls: false
+:revealjs_history: true
+:revealjs_transition: fade
+:icons: font
+:sectanchors:
+:customcss: apache.css
+
+[.title-slide]
+== Governance in Practice
+_Turning ASF Principles into Everyday Project Practice_
+
+[.notes]
+--
+Introduce the topic by framing governance as a journey — not a rulebook.  
+Explain that the goal of incubation is to help podlings learn how to govern themselves,  
+moving from mentor-guided decision-making to independent, community-driven leadership.  
+--
+
+== Purpose
+This guide helps podlings apply ASF governance principles as they progress along the Incubation path.
+
+* Explains what governance looks like day-to-day  
+* Describes governance at key milestones  
+* Assumes a “typical” podling, variations are normal
+
+[.notes]
+--
+Governance isn’t just about policy, it’s about culture and daily habits.  
+Each podling develops its own rhythm, but all must show progress toward ASF-style transparency and community-led decision-making.  
+This session explains what that looks like in practice and how mentors can help guide the process.
+--
+
+== Core Principles in Practice
+* **Community over Code** - Decisions made through open consensus  
+* **Meritocracy** - Responsibility grows with contribution and trust  
+* **Transparency** - All decisions visible on public mailing lists  
+* **Independence** - Project can thrive beyond any one employer
+
+[.notes]
+--
+These four principles are the foundation of ASF governance.  
+They are interdependent: transparency enables meritocracy, meritocracy strengthens independence, and community-driven decisions keep projects healthy long term.  
+Podlings are expected to practice and demonstrate all four before graduation.
+--
+
+== Decision-Making at the ASF
+* **Consensus** - Discuss until broad agreement is reached  
+* **Lazy consensus** - Silence implies consent for routine actions  
+* **[VOTE] threads** - Used for binding decisions (e.g., new committers, releases)  
+* **At least three +1s** required for release approval  
+* Handle disagreements through discussion, not majority rule
+
+[.notes]
+--
+ASF decision-making focuses on *discussion first, voting second.*  
+Most podling actions are handled through lazy consensus, only raise a formal vote when needed for releases or new committers.  
+Strictly speaking, only PMC votes are binding at the ASF level.  
+However, during incubation, the PPMC uses voting to practice governance under mentor oversight, building readiness for eventual PMC responsibility.  
+When disagreements arise, avoid rushing to a vote, instead, seek consensus and understanding.
+--
+
+== Early Stage (0–3 months)
+* Establish `dev@` as the public decision center  
+* Form the **PPMC** with mentors and initial committers  
+* Practice **lazy consensus** and transparent communication  
+* Mentors model ASF process and redirect private discussions to the list
+
+[.notes]
+--
+Early months define the podling’s communication culture.  
+All decisions should happen on `dev@` to ensure transparency.  
+Mentors demonstrate good habits, for example, moving decisions out of private or corporate channels and explaining why this matters.  
+This helps set expectations and fosters inclusivity from the beginning.
+--
+
+== Growth Stage (3–12 months)
+* Add new **committers** based on merit and trust  
+* Expand the **PPMC** with active, responsible contributors  
+* Encourage **multi-company diversity**  
+* Produce the **first ASF release** (~6 months target)  
+* Submit **timely podling reports**  
+* Record key decisions publicly (wiki or list archive)
+
+[.notes]
+--
+This stage shows whether the project is learning to self-govern.  
+Adding committers demonstrates recognition of merit.  
+Expanding the PPMC distributes oversight and prepares for independence.  
+The first release validates that the community understands ASF policy and can collaborate effectively.  
+Regular reporting builds accountability and gives the IPMC confidence that the project is progressing.
+--
+
+== Reporting as a Governance Tool
+* Reports reviewed by the **IPMC** for oversight  
+* Demonstrate transparency and community health  
+* Use reports to:
+** Reflect on progress and blockers  
+** Ask for help or mentor input  
+** Record public accountability
+
+[.notes]
+--
+Reporting is not busywork, it’s one of the most powerful governance tools.  
+It allows the podling to reflect on what’s working, share challenges, and keep mentors and the IPMC informed.  
+Encourage podlings to draft reports collectively; this helps them own their progress and practice self-review.
+--
+
+== Maturing Stage (12+ months)
+* **PPMC leads** governance and oversight independently  
+* **Mentors step back** into advisory roles  
+* **Diversity:** no single company dominates committers or PPMC  
+* Sustainable governance means continuity through turnover  
+* Demonstrate:
+** Sustainable, balanced community  
+** Regular ASF-compliant releases  
+** Mailing list as the decision hub
+
+[.notes]
+--
+By this stage, mentors should only need to provide guidance or context, not drive decisions.  
+A mature PPMC runs its own votes, manages releases, and leads community growth.  
+Independence becomes visible through balanced participation across companies and consistent self-management.  
+True sustainability means the project continues smoothly even when individuals or companies change, a hallmark of ASF projects.
+--
+
+== Common Governance Pitfalls
+* Private decision-making (Slack, WeChat, or company email)  
+* Over-reliance on one vendor or employer  
+* Mentors making or approving all key decisions  
+* Failing to resolve disagreements through discussion  
+* Releases without community involvement or recorded votes
+
+[.notes]
+--
+These are the most common warning signs that governance needs improvement.  
+Private decisions and company dominance undermine trust and ASF values.  
+Mentor-led votes delay growth and can make graduation harder.  
+Release transparency and open disagreement resolution are core to ASF maturity, always bring conversations back to the public list.
+--
+
+== Checklist at Each Milestone
+* **3 months:** dev@ active? PPMC formed?  
+* **6 months:** First release? New committer added?  
+* **12 months:** Expanded PPMC? Self-governance evident?  
+* **Before graduation:**  
+** Diverse, independent, transparent community  
+** Regular ASF releases  
+** Consensus on graduation resolution
+
+[.notes]
+--
+These checkpoints provide a simple roadmap for podlings and mentors.  
+Exact timing may differ, but steady movement toward these indicators is key.  
+The final step, drafting and gaining consensus on a graduation resolution, confirms the community is ready for independence.
+--
+
+== Reflection Questions
+* Are all major decisions visible on the mailing list?  
+* Does the PPMC lead governance or rely on mentors?  
+* Are contributors recognized promptly through committership?  
+* Could the project continue if the sponsor company stepped back?
+
+[.notes]
+--
+These questions help projects self-assess beyond metrics.  
+They probe community resilience, independence, and fairness.  
+If any answer raises concerns, it’s an opportunity for mentoring and cultural adjustment, not a failure.  
+Self-awareness and reflection are marks of a healthy ASF community.
+--
+
+== Summary
+* ASF governance matures through practice  
+* Mentors guide, PPMC leads  
+* Transparency and inclusiveness are essential  
+* Healthy podlings govern themselves, *the Apache Way*  
+* Graduation isn’t a checklist, it’s recognition that the community already operates as an ASF project
+
+[.notes]
+--
+Wrap up by emphasizing that governance is learned through doing, not documentation.  
+Mentors succeed when they become nearly unnecessary.  
+Graduation happens when the PPMC already behaves like an ASF PMC,transparent, meritocratic, and sustainable.  
+That’s what makes the ASF model so enduring.
+--
