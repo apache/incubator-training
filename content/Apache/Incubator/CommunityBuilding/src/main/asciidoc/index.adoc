@@ -1,0 +1,409 @@
+////
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+////
+
+:revealjs_theme: white
+:revealjs_slideNumber: false
+:revealjs_progress: false
+:revealjs_center: false
+:revealjs_controls: false
+:revealjs_history: true
+:revealjs_transition: fade
+:icons: font
+:sectanchors:
+:customcss: apache.css
+
+[.title-slide]
+== Community Building in Practice
+_Turning Contributors into a Sustainable Apache Community_
+
+[.notes]
+--
+Welcome everyone.  
+Today’s session is *Community Building in Practice*,one of the most important parts of The Apache Way.  
+At the ASF, we often say “Community over Code.” That’s not a slogan; it’s a survival strategy.  
+Projects that thrive at Apache don’t just write great code, they build *great communities*.  
+Our focus today is on how to grow, sustain, and strengthen that community, especially during incubation,  
+where the goal is to teach projects how to self-govern and build an independent, diverse, and welcoming culture.  
+--
+
+
+== Community vs. Code
+
+* Code can be easily rewritten, community cannot.  
+* Healthy projects attract contributors even when founders move on.  
+* Incubation teaches *community-building* as much as compliance.  
+
+[.notes]
+--
+Set expectations early.  
+Projects often join the Incubator thinking success equals code maturity, but that’s only half the story.  
+A technically strong codebase is important, but without a strong community, it will stagnate.  
+Incubation is as much about building relationships and trust as it is about licenses and releases.  
+--
+
+== Why Community Matters
+
+* "Community Over Code" is a core ASF principle.  
+* The ASF model relies on merit earned through contribution and trust.  
+* Projects graduate when they show self-governance and diversity, not just technical strength.  
+
+[.notes]
+--
+In Apache projects, *the community is the project*.  
+A strong, healthy community ensures that decisions are transparent,  
+no single entity controls the project, and contributors can come and go without disruption.  
+
+Code may bring people together, but culture keeps them there.  
+That’s why The Apache Way emphasizes openness, respect, and diversity of thought.  
+Graduation isn’t about feature completeness, it’s about demonstrating self-governance and diversity.  
+--
+
+== The Lifecycle of Community Growth
+
+* **Formation:** a few founders or sponsors propose the podling.  
+* **Engagement:** first contributors join and begin to build trust.  
+* **Expansion:** roles diversify, committers, reviewers, release managers.  
+* **Sustainability:** the project self-governs with minimal mentor oversight.  
+
+[.notes]
+--
+Communities evolve just like codebases.  
+At first, a few founders or sponsors propose a podling, enthusiasm is high, but diversity is low.  
+As others join, you move through engagement, expansion, and finally sustainability.  
+
+Each stage needs different attention from mentors and PPMCs:  
+help newcomers find a place, encourage shared leadership, and eventually step back.  
+A healthy podling will function smoothly even if mentors take a break, that’s the goal.  
+--
+
+== From Users to Contributors
+
+* Document how to contribute (README, CONTRIBUTING, website).  
+* Label “good first issues” and mentor newcomers.  
+* Welcome all forms of contribution, docs, design, testing, discussion.  
+* Encourage and recognize new contributors early, recognition builds belonging.  
+* Provide a clear “How to Contribute” section on the website.  
+
+[.notes]
+--
+Every user is a potential contributor, they just need an invitation and a clear path.  
+Podlings should make contribution easy, visible, and rewarding.  
+
+Encourage users to start small: documentation fixes, testing releases, or reporting issues.  
+Make sure the contribution process is well-documented and approachable.  
+Remember, the real metric of success isn’t downloads, it’s *new people joining and staying*.  
+--
+
+== Supporting New Contributors
+
+* Explain the patch workflow, review process, and voting culture.  
+* Assign mentors or “buddies” for first-time contributors.  
+* Encourage experienced contributors to mentor others in turn.  
+* Be patient and supportive, learning The Apache Way takes time.  
+
+[.notes]
+--
+Once contributors show interest, help them succeed.  
+Explain how patches are reviewed, how votes work, and what the project values most.  
+A well-onboarded contributor quickly becomes a confident participant.  
+
+Assign mentors or “buddies” to guide new contributors through their first few PRs or mailing list discussions.  
+Encourage experienced contributors to mentor others in turn, this builds continuity and community depth.  
+--
+
+== Encouraging Meritocracy and Growth
+
+* Recognize sustained effort, not status.  
+* Nominate new committers and PPMC members openly and transparently.  
+* Avoid “in-crowds” or hidden decision-making.  
+* Encourage shared ownership and delegate trust, empower others to lead.  
+* Pair recognition with empowerment, trust contributors with meaningful work.  
+
+[.notes]
+--
+Meritocracy is central to The Apache Way, but it’s often misunderstood.  
+At Apache, “meritocracy” means *trust built through contribution*, not authority by seniority.  
+Merit is demonstrated collaboration, not individual status.  
+
+A committer is not a privileged title, it’s a recognition of responsibility.  
+Nominate and vote for new committers or PPMC members openly on the private list.  
+Make sure everyone understands how merit is earned and shared.  
+
+Balance recognition of effort with opportunities to grow. Invite contributors to help with releases, votes, or documentation leadership.  
+--
+
+== Retaining and Motivating Contributors
+
+* Highlight achievements in release notes or blog posts.  
+* Delegate trust early, give contributors visible roles.  
+* Involve community members in planning discussions.  
+* Celebrate milestones. 
+* Recognize ongoing, behind-the-scenes contributions.  
+
+[.notes]
+--
+Retention keeps a community vibrant.  
+Volunteers stay when they feel trusted, valued, and part of something bigger.  
+
+Celebrate progress publicly, not just releases.  
+Highlight invisible work like reviewing patches, moderating lists, and onboarding newcomers.  
+Empower contributors to take ownership, people stay where they make a difference.  
+--
+
+== Ensuring Diversity and Balance
+
+* Aim for participation from multiple organizations.  
+* Encourage contributors from different time zones and backgrounds.  
+* Watch for dominance by a single vendor or employer.  
+* Share responsibilities broadly.  
+
+[.notes]
+--
+Diversity isn’t only about representation, it’s resilience.  
+A project dependent on one company, one country, or one time zone is fragile.  
+
+Encourage participation across organizations and geographies.  
+Watch for patterns of vendor dominance or single maintainer risk.  
+Mentors should ensure decisions aren’t concentrated in one group.  
+
+Diversity of thought and ownership is what makes projects truly open source.  
+Diversity also protects ASF independence, no single entity should ever control direction or decision-making.
+--
+
+== Learning from Other ASF Communities
+
+* Engage with related ASF projects (e.g., reusing libraries, sharing governance patterns).  
+* Ask questions on `dev@community.apache.org`.  
+* Participate in Community Over Code events and other conferances.  
+* Observe how other projects handle releases, governance, and mentorship. 
+* Learn from others, but adapt, don’t copy.   
+
+[.notes]
+--
+Podlings don’t need to learn everything alone.  
+The ASF is a federation of communities, and some of the best learning happens between projects.  
+
+Encourage podlings to observe and collaborate with other ASF projects:  
+reuse libraries, borrow governance patterns, and exchange experiences.  
+
+But there’s also a danger in *blindly copying* another project’s structure or process.  
+Every community has its own size, culture, and maturity.  
+What works for Apache Airflow or Kafka might not work for a small, early-stage podling.  
+Instead, understand *why* a practice works and adapt it thoughtfully to your own context.  
+--
+
+== Communication and Inclusion
+
+* Default to open mailing lists (`dev@` > private channels).  
+* Write in clear, simple English.  
+* Summarize off-list discussions publicly.  
+* Assume good faith and patience with newcomers.  
+* Use `private@` only for sensitive issues (personnel, security, CoC).  
+* Encourage respectful collaboration, follow the ASF Code of Conduct.  
+
+[.notes]
+--
+Communication *is* governance at Apache.If it didn’t happen on the list, it didn’t happen.  
+
+Encourage all decisions and discussions on public mailing lists, not private chats or Slack.  
+Use clear, respectful English, especially since most contributors are non-native speakers.  
+English is the common working language across ASF projects,  
+it ensures everyone can participate transparently and understand shared decisions.  
+
+When sensitive issues arise, use `private@` responsibly, for personal or legal topics only,  
+and summarize outcomes back to `dev@` when appropriate.  
+
+Inclusive communication keeps the project transparent and fair.
+--
+
+
+== Handling Conflict Constructively
+
+* Address issues early through calm, factual discussion.  
+* Separate people from problems.  
+* Seek consensus, not victory.  
+* Escalate respectfully when necessary.  
+
+[.notes]
+--
+Conflict is natural and sometimes healthy. The key is to turn disagreement into learning, not division.  
+
+Encourage people to address issues calmly and focus on facts.  
+Remind everyone that consensus doesn’t mean unanimous agreement,  
+it means all voices are heard and the outcome is acceptable to all.  
+
+Mentors can help mediate when needed.
+If problems escalate, there’s a clear path, mentors, then IPMC, then ASF leadership.  
+--
+
+== Recognizing and Preventing Burnout
+
+* Rotate responsibilities like release management or reporting.  
+* Appreciate invisible work, moderation, review, testing.  
+* Encourage contributors to take breaks.  
+* Avoid over-reliance on any single individual.  
+
+[.notes]
+--
+Sustainability depends on people, not just processes.  
+Volunteers can burn out easily, especially in small or overworked podlings.  
+
+Encourage rotation of roles and make it safe for contributors to step back.  
+Acknowledge and thank people for their time.  
+Communities that normalize rest are stronger in the long term.  
+--
+
+== Measuring Community Health
+
+* Number of active committers and contributors.  
+* Distribution of commits across individuals and organizations.  
+* Mailing list participation and tone.  
+* Release cadence and shared responsibility.  
+
+[.notes]
+--
+Metrics can help mentors and PPMCs assess readiness for graduation, but numbers alone don’t tell the full story.  
+
+Look for signals of balance:  
+multiple active committers, steady discussions, timely releases, and a constructive tone.  
+Mentors should focus on participation quality, not volume.  
+Remember that numbers alone can mislead, qualitative context, like tone and responsiveness, matters most.  
+--
+
+== Example Indicators of Podling Health
+
+* More than three active committers from at least two organizations.  
+* Regular releases managed by the podling, not mentors.  
+* Friendly and responsive `dev@` interactions.  
+* Mentors’ involvement decreases as the podling gains confidence.  
+
+[.notes]
+--
+Here are some common indicators mentors can look for when evaluating community health.  
+These aren’t hard rules, just useful patterns that show maturity and balance.  
+Combine these quantitative signals with qualitative judgment to understand the full picture.  
+--
+
+== Linking to the ASF Maturity Model
+
+* Maturity Model areas: **Community**, **Governance**, **Licensing**, **Releases**, **Independence**.  
+* Strong communities demonstrate openness and shared responsibility.  
+* Use the model as a readiness guide, not a box-ticking exercise.  
+
+
+[.notes]
+--
+ASF podlings are evaluated not just on code, but on how they embody The Apache Way.  
+Community strength is central to the ASF Maturity Model, especially the “Community” and “Governance” areas.  
+Use the model as a checklist for growth and self-assessment before graduation.  
+--
+
+== From Mentorship to Self-Governance
+
+* Mentors guide, PPMC leads.  
+* Independence is earned through demonstrated governance.  
+* The project must sustain itself beyond mentorship.  
+
+[.notes]
+--
+Graduation readiness isn’t just about ticking boxes, it’s about leadership transfer.  
+As podlings mature, mentors gradually hand over responsibility to the PPMC.  
+This shift from guided learning to independent governance is the essence of incubation success.  
+--
+
+== Empowering the PPMC
+
+* The PPMC owns day-to-day governance.  
+* Mentors guide and advise but don’t direct decisions.  
+* Encourage the PPMC to lead votes, reviews, and reports.  
+* Gradually shift responsibility as confidence grows.  
+
+[.notes]
+--
+Mentors model behavior, but the PPMC governs.  
+Mentors should enable, not manage.  
+
+Encourage the PPMC to lead votes, manage releases, and handle issues independently.  
+Guide them to balance policy compliance with autonomy.  
+A good sign of maturity is when mentors mostly observe rather than intervene.  
+--
+
+== Common Pitfalls
+
+* Reliance on one company for commits or resources.  
+* Off-list decision-making.  
+* Inactive mentors or PPMC.  
+* No committer growth or recognition of new contributors.  
+
+[.notes]
+--
+Here are common warning signs that indicate community risk:  
+vendor dominance, lack of transparency, or no committer growth.  
+
+These aren’t failures, they’re signals for corrective action.  
+Mentors should catch them early, raise them in reports, and guide discussion constructively.  
+If you see these warning signs, address them early in mentor notes or reports.  
+Ask guiding questions rather than issuing directives, help the podling discover the solution itself.
+--
+
+== Sustaining Engagement After Graduation
+
+* Keep adding new committers regularly.  
+* Maintain transparency and vendor neutrality.  
+* Document lessons learned for future contributors.  
+
+[.notes]
+--
+Graduation isn’t the finish line, it’s the start of independence.  
+A sustainable community keeps mentoring, adding new committers, and growing.  
+
+Continue the same good habits from incubation: open communication, inclusive culture, and shared ownership.  
+Graduation means being ready to live The Apache Way without training wheels.  
+--
+
+== Key Takeaways
+
+* Community is the true measure of success.  
+* Mentorship leads to self-governance.  
+* Diversity and openness ensure resilience.  
+* Communication keeps trust alive.  
+* The Apache Way sustains projects beyond individuals.  
+
+[.notes]
+--
+Summarize the heart of the presentation:  
+Community strength, diversity, trust, and independence define long-term success.  
+These are the enduring qualities of every great Apache project.
+--
+
+== Conclusion
+
+* Building community is everyone’s responsibility.  
+* Healthy communities embody ASF values every day.  
+* The goal of incubation is *self-sustaining governance and collaboration*.  
+
+_Sustainable communities are what make The Apache Way work._
+
+[.notes]
+--
+Let’s wrap up.  
+Community building is the heart of The Apache Way, an ongoing practice of trust, openness, and collaboration.  
+
+Every contributor, mentor, and PPMC member has a role in creating a welcoming environment.  
+When you nurture people as carefully as you build software,  
+your project doesn’t just grow, it thrives.  
+--

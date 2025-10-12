@@ -47,6 +47,7 @@
     <module>PodlingOrientation</module>
     <module>Goverance</module>
     <module>VotingAndConsensus</module>
+    <module>CommunityBuilding</module>
   </modules>
 
 </project>
