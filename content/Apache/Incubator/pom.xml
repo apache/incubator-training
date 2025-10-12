@@ -46,6 +46,7 @@
     <module>BrandingAndIdentity</module>
     <module>PodlingOrientation</module>
     <module>Goverance</module>
+    <module>VotingAndConsensus</module>
   </modules>
 
 </project>

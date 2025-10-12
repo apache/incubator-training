@@ -367,6 +367,13 @@
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.training.content</groupId>
+                  <artifactId>incubator-voting-and-consensus</artifactId>
+                  <version>1.0.0-SNAPSHOT</version>
+                  <type>war</type>
+                  <outputDirectory>${project.build.directory}/site/presentations/apache/incubator/Governance</outputDirectory>
+                </artifactItem>                
+                <artifactItem>
+                  <groupId>org.apache.training.content</groupId>
                   <artifactId>training-content-apache-incubator-navigating-asf-incubation</artifactId>
                   <version>1.0.0-SNAPSHOT</version>
                   <type>war</type>
@@ -737,6 +744,12 @@
     <dependency>
       <groupId>org.apache.training.content</groupId>
       <artifactId>incubator-governance</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.training.content</groupId>
+      <artifactId>incubator-voting-and-consensus</artifactId>
       <version>1.0.0-SNAPSHOT</version>
       <type>war</type>
     </dependency>
