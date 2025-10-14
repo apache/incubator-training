@@ -51,17 +51,17 @@ Each podling develops its own rhythm, but all must show progress toward ASF-styl
 This session explains what that looks like in practice and how mentors can help guide the process.
 --
 
-== Core Principles in Practice
-* **Community over Code** - Decisions made through open consensus  
-* **Meritocracy** - Responsibility grows with contribution and trust  
-* **Transparency** - All decisions visible on public mailing lists  
-* **Independence** - Project can thrive beyond any one employer
+## Core Principles in Practice
+* **Community over Code** - Decisions made through open consensus.  
+* **Trust through Contribution** - Responsibility grows with demonstrated participation and collaboration.  
+* **Transparency** - All decisions visible on public mailing lists.  
+* **Independence** - Projects can thrive beyond any one employer.  
 
 [.notes]
 --
 These four principles are the foundation of ASF governance.  
-They are interdependent: transparency enables meritocracy, meritocracy strengthens independence, and community-driven decisions keep projects healthy long term.  
-Podlings are expected to practice and demonstrate all four before graduation.
+They are interdependent: transparency builds trust, trust supports independence, and community-driven decisions keep projects healthy long term.  
+Podlings are expected to practice and demonstrate all four before graduation.  
 --
 
 == Decision-Making at the ASF
@@ -189,17 +189,17 @@ If any answer raises concerns, it’s an opportunity for mentoring and cultural 
 Self-awareness and reflection are marks of a healthy ASF community.
 --
 
-== Summary
-* ASF governance matures through practice  
-* Mentors guide, PPMC leads  
-* Transparency and inclusiveness are essential  
-* Healthy podlings govern themselves, *the Apache Way*  
-* Graduation isn’t a checklist, it’s recognition that the community already operates as an ASF project
+## Summary
+* ASF governance matures through practice.  
+* Mentors guide, PPMC leads.  
+* Transparency and inclusiveness are essential.  
+* Healthy podlings govern themselves, *the Apache Way*.  
+* Graduation isn’t a checklist. It’s recognition that the community already operates as an ASF project.  
 
 [.notes]
 --
 Wrap up by emphasizing that governance is learned through doing, not documentation.  
 Mentors succeed when they become nearly unnecessary.  
-Graduation happens when the PPMC already behaves like an ASF PMC,transparent, meritocratic, and sustainable.  
-That’s what makes the ASF model so enduring.
+Graduation happens when the PPMC already behaves like an ASF PMC, transparent, trusted, and self-sustaining.  
+That’s what defines a lasting and resilient Apache community.  
 --
