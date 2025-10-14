@@ -56,9 +56,9 @@ Consensus gives contributors a voice, prevents dominance by any one entity, and 
 
 == Principles of Consensus Building
 
-* *Community Over Code:* decisions belong to the community, not individuals or companies.
-* *Meritocracy:* every voice matters; influence is earned through constructive contribution.
-* *Transparency:* decisions are made publicly on the project mailing list.
+* *Community Over Code:* decisions belong to the community, not individuals or companies.  
+* *Trust Through Contribution:* influence is earned by showing up, contributing, and engaging respectfully.  
+* *Transparency:* decisions are made publicly on the project mailing list.  
 * *Respect and Inclusiveness:* dialogue and differing views strengthen decisions.
 
 [.notes]
@@ -95,12 +95,12 @@ Not every decision needs a formal vote, in fact, most don’t.
 The three main types are lazy consensus, consensus after discussion, and formal votes.  
 --
 
-=== Lazy Consensus
+== Lazy Consensus
 
 * The default ASF decision model.  
 * A proposal is posted; if no one objects within 72 hours, it’s approved.  
 * Works well for routine or low-risk actions like website or documentation updates.  
-* Encourages forward progress without bureaucracy.  
+* Encourages forward progress without bureaucracy.
 
 _Example:_  
 “I’ll merge this pull request in 72 hours unless anyone objects.”
@@ -112,7 +112,7 @@ It works best when contributors actively follow the mailing list and feel welcom
 Silence from disengaged participants isn’t consensus, it’s apathy, which mentors should watch for.  
 --
 
-=== Consensus After Discussion
+== Consensus After Discussion
 
 * Used when objections arise.  
 * Discuss until all significant concerns are addressed.  
@@ -126,7 +126,7 @@ It’s about inclusion and progress, not unanimity.
 The key is active listening, understanding and adapting to valid concerns until the community feels comfortable moving forward.  
 --
 
-=== Formal Votes
+== Formal Votes
 
 * Used when ASF policy or legal requirements require a clear decision.  
 * Common examples:  
