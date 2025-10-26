@@ -1,0 +1,329 @@
+:: StoryTitle
+Lazy Consensus Gone Wrong (ASF Interactive Scenario)
+
+:: StoryData
+{
+  "ifid": "9E37F0F2-INCUBATOR-LAZY-CONSENSUS",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Start"
+}
+
+:: Start
+/* Initialise ASF-aligned learning metrics */
+<<set $transparency = 0>>   /* Clear communication, open discussion, and visible decisions */
+<<set $collaboration = 0>>  /* PPMC-led governance, mentor guidance, and constructive teamwork */
+<<set $shortcuts = 0>>      /* Hidden fixes, opacity, or process skipping */
+<<set $escalation = 0>>     /* Premature or unnecessary public escalation */
+<<set $steps = 0>>
+
+You are a mentor working with an incubating Apache project.
+
+The project starts a thread on dev@:
+
+''[DISCUSS] Proposal: Merge new analytics module''
+
+> "If there are no objections within 72 hours, we’ll merge the new analytics module into the main codebase."
+
+After three days, no one replies. The merge happens and contributors are pleased.
+
+Two days later, a mentor who had been travelling objects, saying the merge introduces //licensing complications// that could affect redistribution.
+
+The mentor feels ignored. The project feels blindsided.  
+
+A debate begins: ''Is lazy consensus still valid once the action is complete?''
+
+What do you do?
+
+<<link "Defend the project">><<goto "A">><</link>>  
+<<link "Pause and acknowledge the concern">><<goto "B">><</link>>  
+<<link "Take it offline">><<goto "C">><</link>>  
+<<link "Escalate immediately">><<goto "D">><</link>>  
+<<link "Ask clarifying questions first">><<goto "E">><</link>>  
+<<link "Stay silent and watch what happens">><<goto "FPassive">><</link>>
+
+:: A
+<<set $steps += 1>>
+<<set $transparency -= 1>>   /* Procedural defensiveness harms clarity */
+<<set $collaboration -= 1>>  /* Reduces trust and shared ownership */
+
+You defend the project:
+
+> "The 72-hour period passed with no objections. The decision stands."
+
+A committer replies:
+
+> "So objections don’t count if someone’s away for a few days?"
+
+The discussion heats up.
+
+<<link "Double down on procedure">><<goto "A1Hard">><</link>>  
+<<link "Acknowledge the misunderstanding and reset the tone">><<goto "A1Soft">><</link>>
+
+:: A1Hard
+<<set $transparency -= 1>>   /* Further rigidity lowers openness */
+<<set $collaboration -= 1>>  /* Ignores collaborative correction */
+
+The discussion grows tense. Other mentors note that lazy consensus can be revisited if a valid concern arises.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: A1Soft
+<<set $collaboration += 2>>  /* Encourages collaboration and learning */
+<<set $transparency += 1>>   /* Demonstrates calm and open ASF tone */
+
+You post:
+
+> "Let’s treat this as a learning opportunity. Clarity matters more than blame."
+
+The tone improves. The project is open to revisiting the merge.
+
+<<link "Go to re-evaluation">><<goto "Reeval">><</link>>
+
+:: B
+<<set $steps += 1>>
+<<set $collaboration += 2>>  /* Invites open review and shared governance */
+
+You pause and acknowledge the concern:
+
+> "This raises an important point. Let’s revisit and confirm consensus before deciding whether to revert."
+
+The tension cools and contributors start analysing the dependency.
+
+<<link "Suggest a temporary revert while discussion continues">><<goto "B1Good">><</link>>  
+<<link "Keep the merge and promise to fix it later">><<goto "B1Weak">><</link>>  
+<<link "Invite other mentors or license experts to weigh in">><<goto "B2Consult">><</link>>
+
+:: B1Good
+<<set $transparency += 2>>   /* Visible correction reinforces trust */
+<<set $collaboration += 2>>  /* Collaborative re-evaluation improves health */
+
+The project reverts temporarily and continues the discussion. Transparency improves.
+
+<<link "Go to re-evaluation">><<goto "Reeval">><</link>>
+
+:: B1Weak
+<<set $shortcuts += 1>>      /* Defers clarity and leaves unresolved tension */
+<<set $transparency -= 1>>   /* Ambiguity persists on-list */
+<<set $collaboration -= 1>>  /* Missed chance for shared correction */
+
+You decide to keep the merge and "deal with it later."  
+The issue fades until it reappears when the project later proposes another major code integration, and contributors again disagree about how to handle lazy consensus and objections.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: B2Consult
+<<set $steps += 1>>
+<<set $transparency += 2>>   /* Visible request for wider input */
+<<set $collaboration += 1>>  /* Inclusive, but PPMC retains ownership */
+
+You invite other mentors and relevant ASF lists to share insight.  
+The discussion expands, and the podling learns how to seek help without losing ownership.
+
+<<link "Go to re-evaluation">><<goto "Reeval">><</link>>
+
+:: C
+<<set $steps += 1>>
+<<set $transparency -= 1>>   /* Moves discussion off public list */
+
+You take the discussion offline with mentors and a few contributors.  
+Private messages ease tensions, but no update is posted to the list.
+
+<<link "Post a public summary afterward">><<goto "C1Good">><</link>>  
+<<link "Leave the private fix unreported">><<goto "C1Bad">><</link>>
+
+:: C1Good
+<<set $transparency += 1>>   /* Restores some visibility with public summary */
+<<set $collaboration += 1>>  /* Partial recovery via later openness */
+
+You summarise the offline discussion publicly:
+
+> "A licensing concern was raised and discussed privately; here’s the plan moving forward."
+
+Contributors appreciate the update, but some note decisions should ideally stay on-list.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: C1Bad
+<<set $transparency -= 2>>   /* No transparency follow-up */
+<<set $shortcuts += 1>>      /* Shortcut via private fix */
+
+Without a summary, contributors are left confused by unseen changes.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: D
+<<set $steps += 1>>
+<<set $escalation += 2>>     /* Premature escalation to IPMC */
+<<set $collaboration -= 1>>  /* Reduces PPMC independence */
+
+You escalate to general@incubator.apache.org.  
+IPMC members remind you that mentors should help the ''PPMC'' self-correct first, and escalation is only appropriate when the project cannot resolve issues internally.
+
+<<link "Acknowledge the premature escalation and refocus discussion">><<goto "D1Good">><</link>>  
+<<link "Continue debating publicly">><<goto "D1Bad">><</link>>
+
+:: D1Good
+<<set $collaboration += 1>>  /* Restores project ownership slowly */
+
+You redirect the discussion back to the project list and help them handle it locally.  
+The project learns, but trust will take time to rebuild.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: D1Bad
+<<set $escalation += 1>>     /* Adds tension and public noise */
+<<set $collaboration -= 1>>  /* Weakens shared problem solving */
+
+The discussion drags on publicly; the project feels exposed.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: E
+<<set $steps += 1>>
+<<set $collaboration += 1>>  /* Mentoring through inquiry */
+
+You ask clarifying questions:
+
+> "Can you tell us more about the licensing concern before we decide next steps?"
+
+The mentor explains it is an incompatible dependency.
+
+<<link "Encourage open review on the list">><<goto "E1Good">><</link>>  
+<<link "Quietly remove the dependency yourself">><<goto "E1Bad">><</link>>  
+<<link "Quietly fix it yourself to save time">><<goto "E2Fix">><</link>>
+
+:: E1Good
+<<set $transparency += 1>>   /* Open review improves visibility */
+<<set $collaboration += 1>>  /* Shared learning but limited closure */
+
+You guide an open technical review. Consensus builds around facts, but closure is thin.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: E1Bad
+<<set $transparency -= 1>>   /* Hidden fix reduces openness */
+<<set $shortcuts += 2>>      /* Bypasses process learning */
+
+You fix the issue quietly, but others never learn what happened.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: E2Fix
+<<set $shortcuts += 2>>      /* Mentor bypasses community process */
+<<set $collaboration -= 2>>  /* Undermines podling independence */
+<<set $transparency -= 1>>   /* Hidden mentoring action */
+
+You replace the dependency yourself and commit directly.  
+The problem vanishes, but the podling learns nothing and ownership blurs.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: FPassive
+<<set $steps += 1>>
+<<set $transparency -= 1>>   /* Lack of visible guidance */
+<<set $collaboration -= 1>>  /* Missed mentoring opportunity */
+
+You decide to observe rather than intervene.  
+The project debates internally, but frustration builds as no one clarifies lazy consensus expectations.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: Reeval
+<<set $steps += 1>>
+
+The project reopens the discussion publicly.  
+A contributor confirms the dependency license is incompatible.  
+They agree to revert temporarily and continue discussion until resolved.
+
+''Reflection prompt:''  
+What could you do to help the project capture this learning for future proposals?
+
+<<link "Encourage them to document process improvements">><<goto "AltGood1">><</link>>  
+<<link "Suggest they summarise in the next podling report">><<goto "AltGood2">><</link>>  
+<<link "Assume they’ve learned and move on">><<goto "AltNeutral">><</link>>
+
+:: AltGood1
+<<set $transparency += 1>>   /* Publicly documents learning */
+<<set $collaboration += 1>>  /* Strengthens PPMC ownership */
+
+They post a short message documenting lessons learned about lazy consensus.  
+Other podlings later reference it.
+
+<<link "See resolution path">><<goto "Resolution">><</link>>
+
+:: AltGood2
+<<set $collaboration += 1>>  /* Captures learning via report summary */
+
+They agree to mention the learning experience in the next podling report.  
+Good reflection, but it will not reach new contributors immediately.
+
+<<link "See resolution path">><<goto "Resolution">><</link>>
+
+:: AltNeutral
+<<set $shortcuts += 1>>      /* Fails to record lessons for others */
+
+You decide not to follow up. The lesson risks being forgotten.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: Damage
+<<set $steps += 1>>
+
+Because communication was incomplete, confusion persists.  
+Some contributors disengage. The next podling report mentions a "process misunderstanding".  
+The ''IPMC'' reminds the ''PPMC'' to keep decisions visible and to clarify closure on-list.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Partial
+<<set $steps += 1>>
+
+The unresolved or poorly documented handling of lazy consensus resurfaces later when the project discusses integrating a new feature.  
+Community members recall the earlier incident and ask for clearer decision-making guidance.  
+The confusion becomes a reminder of the need for consistent mentoring.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Resolution
+<<set $steps += 1>>
+
+✅ The project handled the issue transparently and learned from it.
+
+* Use clearer lazy-consensus proposals.  
+* Post short closure summaries on-list.  
+* Treat late concerns with respect instead of defensiveness.
+
+Mentors highlight this case as an example of learning through practice.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Reflect
+<<set $total = $transparency + $collaboration - $shortcuts - $escalation>>
+
+You have reached the end of the scenario. Let’s reflect.
+
+<<if $total >= 8>>
+You modelled ASF-aligned practice: open communication, shared learning, and PPMC-led governance.
+<</if>>
+
+<<if $total >= 4 and $total < 8>>
+You balanced transparency and pragmatism. A few shortcuts or escalations reduced the learning impact, but the outcome was solid overall.
+<</if>>
+
+<<if $total >= 0 and $total < 4>>
+You resolved the issue, but with limited visibility or collaboration. The project might repeat similar confusion later.
+<</if>>
+
+<<if $total < 0>>
+Your approach reduced community trust. Greater transparency and patience would have helped the project grow in ASF culture.
+<</if>>
+
+''Reflection Questions''
+
+- What decisions improved or harmed transparency?  
+- How might a mentor help the project document lessons without taking control?  
+- What could the PPMC include in its next podling report to show learning?  
+- How does this scenario connect to the ASF principle of ''community over code''?
+
+<<link "Restart Scenario">><<goto "Start">><</link>>

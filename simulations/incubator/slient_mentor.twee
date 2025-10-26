@@ -1,0 +1,448 @@
+:: StoryTitle
+The Silent Mentor (ASF Interactive Scenario)
+
+:: StoryData
+{
+  "ifid": "9E37F0F2-INCUBATOR-SILENT-MENTOR-FINAL",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Start"
+}
+
+:: Start
+/* Initialise ASF-aligned learning metrics */
+<<set $transparency = 0>>   /* Visibility and clarity of mentor participation */
+<<set $collaboration = 0>>  /* Shared responsibility and teamwork between mentors and PPMC */
+<<set $independence = 0>>   /* PPMC-led governance and self-management */
+<<set $shortcuts = 0>>      /* Skipping discussion or process corrections */
+<<set $escalation = 0>>     /* Premature or excessive escalation */
+<<set $steps = 0>>
+
+You are one of three mentors on a healthy incubating Apache project.
+The podling is active and responsive. However, one mentor has not posted to the list, voted on releases,
+or acknowledged reports in over six months.
+
+The next quarterly report is due, and another mentor says:
+
+> "We have been the only ones signing off. Should we keep listing them?"
+
+What do you do?
+
+<<link "Raise the issue on the private@ list for visibility">><<goto "A">><</link>>
+<<link "Contact the mentor privately first">><<goto "B">><</link>>
+<<link "Leave things as they are for now">><<goto "C">><</link>>
+<<link "Escalate to the IPMC immediately">><<goto "D">><</link>>
+<<link "Encourage the PPMC to review mentor engagement themselves">><<goto "E">><</link>>
+<<link "Propose a timeboxed mentor check-in cadence">><<goto "F">><</link>>
+<<link "Check expectations against the project wiki and STATUS">><<goto "G">><</link>>
+
+:: A
+<<set $steps += 1>>
+<<set $transparency += 2>>  /* Discusses openly on private@ */
+<<set $collaboration += 1>> /* Invites shared accountability */
+
+You start a thread on private@:
+
+> "One mentor has not posted for half a year. Should we check if they still wish to continue?"
+
+Other mentors and the PPMC respond constructively.
+
+<<link "Propose to reach out together and summarise results on list">><<goto "A1Good">><</link>>
+<<link "Suggest removing the mentor immediately">><<goto "A1Fast">><</link>>
+<<link "Ping them publicly in next report draft for visibility">><<goto "A2PublicCallout">><</link>>
+<<link "Quietly ping once, then report back regardless">><<goto "A2QuietPingThenReport">><</link>>
+<<link "Open nominations to replace or add a mentor">><<goto "A2NominateReplacement">><</link>>
+
+:: A1Good
+<<set $transparency += 1>>   /* Keeps process visible */
+<<set $collaboration += 2>>  /* Builds mutual trust */
+<<set $independence += 1>>   /* Reinforces PPMC self-governance */
+
+You agree to contact the mentor together and post a summary later.
+The process is transparent, and the podling sees healthy oversight.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: A1Fast
+<<set $escalation += 1>>    /* Too hasty without closure */
+<<set $collaboration -= 1>> /* Risks alienating mentor or IPMC */
+
+You post, "Let us just remove them."
+Others object that mentors should be given a chance to confirm or step down gracefully.
+
+<<link "Go to partial">><<goto "Partial">><</link>>
+
+:: A2PublicCallout
+<<set $transparency += 1>>  /* Visible, but risky tone */
+<<set $collaboration -= 1>> /* Can feel performative */
+<<set $escalation += 1>>    /* Borderline escalation in a formal artifact */
+
+You add a visible "mentor check-in requested" line in the report draft.
+Some appreciate clarity; others feel it pressures the individual.
+
+<<link "Go to damage">><<goto "Damage">><</link>>
+
+:: A2QuietPingThenReport
+<<set $collaboration += 1>> /* Coordinated approach */
+<<set $transparency += 1>>  /* Follow-up documented */
+<<set $shortcuts -= 0>>     /* No shortcut taken, keep neutral */
+
+You send a brief ping and then summarise that outreach on private@ before the report.
+
+<<link "Go to partial">><<goto "Partial">><</link>>
+
+:: A2NominateReplacement
+<<set $transparency += 1>>  /* Done on private@ */
+<<set $collaboration += 1>> /* Group discussion */
+<<set $independence += 1>>  /* PPMC maturity grows */
+
+You open a nominations thread for adding or replacing a mentor, pending contact with the inactive mentor.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: B
+<<set $steps += 1>>
+<<set $collaboration += 1>>  /* Shows initiative */
+<<set $transparency -= 1>>   /* Moves discussion off list */
+
+You send a private email to the inactive mentor.
+No reply after a week. The other mentors still have not heard anything.
+
+<<link "Report back to private@ to document the attempt">><<goto "B1Good">><</link>>
+<<link "Decide to drop the matter for now">><<goto "B1Weak">><</link>>
+<<link "Escalate after no reply, ask IPMC for advice">><<goto "B2EscalateAfterNoReply">><</link>>
+<<link "Retry with a clear deadline, then summarise on list">><<goto "B2RetryThenSummarise">><</link>>
+<<link "Suggest the PPMC handle it informally off list">><<goto "B2DeflectToPPMCInformal">><</link>>
+
+:: B1Good
+<<set $transparency += 2>>   /* Restores visibility */
+<<set $collaboration += 1>>  /* Shares update responsibly */
+
+You post:
+"I reached out privately, no response so far. Let us document this in the report and consider updating mentors."
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: B1Weak
+<<set $shortcuts += 2>>      /* Avoids follow-up */
+<<set $collaboration -= 1>>  /* Leaves uncertainty */
+
+You decide not to follow up publicly.
+The inactivity continues unnoticed for another quarter.
+
+<<link "Go to damage">><<goto "Damage">><</link>>
+
+:: B2EscalateAfterNoReply
+<<set $escalation += 1>>     /* Early escalation */
+<<set $transparency += 1>>   /* Visible but premature */
+
+You open a guidance thread on general@ asking for examples.
+You are advised to close the loop on private@ first.
+
+<<link "Go to partial">><<goto "Partial">><</link>>
+
+:: B2RetryThenSummarise
+<<set $collaboration += 1>>  /* Persists with courtesy */
+<<set $transparency += 1>>   /* Documents outcome */
+<<set $independence += 1>>   /* PPMC-led fix */
+
+You send a second, timeboxed ping, then summarise results and next steps on private@.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: B2DeflectToPPMCInformal
+<<set $shortcuts += 1>>      /* Off-list workaround */
+<<set $independence -= 1>>   /* Blurs roles and venues */
+
+You suggest the PPMC "just handle it informally."
+Confusion increases about where mentoring accountability lives.
+
+<<link "Go to damage">><<goto "Damage">><</link>>
+
+:: C
+<<set $steps += 1>>
+<<set $shortcuts += 2>>      /* Avoids visible correction */
+<<set $transparency -= 1>>   /* Keeps gap hidden from oversight */
+
+You decide not to mention the missing mentor. The report goes in as usual, signed by two mentors.
+No one follows up. Two sign-offs are acceptable for now.
+
+But over several quarters, the same pattern repeats.
+When the IPMC later reviews mentor coverage across all podlings, this gap finally stands out.
+
+<<link "Handle it reactively once questioned">><<goto "Damage">><</link>>
+<<link "Open a late corrective thread documenting the gap">><<goto "C1LateFixDocumented">><</link>>
+<<link "Quietly replace the mentor without discussion">><<goto "C1ReplaceWithoutConsult">><</link>>
+<<link "Start a light check-in thread to re-engage mentors">><<goto "C1OpenCheckinThread">><</link>>
+
+:: C1LateFixDocumented
+<<set $transparency += 1>>   /* Belated visibility */
+<<set $collaboration += 1>>  /* Shared clean-up */
+<<set $shortcuts -= 0>>      /* Still late */
+
+You acknowledge the gap and propose a small improvement plan.
+
+<<link "Go to partial">><<goto "Partial">><</link>>
+
+:: C1ReplaceWithoutConsult
+<<set $shortcuts += 1>>      /* Skips courtesy contact */
+<<set $collaboration -= 1>>  /* Reduces trust */
+
+You swap out the mentor name in STATUS and the report without contacting them.
+
+<<link "Go to damage">><<goto "Damage">><</link>>
+
+:: C1OpenCheckinThread
+<<set $transparency += 2>>   /* Visible practice */
+<<set $collaboration += 1>>  /* Re-engages people */
+<<set $independence += 1>>   /* PPMC-led rhythm */
+
+You start a monthly "mentor check-in" thread.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: D
+<<set $steps += 1>>
+<<set $escalation += 2>>     /* Premature escalation to public venue */
+<<set $transparency += 1>>   /* Visible but misplaced */
+<<set $independence -= 1>>   /* Reduces project autonomy */
+
+You post to general@incubator.apache.org asking,
+"One of our mentors has gone missing. What should we do?"
+
+Several IPMC members remind you that this should start with private@ discussion first.
+
+<<link "Acknowledge and move discussion back to private@">><<goto "D1Good">><</link>>
+<<link "Keep the public thread going">><<goto "D1Bad">><</link>>
+<<link "Start a meta-thread capturing lessons learned">><<goto "D2MetaThreadLessons">><</link>>
+<<link "Escalate further by hinting at board attention">><<goto "D2EscalateToBoardRumor">><</link>>
+
+:: D1Good
+<<set $transparency += 1>>   /* Corrects visibility */
+<<set $collaboration += 1>>  /* Returns to proper venue */
+<<set $independence += 1>>   /* Respects project-led correction */
+
+You post a polite redirect and continue privately. The PPMC handles it well.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: D1Bad
+<<set $escalation += 1>>     /* Extends escalation */
+<<set $collaboration -= 1>>  /* Damages trust */
+
+The mentor sees the thread later and feels criticised in public.
+The podling feels caught in the crossfire.
+
+<<link "Go to damage">><<goto "Damage">><</link>>
+
+:: D2MetaThreadLessons
+<<set $transparency += 1>>   /* Surfacing patterns */
+<<set $escalation += 1>>     /* Still public-first */
+
+You start a thread to gather practices across podlings without naming names.
+
+<<link "Go to partial">><<goto "Partial">><</link>>
+
+:: D2EscalateToBoardRumor
+<<set $escalation += 2>>     /* Needless escalation */
+<<set $collaboration -= 1>>  /* Harms trust widely */
+
+You imply you might raise this to the board if it continues.
+
+<<link "Go to damage">><<goto "Damage">><</link>>
+
+:: E
+<<set $steps += 1>>
+<<set $independence += 2>>   /* Encourages PPMC self-assessment */
+<<set $transparency += 1>>   /* Keeps mentoring visible */
+<<set $collaboration += 1>>  /* Builds shared accountability */
+
+You suggest to the PPMC:
+
+"You can assess mentor coverage yourselves. Let us include a short note in the next report."
+
+They agree and plan to discuss mentor engagement each quarter.
+
+<<link "Encourage them to document expectations">><<goto "E1Good">><</link>>
+<<link "Let them handle it informally">><<goto "E1Weak">><</link>>
+<<link "Rotate a mentor of the month for visible check-ins">><<goto "E2RotateMentorOfTheMonth">><</link>>
+<<link "Run a brief survey but take no action">><<goto "E2SurveyWithoutAction">><</link>>
+<<link "Add more mentors to compensate, without fixing participation">><<goto "E2OvercorrectAddMoreMentors">><</link>>
+
+:: E1Good
+<<set $transparency += 1>>   /* Captures learning */
+<<set $collaboration += 1>>  /* Improves visibility */
+<<set $independence += 1>>   /* Builds maturity */
+
+The PPMC adds a section to their wiki on mentor roles and engagement expectations.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: E1Weak
+<<set $shortcuts += 1>>      /* Defers improvement */
+<<set $collaboration += 1>>  /* Still cooperative */
+
+They agree in principle but do not document anything.
+Next cycle, the same confusion arises.
+
+<<link "Go to partial">><<goto "Partial">><</link>>
+
+:: E2RotateMentorOfTheMonth
+<<set $transparency += 1>>   /* Regular visible touchpoints */
+<<set $collaboration += 1>>  /* Shared ownership */
+<<set $independence += 1>>   /* PPMC-led rhythm */
+
+A simple rotation ensures each mentor checks in monthly.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: E2SurveyWithoutAction
+<<set $transparency += 1>>   /* Input gathered */
+<<set $shortcuts += 1>>      /* No follow-through */
+
+A quick survey surfaces issues but no changes are made.
+
+<<link "Go to partial">><<goto "Partial">><</link>>
+
+:: E2OvercorrectAddMoreMentors
+<<set $shortcuts += 1>>      /* Avoids the root cause */
+<<set $collaboration -= 1>>  /* Dilutes accountability */
+
+You add more mentors without addressing participation expectations.
+
+<<link "Go to damage">><<goto "Damage">><</link>>
+
+:: F
+<<set $steps += 1>>
+<<set $transparency += 1>>   /* Proposes routine visibility */
+<<set $collaboration += 1>>  /* Shared cadence */
+<<set $independence += 1>>   /* PPMC-led scheduling */
+
+You propose a monthly, timeboxed mentor check-in cadence with a one-line "still here" reply expectation.
+
+<<link "Confirm cadence on private@ and note in next report">><<goto "F1Good">><</link>>
+<<link "Pilot it informally off list first">><<goto "F1InformalPilot">><</link>>
+<<link "Make it mandatory immediately without discussion">><<goto "F1HardMandate">><</link>>
+
+:: F1Good
+<<set $transparency += 1>>   /* Documented practice */
+<<set $collaboration += 1>>  /* Consensus-based */
+<<set $independence += 1>>   /* Sustained ownership */
+
+The cadence is adopted and referenced in STATUS and reports.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: F1InformalPilot
+<<set $shortcuts += 1>>      /* Off-list trial lacks visibility */
+<<set $collaboration += 1>>  /* Cooperative intent */
+
+A few people try it ad hoc, but it never becomes a project practice.
+
+<<link "Go to partial">><<goto "Partial">><</link>>
+
+:: F1HardMandate
+<<set $escalation += 1>>     /* Imposed without consensus */
+<<set $collaboration -= 1>>  /* Reduces goodwill */
+
+You announce a hard rule without prior discussion.
+
+<<link "Go to damage">><<goto "Damage">><</link>>
+
+:: G
+<<set $steps += 1>>
+<<set $transparency += 1>>   /* Checks documentation */
+<<set $collaboration += 1>>  /* Works with PPMC */
+<<set $independence += 1>>   /* Encourages self-governance */
+
+You review the wiki and STATUS to confirm mentor expectations are clear and current.
+
+<<link "Open a doc patch to clarify expectations and reporting">><<goto "G1DocPatch">><</link>>
+<<link "Note gaps privately without filing a patch">><<goto "G1AuditOnly">><</link>>
+<<link "Propose removing the mentor text entirely to avoid confusion">><<goto "G1RemoveText">><</link>>
+
+:: G1DocPatch
+<<set $transparency += 1>>   /* Clear references */
+<<set $collaboration += 1>>  /* Co-author changes */
+
+You submit a patch that clarifies mentor roles and sign-off visibility.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: G1AuditOnly
+<<set $shortcuts += 1>>      /* Observation without action */
+
+You log a private note but do not file a patch.
+
+<<link "Go to partial">><<goto "Partial">><</link>>
+
+:: G1RemoveText
+<<set $shortcuts += 1>>      /* Removes guidance rather than fixing it */
+<<set $independence -= 1>>   /* Less clarity for the PPMC */
+
+You remove the mentor expectations section to avoid contention.
+
+<<link "Go to damage">><<goto "Damage">><</link>>
+
+:: Resolution
+<<set $steps += 1>>
+
+The mentoring issue was handled transparently and constructively.
+PPMC and mentors cooperated in the open.
+Coverage and accountability improved.
+Lessons were documented for future podlings.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Partial
+<<set $steps += 1>>
+
+The situation was addressed but not fully resolved.
+The podling continues with partial oversight, risking confusion about accountability.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Damage
+<<set $steps += 1>>
+
+The long silence became noticeable only after several quarters,
+when the IPMC reviewed mentor coverage across all podlings.
+The podling appears stable, but the lack of visible mentorship raises concern.
+
+The IPMC reminds all mentors to post occasional check-ins,
+even brief "+1, still here" notes, to keep oversight visible.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Reflect
+<<set $total = $transparency + $collaboration + $independence - $shortcuts - $escalation>>
+
+You have reached the end of the scenario.
+
+<<if $total >= 8>>
+You model ASF-aligned mentoring: transparent, balanced, and empowering for the PPMC.
+<</if>>
+
+<<if $total >= 4 and $total < 8>>
+You resolve the problem effectively but could improve long-term visibility or shared learning.
+<</if>>
+
+<<if $total >= 0 and $total < 4>>
+The issue is managed but with limited transparency or collaboration. Oversight gaps may persist.
+<</if>>
+
+<<if $total < 0>>
+The approach reduces community trust and transparency. Mentor changes should be handled visibly and with empathy.
+<</if>>
+
+''Reflection Questions''
+
+- How does visibility of mentor activity affect community trust?
+- What is the difference between transparency and escalation in this context?
+- How can mentors model accountability without taking control from the PPMC?
+- How might this scenario connect to the ASF value of community-led governance?
+- How does mentor silence affect the perception of oversight in reports to the IPMC?
+- When might a mentor’s restraint strengthen the podling’s independence instead of weakening it?
+
+<<link "Restart Scenario">><<goto "Start">><</link>>
+

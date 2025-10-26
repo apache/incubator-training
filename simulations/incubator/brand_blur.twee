@@ -1,0 +1,322 @@
+:: StoryTitle
+Brand and Governance Blur (ASF Interactive Scenario)
+
+:: StoryData
+{
+  "ifid": "A5C93D72-INCUBATOR-BRAND-GOV-BLUR",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Start"
+}
+
+:: Start
+<<set $branding = 0>>        /* branding = accuracy of ASF naming and marks */
+<<set $independence = 0>>    /* independence = self-governance, consensus, balanced relationships */
+<<set $escalation = 0>>      /* escalation = times IPMC needed or overused */
+<<set $shortcuts = 0>>       /* shortcuts = avoidance, delay, off-list handling */
+<<set $steps = 0>>
+
+You are a mentor working with an incubating Apache project.
+
+Company X, the project’s main corporate sponsor, issues a press release describing the project as  
+"an open source initiative by Company X"  
+using ASF-style graphics and omitting "Apache Foo (incubating)".
+
+The announcement spreads quickly on social media.  
+When mentors raise the issue, company representatives respond:  
+"It’s perfectly fine. This helps both the company and the project."
+
+The mentors are concerned that this blurs the project’s independence and connection to the ASF.
+
+What do you do first?
+
+* [[Ask the PPMC to start a discussion on the dev@ list before acting|StartDiscussion]]
+* [[Contact the company privately to explain ASF branding expectations|PrivateOutreach]]
+* [[Post a public clarification on the dev@ list and social media|PublicCorrection]]
+* [[Ignore it for now - it’s just marketing|IgnoreIssue]]
+
+
+:: StartDiscussion
+<<set $steps += 1>>
+<<set $independence += 1>>   /* independence only: encourages community-led discussion */
+
+You post to the project’s dev@ list:  
+"We should clarify how ASF branding works and why accurate naming matters for independence."
+
+Several contributors express surprise:  
+"We didn’t even know we had to use '(incubating)' everywhere."
+
+The PPMC agrees to take a closer look at the issue.
+
+How should the mentors support this?
+
+* [[Share ASF trademark and incubation disclaimer links|ShareGuidelines]]
+* [[Encourage the PPMC to contact Company X politely for a correction|PPMCRequest]]
+* [[Let the PPMC decide their next step without mentor input|StepBack]]     /* independence only */
+* [[Handle it privately to avoid friction|SkipToPrivate]]                   /* negative independence + shortcut */
+* [[Defer to the next report cycle; it’s probably minor|DeferIssue]]
+
+
+:: StepBack
+<<set $steps += 1>>
+<<set $independence += 1>>   /* independence only: mentors demonstrate restraint, PPMC owns next steps */
+You decide to step back and let the PPMC handle the next steps on its own.  
+They begin drafting a short message to Company X seeking clarification about the post.  
+The mentors watch the thread unfold, offering context only when asked.
+
+* [[Proceed to Debrief|Debrief]]
+
+
+:: SkipToPrivate
+<<set $steps += 1>>
+<<set $independence -= 1>>   /* mentors bypass open list process */
+<<set $shortcuts += 1>>      /* and take a process shortcut */
+You move the discussion off-list to keep things simple.  
+Other contributors later feel excluded and confused.
+
+* [[Proceed to Debrief|Debrief]]
+
+
+:: ShareGuidelines
+<<set $steps += 1>>
+<<set $branding += 1>>       /* policy clarity: linking to official marks and naming guidance */
+
+You share ASF resources:  
+- ASF Trademark and Branding Policy: https://www.apache.org/foundation/marks/  
+- Podling Naming and Disclaimers: https://incubator.apache.org/policy/incubation.html#naming  
+
+The PPMC thanks you for clarifying.  
+They decide to ask Company X to correct their post and to review all materials for consistent naming.
+
+* [[Continue to the PPMC’s outreach to Company X|PPMCRequest]]
+
+
+:: PPMCRequest
+<<set $steps += 1>>
+<<set $branding += 1>>       /* explicit request to fix naming and avoid ASF-style marks */
+<<set $independence += 1>>   /* PPMC leads external communication, mentors support */
+
+The PPMC drafts a polite message to Company X:  
+"Thank you for promoting the project.  
+To help users understand our ASF status, could you please update your announcement to use the full name *Apache Foo (incubating)* and avoid ASF-style logos?  
+This helps protect both the ASF and the project’s independence."
+
+The company replies:  
+"We’ll look into it, but our campaign is already published. Changing it now would be difficult."
+
+How should the PPMC respond?
+
+* [[Suggest the required changes needed for ASF compliance and offer clarification if useful|SuggestChanges]]
+* [[Seek community consensus before acting|SeekConsensus]]     /* independence only */
+* [[Let the mentors take it up privately with the company|PrivateOutreach]]
+* [[Downplay the issue to keep relations smooth|DownplayIssue]] /* negative outcome */
+* [[Escalate to the IPMC for further advice|EscalateIPMC]]
+
+
+:: SeekConsensus
+<<set $steps += 1>>
+<<set $independence += 1>>   /* independence only: consensus-building before action */
+The PPMC posts back to the dev@ list:  
+"The company says revising the press release will be difficult.  
+Let’s discuss as a community how to proceed while keeping our independence clear."
+
+Contributors weigh options, and newer members learn ASF principles.  
+Even if the company’s correction is delayed, the community grows stronger.
+
+* [[Proceed to Debrief|Debrief]]
+
+
+:: DownplayIssue
+<<set $steps += 1>>
+<<set $branding -= 1>>       /* appeasement: accuracy suffers */
+<<set $independence -= 1>>   /* culture: sends wrong signal about governance */
+<<set $shortcuts += 1>>      /* avoidance contributes to repeat issues */
+You tell the company "No problem, just remember next time."  
+Branding confusion persists and volunteers feel uneasy.
+
+* [[Proceed to Debrief|Debrief]]
+
+:: PrivateOutreach
+<<set $steps += 1>>
+<<set $branding += 1>>       /* reinforces correct policy understanding in a direct channel */
+<<set $independence -= 1>>   /* mentor-initiated, off-list first contact before PPMC reduces independence */
+
+You and another mentor contact Company X privately, explaining that:  
+- The ASF owns all Apache trademarks.  
+- Podlings must use "Apache Foo (incubating)" in all public materials.  
+- Corporate promotion should highlight participation, not control.
+
+The company representative is defensive but willing to talk:  
+"We didn’t mean harm. We thought this was acceptable co-branding."
+
+Next step?
+
+* [[Invite them to join a short joint call with the PPMC to align messaging|JointCall]]
+* [[Suggest the required changes and share correct examples of ASF naming|SuggestChanges]]
+* [[Apologise for raising it publicly and promise to tone it down|OverApologise]]   /* negative independence */
+* [[Leave it for now and hope they adjust later|DeferIssue]]
+
+
+:: OverApologise
+<<set $steps += 1>>
+<<set $independence -= 1>>   /* mentors over-apologise, weakening governance signal */
+The company accepts, but now treats the project as theirs to manage messaging.  
+Some contributors raise concerns privately.
+
+* [[Proceed to Debrief|Debrief]]
+
+---
+
+:: JointCall
+<<set $steps += 1>>
+<<set $branding += 1>>       /* live clarification reduces future errors */
+<<set $independence += 1>>   /* PPMC present and leading alignment with stakeholders */
+The mentors, company representative, and PPMC meet briefly.  
+Clear ASF identification avoids confusion about ownership.  
+The company appreciates the clarification and agrees to review its materials.
+
+* [[Continue to suggest specific changes|SuggestChanges]]
+
+
+:: PublicCorrection
+<<set $steps += 1>>
+<<set $branding += 1>>       /* public correction increases external accuracy */
+<<set $independence -= 1>>   /* mentor-led public correction before PPMC reduces independence */
+
+You post a clarification on the dev@ list and social media:  
+"Reminder: The project’s official name is *Apache Foo (incubating)*, a community-led project at the Apache Software Foundation.  
+Company X is one of several contributors."
+
+What tone do you take next?
+
+* [[Ask the PPMC to follow up with their own polite request for correction|PPMCRequest]]
+* [[Inform Company X privately afterwards to maintain good relations|PrivateOutreach]]
+* [[Double down publicly, criticising the company|PublicConfront]]   /* negative independence */
+
+
+:: PublicConfront
+<<set $steps += 1>>
+<<set $branding += 1>>       /* policy right */
+<<set $independence -= 2>>   /* culture wrong: adversarial tone hurts community maturity */
+The correction sparks tension and the company withdraws support temporarily.  
+Contributors worry about damaged relations.
+
+* [[Proceed to Debrief|Debrief]]
+
+
+:: SuggestChanges
+<<set $steps += 1>>
+<<set $branding += 1>>       /* concrete text and mark corrections for compliance */
+<<set $independence += 1>>   /* PPMC guides what good looks like, mentors support */
+
+You propose the specific updates required for ASF compliance:  
+- Replace "an open source initiative by Company X" with "an open source project at the Apache Software Foundation."  
+- Use the full name *Apache Foo (incubating).*  
+- Remove ASF-style graphics from company-branded materials.
+
+The company agrees and updates the release. The community appreciates the correction.
+
+Optional approach?
+
+* [[Work through the PPMC to approve wording|PPMCReview]]
+* [[Fix it yourself and send to the company directly|MentorOverride]]   /* negative independence */
+* [[Escalate to IPMC|EscalateIPMC]]
+
+
+:: MentorOverride
+<<set $steps += 1>>
+<<set $branding += 1>>       /* technically correct content */
+<<set $independence -= 1>>   /* mentor takes control, bypassing community */
+The company thanks you personally, but the PPMC feels sidelined.
+
+* [[Proceed to Debrief|Debrief]]
+
+
+:: PPMCReview
+<<set $steps += 1>>
+<<set $branding += 1>>       /* audit of all public surfaces for correct names and disclaimers */
+<<set $independence += 2>>   /* PPMC institutionalises learning with a checklist */
+The PPMC finds that the project’s website footer and README also missed the ASF disclaimer.  
+They correct these and add a short internal checklist:  
+"Always use the full name 'Apache Foo (incubating)' and ASF disclaimer on public pages."
+
+What next?
+
+* [[Adopt the checklist and close the loop|Debrief]]
+* [[Decide not to bother reviewing since it’s fixed|SkipReview]]   /* shortcut */
+
+---
+
+:: SkipReview
+<<set $steps += 1>>
+<<set $shortcuts += 1>>      /* learning lost, maturity stalls */
+A month later another partner repeats the same mistake.
+
+* [[Proceed to Debrief|Debrief]]
+
+
+:: EscalateIPMC
+<<set $steps += 1>>
+<<set $independence += 1>>   /* appropriate escalation */
+<<set $escalation += 1>>     /* escalation is sometimes needed but carries a small cost */
+The IPMC advises the PPMC to keep communication courteous but clear, reminding that the ASF’s neutral brand must not appear to be owned by any company.  
+They provide sample wording and policy links.  
+The company updates their materials, and the incident closes positively.
+
+* [[Proceed to Debrief|Debrief]]
+
+
+:: IgnoreIssue
+<<set $steps += 1>>
+<<set $shortcuts += 1>>      /* shortcut: inaction creates external confusion and internal frustration */
+A few weeks later, media outlets describe the project as "Company X’s open source product."  
+The IPMC notices during report review and asks for clarification.  
+The PPMC must now repair both reputation and community trust.
+
+* [[Proceed to Debrief|Debrief]]
+
+
+:: DeferIssue
+<<set $steps += 1>>
+<<set $shortcuts += 1>>      /* shortcut: deferral allows misbranding to persist and repeat */
+By the next quarter, Company X repeats the same mistake.  
+Contributors begin to feel their volunteer work is being overshadowed by the company’s marketing.  
+The PPMC apologises publicly and posts a clarification using ASF-compliant naming.
+
+* [[Proceed to Debrief|Debrief]]
+
+
+:: Debrief
+<<set $total = $branding + $independence - $shortcuts - $escalation>>
+/* $branding = external accuracy
+   $independence = governance maturity
+   $shortcuts = penalties for deferral, avoidance, off-list handling
+   $escalation = small penalty if IPMC used too soon or too often */
+
+<<if $total >= 8>>
+You balanced clarity and collaboration.  
+The project corrected branding and reinforced independence.  
+
+Outcome: Strong Mentor and PPMC Alignment
+
+<<elseif $total >= 4>>
+The issue was fixed but with friction or delay.  
+Compliance improved but community maturity still uneven.  
+
+Outcome: Mixed Resolution
+
+<<else>>
+Branding confusion persisted or relations were strained.  
+The community learned that tone and timing matter as much as policy.  
+
+Outcome: Poor Resolution
+<</if>>
+
+''Reflection Questions''
+
+- How can mentors balance accuracy with diplomacy?  
+- When does restraint build more independence than intervention?  
+- What signals suggest IPMC escalation is warranted?
+
+<<link "Restart Scenario">><<goto "Start">><</link>>
+

@@ -1,0 +1,528 @@
+:: StoryTitle
+The Employer-Dominated Podling (ASF Interactive Scenario)
+
+:: StoryData
+{
+  "ifid": "9E37F0F2-INCUBATOR-EMPLOYER-DOMINATED",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Start"
+}
+
+:: Start
+/* Initialise ASF-aligned learning metrics */
+<<set $transparency = 0>>   /* Clear public communication and visible governance */
+<<set $independence = 0>>   /* PPMC-led decision-making free from vendor control */
+<<set $collaboration = 0>>  /* Welcoming participation across employers and individuals */
+<<set $shortcuts = 0>>      /* Private channels, deference to corporate hierarchy, hidden fixes */
+<<set $escalation = 0>>     /* Premature or unnecessary public escalation */
+<<set $steps = 0>>
+
+You are a mentor working with an incubating Apache project.
+
+The podling is strong technically, but most active committers work for the same company.
+External contributors have stepped back, saying decisions feel made internally.
+
+A new contributor posts on dev@:
+
+"It seems like most big decisions are discussed elsewhere. Should I still propose ideas here?"
+
+What do you do?
+
+<<link "Defend the company's support">><<goto "A">><</link>>
+<<link "Encourage a transparent reply from the PPMC">><<goto "B">><</link>>
+<<link "Privately ask an active PPMC member to bring discussion on-list">><<goto "C">><</link>>
+<<link "Escalate to general@incubator">><<goto "D">><</link>>
+<<link "Stay silent to observe community response">><<goto "E">><</link>>
+
+:: A
+<<set $steps += 1>>
+<<set $transparency -= 1>>   /* Defensive tone reduces openness */
+<<set $independence -= 1>>   /* Reinforces employer centrality */
+
+You post:
+
+"Company X has been crucial to this project's success. Their engineers and infrastructure make this all possible."
+
+Other contributors stay quiet. The new volunteer does not reply.
+
+<<link "Follow up to clarify inclusiveness">><<goto "A1Fix">><</link>>
+<<link "Let the matter drop">><<goto "A1Drop">><</link>>
+<<link "Suggest highlighting non-employee contributions in next status mail">><<goto "A1Credit">><</link>>
+<<link "Push back on the contributor's tone">><<goto "A1Scold">><</link>>
+
+:: A1Fix
+<<set $transparency += 1>>   /* Partial recovery via clarification */
+<<set $collaboration += 1>>  /* Signals that outside input is welcome */
+
+You follow up:
+
+"To be clear, everyone is welcome. Decisions happen on the list and proposals are encouraged."
+
+Some trust returns.
+
+<<link "Propose low-lift outreach to invite wider input">><<goto "A2Outreach">><</link>>
+<<link "Draft a short governance note clarifying that proposals begin on dev@">><<goto "A2GovNote">><</link>>
+<<link "Move on without concrete follow-ups">><<goto "Partial">><</link>>
+
+:: A1Drop
+<<set $transparency -= 1>>   /* Silence confirms imbalance */
+<<set $independence -= 1>>   /* Vendor dominance remains unaddressed */
+
+Perception hardens. External contributors disengage.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: A1Credit
+<<set $transparency += 1>>   /* Visible recognition of diverse effort */
+<<set $collaboration += 1>>  /* Encourages broader participation */
+<<set $independence += 0>>   /* Messaging only; practices unchanged unless followed up */
+
+You nudge the PPMC to acknowledge recent non-employee PRs and reviews in the next periodic mail.
+
+<<link "Pair it with an explicit 'no pre-meeting decisions' reminder">><<goto "A2Guardrail">><</link>>
+<<link "Leave it at credit only">><<goto "Partial">><</link>>
+
+:: A1Scold
+<<set $escalation += 1>>     /* Escalates tension unnecessarily */
+<<set $transparency -= 1>>   /* Chills open discussion */
+<<set $independence -= 1>>   /* Further centers the employer's role */
+<<set $collaboration -= 1>>  /* Alienates potential contributors */
+
+You reply:
+
+"Accusations like that aren't helpful. Please respect the people doing the work."
+
+Several non-employee contributors go quiet. Some threads move further into private channels.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: A2Outreach
+<<set $transparency += 1>>   /* Public invitation improves visibility */
+<<set $collaboration += 1>>  /* Encourages broader participation */
+
+The PPMC posts a short call for ideas on dev@ and highlights a few issues ideal for newcomers.
+A couple of non-employee contributors volunteer.
+
+<<link "See resolution path">><<goto "Resolution">><</link>>
+
+:: A2GovNote
+<<set $transparency += 1>>   /* Clarifies process in public */
+<<set $independence += 1>>   /* Nudges toward community-led decisions */
+
+A brief on-list note clarifies that proposals should start on dev@ with a short template people can copy.
+
+<<link "Invite a non-employee contributor to co-lead the first trial of this template">><<goto "A3Empower">><</link>>
+<<link "File it and move on without assigning ownership">><<goto "Partial">><</link>>
+
+:: A2Guardrail
+<<set $transparency += 1>>   /* Expectations stated in public */
+<<set $independence += 1>>   /* Reduces off-list control */
+
+The PPMC posts a reminder that side conversations must be summarised back to dev@ before decisions.
+
+<<link "See resolution path">><<goto "Resolution">><</link>>
+
+:: A3Empower
+<<set $collaboration += 2>>  /* Shares ownership across employers */
+<<set $independence += 1>>   /* Demonstrates community direction */
+
+A contributor volunteers to pilot the template on the next feature idea. The thread gains traction.
+
+<<link "See resolution path">><<goto "Resolution">><</link>>
+
+:: B
+<<set $steps += 1>>
+<<set $transparency += 2>>   /* Keeps discussion public */
+<<set $independence += 2>>   /* PPMC speaks as a community, not a company */
+<<set $collaboration += 1>>  /* Rebuilds trust with outsiders */
+
+You encourage a PPMC member to respond openly:
+
+"Could a PPMC member confirm that decisions happen publicly and everyone can help shape them?"
+
+A PPMC member replies on-list, thanking the contributor and reaffirming openness.
+
+<<link "Start a concrete thread on how proposals are initiated">><<goto "B1Good">><</link>>
+<<link "Leave it at reassurance only">><<goto "B1Neutral">><</link>>
+<<link "Propose rotating volunteers to open and summarise discussion threads, ensuring representation across employers">><<goto "B1Rotate">><</link>>
+<<link "Add 'good first issue' labels and tag independent reviewers">><<goto "B1Labels">><</link>>
+
+:: B1Good
+<<set $collaboration += 2>>  /* Builds shared ownership */
+<<set $independence += 1>>   /* Shifts practice toward community-led work */
+
+The PPMC starts a thread to review how proposals begin.
+They notice many ideas started in a private Slack and agree to move those discussions to dev@.
+
+<<link "Invite independent contributors to co-lead the next steps">><<goto "B2Empower">><</link>>
+<<link "Mentor offers to draft diversity goals for the next report">><<goto "B2Overreach">><</link>>
+<<link "Mentor assigns named roles to 'fix diversity' now">><<goto "B2Assign">><</link>>
+
+:: B1Neutral
+<<set $collaboration += 1>>  /* Minor improvement via reassurance */
+<<set $independence += 0>>   /* Practices largely unchanged */
+
+The reply reassures the list but does not change habits.
+Some private coordination continues.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: B1Rotate
+/* Revised for ASF flat structure: rotation of volunteers, not leaders */
+<<set $transparency += 1>>   /* Visible process tweak */
+<<set $collaboration += 1>>  /* Broadens voices in discussions */
+<<set $independence += 1>>   /* Reduces single-employer centrality */
+
+The PPMC agrees that different people will open and summarise key proposal threads.
+
+<<link "Pair this with a no pre-meeting decisions reminder">><<goto "B2Guardrails">><</link>>
+<<link "Stop at rotation only">><<goto "Partial">><</link>>
+
+:: B1Labels
+<<set $transparency += 1>>   /* Clarifies entry points publicly */
+<<set $collaboration += 1>>  /* Lowers barrier for newcomers */
+<<set $independence += 0>>   /* Tooling help; governance change requires follow-up */
+
+Issues get triaged with newcomer tags and at least one independent reviewer per PR.
+
+<<link "Wrap with a public 'how we propose' note">><<goto "B2WrapNote">><</link>>
+<<link "Let practice evolve without explicit guardrails">><<goto "Partial">><</link>>
+
+:: B2Empower
+<<set $transparency += 1>>   /* Public inclusion and role clarity */
+<<set $collaboration += 2>>  /* Shares ownership across employers */
+<<set $independence += 1>>   /* Demonstrates community-led direction */
+
+A mentor suggests:
+
+"Could we invite one of the independent contributors to summarise the thread and co-lead next steps?"
+
+The PPMC agrees. Two volunteers step up and co-own the action items.
+
+<<link "See resolution path">><<goto "Resolution">><</link>>
+
+:: B2Overreach
+<<set $transparency += 1>>   /* Visible intention to improve */
+<<set $independence -= 1>>   /* Mentor begins steering instead of guiding */
+
+You offer to draft diversity and participation goals for the next report yourself.
+The PPMC accepts, but some feel the mentor is taking the wheel.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: B2Assign
+<<set $escalation += 1>>     /* Perceived heavy-handedness */
+<<set $independence -= 2>>   /* Mentor dictates roles; undermines PPMC ownership */
+<<set $collaboration -= 1>>  /* Resentment from both employees and independents */
+
+You post:
+
+"I'm assigning Alice, Bob, and Carol to lead outreach and onboarding to fix this right now."
+
+Backlash follows. Participation drops; some contributors disengage entirely.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: B2Guardrails
+<<set $transparency += 1>>   /* Expectations set in public */
+<<set $independence += 1>>   /* Guardrails limit private coordination */
+
+A short reminder is posted: discussions and decisions belong on dev@, and any side conversation must be summarised back promptly.
+
+<<link "See resolution path">><<goto "Resolution">><</link>>
+
+:: B2WrapNote
+<<set $transparency += 1>>   /* Process made explicit on-list */
+<<set $independence += 1>>   /* Moves practice toward list-first governance */
+
+A concise post explains proposal flow and links to labelled issues.
+
+<<link "See resolution path">><<goto "Resolution">><</link>>
+
+:: C
+<<set $steps += 1>>
+<<set $transparency -= 1>>   /* Private outreach lowers visibility initially */
+<<set $collaboration += 0>>  /* Depends on public follow-up */
+
+You privately message an active PPMC member:
+
+"There is a growing perception that decisions are made internally. Can we move more discussion to the list?"
+
+<<link "PPMC member posts an open acknowledgement with concrete steps">><<goto "C1Good">><</link>>
+<<link "They quietly remind colleagues but say nothing publicly">><<goto "C1Weak">><</link>>
+<<link "Suggest a brief office-hours post on dev@ to invite questions">><<goto "C1OfficeHours">><</link>>
+<<link "Propose pairing internal maintainers with independent co-reviewers">><<goto "C1Pairing">><</link>>
+
+:: C1Good
+<<set $transparency += 2>>   /* Visibility restored by open follow-up */
+<<set $independence += 1>>   /* PPMC self-corrects publicly */
+<<set $collaboration += 1>>  /* Encourages engagement from outsiders */
+
+A PPMC member thanks the mentor and pledges to move discussions on-list.
+They propose a standing rule: discuss proposals only on dev@.
+
+<<link "See resolution path">><<goto "Resolution">><</link>>
+
+:: C1Weak
+<<set $shortcuts += 1>>      /* Private fix without public learning */
+<<set $transparency -= 1>>   /* Community remains unaware */
+<<set $independence -= 1>>   /* Private coordination persists */
+
+Some internal improvement happens, but perception remains unchanged.
+
+<<link "Post a late public summary of the private adjustments">><<goto "C2LateSummary">><</link>>
+<<link "Say nothing further">><<goto "Partial">><</link>>
+
+:: C1OfficeHours
+<<set $transparency += 1>>   /* Opens a channel in public view */
+<<set $collaboration += 1>>  /* Low-bar participation from newcomers */
+
+The PPMC posts a short message offering a time to answer questions and points back to dev@ for decisions.
+
+<<link "Follow with a written summary back to the list">><<goto "C2SummaryBack">><</link>>
+<<link "Time zones exclude many; side chat continues and decisions drift">><<goto "C2Misfire">><</link>>
+<<link "Treat it as a one-off and move on">><<goto "Partial">><</link>>
+
+:: C1Pairing
+<<set $collaboration += 2>>  /* Structured inclusion in reviews */
+<<set $independence += 1>>   /* Diversifies decision influence */
+
+The PPMC invites an independent committer to co-review significant PRs for the next month, with summaries on dev@.
+
+<<link "See resolution path">><<goto "Resolution">><</link>>
+
+:: C2LateSummary
+<<set $transparency += 1>>   /* Partial recovery through later visibility */
+<<set $independence += 0>>   /* Structure still somewhat company-centered */
+
+A brief on-list summary clarifies next steps, but the delay blunts impact.
+Some trust returns, though skepticism remains.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: C2SummaryBack
+<<set $transparency += 1>>   /* Captures decisions in public */
+<<set $independence += 1>>   /* Reinforces list-first governance */
+
+A summary is posted to dev@ with action items and next steps.
+
+<<link "See resolution path">><<goto "Resolution">><</link>>
+
+:: C2Misfire
+<<set $shortcuts += 1>>      /* Decisions drift to private channels */
+<<set $transparency -= 1>>   /* Exclusion via time zones and side chat */
+<<set $independence -= 1>>   /* Employer-controlled channels dominate */
+
+The office-hours session excludes many due to time zones. Follow-ups move into a private chat and are not summarised.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: D
+<<set $steps += 1>>
+<<set $escalation += 2>>     /* Premature escalation to IPMC */
+<<set $independence -= 1>>   /* Undercuts podling ownership */
+
+You post to general@incubator:
+
+"This project appears dominated by one employer. Advice welcome."
+
+IPMC members note mentors should help the podling self-correct first, and escalation is for when local efforts fail.
+
+<<link "Acknowledge and refocus locally">><<goto "D1Good">><</link>>
+<<link "Continue the public thread">><<goto "D1Bad">><</link>>
+<<link "Request a formal IPMC review of the podling's diversity">><<goto "D1Formal">><</link>>
+<<link "Ask an experienced mentor to quietly coach you on next steps off-list">><<goto "D1Coach">><</link>>
+
+:: D1Good
+<<set $collaboration += 1>>  /* Restores mentoring balance */
+<<set $independence += 1>>   /* PPMC regains agency with mentor support */
+
+You thank the IPMC for input and redirect the focus to dev@, guiding the PPMC to address the issue themselves.
+
+<<link "IPMC requests a lightweight follow-up plan to monitor diversity">><<goto "D2FollowUp">><</link>>
+<<link "Proceed without any follow-up planning">><<goto "Partial">><</link>>
+
+:: D1Bad
+<<set $escalation += 1>>     /* Prolonged exposure and tension */
+<<set $independence -= 1>>   /* Further damages podling confidence */
+
+The public thread grows defensive.
+Company employees feel attacked. External contributors disengage further.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: D1Formal
+<<set $escalation += 2>>     /* Heavy-handed escalation */
+<<set $independence -= 1>>   /* Bypasses podling ownership */
+
+A request is made for a formal review. Tension rises and participation drops.
+
+<<link "Walk it back and refocus on dev@ with a clear plan">><<goto "D2WalkBack">><</link>>
+<<link "Double down on the formal route">><<goto "Damage">><</link>>
+
+:: D1Coach
+<<set $shortcuts += 1>>      /* Off-list coaching; OK if summarised back */
+<<set $transparency += 0>>   /* No immediate visibility */
+<<set $independence += 0>>
+
+You receive tips from a seasoned mentor on approaches that preserve podling ownership.
+
+<<link "Summarise the approach publicly and empower the PPMC">><<goto "D2CoachSummary">><</link>>
+<<link "Keep the coaching private and proceed quietly">><<goto "Partial">><</link>>
+
+:: D2FollowUp
+<<set $transparency += 1>>   /* Adds simple, visible accountability */
+<<set $independence += 1>>   /* PPMC owns the plan and reports progress */
+
+In a brief note, the IPMC asks the PPMC to include a one-line update on decision visibility and contributor diversity in the next two reports.
+The PPMC agrees and leads the updates.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: D2WalkBack
+<<set $transparency += 1>>   /* Explains the change in approach */
+<<set $independence += 1>>   /* Restores local ownership */
+
+You clarify that local correction is preferred and start a thread on dev@ to outline next steps.
+
+<<link "See resolution path">><<goto "Resolution">><</link>>
+
+:: D2CoachSummary
+<<set $transparency += 1>>   /* Brings learning back to the list */
+<<set $independence += 1>>   /* PPMC-led correction */
+
+You post a short plan on dev@: proposal template, rotation of thread-starters, and summary-back rule.
+
+<<link "See resolution path">><<goto "Resolution">><</link>>
+
+:: E
+<<set $steps += 1>>
+<<set $transparency -= 1>>   /* Silence reads as acceptance of status quo */
+<<set $collaboration -= 1>>  /* Missed mentoring opportunity */
+
+You decide to observe. Company-employed committers reply briefly, then move on.
+No deeper discussion happens.
+
+<<link "Let drift continue">><<goto "E1QuietDrift">><</link>>
+<<link "Intervene later with a structured on-list prompt">><<goto "E2LateIntervention">><</link>>
+<<link "Nudge a contributor privately to start a public proposals thread">><<goto "E2Nudge">><</link>>
+<<link "Audit recent decisions and post an index of dev@ discussion links">><<goto "E2Index">><</link>>
+<<link "Downplay concerns in the next podling report">><<goto "E2Rationalize">><</link>>
+
+:: E1QuietDrift
+<<set $transparency -= 1>>   /* Ongoing lack of visibility */
+<<set $independence -= 1>>   /* Entrenches single-vendor control */
+
+Over weeks, participation narrows further.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: E2LateIntervention
+<<set $transparency += 1>>   /* Late, but public prompt */
+<<set $collaboration += 1>>  /* Encourages course correction */
+<<set $shortcuts += 0>>      /* No shortcut this time, just delayed mentoring */
+
+You later start a thread on dev@:
+
+"Could we document where feature proposals begin and ensure they start here?"
+
+Some constructive replies follow.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: E2Nudge
+<<set $shortcuts += 1>>      /* Private nudge rather than public prompt */
+<<set $transparency += 0>>   /* No visible correction yet */
+<<set $independence += 0>>   /* Depends on follow-up */
+
+A contributor agrees to start a thread but delays.
+
+<<link "Follow up publicly with a proposals kickoff thread yourself">><<goto "E3PublicKickoff">><</link>>
+<<link "Wait it out">><<goto "Partial">><</link>>
+
+:: E2Index
+<<set $transparency += 2>>   /* Makes governance traceable */
+<<set $independence += 1>>   /* Centers the list as source of truth */
+
+You post a simple index that links recent dev@ decisions and invites additions for anything missing.
+
+<<link "See resolution path">><<goto "Resolution">><</link>>
+
+:: E2Rationalize
+<<set $transparency -= 1>>   /* Misleads oversight by omission */
+<<set $independence -= 1>>   /* Avoids confronting vendor dominance */
+<<set $escalation += 0>>     /* No escalation, but harms trust */
+
+In the next report you write: "No major issues noted." The imbalance persists and deepens.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: E3PublicKickoff
+<<set $transparency += 1>>   /* Visible action in public */
+<<set $collaboration += 1>>  /* Low-friction path for others to join */
+
+You start a dev@ thread proposing a simple template for new proposals and invite volunteers to champion items.
+
+<<link "See resolution path">><<goto "Resolution">><</link>>
+
+:: Damage
+<<set $steps += 1>>
+
+The perception of dominance persists.
+A few non-employee contributors drift away, leaving a single-vendor project.
+In the next podling report, mentors note reduced diversity and the need to expand independent participation.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Partial
+<<set $steps += 1>>
+
+Some corrective steps are taken, but power imbalance is not fully addressed.
+Discussions are more visible, yet new contributors remain hesitant.
+Independence remains uncertain.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Resolution
+<<set $steps += 1>>
+
+The project addressed vendor dominance transparently.
+Decisions now start and finish on dev@.
+A PPMC-owned note clarifies participation is open to all.
+Independent contributors co-lead next steps.
+Reports include brief evidence of list-based decisions and independent participation.
+
+Community health improves and diversity grows.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Reflect
+<<set $total = $transparency + $independence + $collaboration - $shortcuts - $escalation>>
+
+You have reached the end of the scenario. Let us reflect.
+
+<<if $total >= 8>>
+You modelled ASF-aligned mentoring: open communication, PPMC independence, and inclusive governance.
+<</if>>
+
+<<if $total >= 4 and $total < 8>>
+You balanced openness with pragmatism. Some internal habits may persist, but practices are improving.
+<</if>>
+
+<<if $total >= 0 and $total < 4>>
+You achieved partial progress without fundamental change. External contributors may still view the project as company-controlled.
+<</if>>
+
+<<if $total < 0>>
+Your approach reinforced vendor dominance. Greater transparency and patience would help the project grow in ASF culture.
+<</if>>
+
+''Reflection Questions''
+
+- Which actions best demonstrate independence from any single employer?
+- How can mentors encourage companies to share control without alienating them?
+- What concise evidence could the next podling report include to show improvement?
+- How does this scenario connect to the ASF value of community over code?
+
+<<link "Restart Scenario">><<goto "Start">><</link>>

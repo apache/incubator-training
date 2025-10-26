@@ -1,0 +1,247 @@
+:: StoryTitle
+Conflicting Mentor Advice (ASF Interactive Scenario)
+
+:: StoryData
+{
+  "ifid": "9E37F0F2-INCUBATOR-CONFLICTING-MENTOR-ADVICE",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Start"
+}
+
+:: Start
+/* Initialise ASF-aligned learning metrics */
+<<set $transparency = 0>>   /* Visibility and clarity of mentor and podling communication */
+<<set $collaboration = 0>>  /* Coordination among mentors, IPMC, and podling */
+<<set $shortcuts = 0>>      /* Skipping process or inconsistent mentoring */
+<<set $escalation = 0>>     /* Premature or unnecessary escalation */
+<<set $steps = 0>>
+
+You are one of three mentors working with an incubating Apache podling.  
+The podling has prepared a release candidate.  
+
+Mentor A says: "Looks good—go ahead and call the vote."  
+Mentor B says: "Hold on, the license headers need more review."  
+
+The podling is now unsure what to do. After some confusion, they post to general@incubator:
+
+> “We’re getting mixed signals from our mentors. Could someone clarify the right process?”
+
+This is a healthy sign — the podling is trying to understand ASF expectations.  
+
+What do you do next?
+
+<<link "Thank the podling for asking publicly and clarify policy on-list">><<goto "A">><</link>>  
+<<link "Reach out to the other mentors privately to coordinate">><<goto "B">><</link>>  
+<<link "Ask the IPMC to handle it for you">><<goto "C">><</link>>  
+<<link "Tell the podling to just move forward">><<goto "D">><</link>>  
+<<link "Stay silent and let others answer">><<goto "E">><</link>>
+
+:: A
+<<set $steps += 1>>
+<<set $transparency += 2>>   /* Public clarification supports openness */
+<<set $collaboration += 2>>  /* Encourages joint mentor and IPMC understanding */
+
+You reply to the general@ thread:
+
+> “Thanks for raising this. It’s fine to ask here when advice seems inconsistent — this helps everyone learn.  
+> Let’s confirm what the Release Policy says and align together.”
+
+Mentors and IPMC members chime in with consistent guidance. The podling feels supported and continues confidently.
+
+<<link "Go to Resolution">><<goto "Resolution">><</link>>
+
+:: B
+<<set $steps += 1>>
+<<set $collaboration += 1>>   /* Improves mentor alignment */
+<<set $transparency -= 1>>    /* Not yet visible to the podling */
+
+You message the other mentors privately to compare notes.  
+Everyone quickly realises the disagreement came from different interpretations of the same rule.
+
+<<link "Post a public summary on dev@ explaining the resolution">><<goto "B1Good">><</link>>  
+<<link "Assume the podling will see the outcome later">><<goto "B1Weak">><</link>>  
+<<link "Privately tell the podling to follow your version">><<goto "B2Poor">><</link>>
+
+:: B1Good
+<<set $transparency += 2>>   /* Visibility reinforces trust */
+<<set $collaboration += 1>>  /* Mentors act in unity */
+
+You post on dev@:
+
+> “Mentors compared notes — we were talking past each other.  
+> The podling did the right thing by asking for clarification.”
+
+This strengthens both mentor coordination and the podling’s trust.
+
+<<link "Go to Resolution">><<goto "Resolution">><</link>>
+
+:: B1Weak
+<<set $shortcuts += 1>>      /* Fails to close the loop publicly */
+<<set $transparency -= 1>>   /* Podling left guessing */
+
+Mentors agree privately but never share the conclusion.  
+The podling assumes things are fine but still feels uncertain next time.
+
+<<link "Go to Partial">><<goto "Partial">><</link>>
+
+:: B2Poor
+<<set $shortcuts += 2>>      /* Mentor bypasses open process */
+<<set $transparency -= 2>>   /* Hidden communication */
+
+You message the podling privately:  
+> “Just go with my view — the others will catch up.”
+
+Confusion deepens, and IPMC members later intervene to untangle mixed messages.
+
+<<link "Go to Damage">><<goto "Damage">><</link>>
+
+:: C
+<<set $steps += 1>>
+<<set $escalation += 2>>     /* Premature escalation by mentor */
+<<set $collaboration -= 1>>  /* Mentors skip coordination */
+
+You reply on general@ asking the IPMC to “step in and decide.”  
+An IPMC member replies that mentors should align first and then guide the podling together.
+
+<<link "Acknowledge and regroup with mentors">><<goto "C1Recover">><</link>>  
+<<link "Defend your escalation publicly">><<goto "C2Bad">><</link>>
+
+:: C1Recover
+<<set $collaboration += 1>>  /* Learns from premature escalation */
+<<set $transparency += 1>>   /* Restores openness */
+
+You follow up:  
+> “Thanks — agreed. We’ll align as mentors first, then clarify on dev@.”
+
+The podling learns the right order: mentors coordinate before asking IPMC to rule.
+
+<<link "Go to Partial">><<goto "Partial">><</link>>
+
+:: C2Bad
+<<set $escalation += 1>>     /* Adds tension */
+<<set $transparency -= 1>>   /* Public noise without resolution */
+
+You continue debating on-list. The IPMC discussion grows confusing and off-topic.
+
+<<link "Go to Damage">><<goto "Damage">><</link>>
+
+:: D
+<<set $steps += 1>>
+<<set $shortcuts += 2>>      /* Skips mentor alignment */
+<<set $collaboration -= 2>>  /* Ignores peer coordination */
+
+You tell the podling:  
+> “Don’t overthink it — just start the vote.”
+
+When the other mentor objects publicly, the thread turns tense.  
+The podling apologises for “doing the wrong thing.”
+
+<<link "Acknowledge mistake and clarify process">><<goto "D1Recover">><</link>>  
+<<link "Defend your advice as correct">><<goto "D2Defensive">><</link>>
+
+:: D1Recover
+<<set $transparency += 2>>   /* Correcting publicly supports learning */
+<<set $collaboration += 1>>  /* Restores some trust */
+
+You admit the misstep and share a link to the ASF Release Policy.  
+Others appreciate the humility.
+
+<<link "Go to Partial">><<goto "Partial">><</link>>
+
+:: D2Defensive
+<<set $transparency -= 1>>   /* Defensive tone reduces clarity */
+<<set $collaboration -= 1>>  /* Mentor tension remains */
+
+You double down:  
+> “We’re wasting time on bureaucracy.”
+
+The IPMC intervenes, reminding mentors that consistency and transparency matter.
+
+<<link "Go to Damage">><<goto "Damage">><</link>>
+
+:: E
+<<set $steps += 1>>
+<<set $transparency -= 1>>   /* Silence adds ambiguity */
+<<set $collaboration -= 1>>  /* Missed mentoring opportunity */
+
+You watch silently while others debate on general@.  
+The podling feels ignored.
+
+<<link "Step in late to summarise policy">><<goto "E1Recover">><</link>>  
+<<link "Stay silent until IPMC wraps it up">><<goto "E2Fail">><</link>>
+
+:: E1Recover
+<<set $transparency += 1>>   /* Late but helpful clarification */
+<<set $collaboration += 1>>  /* Re-engagement improves tone */
+
+You eventually post a short clarification and link to ASF documentation.  
+It helps, but the delay cost momentum.
+
+<<link "Go to Partial">><<goto "Partial">><</link>>
+
+:: E2Fail
+<<set $shortcuts += 1>>      /* Avoidance harms trust */
+<<set $collaboration -= 1>>  /* Lost opportunity for guidance */
+
+The IPMC wraps up the thread with general reminders about mentor coordination.  
+The podling learns little about how to handle such issues themselves.
+
+<<link "Go to Damage">><<goto "Damage">><</link>>
+
+:: Partial
+<<set $steps += 1>>
+
+The mentors eventually aligned, and the podling learned some lessons.  
+Still, confusion lingered, slowing community confidence.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Resolution
+<<set $steps += 1>>
+
+✅ The mentors reinforced ASF culture through open, coordinated guidance.  
+The podling learned that asking questions publicly is healthy and valued.  
+The IPMC cited this as an example of positive escalation.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Damage
+<<set $steps += 1>>
+
+Mentor inconsistency and private direction caused frustration.  
+The podling delayed progress, unsure whom to trust.  
+The IPMC reminded mentors that alignment and visibility are key parts of their role.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Reflect
+<<set $total = $transparency + $collaboration - $shortcuts - $escalation>>
+
+You’ve reached the end of the scenario. Let’s reflect.
+
+<<if $total >= 8>>
+You demonstrated ASF-aligned mentoring: open communication, mentor coordination, and positive reinforcement of podling independence.
+<</if>>
+
+<<if $total >= 4 and $total < 8>>
+You achieved a solid outcome with partial transparency or delayed alignment.  
+The podling still benefited, but earlier openness would improve learning.
+<</if>>
+
+<<if $total >= 0 and $total < 4>>
+You restored some order but with limited visibility or inconsistent guidance.  
+The podling might hesitate to ask for clarification next time.
+<</if>>
+
+<<if $total < 0>>
+Mentor misalignment and opaque communication eroded trust.  
+More transparent, coordinated mentoring would strengthen ASF culture.
+<</if>>
+
+Reflection Questions:
+- How can mentors maintain consistent understanding of ASF policy?
+- What should a podling do when mentor advice is unclear?
+- When is escalation to the IPMC appropriate or healthy?
+
+<<link "Restart Scenario">><<goto "Start">><</link>>

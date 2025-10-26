@@ -1,0 +1,267 @@
+:: StoryTitle
+Cross-List Release Vote Confusion (ASF Interactive Scenario)
+
+:: StoryData
+{
+  "ifid": "1F24C1C2-INCUBATOR-CROSS-LIST-VOTE",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Start"
+}
+
+:: Start
+<<set $branding = 0>>         /* Reflects adherence to ASF policy and branding correctness */
+<<set $independence = 0>>     /* Reflects podling self-governance and community-led behavior */
+<<set $escalation = 0>>       /* Tracks unnecessary or premature escalation */
+<<set $shortcuts = 0>>        /* Tracks procedural shortcuts or hidden fixes */
+<<set $steps = 0>>
+
+Your podling’s first release appears to have gone well.  
+After a week of discussion and testing, the vote on dev@ closed with four +1s and no objections.  
+You publish the artifacts and send a cheerful note.  
+
+Two days later, an IPMC member writes:  
+> "I cannot find this vote on general@incubator. Was it posted there?"
+
+You check the archives and realise it never was.
+
+What do you do?
+
+<<link "Take responsibility and clarify next steps">><<goto "Clarify">><</link>>  
+<<link "Defend the process and say the votes were enough">><<goto "Defend">><</link>>  
+<<link "Quietly post the missing vote without mentioning the mistake">><<goto "HideIssue">><</link>>  
+<<link "Ask mentors what to do before replying">><<goto "ConsultMentor">><</link>>
+
+:: ConsultMentor
+<<set $steps += 1>><<set $independence += 2>> /* PPMC seeks mentor input before acting */
+
+You message your mentors privately:  
+> "We ran a release vote on dev@ but never posted it to general@. What should we do?"
+
+One replies:  
+> "Withdraw the release if possible and restart the vote correctly on both lists. Be open about it; mistakes happen."
+
+Another adds:  
+> "Transparency builds trust. Announce the correction publicly."
+
+<<link "Follow mentor advice and clarify publicly">><<goto "Clarify">><</link>>  
+<<link "Try to fix it quietly anyway">><<goto "HideIssue">><</link>>  
+<<link "Ask mentors to quietly post the vote on your behalf">><<goto "AskMentorFix">><</link>>  
+<<link "Wait and see if anyone else notices">><<goto "Ignore">><</link>>
+
+:: AskMentorFix
+<<set $steps += 1>><<set $independence -= 2>><<set $shortcuts += 1>> /* Passes responsibility to mentors */
+
+You suggest:  
+> "Could one of you post the vote to general@ for us, just this once?"
+
+A mentor replies kindly but firmly:  
+> "Releases must come from the PPMC. We can guide, but not act for you."
+
+The mentor posts a note reminding everyone that mentors advise, not execute.  
+This becomes a small teaching moment for other podlings watching the thread.
+
+<<link "Acknowledge and handle it yourself">><<goto "Clarify">><</link>>  
+<<link "Stay silent after the reminder">><<goto "Ignore">><</link>>
+
+:: Ignore
+<<set $steps += 1>><<set $branding -= 2>> /* Violates ASF transparency expectations */
+<<set $shortcuts += 1>> /* Avoids process correction */
+
+You decide to wait.  
+Maybe no one else will notice.
+
+A week later, another IPMC member posts on general@ asking why the release is already listed on mirrors without IPMC approval.  
+Now several people are involved, and mentors are copied.
+
+<<link "Apologize and explain what happened">><<goto "Clarify">><</link>>  
+<<link "Defend your actions again">><<goto "Defend">><</link>>
+
+:: Clarify
+<<set $steps += 1>><<set $branding += 2>> /* Corrects ASF release policy violation */
+<<set $independence += 1>> /* PPMC-led corrective action */
+
+You reply:
+
+> "Thank you for pointing this out. We will announce that the release was premature,  
+> withdraw it if possible, and restart the process correctly on both dev@ and general@."
+
+Mentors appreciate your honesty.  
+This approach follows the Incubator Release Policy.
+
+<<link "Restart the vote correctly">><<goto "RestartVote">><</link>>  
+<<link "Ask why both lists are needed">><<goto "WhyBoth">><</link>>  
+<<link "Request a clear checklist for next time">><<goto "RequestChecklist">><</link>>
+
+:: Defend
+<<set $steps += 1>><<set $independence -= 1>> /* Defensive, not collaborative */
+
+You reply:
+
+> "We already had four +1s from IPMC members on dev@. That should be enough. Why repeat the vote?"
+
+An IPMC member explains:
+- All podling releases must have a public IPMC vote on general@.  
+- Votes on dev@ alone are not sufficient for Incubator releases.
+
+<<link "Reluctantly agree and restart correctly">><<goto "RestartVote">><</link>>  
+<<link "Keep arguing about the rule">><<goto "ArgueRule">><</link>>  
+<<link "Publish anyway">><<goto "PublishAnyway">><</link>>  
+<<link "Escalate to the IPMC list accusing them of bureaucracy">><<goto "EscalateBureaucracy">><</link>>
+
+:: EscalateBureaucracy
+<<set $steps += 1>><<set $independence -= 2>><<set $escalation += 1>> /* Publicly confrontational escalation */
+
+You forward the thread to general@ with a frustrated tone:  
+> "These constant rule checks are blocking progress. The IPMC should trust us to release."
+
+Several IPMC members reply, reminding you that process transparency protects the ASF and the podling alike.  
+The tone of the conversation becomes defensive, and mentors privately suggest cooling off before responding again.
+
+<<link "Acknowledge the tone and restart properly">><<goto "Clarify">><</link>>  
+<<link "Continue arguing publicly">><<goto "PublicArgue">><</link>>
+
+:: PublicArgue
+<<set $steps += 1>><<set $branding -= 1>><<set $escalation += 2>> /* Reputational damage through public conflict */
+
+You insist that the IPMC is over-controlling.  
+The thread grows long and heated.  
+A Board member eventually intervenes and asks the mentors to restore calm.  
+The project’s reputation takes a hit.
+
+<<link "Reflect on what happened">><<goto "Reflect">><</link>>
+
+:: HideIssue
+<<set $steps += 1>><<set $branding -= 2>> /* Conceals policy error */
+<<set $shortcuts += 2>> /* Quiet correction attempt */
+
+You post a new [VOTE] Release 0.1.0 on general@incubator without mentioning that the release is already published.
+
+Another IPMC member discovers the public artifacts and asks for clarification.
+
+<<link "Admit the mistake and correct it openly">><<goto "Clarify">><</link>>  
+<<link "Blame confusion on unclear rules">><<goto "BlameIncubator">><</link>>
+
+:: ArgueRule
+<<set $steps += 1>><<set $independence -= 1>> /* Opposes oversight process */
+
+You write:
+
+> "These duplicate votes slow us down. If IPMC members are already on dev@, why mirror it?"
+
+Mentors explain that mirroring ensures transparency, archival completeness, and shared oversight across the IPMC.  
+It is required by ASF policy.
+
+<<link "Restart correctly">><<goto "RestartVote">><</link>>  
+<<link "Ask if the requirement could be changed later">><<goto "AskChange">><</link>>
+
+:: AskChange
+<<set $steps += 1>><<set $independence += 1>> /* Seeks policy understanding rather than ignoring it */
+
+You ask on general@:
+
+> "Could the policy be updated to allow single-list votes?"
+
+Mentors respond:  
+> "No. The rule protects both the ASF and podlings. Once you graduate, your PMC will handle releases independently."
+
+<<link "Restart correctly">><<goto "RestartVote">><</link>>
+
+:: WhyBoth
+<<set $steps += 1>><<set $branding += 1>> /* Understands ASF process */
+<<set $independence += 1>> /* Recognises shared oversight model */
+
+A mentor explains:
+
+> "Dev@ shows your community can manage a vote.  
+> General@ allows the IPMC to confirm ASF compliance.  
+> Both steps are mandatory before a release can be official."
+
+<<link "Go to reflection">><<goto "Reflect">><</link>>
+
+:: RequestChecklist
+<<set $steps += 1>><<set $independence += 2>> /* Builds community process maturity */
+
+You post to dev@:
+
+> "Let’s add the two-list vote process to our release checklist so we don’t miss it again."
+
+A mentor links to the Incubator Release Policy and suggests storing the checklist in the project repo.
+
+<<link "Go to reflection">><<goto "Reflect">><</link>>
+
+:: PublishAnyway
+<<set $steps += 1>><<set $branding -= 2>> /* Violates ASF policy by premature distribution */
+<<set $shortcuts += 2>> /* Publishes without oversight */
+
+You continue to publish without IPMC approval.  
+Within days, the IPMC requests the release be withdrawn from mirrors.  
+Your next podling report notes a "process compliance issue."
+
+<<link "Withdraw and restart with a public correction">><<goto "Clarify">><</link>>  
+<<link "Complain about slow Incubator rules">><<goto "BlameIncubator">><</link>>
+
+:: BlameIncubator
+<<set $steps += 1>><<set $independence -= 1>> /* Shifts blame instead of taking responsibility */
+
+You write:
+
+> "These rules are confusing and slow. We just want to release software."
+
+Mentors remind you that incubation is about transparency and shared learning.  
+You agree to follow policy, but trust has dipped slightly.
+
+<<link "Restart correctly">><<goto "RestartVote">><</link>>  
+<<link "Reflect on what happened">><<goto "Reflect">><</link>>
+
+:: RestartVote
+<<set $steps += 1>><<set $branding += 2>> /* Correctly applies two-list voting rule */
+<<set $independence += 1>> /* PPMC leads public correction and restart */
+
+You announce that the earlier release was premature, withdraw it if possible, and restart correctly:
+
+1. [VOTE] Release 0.1.0 on dev@  
+2. After it passes, mirror the thread to general@incubator  
+3. Announce the combined result when the IPMC vote passes
+
+This complies fully with the Incubator Release Policy.  
+Mentors thank you for your openness.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Reflect
+<<set $steps += 1>>
+<<set $total = $branding + $independence - $shortcuts - $escalation>> /* Simplified score with explicit ASF policy and governance alignment */
+
+You have reached the end of the scenario. Let’s reflect.
+
+Your path summary:
+
+<<if $total >= 4>>
+You modelled ASF-aligned practice: compliance with release policy and community-led correction.  
+The project strengthened its credibility through openness and independence.
+<</if>>
+
+<<if $total >= 2 and $total < 4>>
+You corrected the issue but needed more openness or shared ownership.  
+Some steps were reactive rather than proactive.
+<</if>>
+
+<<if $total >= 0 and $total < 2>>
+You fixed the issue but with limited visibility.  
+Future releases may face similar confusion without stronger process awareness.
+<</if>>
+
+<<if $total < 0>>
+Your handling reduced community trust and visibility.  
+Greater alignment with ASF policy and PPMC accountability is needed.
+<</if>>
+
+''Reflection Questions''
+
+- How do ASF release vote requirements reinforce both policy compliance and community independence?  
+- When should mentors advise versus lead?  
+- How does transparent correction strengthen podling reputation during incubation?  
+- What checklist or automation could help prevent similar mistakes?  
+
+<<link "Restart Scenario">><<goto "Start">><</link>>

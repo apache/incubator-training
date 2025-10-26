@@ -1,0 +1,285 @@
+:: StoryTitle
+Cultural Misunderstanding (ASF Interactive Scenario)
+
+:: StoryData
+{
+  "ifid": "9E37F0F2-INCUBATOR-CULTURAL-MISUNDERSTANDING",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Start"
+}
+
+:: Start
+/* Initialise ASF-aligned learning metrics */
+<<set $transparency = 0>>   /* Open and visible discussion of communication issues */
+<<set $collaboration = 0>>  /* Shared responsibility for community tone and mentoring */
+<<set $shortcuts = 0>>      /* Avoiding silence, avoidance, or private assumptions */
+<<set $escalation = 0>>     /* Unnecessary or premature escalation */
+<<set $steps = 0>>
+
+You are a mentor observing a subtle communication issue on an incubating Apache project.
+
+One contributor’s short, direct comments, common in their home culture, are being interpreted as abrupt or rude.  
+Others begin avoiding review requests from them. The contributor, in turn, feels unfairly judged.  
+Tension quietly builds across the mailing list.
+
+What do you do?
+
+<<link "Address it publicly, reminding everyone to assume good faith">><<goto "A">><</link>>  
+<<link "Reach out privately to the direct contributor">><<goto "B">><</link>>  
+<<link "Wait and see if it resolves naturally">><<goto "C">><</link>>  
+<<link "Ask another mentor to intervene instead">><<goto "D">><</link>>  
+<<link "Start a general discussion about communication norms">><<goto "E">><</link>>  
+<<link "Propose a lightweight review template to guide tone">><<goto "F">><</link>>
+
+:: A
+<<set $steps += 1>>
+<<set $transparency += 2>>   /* Clear, visible reminder to whole list */
+<<set $collaboration += 1>>  /* Encourages shared reflection */
+
+You post on the list:
+
+> "Let’s remember that tone can vary across cultures. Please assume good faith and focus on technical substance."
+
+Some appreciate the reminder. The direct contributor stays quiet at first.
+
+<<link "Follow up privately with that person">><<goto "A1Good">><</link>>  
+<<link "Consider the issue closed after your post">><<goto "A1Weak">><</link>>
+
+:: A1Good
+<<set $collaboration += 1>>  /* Builds relationship and trust */
+<<set $transparency += 1>>   /* Reinforces openness with empathy */
+
+You message the contributor privately to explain that your note was not a personal criticism.  
+They respond gratefully and begin adjusting tone slightly.  
+Other contributors resume engaging more positively.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: A1Weak
+<<set $shortcuts += 1>>      /* Missed follow through */
+<<set $collaboration -= 1>>  /* Trust gap remains */
+
+The reminder helps temporarily, but the contributor feels singled out.  
+Tension reappears weeks later in another thread.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: B
+<<set $steps += 1>>
+<<set $collaboration += 2>>  /* Direct mentoring support */
+<<set $transparency -= 1>>   /* Private approach limits shared awareness */
+
+You write privately to the contributor:
+
+> "I have noticed some friction that may stem from cultural style, not intent. Could we talk about it?"
+
+They appreciate your note and explain their cultural context.
+
+<<link "Summarise learning publicly, without naming them">><<goto "B1Good">><</link>>  
+<<link "Keep the matter private">><<goto "B1Weak">><</link>>
+
+:: B1Good
+<<set $transparency += 2>>   /* Turns private insight into shared lesson */
+<<set $collaboration += 1>>  /* Encourages community understanding */
+
+You post:
+
+> "We discussed how tone can differ across cultures. Let’s document shared communication norms."
+
+The thread sparks thoughtful responses and improved mutual understanding.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: B1Weak
+<<set $shortcuts += 1>>      /* Improvement but not shared */
+<<set $collaboration += 0>>  /* Limited wider impact */
+
+The contributor adjusts, but others still misinterpret them.  
+Without community reflection, assumptions persist.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: C
+<<set $steps += 1>>
+<<set $shortcuts += 1>>      /* Avoidance leaves issue festering */
+<<set $transparency -= 1>>   /* No visible mentoring action */
+<<set $collaboration -= 1>>  /* Silence erodes trust */
+
+You decide not to intervene, assuming it will settle on its own.  
+Instead, quieter contributors stop reviewing that person’s work.
+
+<<link "Later escalate to general@ when it worsens">><<goto "C1Escalate">><</link>>  
+<<link "Finally raise it privately with mentors">><<goto "C1Late">><</link>>
+
+:: C1Escalate
+<<set $escalation += 2>>     /* Overdue escalation damages local trust */
+<<set $collaboration -= 1>>  /* PPMC ownership bypassed */
+
+You escalate publicly to the Incubator list.  
+Observers note it could have been handled locally earlier.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: C1Late
+<<set $collaboration += 1>>  /* Late correction but helpful */
+<<set $transparency += 1>>   /* Becomes learning moment */
+
+You raise the issue privately with mentors after noticing long term harm.  
+They guide you to reopen discussion publicly in a neutral tone.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: D
+<<set $steps += 1>>
+<<set $collaboration -= 1>>  /* Passing responsibility weakens mentoring role */
+<<set $shortcuts += 1>>      /* Delegating instead of guiding directly */
+
+You ask another mentor to handle it.  
+They reply weeks later, saying the issue faded, but the contributor is now less active.
+
+<<link "Re engage and invite them back">><<goto "D1Good">><</link>>  
+<<link "Leave things as they are">><<goto "D1Weak">><</link>>
+
+:: D1Good
+<<set $collaboration += 2>>  /* Restores participation */
+<<set $transparency += 1>>   /* Openly encourages return */
+
+You post a neutral note thanking them for past reviews and inviting continued input.  
+The contributor rejoins, slightly more cautious but appreciated.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: D1Weak
+<<set $collaboration -= 1>>  /* Inaction leads to contributor loss */
+
+The contributor quietly disappears.  
+Future reviews slow, and bus factor increases.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: E
+<<set $steps += 1>>
+<<set $transparency += 2>>   /* Public shared learning */
+<<set $collaboration += 2>>  /* Builds empathy across team */
+
+You start a general thread:
+
+> "Let’s talk about how communication styles differ around the world. How can we keep feedback constructive and respectful?"
+
+Several contributors share experiences.  
+The previously frustrated member joins and explains their intent.  
+Others thank them for clarifying.
+
+<<link "Encourage documenting communication norms">><<goto "E1Good">><</link>>  
+<<link "Let the discussion fade after initial success">><<goto "E1Neutral">><</link>>
+
+:: E1Good
+<<set $collaboration += 1>>  /* Shared learning captured */
+<<set $transparency += 1>>   /* Adds lasting visibility */
+
+The podling adds a short communication norms section to its wiki, capturing diverse expectations.  
+Trust improves sustainably.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: E1Neutral
+<<set $shortcuts += 1>>      /* No follow up documentation */
+<<set $collaboration += 0>>  /* Gains fade over time */
+
+The discussion helps for now, but without notes or reminders, old habits slowly return.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: F
+<<set $steps += 1>>
+<<set $collaboration += 1>>  /* Provides structure for shared expectations */
+<<set $transparency += 1>>   /* Makes desired tone visible in the process */
+
+You propose a lightweight pull request review template with prompts such as:  
+- Greet the contributor and thank them for the PR.  
+- Focus on specifics to improve.  
+- Offer one positive observation.
+
+The team is open to trying it.
+
+<<link "Pilot the template for two weeks and solicit feedback on list">><<goto "F1Good">><</link>>  
+<<link "Adopt the template immediately without discussion">><<goto "F1Weak">><</link>>
+
+:: F1Good
+<<set $collaboration += 1>>  /* Co design and opt in build buy in */
+<<set $transparency += 1>>   /* Public feedback loop on the pilot */
+
+The pilot runs and you collect feedback in a summary note.  
+Minor tweaks are adopted and the template becomes optional guidance.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: F1Weak
+<<set $shortcuts += 1>>      /* Process imposed without consensus */
+<<set $collaboration -= 1>>  /* Reduces local ownership */
+
+Some contributors feel process was dropped on them.  
+Compliance is inconsistent and resentment lingers.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: Damage
+<<set $steps += 1>>
+
+Because the misunderstanding was never surfaced constructively, quiet frustration lingers.  
+The contributor disengages, and the podling loses diversity of perspective.  
+The IPMC later reminds mentors to help projects normalise cross cultural discussion early.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Partial
+<<set $steps += 1>>
+
+The project resolves the issue only partially.  
+Communication improves for a while, but the deeper lesson about cultural diversity is not fully internalised.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Resolution
+<<set $steps += 1>>
+
+The project handled the cultural misunderstanding with transparency and empathy.
+
+- The PPMC surfaced the issue early.  
+- Mentors framed it as learning, not blame.  
+- The community documented shared tone expectations.
+
+Trust and inclusivity strengthened.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Reflect
+<<set $total = $transparency + $collaboration - $shortcuts - $escalation>>
+
+You have reached the end of the scenario. Let’s reflect.
+
+<<if $total >= 8>>
+You modelled ASF aligned mentoring: open discussion, empathy across cultures, and visible learning.
+<</if>>
+
+<<if $total >= 4 and $total < 8>>
+You supported cultural understanding with moderate openness. A few shortcuts reduced sustained learning.
+<</if>>
+
+<<if $total >= 0 and $total < 4>>
+You managed the tension but missed deeper mentoring opportunities. Long term inclusion remains fragile.
+<</if>>
+
+<<if $total < 0>>
+Silence or escalation reduced trust. Greater empathy and earlier public reflection would have helped the project grow.
+<</if>>
+
+Reflection questions
+
+- What early signals of misunderstanding could mentors watch for?  
+- How might you frame tone discussions as cultural learning rather than blame?  
+- How can projects document and revisit shared communication norms over time?  
+- How does this connect to the ASF value of "Community over Code"?
+
+<<link "Restart Scenario">><<goto "Start">><</link>>

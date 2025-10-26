@@ -1,0 +1,476 @@
+:: StoryTitle
+Mentor Dependency (ASF Interactive Scenario)
+
+:: StoryData
+{
+  "ifid": "9E37F0F2-INCUBATOR-MENTOR-DEPENDENCY",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Start"
+}
+
+:: Start
+/* Initialise ASF-aligned learning metrics */
+<<set $transparency = 0>>   /* Clear communication, open discussion, and visible learning */
+<<set $collaboration = 0>>  /* PPMC-led governance, mentor guidance, and teamwork */
+<<set $shortcuts = 0>>      /* Mentor overreach, hidden fixes, or doing instead of teaching */
+<<set $escalation = 0>>     /* Premature escalation to the IPMC or ASF level */
+<<set $steps = 0>>
+
+You are a mentor working with an incubating Apache project.
+
+After more than a year in incubation, the podling still depends on mentors to drive votes, file reports, and interpret ASF rules.
+When mentors pause activity, the project stalls. You begin to wonder if your help has become dependency.
+
+What do you do?
+
+<<link "Handle the backlog yourself to keep momentum">><<goto "A">><</link>>
+<<link "Invite the PPMC to lead the next governance task">><<goto "B">><</link>>
+<<link "Step back quietly and observe what happens">><<goto "C">><</link>>
+<<link "Escalate concerns to general@incubator">><<goto "D">><</link>>
+<<link "Ask open questions that draw out volunteers">><<goto "E">><</link>>
+
+:: A
+<<set $steps += 1>>
+<<set $shortcuts += 1>>      /* Mentor doing the work instead of guiding reduces growth */
+<<set $collaboration -= 1>>  /* Removes community ownership */
+
+You step in and do the work: calling votes, writing reports, and answering ASF questions.
+Everything gets done, but only because you did it.
+
+<<link "Continue doing it for efficiency">><<goto "A1Hard">><</link>>
+<<link "Use this to reset and then delegate publicly">><<goto "A1Soft">><</link>>
+<<link "Wait for consensus without prompting (delay)">><<goto "A1Avoid">><</link>>
+
+:: A1Hard
+<<set $shortcuts += 2>>      /* Repeated overreach compounds dependency */
+<<set $collaboration -= 1>>  /* Further reduces shared governance */
+
+The project remains dependent on mentors. Others assume you will handle governance next time too.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: A1Soft
+<<set $collaboration += 1>>  /* Reintroduces PPMC participation */
+<<set $transparency += 1>>   /* Publicly visible pivot to mentoring mode */
+
+You post to the list:
+"We have cleared the backlog, but going forward, the PPMC should lead reports and votes. Mentors will review only."
+
+<<link "Follow through by assigning tasks openly (rotate)">><<goto "Rotate">><</link>>
+<<link "Announce rotation but do not follow up">><<goto "Complacency">><</link>>
+<<link "Assign tasks rigidly (over-correct)">><<goto "OverCorrectA">><</link>>
+<<link "Follow through with public check-ins and recognition">><<goto "FollowThrough">><</link>>
+
+:: A1Avoid
+<<set $transparency -= 1>>   /* No explicit prompt to move forward */
+<<set $collaboration -= 1>>  /* Team left passive */
+<<set $shortcuts += 1>>      /* Indecision becomes a shortcut to inaction */
+
+You claim to be waiting for consensus, but never prompt or structure the decision.
+Threads drift and nothing happens.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: OverCorrectA
+<<set $transparency += 1>>   /* Clear intent but tone rigid */
+<<set $collaboration += 0>>  /* Directives replace dialogue */
+<<set $shortcuts += 1>>      /* Overly controlling mentoring */
+
+You publicly assign tasks forcefully:
+"Each committer must handle one report this month."
+Progress resumes, but engagement feels coerced.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Complacency
+<<set $transparency += 1>>   /* You did announce a plan */
+<<set $collaboration += 0>>  /* No follow-through to build shared ownership */
+<<set $shortcuts += 1>>      /* Good intention without execution */
+
+You announced rotation but never followed up.
+Deadlines slip again and uncertainty returns.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: FollowThrough
+<<set $transparency += 2>>   /* Follow-up visible on-list */
+<<set $collaboration += 1>>  /* Recognition reinforces PPMC leadership */
+<<set $shortcuts += 0>>
+<<set $escalation += 0>>
+
+You check in after the next report:
+"Great job leading this round - let us rotate again next month."
+The team responds positively and begins planning the next rotation themselves.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: B
+<<set $steps += 1>>
+<<set $collaboration += 1>>  /* Encourages shared action between mentor and PPMC */
+<<set $transparency += 1>>   /* Visible invitation to contribute */
+
+You invite PPMC members to take on the next report or vote.
+They agree hesitantly and ask for guidance.
+
+<<link "Coach them privately so they do not make mistakes">><<goto "CoachPrivate">><</link>>
+<<link "Coach them publicly so everyone learns">><<goto "CoachPublic">><</link>>
+
+:: CoachPrivate
+<<set $collaboration += 1>>  /* Builds 1:1 confidence */
+<<set $transparency -= 1>>   /* Learning not visible to wider community */
+
+They succeed quietly, but most contributors never see the process.
+Next time, they ask again privately.
+
+<<link "Post a public follow-up explaining the steps">><<goto "Summarise">><</link>>
+<<link "Let it continue privately">><<goto "Damage">><</link>>
+<<link "Write drafts privately for them to copy (shadow-coach)">><<goto "ShadowCoach">><</link>>
+
+:: ShadowCoach
+<<set $transparency -= 1>>   /* Ghost-writing hides learning */
+<<set $collaboration -= 1>>  /* Ownership shifts back to mentor */
+<<set $shortcuts += 2>>      /* Doing the work for others */
+
+You draft the report and emails privately to help.
+They copy, paste, and ask you again next time.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: CoachPublic
+<<set $collaboration += 2>>  /* Broadly builds PPMC capability */
+<<set $transparency += 1>>   /* Demonstrates open mentoring practice */
+
+You guide them on-list, showing how to structure [DISCUSS] and [VOTE] threads.
+Other contributors follow along and gain confidence.
+
+<<link "Propose rotating tasks among members">><<goto "Rotate">><</link>>
+<<link "Over-teach and correct every detail (dominate thread)">><<goto "OverCorrectB">><</link>>
+<<link "PPMC proposes their own rotation">><<goto "PeerRotation">><</link>>
+<<link "Formalise a monthly rotation calendar">><<goto "SteadyCycle">><</link>>
+
+:: OverCorrectB
+<<set $transparency += 1>>   /* Lots of visible activity */
+<<set $collaboration += 0>>  /* Your voice dominates; others withdraw */
+<<set $shortcuts += 2>>      /* Teaching becomes directing */
+
+Your explanations flood the thread and you correct every message.
+People stop participating, waiting for your approval.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: PeerRotation
+<<set $transparency += 2>>   /* Community announces plan on-list */
+<<set $collaboration += 2>>  /* Self-organised rotation shows independence */
+<<set $shortcuts += 0>>
+<<set $escalation += 0>>
+
+PPMC members propose a rotation and volunteers sign up without prompting.
+Mentors acknowledge progress and stay in review mode.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: SteadyCycle
+<<set $transparency += 2>>   /* Calendar and ownership are public */
+<<set $collaboration += 1>>  /* Predictable shared responsibility */
+<<set $shortcuts += 0>>
+<<set $escalation += 0>>
+
+The community publishes a monthly rotation calendar with clear owners and dates.
+Mentors monitor progress but do not steer day-to-day work.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Summarise
+<<set $steps += 1>>
+<<set $transparency += 2>>   /* Publicly documents the process for others */
+<<set $collaboration += 1>>  /* Reinforces shared knowledge and confidence */
+
+You post a short summary explaining how to run [DISCUSS] and [VOTE] threads.
+Others begin to learn by example.
+
+<<link "Propose rotation">><<goto "Rotate">><</link>>
+
+:: Rotate
+<<set $steps += 1>>
+<<set $collaboration += 2>>  /* Broad ownership through distributed responsibility */
+<<set $transparency += 1>>   /* Visible, predictable governance on-list */
+
+You suggest rotating report and vote leadership among PPMC members.
+Mentors stay in review mode, helping the PPMC understand ASF policy rather than applying it for them.
+
+After a few cycles, the community starts to act independently.
+
+<<link "Recognise this as progress">><<goto "Resolution">><</link>>
+<<link "Rotation narrows to a few people (burnout risk)">><<goto "Burnout">><</link>>
+<<link "Arguments over fairness stall rotation">><<goto "Fragmentation">><</link>>
+
+:: Burnout
+<<set $transparency += 1>>   /* Visible fatigue signs on-list */
+<<set $collaboration += 0>>  /* Others are not stepping up to share load */
+<<set $shortcuts += 2>>      /* Sustainability shortcut: same people do all work */
+
+A few members rotate reports repeatedly. Others stay quiet.
+Work gets done, but participation narrows and burnout grows.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Fragmentation
+<<set $transparency += 1>>   /* Disagreement is on-list */
+<<set $collaboration -= 2>>  /* Team cohesion drops */
+<<set $shortcuts += 1>>      /* Process focus over facilitation */
+
+Members argue over who should take which rotation slot.
+Progress stalls while mentors remain silent, expecting the PPMC to self-correct.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Resolution
+<<set $transparency += 1>>   /* Visible closure and accountability */
+<<set $collaboration += 2>>  /* PPMC demonstrates stable self-governance */
+<<set $shortcuts += 0>>
+<<set $escalation += 0>>
+
+The project demonstrates growing independence.
+PPMC members lead governance openly; mentors support, not direct.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Damage
+<<set $shortcuts += 1>>      /* Mentor-led pattern continues */
+<<set $transparency += 0>>   /* Visibility low but not hidden */
+<<set $collaboration -= 1>>  /* Dependency persists */
+
+The podling remains mentor-driven.
+The IPMC flags lack of independence in its next review.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: C
+<<set $steps += 1>>
+<<set $transparency -= 1>>   /* Silence reduces clarity and trust */
+<<set $collaboration -= 1>>  /* Team becomes passive without guidance */
+
+You quietly stop replying to see what happens.
+After two weeks, nothing moves. Reports lapse, and contributors hesitate to act.
+
+<<link "Step in to fix things again">><<goto "A">><</link>>
+<<link "Reopen a discussion about shared responsibility">><<goto "PromptDiscussion">><</link>>
+<<link "Stay silent again to force ownership">><<goto "SilenceAgain">><</link>>
+
+:: PromptDiscussion
+<<set $transparency += 2>>   /* Re-establishes visibility and expectations */
+<<set $collaboration += 1>>  /* Invites collective ownership */
+
+You ask publicly:
+"Who can lead our next report or release? Mentors will stay in review mode only."
+
+Some volunteers step forward, unsure where to start.
+
+<<link "Support them in public as they learn">><<goto "CoachPublic">><</link>>
+<<link "Guide them privately to avoid mistakes">><<goto "CoachPrivate">><</link>>
+<<link "Prompt, then go silent again">><<goto "SilenceAgainAfterPrompt">><</link>>
+<<link "Form a small working group to share ownership">><<goto "SharedOwnership">><</link>>
+
+:: SilenceAgain
+<<set $transparency -= 1>>   /* Ongoing silence */
+<<set $collaboration -= 2>>  /* Community confidence falls */
+<<set $shortcuts += 1>>      /* Avoidance becomes a pattern */
+
+You wait for others to act without any guidance.
+Nothing moves; trust erodes further.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: SilenceAgainAfterPrompt
+<<set $transparency += 1>>   /* At least a prompt existed */
+<<set $collaboration -= 1>>  /* Ownership still unclear */
+<<set $shortcuts += 1>>      /* Inconsistent engagement */
+
+You nudge the list, then disappear again.
+Energy fades and nobody feels responsible.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: SharedOwnership
+<<set $transparency += 1>>   /* Visible coordination on-list */
+<<set $collaboration += 1>>  /* Contributors coordinate and share responsibility */
+<<set $shortcuts += 0>>
+<<set $escalation += 0>>
+
+A small working group volunteers to draft the next report and document each step on-list.
+Momentum improves as tasks are shared transparently.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Recovery
+<<set $transparency += 2>>   /* Public follow-up closes the loop */
+<<set $collaboration += 2>>  /* Capability grows across the team */
+
+After some private guidance, you return to the list to document the process.
+People start to try the steps themselves next time.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: D
+<<set $steps += 1>>
+<<set $escalation += 2>>     /* Premature escalation bypasses local governance */
+<<set $collaboration -= 2>>  /* Undermines PPMC independence */
+
+You post to general@incubator about mentor dependency.
+IPMC members reply that mentors should help the podling self-correct first.
+
+<<link "Apologise and refocus locally">><<goto "Refocus">><</link>>
+<<link "Defend your action publicly">><<goto "Defend">><</link>>
+<<link "Start a mentors-only coordination thread">><<goto "ParallelList">><</link>>
+<<link "File an IPMC ticket instead of a discussion">><<goto "ReportOnly">><</link>>
+
+:: Refocus
+<<set $collaboration += 1>>  /* Re-engages project team in local problem-solving */
+<<set $transparency += 1>>   /* Admits error openly and models accountability */
+
+You acknowledge the feedback and refocus on helping the PPMC grow.
+
+<<link "Move toward rotating responsibility">><<goto "Rotate">><</link>>
+<<link "Report back periodically as momentum returns">><<goto "SlowRepair">><</link>>
+<<link "Run an on-list walkthrough of governance steps">><<goto "LocalWorkshop">><</link>>
+
+:: SlowRepair
+<<set $transparency += 2>>   /* Apology and visible correction */
+<<set $collaboration += 1>>  /* Gradual re-engagement of PPMC */
+<<set $shortcuts += 0>>
+<<set $escalation += 2>>     /* Original escalation penalty remains */
+
+After refocusing, the team rebuilds trust.
+Reports resume slowly but steadily under local leadership.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: LocalWorkshop
+<<set $transparency += 2>>   /* Steps explained on-list, archived for reference */
+<<set $collaboration += 2>>  /* Group learns together */
+<<set $shortcuts += 0>>
+<<set $escalation += 1>>     /* Prior escalation still a drag */
+
+You facilitate an on-list walkthrough: how to run [DISCUSS], [VOTE], tally, and close.
+PPMC members practice and ask questions in the thread.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Defend
+<<set $escalation += 1>>     /* Escalation intensifies tension */
+<<set $collaboration -= 1>>  /* Discourages open collaboration */
+
+The discussion drags on publicly, leaving the podling feeling exposed.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: ParallelList
+<<set $transparency -= 2>>   /* Private side-channel */
+<<set $collaboration -= 2>>  /* PPMC bypassed */
+<<set $escalation += 2>>     /* Further escalation */
+
+Mentors start a parallel thread off-list to fix the podling.
+Decisions move out of sight and trust drops.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: ReportOnly
+<<set $transparency -= 1>>   /* Procedural substitution for discussion */
+<<set $collaboration -= 1>>  /* Bypasses community conversation */
+<<set $escalation += 1>>     /* Raises the issue without local effort */
+
+You open a ticket asking the IPMC to intervene.
+People are confused about who is responsible.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: E
+<<set $steps += 1>>
+<<set $collaboration += 1>>  /* Encourages dialogue rather than direction */
+<<set $transparency += 1>>   /* Makes mentoring intent explicit */
+
+You ask:
+"Who feels ready to lead our next [VOTE] or report? Mentors can review drafts."
+
+Two volunteers reply but seem unsure about ASF expectations.
+
+<<link "Guide them with examples in public">><<goto "CoachPublic">><</link>>
+<<link "Just confirm deadlines and hope they figure it out">><<goto "Drift">><</link>>
+<<link "Post a prescriptive checklist instead of discussion">><<goto "ChecklistTrap">><</link>>
+<<link "Encourage peers to help each other while you observe">><<goto "PeerSupport">><</link>>
+
+:: Drift
+<<set $shortcuts += 1>>      /* Laissez-faire shortcut; learning opportunity missed */
+<<set $collaboration -= 1>>  /* Confusion weakens teamwork */
+
+Unclear ownership leads to missed deadlines.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+<<link "IPMC steps in after repeated lapses">><<goto "IPMCIntervention">><</link>>
+
+:: IPMCIntervention
+<<set $transparency += 1>>   /* Public accountability: reminder seen on-list */
+<<set $collaboration += 0>>  /* Mixed signal - some external help, limited local drive */
+<<set $shortcuts += 0>>
+<<set $escalation += 1>>     /* Still an escalation, but less severe */
+
+The IPMC follows up on the missed reports with a gentle reminder.
+Mentors and PPMC members respond publicly, clarifying next steps and recommitting to regular reporting.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: ChecklistTrap
+<<set $transparency += 0>>
+<<set $collaboration -= 1>>  /* Checklist replaces shared reasoning */
+<<set $shortcuts += 2>>      /* Procedural shortcut undermines learning */
+
+You post a detailed checklist:
+"Follow these steps exactly; do not improvise."
+Tasks get done, but nobody understands why.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: PeerSupport
+<<set $transparency += 1>>   /* Peer mentoring visible and inclusive */
+<<set $collaboration += 1>>  /* Healthy teamwork and self-reliance */
+<<set $shortcuts += 0>>
+<<set $escalation += 0>>
+
+Community members start helping each other on-list.
+Mentors observe while peers explain ASF practices to newcomers.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Reflect
+<<set $total = $transparency + $collaboration - $shortcuts - $escalation>>
+
+You have reached the end of the scenario.
+
+<<if $total >= 6>>
+You modelled ASF-aligned mentoring: visible learning, shared governance, and steady mentor withdrawal.
+The podling is on track for graduation readiness.
+<</if>>
+
+<<if $total >= 2 and $total < 6>>
+You made progress toward independence but still relied on mentors for momentum or structure.
+Encourage on-list learning and responsibility rotation to build confidence.
+<</if>>
+
+<<if $total >= 0 and $total < 2>>
+You maintained progress, but dependency remains.
+Public coaching and delegation would strengthen governance culture.
+<</if>>
+
+<<if $total < 0>>
+Mentor overreach or escalation reduced community confidence.
+Rebuild trust through transparency and shared ownership.
+<</if>>
+
+''Reflection Questions''
+
+- How can mentors tell when their guidance has become dependency?
+- What steps can a podling take to build governance confidence among its own members?
+- How can the community gradually assume more responsibility before graduation?
+
+<<link "Restart Scenario">><<goto "Start">><</link>>

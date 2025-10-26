@@ -1,0 +1,340 @@
+:: StoryTitle
+The Heated Thread (ASF Interactive Scenario)
+
+:: StoryData
+{
+  "ifid": "9E37F0F2-INCUBATOR-HEATED-THREAD",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Start"
+}
+
+:: Start
+/* Initialise ASF-aligned learning metrics */
+<<set $transparency = 0>>   /* Clear, public, and respectful communication */
+<<set $collaboration = 0>>  /* PPMC-led conflict resolution and teamwork */
+<<set $shortcuts = 0>>      /* Avoiding avoidance, silence, or private fixes */
+<<set $escalation = 0>>     /* Premature or unnecessary escalation */
+<<set $steps = 0>>
+
+You are a mentor working with an incubating Apache project.
+
+A long thread begins on `dev@` about switching the project’s build system from Maven to Gradle.  
+At first, it’s a healthy technical discussion — but soon, the tone shifts.
+
+> "Your approach ignores half the project’s needs."  
+> "Maybe if you actually read the code, you’d understand!"
+
+The exchange escalates.  
+Other participants go silent, unsure whether to intervene.
+
+What do you do?
+
+<<link "Step in publicly to cool things down">><<goto "A">><</link>>  
+<<link "Wait to see if it resolves itself">><<goto "B">><</link>>  
+<<link "Email both parties privately to de-escalate">><<goto "C">><</link>>  
+<<link "Escalate to general@incubator.apache.org for guidance">><<goto "D">><</link>>  
+<<link "Invite a neutral summary of technical points">><<goto "E">><</link>>
+
+:: A
+<<set $steps += 1>>
+<<set $transparency += 2>>   /* Visible guidance strengthens trust */
+<<set $collaboration += 1>>  /* Mentoring through calm example */
+
+You step in publicly:
+
+> "Let’s pause for a moment. Please focus on the technical issue, not each other. We all want the best outcome for the project."
+
+One contributor thanks you, the other replies curtly:  
+> "Don’t lecture me — I’m defending my work."
+
+<<link "Reassure and redirect">><<goto "A1Good">><</link>>  
+<<link "Reinforce community norms firmly">><<goto "A1Neutral">><</link>>  
+<<link "Call out the behaviour sharply">><<goto "A1Bad">><</link>>
+
+:: A1Good
+<<set $collaboration += 2>>  /* Shows empathy and resets tone */
+<<set $transparency += 1>>   /* Keeps communication open */
+
+You reply calmly:
+
+> "No worries — it’s easy for tone to get lost in text. Let’s list pros and cons of both build options before deciding."
+
+People re-engage productively, and the silent contributors start replying again.
+
+<<link "Encourage documentation of the process">><<goto "A2Doc">><</link>>  
+<<link "Let the discussion conclude naturally">><<goto "A2Fade">><</link>>
+
+:: A2Doc
+<<set $transparency += 1>>   /* Captures learning */
+<<set $collaboration += 1>>  /* Reinforces PPMC ownership */
+
+You suggest:  
+> "Let’s summarise this in our dev@ archive so future contributors know how we handled disagreement."
+
+The summary later appears in the next podling report.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: A2Fade
+<<set $shortcuts += 1>>      /* Fails to capture learning */
+
+The thread ends peacefully, but no one documents what was learned.  
+When another disagreement happens later, people repeat the same mistakes.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: A1Neutral
+<<set $transparency += 1>>   /* Affirms ASF norms */
+<<set $collaboration -= 1>>  /* Slight defensiveness reduces rapport */
+
+You write:
+
+> "Please remember that ASF discussions should stay respectful. Let’s focus on ideas, not people."
+
+It stops the argument, but the tone feels chilly.  
+The discussion moves on mechanically, without much reflection.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: A1Bad
+<<set $transparency -= 1>>   /* Harsh response harms openness */
+<<set $collaboration -= 2>>  /* Scolding damages trust */
+
+You post:
+
+> "This behaviour is unacceptable. You both need to apologise immediately."
+
+The thread ends abruptly. One contributor unsubscribes.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: B
+<<set $steps += 1>>
+<<set $shortcuts += 1>>      /* Avoiding early intervention allows harm */
+<<set $collaboration -= 1>>  /* Lost mentoring opportunity */
+
+You wait to see if others step in.  
+After several days, the thread dies down on its own.  
+But one of the main contributors goes quiet and hasn’t committed in weeks.
+
+<<link "Reach out privately afterward">><<goto "B1Good">><</link>>  
+<<link "Assume they’ll come back">><<goto "B1Bad">><</link>>
+
+:: B1Good
+<<set $collaboration += 2>>  /* Restores human connection */
+<<set $transparency += 1>>   /* Restores visibility later */
+
+You message the inactive contributor privately:
+
+> "Just checking in — are you OK? The thread got tense, and I wanted to make sure you still feel welcome."
+
+They appreciate it and return gradually.
+
+<<link "Encourage them to post publicly">><<goto "B2Public">><</link>>  
+<<link "Keep the check-in private">><<goto "B2Private">><</link>>
+
+:: B2Public
+<<set $transparency += 2>>   /* Restores openness */
+<<set $collaboration += 1>>  /* Encourages participation */
+
+You suggest they reply to the list to restart discussion.  
+They do, thanking everyone for helping de-escalate.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: B2Private
+<<set $shortcuts += 1>>      /* Learning hidden from group */
+<<set $transparency -= 1>>   /* Unseen progress */
+
+They return to contributing silently, avoiding discussion threads.  
+Future conflicts may resurface.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: B1Bad
+<<set $shortcuts += 2>>      /* Avoidance compounds harm */
+<<set $collaboration -= 1>>  /* Mentor absence felt */
+
+You decide not to follow up.  
+Weeks later, the contributor resigns quietly. The podling loses momentum.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: C
+<<set $steps += 1>>
+<<set $collaboration += 1>>  /* Direct contact can calm tempers */
+<<set $transparency -= 1>>   /* Private conversation not visible */
+
+You message both privately, acknowledging the conflict and encouraging perspective.  
+They apologise to you but not to the list.
+
+<<link "Encourage public closure">><<goto "C1Good">><</link>>  
+<<link "Let it stay private">><goto "C1Bad">><</link>>
+
+:: C1Good
+<<set $transparency += 2>>   /* Visibility rebuilds trust */
+<<set $collaboration += 1>>  /* Community sees resolution */
+
+You suggest:
+
+> "Could you post a short note to close the thread, just so everyone knows the issue’s settled?"
+
+They do, thanking each other for resolving things. The list’s mood improves.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: C1Bad
+<<set $shortcuts += 1>>      /* Private fix limits transparency */
+<<set $transparency -= 1>>   /* Hidden repair */
+<<set $collaboration -= 1>>  /* Unclear leadership */
+
+You consider it solved privately.  
+Others on the list still sense tension and avoid new topics.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: D
+<<set $steps += 1>>
+<<set $escalation += 2>>     /* Premature escalation */
+<<set $collaboration -= 1>>  /* Weakens PPMC independence */
+
+You escalate the thread to `general@incubator.apache.org`.  
+Some IPMC members reply, but several ask why the mentors didn’t first handle it locally.
+
+<<link "Acknowledge the feedback and redirect locally">><<goto "D1Good">><</link>>  
+<<link "Defend the escalation">><<goto "D1Bad">><</link>>
+
+:: D1Good
+<<set $transparency += 1>>   /* Brings back local ownership */
+<<set $collaboration += 1>>  /* Helps the PPMC recover leadership */
+
+You post back to `dev@`:
+
+> "Thanks everyone — we’ll handle this locally and summarise learnings here."
+
+The PPMC restarts discussion respectfully.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: D1Bad
+<<set $escalation += 1>>     /* Extra tension */
+<<set $collaboration -= 2>>  /* External debate undermines PPMC */
+
+The debate spills across lists, with outsiders criticising tone and mentors arguing among themselves.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: E
+<<set $steps += 1>>
+<<set $collaboration += 2>>  /* Refocuses on technical facts */
+<<set $transparency += 1>>   /* Keeps discussion public */
+
+You write:
+
+> "Let’s reset — can someone summarise both technical options objectively so we can compare side-by-side?"
+
+A neutral contributor volunteers.
+
+<<link "Acknowledge and build on the summary">><<goto "E1Good">><</link>>  
+<<link "Thank them and move on without reflection">><<goto "E1Neutral">><</link>>  
+<<link "Ignore the effort and end the thread">><<goto "E1Bad">><</link>>
+
+:: E1Good
+<<set $collaboration += 2>>  /* Re-engages others in solution mode */
+<<set $transparency += 1>>   /* Shared understanding */
+
+The project thanks the summariser and agrees to prototype both options before deciding.  
+Healthy debate returns.
+
+<<link "Invite a closing reflection">><<goto "E2Reflect">><</link>>
+
+:: E2Reflect
+<<set $collaboration += 1>>  /* Reinforces learning */
+<<set $transparency += 1>>   /* Visible closure */
+
+You encourage:
+
+> "Let’s note what helped here — clear summaries made a difference."
+
+They agree to include this insight in their next podling report.
+
+<<link "Go to resolution">><<goto "Resolution">><</link>>
+
+:: E1Neutral
+<<set $shortcuts += 1>>      /* Fails to embed lesson */
+<<set $collaboration -= 1>>  /* Learning missed */
+
+The technical issue is solved, but no one reflects on the conflict.  
+A missed mentoring opportunity.
+
+<<link "Go to partial resolution">><<goto "Partial">><</link>>
+
+:: E1Bad
+<<set $collaboration -= 2>>  /* Dismisses constructive input */
+<<set $transparency -= 1>>   /* Shuts down visibility */
+
+The summary is ignored, and frustration returns.  
+The volunteer disengages from the project.
+
+<<link "Go to damage control">><<goto "Damage">><</link>>
+
+:: Resolution
+<<set $steps += 1>>
+
+✅ The project handled the tension constructively and restored a healthy tone.
+
+* Respect replaced hostility.  
+* The PPMC led its own resolution.  
+* The discussion remained visible and educational.
+
+Mentors note that de-escalation, empathy, and transparency helped rebuild trust.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Partial
+<<set $steps += 1>>
+
+The conflict cooled, but the project missed a chance to learn collectively.  
+Future disagreements might resurface without guidance.
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Damage
+<<set $steps += 1>>
+
+The conflict left lasting damage.  
+A contributor withdrew, and activity declined.  
+The next podling report notes "reduced participation after tense discussions."
+
+<<link "Reflect on your choices">><<goto "Reflect">><</link>>
+
+:: Reflect
+<<set $total = $transparency + $collaboration - $shortcuts - $escalation>>
+
+You’ve reached the end of the scenario.
+
+<<if $total >= 8>>
+✅ You modelled ASF-aligned practice: respectful communication, transparency, and mentoring that empowers the PPMC.
+<</if>>
+
+<<if $total >= 4 and $total < 8>>
+⚖️ You de-escalated effectively but missed opportunities for broader learning or documentation.
+<</if>>
+
+<<if $total >= 0 and $total < 4>>
+⚠️ The conflict was contained, but without enough openness to rebuild trust fully.
+<</if>>
+
+<<if $total < 0>>
+❌ Your choices reduced visibility and trust. The community will need time to recover and may repeat the mistake.
+<</if>>
+
+''Reflection Questions''
+
+- When should a mentor step in versus letting the PPMC lead?  
+- Which responses preserved trust and which reduced it?  
+- How can podlings document and share lessons from conflict?  
+- How does this scenario demonstrate ''community over code'' in practice?
+
+<<link "Restart Scenario">><<goto "Start">><</link>>
