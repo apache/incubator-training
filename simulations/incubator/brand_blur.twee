@@ -165,8 +165,6 @@ Some contributors raise concerns privately.
 
 * [[Proceed to Debrief|Debrief]]
 
----
-
 :: JointCall
 <<set $steps += 1>>
 <<set $branding += 1>>       /* live clarification reduces future errors */
@@ -244,8 +242,6 @@ What next?
 
 * [[Adopt the checklist and close the loop|Debrief]]
 * [[Decide not to bother reviewing since it’s fixed|SkipReview]]   /* shortcut */
-
----
 
 :: SkipReview
 <<set $steps += 1>>
