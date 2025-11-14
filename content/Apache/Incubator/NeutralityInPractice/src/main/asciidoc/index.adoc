@@ -1,0 +1,529 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+:revealjs_theme: white
+:revealjs_slideNumber: false
+:revealjs_progress: false
+:revealjs_center: false
+:revealjs_controls: false
+:revealjs_history: true
+:revealjs_transition: fade
+:icons: font
+:sectanchors:
+:customcss: apache.css
+
+[.title-slide]
+== Vendor Neutrality in Practice
+
+[.notes]
+--
+Welcome the audience.
+
+Explain that this session explores how vendor neutrality operates in real Apache communities with nuance, lived experience, and practical guidance for mentors and PPMCs.  
+--
+
+== Why This Talk Matters
+* Vendor neutrality is central to the Apache model.
+* The Incubator is where neutrality issues are most visible.
+* Early patterns strongly influence long-term community health.
+* Lessons come from real podling experience.
+
+[.notes]
+--
+Set the stage by explaining why neutrality is not just an ASF rule but something that directly affects the long-term health of open source projects.
+
+Almost every podling enters the Incubator carrying habits from wherever it originated. If it started inside a company, that corporate culture shapes early behaviour.  The Incubator is the first place where these dynamics become visible.
+
+Mention that you have seen hundreds of podling reports, discussions, and cases. Patterns emerge over time, and sharing them helps new projects avoid repeating mistakes.
+
+Neutrality is nuanced: strong vendor involvement is normal and often essential. What matters is transparency, openness, and inclusive governance—not commit ratios.
+
+Emphasise that neutrality issues often arise unintentionally, from habits, incentives, or internal processes—not bad actors.
+
+Transition by saying: “Before we explore the patterns, let’s clarify what neutrality means at Apache.”
+--
+
+== Why Neutrality Matters Now
+* Growing influence of commercial ecosystems.
+* Consolidation in cloud, AI, and data platforms.
+* Open source used strategically by vendors.
+* Increased concern about project independence.
+
+[.notes]
+--
+Explain why neutrality is a timely issue.
+
+Many modern open source projects emerge from companies whose business models intersect with open source in complex ways.
+
+Discuss how vendor-backed open source can raise questions of independence for users if governance is not transparent. Neutrality builds trust.
+
+Reassure that vendors are valuable contributors—neutral governance does not reduce vendor participation; it clarifies how influence is earned publicly.
+
+This slide ties neutrality into broader industry trends.
+--
+
+== Common Neutrality Myths
+* “Neutrality means no vendors involved.”
+* “A project must be diverse on day one.”
+* “Mailing lists slow us down.”
+* “Neutrality is a compliance checkbox.”
+* “Private agreements are fine if we announce later.”
+
+[.notes]
+--
+Address common misunderstandings.
+
+Neutrality does not imply anti-vendor sentiment. Vendors are essential actors in many successful ASF projects.
+
+Diversity isn’t expected at the start—only progress toward independence.
+
+Mailing lists may feel slower than Slack, but they create durable governance records and prevent misunderstandings.
+
+Neutrality is not about ticking boxes; it is about building a sustainable, open community.
+
+This prepares the audience for deeper discussion of nuance.
+--
+
+== The Nuance of Vendor Involvement
+* Most podlings begin inside a company.
+* High vendor activity is normal and often positive.
+* Commit ratios alone do not signal control.
+* Neutrality is about governance transparency.
+* Many perceived problems are misunderstandings.
+
+[.notes]
+--
+Reinforce that corporate origins are normal and healthy.
+
+A project can have 80–90% vendor commits early on and still be fully neutral if governance is open and merit-based.
+
+Neutrality is about how decisions are made, not who wrote the most commits.
+
+Many neutrality concerns come from misunderstandings, especially when projects are young.
+
+This slide positions vendors as partners, not risks.
+--
+
+== What Vendor Neutrality Means at the ASF
+* Individuals act on their own merit.
+* No company controls the project.
+* Governance is public and archived.
+* Branding is independent and community led.
+* Releases and roadmaps follow ASF rules.
+
+[.notes]
+--
+Explain merit-based governance: roles are earned by individuals, not companies.
+
+Employment changes; individual merit remains.
+
+All important decisions must be visible on mailing lists, with archives providing transparency and historical context.
+
+Branding must reflect community ownership, not product identity.
+
+Releases must be built using ASF infrastructure, internal pipelines or private CI cannot produce Apache releases.
+
+Emphasise this is a vendor-friendly model: vendors participate strongly, but not exclusively.
+
+Commit ratios are not a measure of neutrality. Governance behaviour is.
+--
+
+== The Incubator as a Governance Observatory
+* Podlings enter with different backgrounds.
+* Early habits reveal structural issues.
+* Mentors see consistent patterns.
+* These patterns form a governance evidence base.
+
+[.notes]
+--
+Describe the Incubator as a unique ecosystem where communities with very different origins converge.
+
+Because podlings enter with diverse corporate habits, the Incubator provides a clear view of recurring governance patterns.
+
+High vendor presence early is expected—not a red flag.
+
+Neutrality issues can be hidden: public lists may look fine even when private alignment exists.
+
+The Incubator’s role is supportive—not policing, helping communities transition toward sustainable governance.
+--
+
+== Early Indicators to Watch
+* One employer provides most commits.
+* Conversations happen in private tools.
+* Website and docs reflect product identity.
+* Roadmaps shaped internally.
+* Independents join but do not stay.
+
+[.notes]
+--
+Stress these are **indicators**, not evidence of vendor control.
+
+High vendor commits early are normal. Private tool use often comes from habit, not intent.
+
+Branding issues frequently stem from marketing teams who don’t know ASF norms.
+
+Internal roadmapping may simply reflect the project’s origins.
+
+These signals help mentors understand where guidance may be needed.
+--
+
+== How Vendor Influence Emerges
+* Habits carried from internal teams.
+* Private tools used for efficiency.
+* Marketing teams shaping identity.
+* Company roadmaps influencing direction.
+* Contributors unsure how to act independently.
+
+[.notes]
+--
+Explain that these patterns are almost always **unintentional**.
+
+Internal teams bring fast-moving habits (Slack, Jira, private chats) that are out of alignment with ASF culture.
+
+Marketing teams may promote the project as part of a product line, accidentally sending signals of corporate ownership.
+
+Roadmaps set internally before public discussion can unintentionally shape community expectations.
+
+Independent contributors may hesitate to participate if they feel decisions are being made elsewhere.
+--
+
+== Hidden or Subtle Neutrality Risks
+* Private alignment before public emails.
+* Employees reluctant to disagree with internal leadership.
+* Marketing direction influencing project identity.
+* Mailing list silence masking private debate.
+* Infrastructure depending on internal systems.
+
+[.notes]
+--
+Highlight that not all neutrality risks are visible.
+
+Teams may reach internal consensus before writing to the list, leaving the list as a formality.
+
+Employees might self-censor due to perceived employer expectations.
+
+Marketing teams might shape naming, messaging, or logos in ways not chosen by the community.
+
+Silence on lists may not reflect agreement—only private discussion.
+
+Hidden infrastructure dependencies can prevent full community ownership.
+
+These subtleties are why neutrality must be understood, not just measured.
+--
+
+== Clear Problems Requiring Correction
+* Off-list decision coordination.
+* Internal CI producing release candidates.
+* PPMC tied to employment status.
+* Only vendor staff respond on governance topics.
+* External contributors cannot influence direction.
+
+[.notes]
+--
+Reinforce that even these issues are usually unintentional.
+
+Internal CI pipelines often existed long before incubation. They are not malicious, just misaligned with ASF release requirements.
+
+Employment-based commit rights are inherited from corporate structures, not deliberate power grabs.
+
+The goal is not blame, it’s visibility and correction.
+
+Phrase this as cultural adjustment, not fault.
+--
+
+== Case Study: A Successful Correction
+* Heavy vendor control at entry.
+* Shifted discussion to public lists.
+* Independent contributors onboarded.
+* Release workflow rebuilt using ASF Infra.
+* Branding corrected early.
+* Graduated with diverse PPMC.
+
+[.notes]
+--
+Use this story to show that strong vendor involvement can become a graduation success.
+
+Vendor investment can kick-start momentum and provide clarity.
+
+Once governance moved to lists, new contributors joined, and the project became visibly community-driven.
+
+Neutrality improved vendor credibility, it legitimised their influence.
+
+End this slide by reinforcing:  Vendors can thrive in neutral governance environments.
+--
+
+== Case Study: When Neutrality Stagnates
+* Company retains central authority.
+* Lists used for announcements, not decisions.
+* Releases tied to private pipelines.
+* Independents cannot meaningfully join.
+* Project cannot demonstrate independence.
+
+[.notes]
+--
+Explain that stagnation is seldom intentional.
+
+The vendor team may not realise how opaque internal processes look externally.
+
+Independents struggle when they cannot see where decisions are made.
+
+This is a pattern the Incubator has seen repeatedly.  It is correctable, but only when surfaced.
+
+This slide shows the cost of unexamined habits.
+--
+
+== Case Study: Cultural Governance Tension
+* Commit rights influenced by employment.
+* Votes shaped privately.
+* Governance treated as secondary.
+* Newcomers confused or excluded.
+* Mentor help needed to reset norms.
+
+[.notes]
+--
+A very common pattern, especially for strong engineering teams transitioning to ASF culture.
+
+Many teams undervalue governance because internal processes feel faster or more “practical.”
+
+Explain that ASF governance creates long-term strength: visibility, historic context, dissent tolerance, and independence from employer priorities.
+
+Internal alignment can unintentionally silence alternative viewpoints.
+
+Mentors guide,not dictate, the path to community-led governance.
+--
+
+== The Three Pillars of Neutrality
+
+* Merit Based Participation
+** Roles earned by contribution.
+** Employment does not grant authority.
+
+* Open Decision Making
+** Decisions on archived lists.
+** No hidden agreements.
+
+* Independent Branding
+** Community owns identity.
+** Avoid product-style branding.
+
+[.notes]
+--
+Explain the three pillars as mutually reinforcing.
+
+Merit-based participation prevents employer-based authority.
+
+Open decision-making ensures that all contributors can see, understand, and challenge decisions.
+
+Independent branding avoids tying the project to any corporate product line.
+
+Reinforce that vendor contribution levels are irrelevant. What matters is transparency, participation, and independence of governance.
+
+Many of the strongest ASF communities are vendor-supported **and** neutral.
+--
+
+== The Neutrality Timeline (part 1)
+
+* Initial Entry
+** Understand starting conditions.
+** Set expectations for public governance.
+
+* First 90 Days
+** Move key decisions to lists.
+** Fix naming and branding.
+** Adopt ASF-aligned release steps.
+
+== The Neutrality Timeline (part 2)
+
+* First Release
+** Release must be community owned.
+** Builds confidence and independence.
+
+* Graduation Readiness
+** PPMC active and diverse.
+** Decisions consistently on list.
+** Community directs roadmap.
+
+[.notes]
+--
+Explain that neutrality is something communities **grow into**.
+
+Vendor leadership early is normal and healthy.
+
+The first 90 days are about habits: moving conversations to lists, clarifying roles, fixing branding, and planning a proper Apache release.
+
+The first ASF-compliant release is a turning point, it demonstrates community capability, not vendor dependency.
+
+Graduation readiness is not about perfection; it’s about consistent behaviour over time.
+--
+
+== Practical Actions for Mentors and Podlings
+* Use mailing lists for governance.
+* Encourage independent contributors.
+* Move releases to ASF Infra.
+* Review branding early.
+* Grow PPMC based on merit.
+* Treat neutrality as ongoing.
+
+[.notes]
+--
+Make clear that neutrality work does not mean reducing vendor participation.
+
+Instead, it increases community capacity and reduces fragility.
+
+Small changes (asking questions on list, moving decisions public) create major governance improvements.
+
+Mentors should ask: “Can an independent contributor understand what’s happening, and participate?”
+--
+
+== Vendor Responsibilities and Good Citizenship
+* Encourage employees to act as individuals.
+* Avoid pre-aligned positions.
+* Discuss roadmaps publicly.
+* Support newcomers without dominating discussion.
+* Provide infrastructure with community oversight.
+
+[.notes]
+--
+Encourage employees to speak as individuals, not representatives. This builds trust and improves the legitimacy of governance.
+
+Discourage internal pre-alignment — it undermines consensus-building.
+
+Community-visible roadmap discussions show that direction is shared, not dictated.
+
+Supporting newcomers grows the project’s independence and reduces vendor burden.
+
+If vendors contribute infrastructure, community oversight ensures the project is not dependent on internal systems.
+--
+
+== Mentor Toolkit: What to Check Monthly
+* Are decisions on list?
+* Is release work visible?
+* Are newcomers joining and retained?
+* Is the PPMC active?
+* Are private tools shaping governance?
+* Has any employer become structurally dominant?
+
+[.notes]
+--
+Give mentors practical, realistic checkpoints.
+
+This is not policing. it is awareness.
+
+Neutrality drift often happens gradually. Monthly reflection helps catch issues early.
+
+Ask: “Is the community growing in independence?” and “Are contributors outside the main employer empowered?”
+--
+
+== Reflection: What To Look For In Your Podling
+* Do newcomers feel welcome?
+* Are decisions visible in list history?
+* Can active contributors become committers?
+* Is release work community led?
+* Would the project survive an employer exit?
+
+[.notes]
+--
+Use this as a self-assessment tool for PPMCs and mentors.
+
+Newcomers are a key signal: If they feel lost or excluded, governance is not sufficiently open.
+
+Decision visibility is essential—someone should be able to read the list archives and understand how decisions were made.
+
+Committer growth should reflect contribution and interest, not employment.
+
+Release work is the strongest test of community capability. If releases depend on one employer, sustainability is at risk.
+
+The final question is the core sustainability test:  Would this project continue if one employer stepped back? If the answer is yes, neutrality is healthy.
+--
+
+== Positive Patterns in Strong Podlings
+* Mailing lists used consistently.
+* PPMC active across employers.
+* Independents join and stay.
+* Community owns releases.
+* Decisions are transparent.
+* Pathways for newcomers are clear.
+
+[.notes]
+--
+Highlight what success looks like.
+
+Consistent mailing list use builds shared governance memory.
+
+A PPMC that spans employers (and includes independents) is a strong sign of health and shared ownership.
+
+Independents joining *and staying* reflects real openness and safety for contributors outside the main employer.
+
+Release ownership shows that the community, not a company, can perform essential project functions.
+--
+
+== Why Neutrality Enables Sustainability
+* Attracts a wider contributor base.
+* Reduces risk from employer change.
+* Builds ecosystem trust.
+* Encourages innovation.
+* Ensures project continuity.
+
+[.notes]
+--
+Explain that neutrality is not a burden—it is a strength.
+
+Vendor-supported communities often start fast, but long-term sustainability comes from a diverse contributor base.
+
+Neutrality reduces single points of failure, especially when employer priorities shift.
+
+Transparent governance encourages innovation because contributors feel safe proposing ideas.
+
+For vendors, neutrality reduces operational risk and increases project credibility and adoption.
+
+Neutrality is both a community value and a practical strategy or building durable open source ecosystems.
+--
+
+== Final Takeaways
+* Neutrality is essential to ASF governance.
+* Incubator patterns reveal issues early.
+* Most issues are unintentional and fixable.
+* Sustainable communities grow through independence.
+* Neutrality is an ongoing cultural practice.
+
+[.notes]
+--
+Neutrality is not anti-vendor. It is a shared cultural practice that protects the community  
+and strengthens vendor investment.
+
+Explain that the Incubator is a learning environment, neutrality grows over time through consistent behaviour.
+
+Encourage ongoing reflection, peer discussion, and openness to adjusting internal habits for the benefit of the community.
+
+Reassure the audience that neutrality is achievable and that most issues can be addressed through small, steady improvements.
+--
+
+== Questions
+Questions welcome.
+
+[.notes]
+--
+Invite discussion and questions. Mention that many people have lived experience  with neutrality challenges and transitions.
+
+Encourage sharing of stories—successful corrections, subtle patterns, or governance dilemmas.
+
+Reinforce the message that neutrality is shared work, not a policing mechanism or compliance requirement.
+
+Close by emphasising mutual trust, openness, and the collaborative spirit of the Apache Way.
+--
+
