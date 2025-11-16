@@ -372,6 +372,44 @@ Supporting newcomers grows independence and reduces load on the dominant contrib
 If an entity contributes infrastructure, shared oversight prevents hidden dependencies.
 --
 
+== Responsibility for Monitoring Neutrality
+* PPMC monitors openness and independence.
+* All PPMC members notice and surface issues.
+* Mentors help identify risks early.
+* ASF groups may provide signals.
+
+[.notes]
+--
+Explain that neutrality monitoring is not the job of mentors alone; the PPMC carries responsibility throughout incubation.
+
+PPMC members should raise questions early when they notice signals such as private decision patterns, unclear processes, or branding concerns.
+
+Mentors provide external perspective that helps uncover issues that may not be obvious to project participants.
+
+Other ASF groups like trademarks, infra, and the IPMC often detect issues indirectly during their regular work.
+
+Reinforce that anyone may raise concerns, but the PPMC is accountable for understanding and addressing them.
+--
+
+== Raising, Escalating, and Resolving Neutrality Concerns
+* Raise concerns on public lists with context.
+* PPMC reviews and adjusts processes.
+* Document outcomes on the list.
+* Escalation paths: mentors, IPMC, trademarks, infra.
+
+[.notes]
+--
+Explain that concerns should be raised openly and constructively, with enough context for the PPMC and mentors to understand them.
+
+The goal is clarity, not accusation: identify what happened, why it matters, and how governance can remain open.
+
+The PPMC should review communication patterns, tooling choices, or workflow habits that may need adjustment.
+
+Outcomes should always be written to the list so the community has a visible governance trail.
+
+Escalation is supportive, not punitive: mentors for additional guidance, IPMC for broader incubation expectations, trademarks for branding issues, and infra for release or build concerns.
+--
+
 == Mentor Toolkit: What to Check Monthly
 * Are decisions on list?
 * Is release work visible?
