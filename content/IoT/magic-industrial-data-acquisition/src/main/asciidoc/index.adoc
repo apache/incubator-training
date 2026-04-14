@@ -41,7 +41,7 @@ Magic industrial data acquisition with Apache PLC4X, TsFile and IoTDB
 [.subTitle]
 
 
-[.speaker]
+[.notes]
 Christofer Dutz, Timecho
 ****
 
@@ -54,7 +54,7 @@ Community over Code NA
 [.imageCredits]
 (Image from Wikipedia under CC)
 
-[NOTE.speaker]
+[.notes]
 --
 --
 
@@ -69,7 +69,7 @@ image::logo-training.png[float=right,width=300]
 * For sharing training material
 * Slides will be available there
 
-[NOTE.speaker]
+[.notes]
 --
 * Under the hood Maven+AsciiDoc+RevealJS
 --
@@ -84,7 +84,7 @@ image::logo-training.png[float=right,width=300]
 ** Apache IoTDB
 * Putting it all together
 
-[NOTE.speaker]
+[.notes]
 --
 --
 
@@ -92,7 +92,7 @@ image::logo-training.png[float=right,width=300]
 
 image::no-problemo.png[]
 
-[NOTE.speaker]
+[.notes]
 --
 * Quickly explain the scenarios
 * Point out Eclipse SDV for the mobile data collection
@@ -103,7 +103,7 @@ image::no-problemo.png[]
 
 image::mucho-problemo.png[]
 
-[NOTE.speaker]
+[.notes]
 --
 * Line width == bandwidth
 * Problems come on the other slide
@@ -115,7 +115,7 @@ image::mucho-problemo.png[]
 
 image::mucho-problemo-plc4x.png[]
 
-[NOTE.speaker]
+[.notes]
 --
 * Accessing data on the machinery
 * Overloading PLCs and Network infrastructure
@@ -136,7 +136,7 @@ image::logo-plc4x.png[float=right,width=300]
 * Available in multiple languages
 ** Java, Go, C, C#, Python (Rust)
 
-[NOTE.speaker]
+[.notes]
 --
 * Now you know why I'm carrying around Toddy all the time ;-)
 * Why not use MQTT or OPC-UA you ask?
@@ -147,7 +147,7 @@ image::logo-plc4x.png[float=right,width=300]
 
 image::opc-ua-example.png[]
 
-[NOTE.speaker]
+[.notes]
 --
 * See the size of the payload?
 * That's only reading one boolean value!
@@ -157,7 +157,7 @@ image::opc-ua-example.png[]
 
 image::mqtt-example.png[]
 
-[NOTE.speaker]
+[.notes]
 --
 * See the size of the payload?
 * SparkplugB would add more payload
@@ -167,7 +167,7 @@ image::mqtt-example.png[]
 
 image::modbus-tcp-example.png[]
 
-[NOTE.speaker]
+[.notes]
 --
 * See the size of the payload?
 --
@@ -180,7 +180,7 @@ image::modbus-tcp-example.png[]
 ** Load on the Hardware (both sides)
 ** Costs, as no retrofit is required
 
-[NOTE.speaker]
+[.notes]
 --
 * OPC-UA and MQTT run as additional processes on hardware
 * Native protocols cause less CPU and Memory usage
@@ -191,7 +191,7 @@ image::modbus-tcp-example.png[]
 
 image::mucho-problemo-tsfile.png[]
 
-[NOTE.speaker]
+[.notes]
 --
 * Cars more unconnected than connected in Germany
 * Bandwidth too small
@@ -210,7 +210,7 @@ image::logo-tsfile.png[float=right,width=300]
 * Available in multiple languages
 * Storage technology of Apache IoTDB
 
-[NOTE.speaker]
+[.notes]
 --
 * Compression to 10% of original size lossless
 * Compression to 1% of original size lossy
@@ -226,7 +226,7 @@ image::logo-tsfile.png[float=right,width=300]
 * Utilizing NB IoT bandwidth 100%
 * Buffering if no connection
 
-[NOTE.speaker]
+[.notes]
 --
 * Libraries for common OT Engineering tools (needs to be created)
 * Pull reads lots of redundant data
@@ -237,7 +237,7 @@ image::logo-tsfile.png[float=right,width=300]
 
 image::mucho-problemo-iotdb.png[]
 
-[NOTE.speaker]
+[.notes]
 --
 * Too many apps querying the hardware
 * Data replicated 1-to-1 on all levels
@@ -259,7 +259,7 @@ image::logo-iotdb.png[float=right,width=300]
 * Replication
 * Different retention on every level/device
 
-[NOTE.speaker]
+[.notes]
 --
 * Uses compression of TsFile
 * Replication with aggregation (Only forward what's needed)
@@ -278,7 +278,7 @@ image::logo-iotdb.png[float=right,width=300]
 ** benchAnt
 ** TPCx-IoT
 
-[NOTE.speaker]
+[.notes]
 --
 * In contrast to most other TSDBs not built up on existing solution
 * Built explicitly to target the scenarios causing issues with regular solutions
@@ -291,7 +291,7 @@ image::logo-iotdb.png[float=right,width=300]
 
 image::benchmark-benchant.png[canvas]
 
-[NOTE.speaker]
+[.notes]
 --
 * Wins when sorting by all categories
 * Would have only lost by name, if that was sortable
@@ -301,7 +301,7 @@ image::benchmark-benchant.png[canvas]
 
 image::benchmark-tpcx-iot.png[canvas]
 
-[NOTE.speaker]
+[.notes]
 --
 * TimechoDB
 ** Commercial offering of IoTDB by Timecho
@@ -314,7 +314,7 @@ image::benchmark-tpcx-iot.png[canvas]
 
 image::solution.png[]
 
-[NOTE.speaker]
+[.notes]
 --
 * See the thinner lines?
 --
@@ -331,7 +331,7 @@ image::solution.png[]
 ** PLC4X to collect data using native protocols
 ** Forward data to IoTDB servers using Session-API or MQTT
 
-[NOTE.speaker]
+[.notes]
 --
 * Forward with MQTT because libs are already available
 * OT admins know how to handle MQTT traffic
@@ -345,7 +345,7 @@ image::solution.png[]
 ** Automatically replicating to higher levels
 ** Automatic aggregation to higher levels
 
-[NOTE.speaker]
+[.notes]
 --
 * We're currently working on all of this
 * Basic functionality in Open-Source projects
