@@ -22,7 +22,7 @@ convert==0.1.2
 #dbus-python==1.2.18
 docopt==0.6.2
 funcparserlib==2.0.0a0
-lxml==6.0.1
+lxml==6.1.0
 nwdiag==3.0.0
 opc-diag==1.1.1
 pango==0.0.1
