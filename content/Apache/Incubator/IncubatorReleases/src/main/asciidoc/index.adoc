@@ -158,7 +158,7 @@ Lets you get on with making release and moving towards graduation
 * Often multiple ways to solve the same issue
 * If in doubt err on the side of caution, often changes needed are minimal
 
-.[.notes]
+[.notes]
 --
 Again guidelines not rules. You can do things in a different way.
 --
