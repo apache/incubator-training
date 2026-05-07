@@ -45,20 +45,20 @@
 
         <java.version>1.8</java.version>
 
-        <asciidoctorj.version>3.0.0</asciidoctorj.version>
+        <asciidoctorj.version>3.0.1</asciidoctorj.version>
         <asciidoctorj-revealjs.version>5.2.0</asciidoctorj-revealjs.version>
-        <asciidoctorj.diagram.version>3.0.1</asciidoctorj.diagram.version>
+        <asciidoctorj.diagram.version>3.2.1</asciidoctorj.diagram.version>
 
         <revealjs.version>5.2.1</revealjs.version>
 
         <asciidoctor-maven-plugin.version>3.2.0</asciidoctor-maven-plugin.version>
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
-        <download-maven-plugin.version>2.0.0</download-maven-plugin.version>
+        <download-maven-plugin.version>2.1.0</download-maven-plugin.version>
         <groovy-maven-plugin.version>2.1.1</groovy-maven-plugin.version>
         <jetty-maven-plugin.version>11.0.26</jetty-maven-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
-        <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
-        <maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
+        <maven-war-plugin.version>3.5.1</maven-war-plugin.version>
+        <maven-dependency-plugin.version>3.10.0</maven-dependency-plugin.version>
     </properties>
 
     <dependencies>
@@ -83,7 +83,7 @@
             <plugin>
                 <groupId>org.apache.rat</groupId>
                 <artifactId>apache-rat-plugin</artifactId>
-                <version>0.16.1</version>
+                <version>0.18</version>
                 <executions>
                     <execution>
                         <id>license-check</id>
