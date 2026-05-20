@@ -47,7 +47,7 @@ pressing `Enter` at each prompt.
 
 You'll then be asked to confirm your information. Respond `Y` for yes.
 
-image:./resources/images/mvn-training-create.png
+image::mvn-training-create.png[]
 
 This will create a new directory tree containing your new presentation,
 along with some sample content to get you started.
@@ -126,4 +126,3 @@ browser to start the presentation.
 
 * link:writing-slides.html[Writing Slides]
 * link:presentation-tips[Presentation Tips]
-
