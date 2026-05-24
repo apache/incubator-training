@@ -1,0 +1,451 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+:presenter_name: Your Name
+:presenter_company: Your Company
+:description: Introduction to Apache SpamAssassin
+:keywords: Apache, SpamAssassin, spam, email, filtering
+:author: Your Name
+:email: your@email.here
+:position: Your role
+
+== Apache SpamAssassin
+
+image::project-logo.png[Apache SpamAssassin, 500]
+
+The #1 Enterprise Open-Source Spam Filter
+
+[.notes]
+--
+Welcome to the Apache SpamAssassin training module. SpamAssassin is the
+leading open-source anti-spam platform, widely deployed across the
+internet to classify and block unsolicited bulk email. This presentation
+covers what it is, how to get started, and how to participate in the community.
+--
+
+== Who am I?
+
+{author} +
+{position} +
+{email} +
+
+[.notes]
+--
+Introduce yourself. Mention your relationship with the Apache SpamAssassin
+project or your experience using it in production.
+--
+
+// ============================================================
+// PART 1: WHAT IS IT?
+// ============================================================
+
+== What is Apache SpamAssassin?
+
+* Anti-spam platform giving system administrators a filter to classify email
+* Blocks *spam* (unsolicited bulk email) using a scoring framework
+* Single-technique solutions are easily evaded — SpamAssassin uses many
+* Server-side filtering _before_ mail reaches inboxes
+* A project of the Apache Software Foundation since 2004
+
+[.notes]
+--
+SpamAssassin is not a standalone mail server — it's a filter that integrates
+with your existing mail infrastructure. Before tools like SpamAssassin,
+admins relied on simple blocklists or single-technique filters that
+spammers could easily circumvent. The multi-technique scoring approach
+makes it much harder for spammers to game the system.
+--
+
+== How SpamAssassin Works
+
+* Each incoming email is scanned by multiple tests
+* Each test contributes a positive or negative score
+* Scores are summed — if total exceeds threshold, it's spam
+* Default threshold: *5.0 points*
+* Administrators and users can tune thresholds and rules
+
+[.notes]
+--
+The scoring framework is the key architectural insight. No single test
+needs to be perfect — the combination of many weak signals produces a
+strong classifier. This is similar in concept to ensemble methods in
+machine learning.
+--
+
+== Detection Techniques
+
+* *Text analysis* — header and body pattern matching
+* *Bayesian filtering* — statistical token-based learning
+* *DNS blocklists* (DNSBLs) — known spam source lookups
+* *Collaborative filtering* — distributed spam databases
+* *Heuristic rules* — over 700 built-in tests
+
+[.notes]
+--
+SpamAssassin uses a wide range of local and network tests to identify
+spam signatures. This wide-spectrum approach makes it harder for
+spammers to craft messages that work around just one aspect of detection.
+--
+
+== Key Features
+
+* *Wide-spectrum* — many test types make evasion difficult
+* *Easy to extend* — rules stored in plain text `.cf` files
+* *Flexible integration* — works with procmail, sendmail, Postfix, qmail
+* *Easy configuration* — minimal setup required to get started
+* *Free software* — Apache License 2.0
+
+[.notes]
+--
+These are the key differentiators from the project's own website.
+The plain-text rule format means admins can add custom rules without
+being programmers. The flexible API means it fits into virtually any
+mail architecture.
+--
+
+== Architecture Overview
+
+* Core: `Mail::SpamAssassin` Perl modules
+* Command-line tools: `spamassassin`, `sa-learn`, `sa-update`
+* Daemon mode: `spamd` / `spamc` (client-server for performance)
+* Plugin architecture for extending functionality
+* Rule update system (`sa-update`) for fresh signatures
+
+[.notes]
+--
+The daemon mode (spamd/spamc) is critical for production use — it avoids
+the overhead of loading Perl and the rule set for every single message.
+The spamc client is lightweight and fast.
+--
+
+== The Plugin System
+
+* Modular architecture allows adding new test types
+* Built-in plugins include:
+** `SPF` — Sender Policy Framework checking
+** `DKIM` — DomainKeys signature verification
+** `Razor2` — collaborative spam detection network
+** `Pyzor` — collaborative spam digest checking
+* New in 4.0.2: *Redirector plugin*
+
+[.notes]
+--
+The plugin system is one of SpamAssassin's greatest strengths. Third-party
+plugins are available for additional functionality, and writing your own
+plugin is documented in the developer wiki.
+--
+
+== Version History Highlights
+
+* *2004* — Became an Apache Software Foundation project
+* *2019* — Project turned 18 years old
+* *2022-12* — Version 4.0.0: major upgrade with full Unicode support
+* *2024-03* — Version 4.0.1: Perl 5.38 compatibility
+* *2025-08* — Version 4.0.2: Perl 5.42 compatibility, Redirector plugin
+
+[.notes]
+--
+The project has been under active development for over two decades.
+The 4.0 series represents a major modernization with full Unicode
+support and many new features. The 3.4 branch is now end-of-life
+with no further development planned.
+--
+
+== Installation Methods
+
+* *CPAN*: `sudo cpan Mail::SpamAssassin`
+* *Package manager*: available in most Linux distributions
+* *Source*: download from https://spamassassin.apache.org/downloads.cgi
+* Available formats: `tar.gz`, `tar.bz2`, `ZIP`
+* Current release: *4.0.2* (August 2025)
+
+[.notes]
+--
+CPAN is often the simplest method for getting the latest version.
+Distribution packages may lag behind, but offer easier dependency
+management. Always verify downloads using GPG signatures and SHA checksums.
+--
+
+== Verifying Your Download
+
+[source,bash]
+----
+# Download the release and signature
+wget https://downloads.apache.org/.../Mail-SpamAssassin-4.0.2.tar.bz2
+wget https://downloads.apache.org/.../Mail-SpamAssassin-4.0.2.tar.bz2.asc
+
+# Import the project's signing keys
+wget https://spamassassin.apache.org/KEYS
+gpg --import KEYS
+
+# Verify
+gpg --verify Mail-SpamAssassin-4.0.2.tar.bz2.asc
+----
+
+[.notes]
+--
+Always verify the integrity of downloaded files. The SpamAssassin project
+provides GPG signatures plus SHA-256 and SHA-512 checksums for every release.
+The public GPG keys are available on the project website.
+--
+
+== Basic Configuration
+
+* Main config: `/etc/mail/spamassassin/local.cf`
+* Per-user config: `~/.spamassassin/user_prefs`
+* Set threshold: `required_score 5.0`
+* Customize report template in `10_local_report.cf`
+* Rules are plain text — easy to read and modify
+
+[.notes]
+--
+The project strongly recommends that system administrators customize the
+report template to include their own support desk contact information.
+Otherwise confused end users may contact the SpamAssassin development
+team directly, who cannot help with site-specific configuration.
+--
+
+== Running SpamAssassin
+
+[source,bash]
+----
+# Single message (command-line)
+spamassassin < message.eml
+
+# Daemon mode (production)
+spamd --allowed-ips=127.0.0.1 --max-children=5
+
+# Client call
+spamc < message.eml
+----
+
+[.notes]
+--
+For production use, always use spamd/spamc. The daemon keeps rules
+loaded in memory, dramatically improving throughput. The max-children
+setting controls concurrency.
+--
+
+== MTA Integration
+
+* *Postfix*: via `content_filter` or milter interface
+* *sendmail*: via milter (spamass-milter)
+* *procmail*: pipe through `spamc` in `.procmailrc`
+* *qmail*: via qmail-scanner or maildrop
+* Abstract API makes integration flexible
+
+[.notes]
+--
+SpamAssassin encapsulates its logic in a well-designed, abstract API
+so it can be integrated anywhere in the email stream. The
+Mail::SpamAssassin classes can be used on a wide variety of email systems.
+--
+
+== Training the Bayesian Filter
+
+[source,bash]
+----
+# Learn from known spam
+sa-learn --spam /path/to/spam-folder/
+
+# Learn from known ham (non-spam)
+sa-learn --ham /path/to/ham-folder/
+
+# Check Bayes database status
+sa-learn --dump magic
+----
+
+* Needs 200+ spam and 200+ ham messages to activate
+* Accuracy improves significantly with more training data
+
+[.notes]
+--
+The Bayesian filter is one of SpamAssassin's most powerful features,
+but it requires initial training. Encourage users to report both spam
+and false positives to improve accuracy over time.
+--
+
+== Keeping Rules Updated
+
+[source,bash]
+----
+# Update rules from SpamAssassin network
+sa-update
+
+# Run via cron (recommended daily)
+# 30 2 * * * /usr/local/bin/sa-update
+----
+
+* `sa-update` downloads fresh rule definitions
+* Rules published with GPG signatures for integrity
+* Critical for keeping up with evolving spam patterns
+
+[.notes]
+--
+Rule updates are essential — spam patterns change constantly.
+Running sa-update daily via cron ensures your installation stays
+current. Note that since March 2020, only SHA-256 checksums are
+published (SHA-1 was discontinued).
+--
+
+== Tuning and Custom Rules
+
+[source,text]
+----
+# local.cf - Adjust an existing rule's score
+score BAYES_99 4.5
+
+# Add a custom rule
+header LOCAL_FROM_BADGUY From =~ /spammer@example\.com/
+score LOCAL_FROM_BADGUY 5.0
+describe LOCAL_FROM_BADGUY Mail from known spammer
+
+# Welcomelist a sender (4.0+ terminology)
+welcomelist_from trusted@example.org
+----
+
+[.notes]
+--
+Note the terminology change in 4.0: "whitelist" is now "welcomelist"
+and "blacklist" is now "blocklist". Custom rules use simple regex
+patterns and can be added by any administrator.
+--
+
+// ============================================================
+// PART 3: COMMUNITY
+// ============================================================
+
+== Project Governance
+
+* Apache Software Foundation project since *June 2004*
+* PMC (Project Management Committee): *13 members*
+* Operates under the Apache Way
+* Consensus-driven development
+* Quarterly reports to the ASF Board
+
+[.notes]
+--
+As an ASF project, SpamAssassin follows standard Apache governance.
+The PMC oversees releases, community health, and project direction.
+Decisions are made by consensus on the public mailing lists.
+--
+
+== Mailing Lists
+
+* *users@spamassassin.apache.org* — end-user help and discussion
+* *dev@spamassassin.apache.org* — development discussion
+* *commits@spamassassin.apache.org* — SVN commit notifications
+* Archives available via https://lists.apache.org[lists.apache.org]
+* Subscribe via `users-subscribe@spamassassin.apache.org`
+
+[.notes]
+--
+The mailing lists are the primary communication channel for the project.
+Start with the users list for help, and the dev list if you want to
+contribute or discuss development direction.
+--
+
+== Source Code & Issue Tracking
+
+* *Source*: SVN at https://svn.apache.org/repos/asf/spamassassin/
+* *Bug tracking*: Apache Bugzilla
+** Product: "SpamAssassin"
+* *Wiki*: https://cwiki.apache.org/confluence/display/SPAMASSASSIN[cwiki]
+** 591 pages of documentation and tips
+
+[.notes]
+--
+The project still uses Subversion for source control. The wiki is an
+extensive resource with how-to articles, FAQ entries, and troubleshooting
+guides maintained by the community.
+--
+
+== Contributing
+
+* Report bugs via Bugzilla with clear reproduction steps
+* Submit patches (CLA required for code contributions)
+* Improve wiki documentation — request edit access on dev@ list
+* Help other users on the users@ mailing list
+* Contribute to rule quality testing
+
+[.notes]
+--
+You don't need to be a Perl developer to contribute. Documentation
+improvements, bug reports, and helping on the mailing list are all
+valuable. Wiki edit access is available by request to the dev list.
+--
+
+== Security Considerations
+
+* Subscribe to the ASF security announce list
+* Historical CVEs addressed promptly:
+** CVE-2020-1946: Malicious `.cf` files running system commands
+** CVE-2020-1930/1931: Nefarious rule config execution
+** CVE-2019-12420: Multipart denial of service
+* Always run the latest release
+
+[.notes]
+--
+Security is taken seriously by the project. Rule configuration files
+(.cf files) from untrusted sources should never be used without review.
+Always keep your installation up to date to benefit from security fixes.
+--
+
+== Summary
+
+* Apache SpamAssassin: *#1 open-source anti-spam platform*
+* Multi-technique scoring framework resists evasion
+* Current version: *4.0.2* with full Unicode support
+* Active community with 13-member PMC
+* Easy to install, configure, and extend
+
+[.notes]
+--
+SpamAssassin remains the gold standard for open-source server-side
+spam filtering. Its scoring approach, extensive plugin system, and
+active community make it a reliable choice for organizations of any size.
+--
+
+== Resources
+
+* https://spamassassin.apache.org[spamassassin.apache.org] — Project home
+* https://spamassassin.apache.org/downloads.cgi[downloads.cgi] — Get the software
+* https://cwiki.apache.org/confluence/display/SPAMASSASSIN[Wiki] — Documentation
+* https://lists.apache.org[lists.apache.org] — Mailing list archives
+* `sa-update`, `sa-learn`, `spamd`/`spamc` — Key commands to know
+
+[.notes]
+--
+These are the essential links and commands. Bookmark the wiki and
+subscribe to the users mailing list for ongoing support. Thank you
+for attending this session on Apache SpamAssassin!
+--
+
+== Questions?
+
+image::project-logo.png[Apache SpamAssassin, 400]
+
+https://spamassassin.apache.org
+
+[.notes]
+--
+Open the floor for questions. Common topics include integration with
+specific MTAs, Bayesian training best practices, and custom rule writing.
+--
