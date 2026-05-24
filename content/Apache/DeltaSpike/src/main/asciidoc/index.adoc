@@ -1,0 +1,497 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+== Apache DeltaSpike
+
+image::project-logo.png[Apache DeltaSpike, 500]
+
+Portable CDI Extensions for Java Application Developers
+
+https://deltaspike.apache.org
+
+[.notes]
+--
+Welcome to this overview of Apache DeltaSpike. DeltaSpike is a collection of
+portable CDI extensions that provide useful features for Java application
+developers. It was established as a top-level Apache project in April 2013
+and won a Duke's Choice Award in 2014 for extreme innovation in Java technology.
+--
+
+== What We Will Cover
+
+* *Part 1* — What Is Apache DeltaSpike?
+* *Part 2* — Getting Started
+* *Part 3* — Community & Resources
+
+[.notes]
+--
+This presentation is divided into three parts. First we'll explain what
+DeltaSpike is and why it exists. Then we'll walk through getting started
+with DeltaSpike in your projects. Finally we'll look at how to engage
+with the DeltaSpike community.
+--
+
+// =================================================================
+// PART 1 — WHAT IS IT?
+// =================================================================
+
+== What Is Apache DeltaSpike?
+
+* A collection of *portable CDI extensions*
+* Ready-to-use modules for enterprise Java
+* Tested on OpenWebBeans & Weld, across major EE servers
+* "Java EE 7 without Java EE 7!" — Duke's Choice Award (2014)
+
+[.notes]
+--
+Apache DeltaSpike consists of a number of portable CDI extensions that provide
+useful features for Java application developers. The project ensures true
+portability by testing on different CDI implementations like Apache OpenWebBeans
+and JBoss Weld, and on servers including Apache TomEE, WildFly, GlassFish,
+Liberty, and Oracle WebLogic. It won a Duke's Choice Award in 2014 for
+innovation in Java technology.
+--
+
+== CDI Background
+
+* CDI = Contexts and Dependency Injection (JSR 299)
+* Introduced in Java EE 6, now part of Jakarta EE
+* Key features: type-safe DI, lifecycle contexts, event bus
+* CDI SPI enables portable extensions by third parties
+
+[.notes]
+--
+CDI was introduced as part of Java EE 6 and is now part of Jakarta Enterprise.
+It provides type-safe dependency injection, lifecycle management with well-defined
+contexts, an event notification facility, and a Service Provider Interface (SPI)
+for developing portable extensions — which is exactly what DeltaSpike leverages.
+--
+
+== Portable CDI Extensions
+
+A portable CDI extension can:
+
+* Provide its own beans, interceptors, and decorators
+* Inject dependencies into its own objects
+* Provide context implementations for custom scopes
+* Augment or override annotation-based metadata
+
+[.notes]
+--
+As set out in the CDI specification, a portable CDI extension may integrate with
+a CDI container in all these ways. Because they use the standard SPI, portable
+extensions work with any spec-compliant CDI implementation — that's the
+"portable" in DeltaSpike's name.
+--
+
+== DeltaSpike Modules Overview
+
+[cols="1,3"]
+|===
+| Module | Purpose
+
+| Core | Fundamental API and utility classes
+| Bean Validation | CDI-aware ConstraintValidators
+| Container Control | Boot/shutdown CDI in Java SE
+| Data | Declarative queries, reduced boilerplate
+| JPA | Transactional context and scope
+| JSF | Multi-window, view-config, new scopes
+| Partial-Bean | Generic interface handlers
+| Scheduler | Quartz integration with cron support
+| Security | Type-safe method-level security
+| Servlet | Inject servlet objects, propagate events
+| Test-Control | CDI-based testing support
+|===
+
+[.notes]
+--
+DeltaSpike is organized into modules. The Core module is always required and
+provides the base API. All other modules are optional — you only include what
+you need. Each module follows the same API/Impl split pattern for clean
+separation of concerns.
+--
+
+== Key Feature: Type-Safe Security
+
+* Annotation-driven security on method calls
+* Non-invasive — no changes to business logic
+* Foundation for robust access control
+
+[source,java]
+----
+@Secured(MyAccessDecisionVoter.class)
+public void deleteUser(User user) {
+    // business logic here
+}
+----
+
+[.notes]
+--
+DeltaSpike Security provides annotation-based intercept and security checking on
+method calls. You simply annotate your methods and provide a decision voter
+implementation. This approach is non-invasive and keeps security concerns
+separate from business logic.
+--
+
+== Key Feature: Data Module
+
+* Declarative repository interfaces
+* Reduces JPA boilerplate to a minimum
+* Supports query methods by naming convention
+
+[source,java]
+----
+@Repository
+public interface PersonRepository
+    extends EntityRepository<Person, Long> {
+
+    List<Person> findByLastName(String lastName);
+}
+----
+
+[.notes]
+--
+The Data module provides a repository pattern similar to Spring Data. You define
+an interface extending EntityRepository and declare query methods using naming
+conventions. DeltaSpike generates the implementation automatically, dramatically
+reducing boilerplate code.
+--
+
+== Key Feature: Configuration
+
+* Injectable configuration values
+* Multiple ConfigSources with ordinals
+* Type-safe access to properties
+
+[source,java]
+----
+@Inject
+@ConfigProperty(name = "app.timeout")
+private Integer timeout;
+----
+
+[.notes]
+--
+DeltaSpike's Core module includes a powerful configuration mechanism that
+pioneered many ideas later adopted by MicroProfile Config. You can inject
+configuration values in a type-safe manner, and DeltaSpike supports multiple
+ConfigSources with configurable priority ordinals.
+--
+
+== Key Feature: Container Control
+
+* Boot and shutdown CDI containers in Java SE
+* Unified API across CDI implementations
+* Manage context lifecycles programmatically
+
+[source,java]
+----
+CdiContainer cdiContainer =
+    CdiContainerLoader.getCdiContainer();
+cdiContainer.boot();
+// ... use CDI beans ...
+cdiContainer.shutdown();
+----
+
+[.notes]
+--
+Container Control allows you to start, stop, and manage CDI containers in
+Java SE applications — no application server required. This uses a unifying API
+that works across OpenWebBeans and Weld, making your SE applications portable.
+--
+
+== Key Feature: JSF Integration
+
+* Multi-window handling (WindowScoped)
+* Type-safe view configuration
+* New scopes: ViewScoped, ViewAccessScoped
+* GroupedConversationScoped
+* JSF event broadcasting to CDI
+
+[.notes]
+--
+The JSF module is one of DeltaSpike's most popular. It provides management of
+logical windows for browser tab separation, type-safe view-config that lets you
+bind metadata like security constraints to views, and several new CDI scopes
+designed specifically for JSF applications.
+--
+
+== Version History
+
+* *DeltaSpike 1.x* — targets Java EE 6+ (Java 6 minimum)
+* *DeltaSpike 1.9.x* — requires Java 8 minimum
+* *DeltaSpike 2.x* — targets Jakarta EE 9+ (Java 11 minimum)
+* *Current release: 2.0.1* — supporting Jakarta EE
+
+[.notes]
+--
+DeltaSpike 1.x supported Java EE starting from version 6. The 2.x line
+made the jump to Jakarta EE 9 with the jakarta namespace, requiring
+Java 11 as a minimum. The current release is 2.0.1.
+--
+
+// =================================================================
+// PART 2 — GETTING STARTED
+// =================================================================
+
+== Getting Started with DeltaSpike
+
+Prerequisites for DeltaSpike 2.x:
+
+* Jakarta EE 9 or later
+* Java 11 or later
+* A CDI implementation (OpenWebBeans or Weld)
+* Maven, Gradle, or manual JAR management
+
+[.notes]
+--
+To use the current DeltaSpike 2.x line, you need Jakarta EE 9 or later and
+Java 11 as a minimum. You'll also need a CDI implementation — either Apache
+OpenWebBeans or JBoss Weld. DeltaSpike supports Maven, Gradle, or manual
+JAR inclusion.
+--
+
+== Maven Setup — BOM Import
+
+[source,xml]
+----
+<properties>
+    <deltaspike.version>2.0.1</deltaspike.version>
+</properties>
+
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.deltaspike.distribution</groupId>
+      <artifactId>distributions-bom</artifactId>
+      <version>${deltaspike.version}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+----
+
+[.notes]
+--
+The recommended approach is to import the DeltaSpike BOM in your
+dependencyManagement section. This ensures consistent versions across all
+DeltaSpike modules you use. The current version is 2.0.1.
+--
+
+== Maven Setup — Core Dependency
+
+[source,xml]
+----
+<dependency>
+    <groupId>org.apache.deltaspike.core</groupId>
+    <artifactId>deltaspike-core-api</artifactId>
+    <scope>compile</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.deltaspike.core</groupId>
+    <artifactId>deltaspike-core-impl</artifactId>
+    <scope>runtime</scope>
+</dependency>
+----
+
+API at compile scope, implementation at runtime only.
+
+[.notes]
+--
+At minimum, you need the DeltaSpike Core module. The API is scoped for compile
+time and the implementation is included only for runtime. This prevents you from
+inadvertently depending on implementation classes and keeps your code portable.
+--
+
+== Adding Optional Modules
+
+Add any module by including its API and Impl:
+
+[source,xml]
+----
+<!-- Example: Data Module -->
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-data-module-api</artifactId>
+    <scope>compile</scope>
+</dependency>
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-data-module-impl</artifactId>
+    <scope>runtime</scope>
+</dependency>
+----
+
+[.notes]
+--
+Once you have the BOM imported and Core included, adding optional modules follows
+the same API/Impl pattern. Just add the module dependencies you need. The BOM
+manages all the versions for you.
+--
+
+== Tested Environments
+
+DeltaSpike is tested on:
+
+* *CDI Implementations:* Apache OpenWebBeans, JBoss Weld
+* *Application Servers:* Apache TomEE, WildFly, GlassFish, Liberty, WebLogic
+* *Containers:* Apache Tomcat (with CDI), Jetty
+
+[.notes]
+--
+DeltaSpike ensures true portability by running its test suite against multiple
+CDI implementations and application servers. If you're running any of these
+environments, DeltaSpike has been validated to work there.
+--
+
+== Manual Installation (No Maven)
+
+. Download `distribution-full-2.0.1.zip` from the download page
+. Extract the archive
+. For `.war` projects: copy JARs to `WEB-INF/lib`
+. For `.ear` projects: copy JARs to `EAR/lib`
+
+https://deltaspike.apache.org/download.html
+
+[.notes]
+--
+If you're not using Maven or Gradle, you can download the full distribution
+archive from the DeltaSpike website. It contains all the JARs you need.
+Just add them to your project's library directory.
+--
+
+== Project Examples
+
+DeltaSpike ships with built-in examples:
+
+* Demonstrates each module's capabilities
+* Ready-to-run sample applications
+* Available in the source repository
+
+https://deltaspike.apache.org (see "Examples" section)
+
+[.notes]
+--
+The DeltaSpike project provides examples as part of its source distribution.
+These show you how to use each module in practice. They're a great way to learn
+the API and see real working code.
+--
+
+// =================================================================
+// PART 3 — COMMUNITY
+// =================================================================
+
+== DeltaSpike Community
+
+* Established as Apache TLP in April 2013
+* 18 PMC members
+* Active mailing lists and issue tracker
+* Duke's Choice Award winner (2014)
+
+[.notes]
+--
+DeltaSpike became a top-level Apache project in April 2013. The PMC currently
+has 18 members. The community communicates primarily through mailing lists
+and uses JIRA for issue tracking.
+--
+
+== Mailing Lists
+
+[cols="1,1"]
+|===
+| List | Purpose
+
+| Users | Questions, help, discussion
+| Dev | Development discussion
+| Commits | SVN/Git commit notifications
+|===
+
+Subscribe: https://deltaspike.apache.org/community.html
+
+[.notes]
+--
+DeltaSpike follows the standard Apache mailing list model. The users list is
+for questions and general discussion. The dev list is for development topics.
+The commits list tracks source changes. All have public archives.
+--
+
+== Issue Tracker & Source
+
+* *Issue Tracker:* Apache JIRA
+* *Source:* https://gitbox.apache.org/repos/asf/deltaspike.git
+* File bugs after checking the mailing list first
+* Contributions welcome via patches in JIRA
+
+[.notes]
+--
+All issues are tracked in the Apache JIRA instance. Before filing a new issue,
+the community asks that you check the mailing list first — it may be a known
+issue or there may be ongoing discussion. Source code is hosted on Apache Gitbox.
+--
+
+== How to Contribute
+
+. Subscribe to the dev mailing list
+. Check JIRA for open issues
+. Submit patches via JIRA
+. File an ICLA for larger contributions
+. Build trust through consistent participation
+
+[.notes]
+--
+Contributing to DeltaSpike follows standard Apache practices. Start by
+subscribing to the dev list and participating in discussions. For code
+contributions, submit patches through JIRA. For larger or sustained
+contributions, you'll need to file an Individual Contributor License Agreement.
+--
+
+== Resources
+
+* *Website:* https://deltaspike.apache.org
+* *Documentation:* https://deltaspike.apache.org/documentation/
+* *Download:* https://deltaspike.apache.org/download.html
+* *Source:* https://gitbox.apache.org/repos/asf/deltaspike.git
+* *Twitter:* @DeltaSpikeTeam
+
+[.notes]
+--
+Here are the key resources for getting started with DeltaSpike. The website
+has comprehensive documentation covering every module, the download page has
+the latest release, and you can follow the project on Twitter.
+--
+
+== Thank You!
+
+image::project-logo.png[Apache DeltaSpike, 300]
+
+* https://deltaspike.apache.org
+* Users list: users@deltaspike.apache.org
+* Dev list: dev@deltaspike.apache.org
+* Twitter: @DeltaSpikeTeam / #DeltaSpike
+
+[.notes]
+--
+Thank you for attending this presentation on Apache DeltaSpike. We encourage
+you to try out DeltaSpike in your next CDI-based project. Join the mailing
+lists to connect with the community, and check out the examples to see
+DeltaSpike in action.
+--
