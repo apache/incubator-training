@@ -1,0 +1,362 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+== Apache DB
+
+image::project-logo.png[Apache DB, 500]
+
+Creation and maintenance of commercial-quality, open-source database solutions
+
+[.notes]
+--
+Welcome to the Apache DB training module. Apache DB is a top-level project at the Apache Software Foundation, established in July 2002, charged with the creation and maintenance of commercial-quality, open-source database solutions based on software licensed to the Foundation. This umbrella project houses several subprojects focused on Java-based database access.
+--
+
+== What We'll Cover
+
+* *Part 1:* What Is Apache DB?
+* *Part 2:* The Subprojects — JDO, Torque, Empire-db
+* *Part 3:* Getting Started
+* *Part 4:* Community & Contributing
+
+[.notes]
+--
+This presentation covers the Apache DB project structure, its active subprojects, how to get started with each one, and how to participate in the community. We'll focus on the three active subprojects: JDO, Torque, and Empire-db.
+--
+
+== What Is Apache DB?
+
+* An umbrella project of the Apache Software Foundation
+* Established July 2002
+* Mission: create and maintain open-source database solutions
+* Licensed under the Apache License, Version 2.0
+* Distributed at no charge to the public
+
+[.notes]
+--
+Apache DB is a Project of the Apache Software Foundation, charged with the creation and maintenance of commercial-quality open-source database solutions based on software licensed to the Foundation, for distribution at no charge to the public. It's been around since 2002, making it one of the older ASF projects.
+--
+
+== DB Project Structure
+
+* *Umbrella project* with multiple subprojects
+* Each subproject has its own community and release cycle
+* Shared PMC (Project Management Committee) oversight
+* 46 PMC members across all subprojects
+
+[.notes]
+--
+Unlike many Apache projects that focus on a single product, Apache DB is an umbrella that houses several database-related subprojects. They share a common PMC with 46 members but each subproject operates semi-independently with its own mailing lists, release cadence, and committer base.
+--
+
+== Retired Subprojects
+
+* *Apache Derby* — Retired October 2025
+** Embedded Java relational database
+** 10.17.1.0 was the final release (November 2023)
+* *DdlUtils* — Retired
+** Database Definition (DDL) file handling
+
+[.notes]
+--
+Two subprojects have been retired. Apache Derby, which was an embedded Java relational database, was voted into retirement in October 2025. DdlUtils, which handled DDL files for database schema management, was also retired. Their source code remains available but no further development or releases will occur.
+--
+
+== Apache JDO — Overview
+
+* Java Data Objects (JDO) — a standard way to access persistent data
+* Uses plain old Java objects (POJO) for persistent data
+* Separates data manipulation from database manipulation
+* Developed as JSR-243 in the Java Community Process
+* Current release: *JDO 3.2.1* (May 2022)
+
+[.notes]
+--
+JDO is a standard way to access persistent data in databases, using plain old Java objects (POJO) to represent persistent data. The approach separates data manipulation (done by accessing Java data members) from database manipulation (done by calling JDO interface methods). This separation of concerns leads to high independence between the Java view and the database view of data.
+--
+
+== JDO — Key Interfaces
+
+* *PersistenceManager* — manages lifecycle of persistent instances, Query factory, Transaction access
+* *Query* — responsible for querying the datastore and returning persistent instances or values
+* *Transaction* — responsible for initiating and completing transactions
+
+[.notes]
+--
+JDO defines three key interfaces. PersistenceManager is the central component responsible for the lifecycle of persistent instances, acting as a query factory and providing transaction access. Query handles querying the datastore. Transaction manages the initiation and completion of transactions.
+--
+
+== JDO — Implementations
+
+* Implementations available for:
+** Relational databases
+** Object databases
+** File systems
+* Both commercial and open source options
+* Apache JDO provides the API and the TCK (Technology Compatibility Kit)
+
+[.notes]
+--
+JDO implementations are available from multiple vendors covering relational databases, object databases, and file systems. Apache JDO itself focuses on building the JDO API and the TCK for compatibility testing of JDO implementations. If you need an implementation for building a JDO application, check the Implementations page on the JDO website.
+--
+
+== Apache Torque — Overview
+
+* Object-relational mapper for Java
+* Uses *code generation* (not reflection) from an XML schema
+* Generates Data Objects, SQL scripts, and more
+* Latest release: *Torque 7.0* (August 2025)
+* Requires Java 17 or higher (Torque 7.0)
+
+[.notes]
+--
+Apache Torque is an object-relational mapper for Java. Unlike most other ORMs, Torque does not use reflection to access user-provided classes. Instead, it generates the necessary classes from an XML schema describing the database layout. The XML file can be hand-written or generated from an existing database. Torque 7.0 was released in August 2025 and requires Java 17.
+--
+
+== Torque — How It Works
+
+* Define your database schema in XML
+* Torque generates:
+** Java Data Object classes
+** Peer classes for database operations
+** SQL scripts for table creation
+* Override generated methods to customize behavior
+* DBMS-independent code
+
+[.notes]
+--
+The workflow with Torque starts by defining your database schema in an XML file. From that schema, Torque generates Java classes representing your data objects, peer classes that handle database operations, and SQL scripts for creating your tables. Because you can override generated methods, customization is straightforward. The generated code is database-independent.
+--
+
+== Torque — Components
+
+* *torque-runtime* — everything needed to access the database at runtime
+* *torque-generator* — general-purpose code generator
+* *maven-torque-plugin* — Maven build integration
+* *torque-ant-tasks* — Ant build integration
+* *torque-templates* — customizable generation templates
+
+[.notes]
+--
+Torque is modular. The runtime is the only component you need in your application. The generator handles code generation and can be used standalone or through the Maven plugin or Ant tasks. Templates are the building blocks used by the generator, and they're fully customizable — you can extend, change, or write your own.
+--
+
+== Apache Empire-db — Overview
+
+* Utilize relational DBMS in Java *without limitations*
+* "Forget OR-Mapping, Entity Beans, Lazy vs Eager, Bytecode Proxies"
+* "No Strings attached" — type-safe SQL construction
+* Simple plain old Java API
+* Supports Oracle, SQL Server, PostgreSQL, MySQL, HSQLDB, Derby, H2, and more
+
+[.notes]
+--
+Apache Empire-db takes a different philosophy. Instead of abstracting away SQL, it lets you unleash the full power of your database management system. The tagline is "No Strings attached" — literally, because you construct SQL using a Java API rather than concatenating strings. This improves compile-time safety and maintainability while keeping code DBMS-independent.
+--
+
+== Empire-db — Key Features
+
+* Create complex SQL in code intuitively
+* Compile-time safety — no runtime SQL errors
+* DBMS-independent code
+* Identity management and concurrency control
+* DDL operations and metadata access
+* Lightweight, customizable via subclassing
+
+[.notes]
+--
+Empire-db's approach gives you compile-time safety, meaning SQL errors are caught at compile time rather than runtime. The object model is designed so you can customize and extend almost every aspect by simple subclassing and overriding. It's lightweight and straightforward, with 100% open-source availability.
+--
+
+== Empire-db — Code Example
+
+[source,java]
+----
+DBCommand cmd = context.createCommand()
+  .select  (BRAND.NAME, MODEL.SPECIFICATION)
+  .select  (SALES.MODEL_ID.count())
+  .join    (MODEL.WMI.on(BRAND.WMI))
+  .joinLeft(MODEL.ID.on(SALES.MODEL_ID))
+  .where   (MODEL.ENGINE_TYPE.in(EngineType.P, EngineType.H))
+  .where   (MODEL.BASE_PRICE.isGreaterThan(30000))
+  .groupBy (BRAND.NAME, MODEL.SPECIFICATION);
+----
+
+[.notes]
+--
+Here's a taste of Empire-db's fluent API. You build queries using method chaining with full type safety. Column references are actual Java objects, not strings. The generated SQL is clean and optimized for the target database. This example joins brands, models, and sales data with filtering, grouping, and aggregation.
+--
+
+== Getting Started — JDO
+
+. Add Maven dependency: `javax.jdo:jdo-api:3.2.1`
+. Choose a JDO implementation (e.g., DataNucleus)
+. Define your persistent classes as POJOs
+. Create persistence metadata (annotations or XML)
+. Use `PersistenceManager` to store/retrieve objects
+
+[.notes]
+--
+To get started with JDO: add the jdo-api dependency, pick an implementation like DataNucleus, define your domain objects as plain Java objects, add persistence metadata via annotations or XML, and use the PersistenceManager to interact with your datastore.
+--
+
+== Getting Started — Torque
+
+. Define your database schema in XML
+. Add the `maven-torque-plugin` to your build
+. Run code generation: `mvn generate-sources`
+. Use generated Peer classes for CRUD operations
+. Customize by overriding generated methods
+
+[.notes]
+--
+To get started with Torque: write an XML schema describing your tables, configure the Maven plugin, run code generation, and start using the generated classes. The Torque documentation site has detailed guides for each step.
+--
+
+== Getting Started — Empire-db
+
+. Add Empire-db dependency to your project
+. Define your data model using Java classes
+. Create a `DBDatabase` subclass with table definitions
+. Open a connection and create a `DBContext`
+. Build queries using the fluent API
+
+[.notes]
+--
+For Empire-db: add the dependency, define your data model as Java classes extending Empire-db's base types, create a database class with your table definitions, open a connection, and start building type-safe queries with the fluent API.
+--
+
+== Source Code Repositories
+
+[cols="1,2"]
+|===
+|Project |Repository
+
+|JDO
+|https://gitbox.apache.org/repos/asf/db-jdo.git
+
+|JDO Site
+|https://gitbox.apache.org/repos/asf/db-jdo-site.git
+
+|Empire-db
+|https://gitbox.apache.org/repos/asf/empire-db.git
+
+|DB Site
+|https://gitbox.apache.org/repos/asf/db-site.git
+|===
+
+[.notes]
+--
+All Apache DB subprojects use Git repositories hosted at gitbox.apache.org. GitHub mirrors are also available for contributing via pull requests. The JDO project specifically encourages GitHub-based contributions using the standard fork-and-pull-request workflow.
+--
+
+== Mailing Lists
+
+* *general@db.apache.org* — cross-project discussions
+* *jdo-dev@db.apache.org* — JDO development
+* *torque-dev@db.apache.org* — Torque development
+* *empire-db-dev@db.apache.org* — Empire-db development
+* Archives available via lists.apache.org
+
+[.notes]
+--
+Each subproject has its own development mailing list. There's also a general list for cross-project discussions. Mailing lists are the primary communication channel for Apache projects. Archives are publicly available at lists.apache.org.
+--
+
+== Issue Tracking
+
+* JDO: https://issues.apache.org/jira/browse/JDO[JIRA — JDO]
+* Torque: https://issues.apache.org/jira/browse/TORQUE[JIRA — TORQUE]
+* Empire-db: https://issues.apache.org/jira/browse/EMPIREDB[JIRA — EMPIREDB]
+* Also accepts GitHub issues and pull requests (JDO)
+
+[.notes]
+--
+Bug reports and feature requests go through JIRA for all subprojects. JDO additionally accepts issues and pull requests through its GitHub repositories. If a pull request relates to a JIRA ticket, include the ticket reference in the PR title using the format [JDO-1234].
+--
+
+== How to Contribute
+
+* Subscribe to the dev mailing list for your subproject
+* Check the issue tracker for open tasks
+* Fork the repository on GitHub
+* Submit pull requests with clear descriptions
+* Sign the Apache ICLA for major contributions
+
+[.notes]
+--
+Contributing starts by subscribing to the appropriate dev mailing list. Look at the issue tracker for bugs or features you can work on. Fork the repo, make your changes, and submit a pull request. For major contributions, you'll need to sign the Apache Individual Contributor License Agreement (ICLA). Minor bug fixes and documentation changes generally don't require the ICLA.
+--
+
+== Community Calls
+
+* JDO holds weekly communications conference calls
+* Discuss project status, issues, and strategy
+* Everyone interested in Apache JDO is welcome
+* Agenda posted to the jdo-dev mailing list
+
+[.notes]
+--
+The JDO community holds weekly conference calls to discuss project status, issues, concerns, and strategy. Everyone interested in Apache JDO is welcome and encouraged to participate. The agenda is posted to the jdo-dev mailing list ahead of each call.
+--
+
+== Release History Highlights
+
+[cols="1,1,1"]
+|===
+|Project |Version |Date
+
+|Torque |7.0 |August 2025
+|Torque |6.0 |May 2024
+|Derby (retired) |10.17.1.0 |October 2023
+|JDO |3.2.1 |May 2022
+|Torque |5.1 |January 2022
+|===
+
+[.notes]
+--
+Here are recent release milestones across the DB subprojects. Torque is the most actively releasing subproject with version 7.0 in August 2025. JDO's latest is 3.2.1 from May 2022. Derby's final release was 10.17.1.0 before retirement.
+--
+
+== Key Links
+
+* *Project Home:* https://db.apache.org
+* *JDO:* https://db.apache.org/jdo/
+* *Torque:* https://db.apache.org/torque/
+* *Empire-db:* https://empire-db.apache.org
+* *Source:* https://gitbox.apache.org/repos/asf?s=db
+
+[.notes]
+--
+Here are the key URLs for the Apache DB project and its subprojects. Bookmark these as your starting points for documentation, downloads, and community engagement.
+--
+
+== Thank You!
+
+* https://db.apache.org
+* general@db.apache.org
+* Contributions welcome — every patch helps!
+
+image::project-logo.png[Apache DB, 300]
+
+[.notes]
+--
+Thank you for attending this Apache DB overview. The project always welcomes new contributors, whether it's code, documentation, bug reports, or simply participating on the mailing lists. Visit db.apache.org to get started, and subscribe to the general or subproject-specific mailing lists to join the conversation.
+--
