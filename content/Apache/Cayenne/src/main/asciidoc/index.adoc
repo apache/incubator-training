@@ -1,0 +1,536 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+:presenter_name: Your Name
+:presenter_company: Your Company
+:description: Introduction to Apache Cayenne
+:keywords: Apache, Cayenne, ORM, Java
+:author: Your Name
+:email: Your email
+:position: Your role
+
+== Apache Cayenne
+
+image::https://cayenne.apache.org/img/cayenne_logo.svg[width=400, align=center]
+
+A User-Friendly Java ORM with Visual Modeling Tools
+
+== Who am I?
+{author} +
+{position} +
+{email} +
+
+[.notes]
+--
+Please add your own details here.
+--
+
+// ============================================================
+// PART 1: WHAT IS IT?
+// ============================================================
+
+== What is Apache Cayenne?
+
+Apache Cayenne is a Java ORM (Object-Relational Mapping) framework that provides a clean separation between the Java object model and the relational database schema.
+
+Its standout feature is the *CayenneModeler* — a visual GUI tool for mapping database tables to Java objects.
+
+[.notes]
+--
+Cayenne differentiates itself from other ORM solutions (like Hibernate)
+by emphasizing convention-over-configuration and providing a visual
+modeling tool that lets developers design their data layer graphically.
+--
+
+== The Problem it Solves
+
+* Writing raw SQL is error-prone and couples code to specific databases
+* Hand-coding object-relational mapping is tedious and repetitive
+* XML-heavy or annotation-heavy ORM configurations are hard to maintain
+* Schema changes require updating scattered mapping files
+
+*Cayenne's answer:* A visual modeler that keeps mappings in sync and generates clean, annotation-free POJOs.
+
+[.notes]
+--
+Before ORMs, developers wrote JDBC code manually. Even with ORMs like
+Hibernate, configuration can become complex. Cayenne's modeler provides
+a single source of truth for the mapping, visible and editable in a GUI.
+--
+
+== Project History
+
+* *2002* — Created by Andrus Adamchik (originally "ObjectStyle Cayenne")
+* *2006* — Entered the Apache Incubator
+* *December 2006* — Graduated to Apache Top-Level Project
+* *2017* — Cayenne 4.0 released (major modernization)
+* *2023* — Cayenne 4.2 released (Java 11+ baseline)
+
+[.notes]
+--
+--
+
+== Key Features: Modeling & Code Gen
+
+* *Visual Schema Modeling* — CayenneModeler GUI for designing mappings
+* *Code Generation* — auto-generate Java classes from the model
+* *Annotation-Free POJOs* — no annotations required on persistent objects
+
+[.notes]
+--
+The annotation-free approach means your domain objects stay clean POJOs.
+All mapping metadata lives in the Cayenne project XML files, managed
+through the GUI modeler. This is a key differentiator from Hibernate.
+--
+
+== Key Features: Runtime & Database
+
+* *Lazy Loading & Caching* — transparent performance optimizations
+* *DB Reverse Engineering* — import existing schemas into the modeler
+* *Multiple Database Support* — MySQL, PostgreSQL, Oracle, SQLite, SQL Server, and more
+
+== CayenneModeler — The Visual Tool
+
+The CayenneModeler is a standalone GUI application that lets you:
+
+* Create and edit data maps visually
+* Define entities and their relationships
+* Map Java classes to database tables with drag-and-drop
+* Reverse-engineer schemas from live databases
+
+[.notes]
+--
+This is the single biggest differentiator of Cayenne. Developers can
+see the entire data model at a glance and make changes visually rather
+than editing XML or annotations.
+--
+
+== CayenneModeler — Code Generation
+
+Additional modeler capabilities:
+
+* Forward-engineer DDL from your model
+* Generate and regenerate Java source code
+* Manage multiple DataMaps in one project
+
+[.notes]
+--
+The two-class generation pattern means regeneration never overwrites
+your custom logic — only the generated superclass is replaced.
+--
+
+== Architecture Overview
+
+[source]
+----
+┌─────────────────────────────────────────┐
+│          Application Code               │
+├─────────────────────────────────────────┤
+│          ObjectContext                   │
+│     (unit of work, manages objects)     │
+├─────────────────────────────────────────┤
+│          ServerRuntime                  │
+│   (DI container, configuration root)   │
+├─────────────────────────────────────────┤
+│     DataNode / DataSource (JDBC)        │
+├─────────────────────────────────────────┤
+│          Database(s)                    │
+└─────────────────────────────────────────┘
+----
+
+[.notes]
+--
+ServerRuntime is the top-level entry point. It manages configuration,
+dependency injection, and connection pooling. ObjectContext is the
+working unit — similar to a Hibernate Session or JPA EntityManager.
+--
+
+== How Cayenne Compares
+
+[cols="3*", options="header"]
+|===
+| Feature | Cayenne | Hibernate
+
+| Configuration
+| Visual modeler (GUI)
+| Annotations / XML
+
+| POJO requirements
+| Annotation-free
+| Annotations required
+
+| Learning curve
+| Lower (visual)
+| Steeper (config-heavy)
+
+| Community size
+| Smaller, focused
+| Very large
+|===
+
+== Use Cases
+
+* *Enterprise Java Applications* — needing clean ORM with visual modeling
+* *Legacy Database Integration* — reverse-engineer existing schemas without touching the DB
+* *Visual Schema Management* — teams that prefer GUI over code-based mapping
+* *Multi-database Deployments* — single model targeting multiple RDBMS vendors
+
+// ============================================================
+// PART 2: INSTALLATION & GETTING STARTED
+// ============================================================
+
+== Prerequisites
+
+* *Java 11+* (JDK)
+* *Apache Maven* (for dependency management and builds)
+* A relational database (MySQL, PostgreSQL, SQLite, etc.)
+
+== Installation: Maven Dependency
+
+Add Cayenne to your `pom.xml`:
+
+[source,xml]
+----
+<dependency>
+    <groupId>org.apache.cayenne</groupId>
+    <artifactId>cayenne-server</artifactId>
+    <version>4.2</version>
+</dependency>
+----
+
+For the modeler Maven plugin (code generation):
+
+[source,xml]
+----
+<plugin>
+    <groupId>org.apache.cayenne.plugins</groupId>
+    <artifactId>cayenne-maven-plugin</artifactId>
+    <version>4.2</version>
+</plugin>
+----
+
+== Download the Modeler
+
+Download CayenneModeler from:
+
+*https://cayenne.apache.org/download.html*
+
+Available as:
+
+* Cross-platform JAR (requires Java)
+* macOS `.dmg`
+* Windows installer
+* Linux `.tar.gz`
+
+[.notes]
+--
+The modeler is a standalone desktop application. It is the primary
+interface for creating and maintaining your Cayenne data model.
+--
+
+== Getting Started: Launch the Modeler
+
+. Download and install CayenneModeler
+. Launch the application
+. Create a new project → generates `cayenne-project.xml`
+. Add a DataMap
+
+[.notes]
+--
+Walk through each step. The modeler creates XML mapping files that
+become the source of truth for your object-relational mapping.
+--
+
+== Getting Started: Build Your Model
+
+[start=5]
+. Reverse-engineer from an existing database (or create entities manually)
+. Map database tables to Java objects
+. Generate Java classes
+
+[.notes]
+--
+Once the DataMap is created, you can either reverse-engineer from a live
+database or manually create entities. Then generate the Java classes.
+--
+
+== Project Structure
+
+A typical Cayenne project layout:
+
+[source]
+----
+my-app/
+├── pom.xml
+├── src/main/
+│   ├── java/
+│   │   └── com/example/model/
+│   │       ├── auto/            ← generated superclasses
+│   │       │   └── _Artist.java
+│   │       └── Artist.java      ← user-customizable subclass
+│   └── resources/
+│       ├── cayenne-project.xml  ← project descriptor
+│       └── datamap.map.xml      ← entity mappings
+----
+
+[.notes]
+--
+Cayenne uses a two-class pattern: a generated superclass (_Artist)
+containing all mapped properties, and a user subclass (Artist) where
+custom logic goes. Regeneration never overwrites your customizations.
+--
+
+== Hello World: Creating the Runtime
+
+[source,java]
+----
+import org.apache.cayenne.configuration.server.ServerRuntime;
+import org.apache.cayenne.ObjectContext;
+
+// Create runtime (reads cayenne-project.xml from classpath)
+ServerRuntime runtime = ServerRuntime.builder()
+    .addConfig("cayenne-project.xml")
+    .build();
+
+// Obtain a context (unit of work)
+ObjectContext context = runtime.newContext();
+----
+
+[.notes]
+--
+ServerRuntime is typically created once at application startup.
+ObjectContext instances are lightweight and can be created per-request
+or per-unit-of-work.
+--
+
+== Hello World: Creating Objects
+
+[source,java]
+----
+import com.example.model.Artist;
+
+// Create a new persistent object
+Artist artist = context.newObject(Artist.class);
+artist.setName("Picasso");
+artist.setDateOfBirth(
+    LocalDate.of(1881, 10, 25));
+
+// Commit to database (INSERT)
+context.commitChanges();
+----
+
+[.notes]
+--
+Notice: no annotations on the Artist class, no session.save() calls.
+Just create the object, set properties, and commit. Cayenne handles
+the SQL generation and execution transparently.
+--
+
+== Hello World: Querying Objects
+
+[source,java]
+----
+import org.apache.cayenne.query.ObjectSelect;
+import java.util.List;
+
+// Select all artists whose name starts with "P"
+List<Artist> artists = ObjectSelect
+    .query(Artist.class)
+    .where(Artist.NAME.like("P%"))
+    .select(context);
+
+for (Artist a : artists) {
+    System.out.println(a.getName());
+}
+----
+
+[.notes]
+--
+ObjectSelect is the modern fluent query API in Cayenne 4.x.
+It provides type-safe, compile-time-checked queries using
+generated property constants (Artist.NAME).
+--
+
+== Reverse Engineering an Existing Database
+
+[source,xml]
+----
+<!-- In pom.xml, configure the Maven plugin -->
+<plugin>
+    <groupId>org.apache.cayenne.plugins</groupId>
+    <artifactId>cayenne-maven-plugin</artifactId>
+    <version>4.2</version>
+    <configuration>
+        <dataSource>
+            <url>jdbc:mysql://localhost/mydb</url>
+            <driver>com.mysql.cj.jdbc.Driver</driver>
+            <username>root</username>
+            <password>secret</password>
+        </dataSource>
+        <map>src/main/resources/datamap.map.xml</map>
+    </configuration>
+</plugin>
+----
+
+Then run: `mvn cayenne:cdbimport`
+
+[.notes]
+--
+This imports the entire schema (or selected tables) from a live database
+into your Cayenne model. You can also do this interactively through the
+CayenneModeler GUI.
+--
+
+== Build from Source
+
+[source,bash]
+----
+git clone https://github.com/apache/cayenne.git
+cd cayenne
+mvn install -DskipTests
+----
+
+* Requires: Java 11+, Maven 3.6+
+* Full test suite requires a running database
+* Modules: `cayenne-server`, `cayenne-client`, `modeler`, `maven-plugin`
+
+== Configuration: Project Files
+
+* *cayenne-project.xml* — top-level project descriptor (data sources, maps)
+* *datamap.map.xml* — entity definitions and mappings
+* *Runtime properties* — connection pool size, logging, cache settings
+
+[.notes]
+--
+These files are typically managed through the CayenneModeler GUI,
+but can also be edited by hand or through Maven plugin goals.
+--
+
+== Configuration: Key Settings
+
+Important runtime properties:
+
+* `cayenne.DataRowStore.snapshot.size` — object cache size
+* `cayenne.server.contexts_sync_strategy` — context synchronization
+* `cayenne.jdbc.max_connections` — connection pool limit
+
+// ============================================================
+// PART 3: PARTICIPATING IN THE COMMUNITY
+// ============================================================
+
+== The Apache Cayenne Community
+
+* *PMC Members:* 9
+* *Active since:* December 2006 (TLP graduation)
+* A small but dedicated community focused on quality over quantity
+
+[.notes]
+--
+Being a smaller project has advantages: patches get personal attention,
+decisions are made quickly, and new contributors can make a big impact.
+--
+
+== Communication Channels
+
+[cols="3*", options="header"]
+|===
+| Channel | Address | Purpose
+
+| Dev mailing list
+| dev@cayenne.apache.org
+| Technical discussion, releases
+
+| User mailing list
+| user@cayenne.apache.org
+| End-user questions
+
+| GitHub
+| github.com/apache/cayenne
+| Source code, pull requests
+
+| JIRA
+| issues.apache.org/jira/browse/CAY
+| Bug reports, features
+|===
+
+== Subscribing to Mailing Lists
+
+Send an empty email to:
+
+* `dev-subscribe@cayenne.apache.org`
+* `user-subscribe@cayenne.apache.org`
+
+== How to Contribute: Getting Started
+
+. *Find an issue* — browse https://issues.apache.org/jira/browse/CAY[JIRA (CAY)] or ask on dev@
+. *Discuss your approach* — email the dev list or comment on the JIRA ticket
+. *Fork and branch* — `git checkout -b CAY-XXXX-description`
+
+[.notes]
+--
+For a small project like Cayenne, getting involved is straightforward.
+The community is welcoming and responsive.
+--
+
+== How to Contribute: Submit Your Work
+
+[start=4]
+. *Make your change* — follow existing code style
+. *Test* — `mvn verify`
+. *Submit a PR* — reference the JIRA issue number
+. *Respond to review* — iterate based on PMC feedback
+
+[.notes]
+--
+Even documentation improvements and test cases are highly valued.
+--
+
+== Beyond Code Contributions
+
+* *Documentation* — improve guides, add examples, fix typos
+* *Testing* — reproduce bugs, write test cases for edge cases
+* *User support* — answer questions on user@cayenne.apache.org
+* *Tutorials & Blog posts* — share your Cayenne experience
+* *Conference talks* — present Cayenne at Java user groups or ApacheCon
+
+== Further Resources
+
+* *Project website:* https://cayenne.apache.org
+* *Documentation:* https://cayenne.apache.org/docs/4.2/getting-started-guide/
+* *Source code:* https://github.com/apache/cayenne
+* *Issue tracker:* https://issues.apache.org/jira/browse/CAY
+
+== Further Resources: ASF-Wide
+
+* https://community.apache.org[Apache Community Development]
+* https://www.apache.org/foundation/how-it-works.html[How the ASF Works]
+
+== Questions?
+
+image::https://cayenne.apache.org/img/cayenne_logo.svg[width=200, align=center]
+
+* dev@cayenne.apache.org
+* https://cayenne.apache.org
+
+[.notes]
+--
+Open the floor for questions.
+Remind attendees they can reach the community on the mailing list.
+--
