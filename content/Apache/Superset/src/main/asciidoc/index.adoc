@@ -1,0 +1,359 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+:presenter_name: Your Name
+:presenter_company: Your Company
+:description: Introduction to Apache Superset
+:keywords: Apache, Superset, Data Visualization, Business Intelligence
+:author: Your Name
+:email: Your email
+:position: Your role
+
+== Apache Superset
+
+image::https://superset.apache.org/img/superset-logo-horiz-apache.svg[width=500, align=center]
+
+A Modern Data Exploration and Visualization Platform
+
+// ============================================================
+// PART 1: WHAT IS IT?
+// ============================================================
+
+== What is Apache Superset?
+
+A modern, enterprise-ready BI web application.
+
+* **Fast** — Optimized for large-scale data
+* **Intuitive** — No-code chart builder for analysts
+* **Powerful** — Full SQL IDE for data engineers
+* **Extensible** — Plugin architecture for custom viz
+
+[.notes]
+--
+Created at Airbnb in 2015 by Maxime Beauchemin (who also created
+Apache Airflow). Graduated to Apache TLP in January 2021.
+--
+
+== Project History
+
+* **2015** — Created at Airbnb by Maxime Beauchemin
+* **2017** — Entered the Apache Incubator
+* **2021** — Graduated to Apache Top-Level Project
+* **Community** — 39 PMC members, 1,700+ contributors
+
+[.notes]
+--
+Superset has grown from an internal Airbnb tool to one of the most
+popular open source BI platforms, with millions of Docker pulls.
+--
+
+== Why Superset?
+
+* **Free** — No license fees, open source
+* **Open** — SQL standards, 40+ database connectors
+* **Cloud-native** — Browser-based, deploy in minutes
+* **Flexible** — From simple charts to complex dashboards
+
+[.notes]
+--
+Compared to traditional BI (Tableau, Power BI, Looker): Superset is
+free, uses open standards, and deploys in minutes with Docker.
+--
+
+== Key Features
+
+* **No-Code Chart Builder** — 40+ chart types, drag-and-drop
+* **SQL Lab** — Full SQL IDE with autocomplete
+* **Semantic Layer** — Define metrics once, reuse everywhere
+* **Interactive Dashboards** — Cross-filtering and drill-down
+* **RBAC** — Row/column-level security
+
+[.notes]
+--
+The extensible plugin system lets you build custom React visualizations.
+--
+
+== Supported Databases
+
+Connects to any SQL-speaking database via SQLAlchemy:
+
+* PostgreSQL, MySQL, SQLite, SQL Server, Oracle
+* BigQuery, Redshift, Snowflake, Databricks
+* Hive, Druid, Pinot, Trino/Presto, ClickHouse
+* **30+ more** via community connectors
+
+[.notes]
+--
+Superset never copies your data — it queries sources directly.
+--
+
+== Architecture
+
+* **Frontend** — React single-page app
+* **Backend** — Flask + SQLAlchemy (Python)
+* **Metadata DB** — PostgreSQL (stores dashboards/users)
+* **Cache** — Redis (optional, for performance)
+* **Async** — Celery workers for long queries
+
+[.notes]
+--
+The frontend communicates via REST APIs. SQLAlchemy provides the
+universal database abstraction layer. See docs for full diagram.
+--
+
+== Chart Types
+
+40+ visualization types out of the box:
+
+* **Basic** — Bar, Line, Area, Pie, Scatter
+* **Time Series** — Trend lines, mixed charts
+* **Geographic** — Deck.gl, Choropleth, GeoJSON
+* **Advanced** — Pivot, Sankey, Treemap, Funnel
+
+[.notes]
+--
+All chart types are plugins. Organizations can add custom
+visualization types using React and D3.js.
+--
+
+== Use Cases
+
+* **BI Dashboards** — KPI tracking, executive reporting
+* **Ad-Hoc Exploration** — Analysts without writing code
+* **Embedded Analytics** — Charts inside your own apps
+* **Real-Time Monitoring** — Live streaming data dashboards
+
+[.notes]
+--
+Used by Airbnb, American Express, Dropbox, Lyft, Netflix, and more.
+--
+
+// ============================================================
+// PART 2: INSTALLATION & GETTING STARTED
+// ============================================================
+
+== Installation Methods
+
+* **Docker Compose** — Quickstart, demos (easy)
+* **pip install** — Production, customization (medium)
+* **From Source** — Development, contributing (advanced)
+
+[.notes]
+--
+Docker Compose is recommended for getting started.
+pip install with proper config for production.
+--
+
+== Prerequisites
+
+* Python 3.9+
+* PostgreSQL (for metadata store)
+* 4GB+ RAM (8GB recommended)
+* Linux or macOS (Windows via WSL2/Docker)
+
+== Install with Docker
+
+[source,bash]
+----
+git clone https://github.com/apache/superset.git
+cd superset
+docker compose -f docker-compose-image-tag.yml up -d
+----
+
+Access at: http://localhost:8088
+
+[.notes]
+--
+Includes Redis, PostgreSQL metadata DB, and Celery worker.
+--
+
+== Install with pip
+
+[source,bash]
+----
+pip install apache-superset
+export SUPERSET_SECRET_KEY='your-secret-key'
+superset db upgrade
+superset fab create-admin
+superset init
+superset run -p 8088
+----
+
+[.notes]
+--
+In production, use Gunicorn and configure PostgreSQL as the metadata DB.
+--
+
+== Install from Source
+
+[source,bash]
+----
+git clone https://github.com/apache/superset.git
+cd superset
+pip install -e .
+cd superset-frontend && npm ci && npm run build
+cd .. && superset db upgrade && superset init
+superset run -p 8088
+----
+
+[.notes]
+--
+Required for contributing code or building custom frontend plugins.
+--
+
+== Configuration
+
+Key settings in `superset_config.py`:
+
+[source,python]
+----
+SECRET_KEY = 'generate-with-openssl-rand'
+SQLALCHEMY_DATABASE_URI = 'postgresql://...'
+CACHE_CONFIG = {'CACHE_TYPE': 'RedisCache'}
+FEATURE_FLAGS = {'DASHBOARD_CROSS_FILTERS': True}
+----
+
+Set `SUPERSET_CONFIG_PATH` env var to your config file.
+
+== Connect a Database
+
+. Go to **Settings → Database Connections**
+. Click **+ Database**
+. Select type, enter SQLAlchemy URI
+. Click **Test Connection** → **Connect**
+
+[.notes]
+--
+Superset never copies data — it queries sources directly.
+--
+
+== Create a Dataset
+
+. Navigate to **Datasets → + Dataset**
+. Select database, schema, and table
+. Click **Create Dataset and Create Chart**
+
+A dataset stores column metadata and metric definitions.
+
+== Build a Chart
+
+. Select visualization type (e.g., Bar Chart)
+. Drag columns to **Dimensions**
+. Drag metrics to **Metrics**
+. Click **Create Chart** → **Save**
+
+== The Explore View
+
+image::https://superset.apache.org/img/explore.jpg[width=70%]
+
+No-code interface with real-time chart preview.
+
+== SQL Lab
+
+Superset's built-in SQL IDE:
+
+* Multi-tab editor with syntax highlighting
+* Schema browser and autocomplete
+* Query history and saved queries
+* Visualize results directly as charts
+
+[.notes]
+--
+Bridges the gap between data engineering and visualization.
+--
+
+// ============================================================
+// PART 3: COMMUNITY PARTICIPATION
+// ============================================================
+
+== Community Overview
+
+* **1,700+** contributors on GitHub
+* **64,000+** GitHub stars
+* **39** PMC members
+* **Weekly** community meetings on video
+
+[.notes]
+--
+The community is welcoming to newcomers and follows the Apache Way.
+--
+
+== Communication Channels
+
+* **dev@superset.apache.org** — proposals, votes, releases
+* **GitHub Discussions** — Q&A, feature requests
+* **Slack** — real-time chat (Apache Superset workspace)
+* **GitHub Issues** — bug reports, feature tracking
+
+Subscribe: email dev-subscribe@superset.apache.org
+
+== How to Contribute
+
+. Find an issue (`good first issue` label)
+. Fork the repo, create a branch
+. Follow CONTRIBUTING.md for dev setup
+. Submit a PR, address review feedback
+. Two approvals → merged!
+
+[.notes]
+--
+Maintainers typically review within a few days.
+--
+
+== Types of Contributions
+
+* **Code** — Bug fixes, features, plugins
+* **Documentation** — Guides, tutorials, API docs
+* **Testing** — Bug reports, test cases, QA
+* **Community** — Help on Slack, blog posts, talks
+
+[.notes]
+--
+Non-code contributions are equally valued.
+--
+
+== Becoming a Committer
+
+* Sustained, quality contributions over time
+* Participation in code reviews
+* Helping community members
+* Nominated and voted in by PMC
+
+[.notes]
+--
+No fixed threshold — it's about building trust through consistent
+positive contributions to the project and community.
+--
+
+== Further Resources
+
+* **Docs**: https://superset.apache.org/docs/intro
+* **GitHub**: https://github.com/apache/superset
+* **Slack**: Apache Superset workspace
+* **Dev List**: dev@superset.apache.org
+
+== Summary
+
+* **What** — Open source BI for data exploration & viz
+* **Install** — `pip install apache-superset` or Docker
+* **Connect** — Any SQL database via SQLAlchemy
+* **Contribute** — GitHub PRs, Slack, mailing list
+
+**Get started**: https://superset.apache.org/
