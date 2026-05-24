@@ -1,0 +1,494 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+:presenter_name: Your Name
+:presenter_company: Your Company
+:description: Introduction to Apache Celix
+:keywords: Apache, Celix, OSGi, C, C++, modular, dynamic, services
+:author: Your Name
+:email: Your email
+:position: Your role
+
+== Apache Celix
+
+image::project-logo.png[Apache Celix, 500]
+
+An implementation of the OSGi specification adapted to C and C++
+
+[.notes]
+--
+Apache Celix is a framework for developing dynamic modular software
+applications using component and in-process service-oriented programming.
+It brings the power of OSGi to the native world.
+--
+
+== Who am I?
+{author} +
+{position} +
+{email} +
+
+// ============================================================
+// PART 1: WHAT IS IT?
+// ============================================================
+
+== What is Apache Celix?
+
+* A framework for *C and C++14* to develop dynamic modular software
+* An implementation of the *OSGi specification* adapted for native code
+* Uses *component and service-oriented programming* in-process
+* Primarily developed in C with a C++ abstraction library
+
+[.notes]
+--
+Celix brings the OSGi modularity model to the native/embedded world.
+OSGi is well-established in Java for dynamic module systems; Celix
+adapts those concepts—bundles, services, service registries—to C and C++.
+--
+
+== The Problem it Solves
+
+* Native applications (C/C++) lack a standard *modularity framework*
+* No dynamic service discovery or hot-swapping in traditional builds
+* Monolithic designs make updates risky in *embedded* and *IoT* systems
+* Need for runtime-installable components without full restart
+
+[.notes]
+--
+In Java, OSGi solved the modularity problem decades ago. But for
+embedded systems, IoT devices, and performance-critical native apps,
+there was no equivalent. Celix fills that gap.
+--
+
+== Key Features
+
+* *Runtime-installable bundles* — zip files containing shared libraries
+* *Dynamic services* — register, discover, and track services at runtime
+* *C and C++ support* — native C API plus C++ POCO abstraction layer
+* *OSGi-inspired* — familiar model for anyone coming from Java OSGi
+* *CMake integration* — purpose-built CMake functions for building bundles
+
+[.notes]
+--
+Services in Celix are "plain old" structs with function pointers (C)
+or "plain old C++ Objects" (POCO). The framework handles lifecycle
+and dependency injection.
+--
+
+== Core Concepts
+
+* *Bundle* — a zip file containing shared libraries and a manifest
+* *Bundle Context* — the API a bundle uses to interact with the framework
+* *Service* — a C struct or C++ object registered in the service registry
+* *Service Registry* — central registry for publishing and discovering services
+* *Container* — a running Celix framework instance with installed bundles
+
+[.notes]
+--
+These concepts map directly to OSGi terminology. If you know OSGi,
+you already understand Celix's architecture at a high level.
+--
+
+== How Services Work
+
+[source,text]
+----
+┌──────────────────────────────────┐
+│         Celix Framework          │
+│  ┌────────────────────────────┐  │
+│  │     Service Registry       │  │
+│  └────────────────────────────┘  │
+│     ▲ register    │ discover     │
+│  ┌──┴───┐     ┌──▼───┐          │
+│  │Bundle │     │Bundle │         │
+│  │  A    │     │  B    │         │
+│  └───────┘     └───────┘         │
+└──────────────────────────────────┘
+----
+
+* Bundle A *registers* a service (struct with function pointers)
+* Bundle B *discovers and uses* that service via the registry
+
+[.notes]
+--
+Services are decoupled—Bundle B does not link directly against Bundle A.
+The registry acts as the mediator, enabling dynamic composition.
+--
+
+== Use Cases
+
+* *Embedded systems* — modular firmware with hot-swappable components
+* *IoT gateways* — plugin-based protocol adapters
+* *Industrial automation* — dynamic service composition
+* *Networking equipment* — runtime-updatable modules
+
+[.notes]
+--
+Anywhere you need modularity in native code without the overhead
+of a full JVM. Celix is particularly well-suited to resource-
+constrained environments that demand C/C++ performance.
+--
+
+== Project History
+
+* *2012* — Celix 0.0.1-incubating released (entered Apache Incubator)
+* *2014* — Celix 1.0.0.incubating released; graduated to Top-Level Project
+* *2016* — Celix 2.0.0 released
+* *2018* — Celix 2.1.0 released
+* *2023* — Celix 2.4.0 released (latest stable)
+
+[.notes]
+--
+Celix has been a TLP since July 2014. Development is steady with
+periodic releases focused on stability and API improvements.
+--
+
+// ============================================================
+// PART 2: GETTING STARTED
+// ============================================================
+
+== Prerequisites
+
+* *Operating System*: Linux, macOS, or Windows (with Conan)
+* *Compiler*: GCC or Clang with C11 and C++14 support
+* *CMake* 3.18+
+* *Conan* (optional, for dependency management)
+
+[.notes]
+--
+Celix uses CMake as its build system. Conan can simplify fetching
+dependencies but is not strictly required if you install them manually.
+--
+
+== Building from Source
+
+[source,bash]
+----
+git clone https://github.com/apache/celix.git
+cd celix
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make -j$(nproc)
+make install
+----
+
+[.notes]
+--
+The build produces the Celix framework libraries, built-in bundles,
+and CMake config files for downstream projects to use via find_package.
+--
+
+== Download a Release
+
+* Source tarball: `celix-2.4.0.tar.gz`
+* Download: https://celix.apache.org/download.cgi
+* Always verify signatures and checksums
+
+[source,bash]
+----
+gpg --verify celix-2.4.0.tar.gz.asc
+sha512sum -c celix-2.4.0.tar.gz.sha512
+----
+
+[.notes]
+--
+Apache Celix only releases source distributions. Binary artifacts
+are not provided—you build from source for your target platform.
+This is common for native C/C++ projects.
+--
+
+== Hello World Bundle (C++)
+
+[source,cpp]
+----
+#include <iostream>
+#include "celix/BundleActivator.h"
+
+class MyBundleActivator {
+public:
+  explicit MyBundleActivator(
+    const std::shared_ptr<celix::BundleContext>& ctx) {
+    std::cout << "Hello from bundle "
+              << ctx->getBundleId() << std::endl;
+  }
+  ~MyBundleActivator() noexcept {
+    std::cout << "Goodbye world" << std::endl;
+  }
+};
+
+CELIX_GEN_CXX_BUNDLE_ACTIVATOR(MyBundleActivator)
+----
+
+[.notes]
+--
+The CELIX_GEN_CXX_BUNDLE_ACTIVATOR macro generates the entry points
+that the framework calls when the bundle is started and stopped.
+--
+
+== CMake for Hello World
+
+[source,cmake]
+----
+find_package(Celix REQUIRED)
+
+add_celix_bundle(MyBundle
+    SOURCES src/MyBundleActivator.cc
+)
+
+add_celix_container(MyContainer
+    BUNDLES
+        Celix::ShellCxx
+        Celix::shell_tui
+        MyBundle
+)
+----
+
+[.notes]
+--
+add_celix_bundle creates the bundle zip. add_celix_container generates
+a main executable that starts the framework with the listed bundles.
+--
+
+== Running the Container
+
+[source,bash]
+----
+cd cmake-build-debug/deploy/MyContainer
+./MyContainer
+
+# Celix shell commands:
+-> lb -a          # list all installed bundles
+-> help           # list available shell commands
+-> stop 3         # stop a bundle by ID
+-> start 3        # start it again
+-> stop 0         # stop the Celix framework
+----
+
+[.notes]
+--
+The built-in shell bundles (ShellCxx, shell_tui) provide a text
+interface for inspecting and managing bundles at runtime. This is
+extremely useful during development and debugging.
+--
+
+== Registering a Service
+
+[source,cpp]
+----
+#include "ICalc.h"
+#include "celix/BundleActivator.h"
+
+class CalcProvider : public ICalc {
+public:
+  int add(int a, int b) override { return a + b; }
+};
+
+class CalcProviderActivator {
+public:
+  explicit CalcProviderActivator(
+    const std::shared_ptr<celix::BundleContext>& ctx) {
+    reg = ctx->registerService<ICalc>(
+      std::make_shared<CalcProvider>()).build();
+  }
+private:
+  std::shared_ptr<celix::ServiceRegistration> reg{};
+};
+
+CELIX_GEN_CXX_BUNDLE_ACTIVATOR(CalcProviderActivator)
+----
+
+[.notes]
+--
+Services are registered with a type (ICalc) and can include
+properties (metadata). The registration is held via a shared_ptr;
+when it goes out of scope, the service is unregistered.
+--
+
+== Using a Service
+
+[source,cpp]
+----
+#include "ICalc.h"
+#include "celix/BundleActivator.h"
+
+class CalcUserActivator {
+public:
+  explicit CalcUserActivator(
+    const std::shared_ptr<celix::BundleContext>& ctx) {
+    ctx->useService<ICalc>()
+      .addUseCallback([](ICalc& calc) {
+        std::cout << "2+3=" << calc.add(2, 3)
+                  << std::endl;
+      })
+      .setTimeout(std::chrono::seconds{1})
+      .build();
+  }
+};
+
+CELIX_GEN_CXX_BUNDLE_ACTIVATOR(CalcUserActivator)
+----
+
+[.notes]
+--
+useService provides ad-hoc access. For long-lived dependencies,
+use trackServices to be notified when services appear or disappear.
+--
+
+== Tracking Services
+
+[source,cpp]
+----
+class CalcTrackerActivator {
+public:
+  explicit CalcTrackerActivator(
+    const std::shared_ptr<celix::BundleContext>& ctx) {
+    tracker = ctx->trackServices<ICalc>().build();
+    for (auto& calc : tracker->getServices()) {
+      std::cout << "result: "
+                << calc->add(2, 3) << std::endl;
+    }
+  }
+private:
+  std::shared_ptr<celix::ServiceTracker<ICalc>>
+    tracker{};
+};
+
+CELIX_GEN_CXX_BUNDLE_ACTIVATOR(CalcTrackerActivator)
+----
+
+[.notes]
+--
+Service trackers provide continuous awareness of service availability.
+They invoke callbacks as services come and go, making your code
+reactive to the dynamic environment.
+--
+
+// ============================================================
+// PART 3: PARTICIPATING IN THE COMMUNITY
+// ============================================================
+
+== The Apache Celix Community
+
+* *PMC members*: 10
+* *Committers*: 17
+* *Top-Level Project since*: July 2014
+* *Languages*: C (49%), C++ (43%), CMake (7%)
+
+[.notes]
+--
+Celix is a focused, specialist community. The core contributors
+have deep expertise in embedded systems and native modular architectures.
+--
+
+== Communication Channels
+
+[cols="2,3", options="header"]
+|===
+| Channel | Link
+
+| Dev mailing list
+| dev@celix.apache.org — https://lists.apache.org/list.html?dev@celix.apache.org[Archive]
+
+| Commits list
+| commits@celix.apache.org
+
+| GitHub Issues
+| https://github.com/apache/celix/issues
+
+| GitHub Pull Requests
+| https://github.com/apache/celix/pulls
+|===
+
+[.notes]
+--
+The dev mailing list is the official channel for design discussion,
+release votes, and community decisions. GitHub is used for code
+review and issue tracking.
+--
+
+== How to Contribute
+
+* *Find an issue* — browse GitHub Issues or ask on dev@
+* *Discuss your approach* — email the dev list or comment on the issue
+* *Fork and branch* — `git checkout -b my-feature`
+* *Submit a PR* — reference the issue number
+* *Respond to review* — iterate based on feedback
+
+[.notes]
+--
+The Celix contributing guide is at
+https://celix.apache.org/contributing/submitting-patches.html
+Follow the development workflow described there.
+--
+
+== Beyond Code
+
+* *Documentation* — improve guides, fix typos, add examples
+* *Testing* — reproduce bugs, write test cases
+* *User support* — answer questions on the dev@ list
+* *Website* — the site uses Hugo; contributions via celix-site repo
+
+[.notes]
+--
+The website is built with Hugo and deployed via Jenkins. Pull requests
+to the celix-site repository get Netlify previews automatically.
+--
+
+== Governance & Roles
+
+[cols="2,3", options="header"]
+|===
+| Role | Description
+
+| *User*
+| Anyone using the software
+
+| *Contributor*
+| Someone who has submitted patches or helped
+
+| *Committer*
+| Earned write access (voted in by PMC)
+
+| *PMC Member*
+| Responsible for releases and project direction
+
+| *PMC Chair*
+| Administrative liaison to the ASF Board
+|===
+
+== Further Resources
+
+* *Website*: https://celix.apache.org
+* *Source code*: https://github.com/apache/celix
+* *Downloads*: https://celix.apache.org/download.cgi
+* *ASF Community*: https://community.apache.org
+* *How the ASF Works*: https://www.apache.org/foundation/how-it-works.html
+
+== Questions?
+
+image::project-logo.png[Apache Celix, 200]
+
+* dev@celix.apache.org
+* https://celix.apache.org
+
+[.notes]
+--
+Open the floor for questions.
+Remind attendees they can reach the community on the mailing list.
+--
