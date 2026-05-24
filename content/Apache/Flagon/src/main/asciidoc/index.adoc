@@ -1,0 +1,482 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+
+== Apache Flagon
+
+image::project-logo.png[Apache Flagon, 500]
+
+*Instrument Software. Understand Humans.*
+
+[.notes]
+--
+Apache Flagon is an open-source, thin-client behavioral logging capability.
+It is useful for business analytics, usage analytics, usability testing, and
+scientific research into how information technology is used.
+Formerly known as Apache SensSoft, it originated at Draper for DARPA's XDATA program.
+--
+
+== What We'll Cover
+
+* *Part 1* — What Is Apache Flagon?
+* *Part 2* — Getting Started
+* *Part 3* — Community & Contributing
+
+[.notes]
+--
+This presentation is organized in three parts. First we'll explore what Flagon
+is and what problems it solves. Then we'll get hands-on with deployment. Finally
+we'll look at how to engage with the community.
+--
+
+// ============================================================
+// PART 1: WHAT IS IT?
+// ============================================================
+
+== What Is Apache Flagon?
+
+* Open-source thin-client behavioral logging
+* Captures all user interactions on web pages
+* Designed for business analytics, usage analytics, usability testing, and scientific research
+* Granular enough for advanced behavioral modeling and workflow analysis
+
+[.notes]
+--
+Flagon is not just another click tracker. It captures every user interaction
+on a web page with enough resolution and granularity for advanced behavioral
+modeling. This means you can go beyond simple page views and understand
+actual user workflows.
+--
+
+== The Problem Flagon Solves
+
+* Traditional analytics (page views, clicks) miss context
+* Understanding *how* users think about information requires workflow data
+* Need to measure efficiency in information discovery
+* Need to compare novice vs. expert behavior patterns
+
+[.notes]
+--
+Typical analytics tell you "what" happened but not "how" users reached their
+goals. Workflow analysis reveals the complex interdependencies between elements
+and behaviors within and across pages. This is crucial for understanding
+user cognition and optimizing application design.
+--
+
+== Flagon Architecture Overview
+
+* *UserALE.js* — DOM/JavaScript client for behavioral logging
+* *Distill* — Python analytics stack for processing and modeling
+* *Elastic Stack* — Scalable storage and querying backend
+* Modular: build the stack that suits your needs
+
+[.notes]
+--
+Flagon is modular by design. You pick and choose the components you need.
+At minimum, you use UserALE.js to collect logs. Elastic provides the
+storage layer, and Distill provides Python-based analytics.
+The modularity means you can swap in your own analysis pipeline if desired.
+--
+
+== Apache UserALE.js
+
+* The core client-side instrumentation library
+* Written in JavaScript, designed for easy deployment
+* Automatically attaches event handlers to the DOM
+* Configurable through HTML5 data parameters or a JS API
+* Logs *every* user interaction on a web page
+
+[.notes]
+--
+UserALE.js is the flagship product of the Flagon ecosystem. With a single
+line of code, you can capture all user behavior on your web page. It handles
+mouse events, keyboard events, scroll events, focus/blur, and more without
+requiring you to instrument each element individually.
+--
+
+== What UserALE.js Captures
+
+* Mouse events: clicks, double-clicks, mouseover, scroll
+* Keyboard events: keydown, input, focus, blur
+* Page context: URL, title, referrer, screen resolution
+* Element context: target, full DOM path, attributes
+* Temporal data: client timestamps, micro-time
+
+[.notes]
+--
+Every single interaction generates a rich log entry. The DOM path field is
+especially valuable because it disambiguates between elements. For example,
+two buttons with the same label but in different containers will have
+different paths, allowing precise analysis.
+--
+
+== A UserALE.js Log Entry
+
+[source,json]
+----
+{
+  "target": "button#test_button",
+  "path": ["button#test_button", "div.container",
+           "body", "html", "#document", "Window"],
+  "pageUrl": "http://localhost:8000/",
+  "type": "click",
+  "logType": "raw",
+  "clientTime": 1729658103797,
+  "userId": "me",
+  "useraleVersion": "2.4.0"
+}
+----
+
+[.notes]
+--
+This is a simplified view of a standard UserALE.js log. Note the DOM path
+array that gives full context about where the element sits in the page
+hierarchy. The clientTime is a millisecond-precision timestamp from the
+user's browser. Additional fields like location, screen resolution, and
+browser info are also included.
+--
+
+== Log Meta-Data: Event Context
+
+* Every event includes modifier key state
+* Click and mouseover events include cursor position
+* Browser events include tab/window metadata
+* Configurable user and session identifiers
+
+[source,json]
+----
+"details": {
+  "clicks": 1, "ctrl": false,
+  "alt": false, "shift": false, "meta": false
+},
+"location": { "x": 66, "y": 220 }
+----
+
+[.notes]
+--
+The details object captures nuanced context for each event. For keyboard events,
+you get modifier keys. For mouse events, you get position. For browser extension
+events, you get full tab metadata including URL, title, active status, and more.
+--
+
+== Interval Logs
+
+* Experimental feature for high-frequency events
+* Summarizes rapid events (e.g., mouseover) in time windows
+* Includes start/end time, count, and duration
+* Reduces data volume while preserving temporal patterns
+
+[.notes]
+--
+Raw logging of every single mouseover event can produce enormous data volumes.
+Interval logs address this by grouping rapid sequences of the same event type
+into summary windows. You get the count, duration, and boundary timestamps
+without millions of individual entries.
+--
+
+== Apache Distill
+
+* Python package for analyzing UserALE.js logs
+* Interfaces directly with Elasticsearch
+* Provides segmentation and modeling capabilities
+* From simple aggregations to complex graph models of user workflow
+* Currently being refactored — join the dev list for updates
+
+[.notes]
+--
+Distill is the analytics layer of the Flagon stack. It's designed for data
+scientists who want to work with user behavioral data in Python, leveraging
+the full ecosystem of scientific computing libraries. Note that Distill is
+currently being refactored, so check the mailing list for the latest status.
+--
+
+// ============================================================
+// PART 2: GETTING STARTED
+// ============================================================
+
+== Getting Started with UserALE.js
+
+Three deployment methods:
+
+* *Script tag* — include the minified JS directly
+* *NPM module* — import into your build pipeline
+* *CDN* — load from jsdelivr with zero local files
+
+[.notes]
+--
+UserALE.js supports three deployment approaches. Script tag is simplest for
+static sites. NPM module integrates into modern build tools like webpack.
+CDN is great for quick prototyping without installing anything locally.
+--
+
+== Install via NPM
+
+[source,bash]
+----
+npm install flagon-userale
+----
+
+Then import as a module:
+
+[source,javascript]
+----
+import * as userale from 'flagon-userale';
+// or
+const userale = require('flagon-userale');
+----
+
+[.notes]
+--
+NPM installation is the recommended approach for production applications
+using modern JavaScript tooling. Once installed, you import the library
+and UserALE.js starts logging automatically. The webpack example in the
+Flagon repository illustrates this approach in detail.
+--
+
+== Include as a Script Tag
+
+[source,html]
+----
+<script
+  src="./node_modules/flagon-userale/build/userale-2.4.0.min.js"
+  data-url="http://yourLoggingUrl">
+</script>
+----
+
+Or via CDN:
+
+[source,html]
+----
+<script
+  src="https://cdn.jsdelivr.net/npm/flagon-userale@2.4.0/build/userale-2.4.0.min.js">
+</script>
+----
+
+[.notes]
+--
+The script tag method is the quickest way to add UserALE.js. Include it in
+your page head and set data-url to point at your logging endpoint. The CDN
+option requires no local installation at all — just add the script tag and
+you're logging. The current release version is 2.4.0.
+--
+
+== Configuration Options
+
+[cols="1,2,1"]
+|===
+| Parameter | Description | Default
+
+| `url` | Logging endpoint URL | `http://localhost:8000`
+| `autostart` | Start on page load | `true`
+| `transmitInterval` | Delay between sends | `5000` ms
+| `logCountThreshold` | Min logs to send | `5`
+| `userId` | User identifier | `null`
+| `resolution` | High-freq log delay | `500` ms
+|===
+
+[.notes]
+--
+These are the most commonly used configuration parameters. They can be set
+either as HTML5 data attributes on the script tag, or programmatically via
+the UserALE.js API. The transmitInterval and logCountThreshold together
+control batching behavior to minimize network overhead.
+--
+
+== The UserALE.js API: options()
+
+[source,html]
+----
+<script type="text/javascript">
+  const changeMe = "me";
+  window.userale.options({
+    "userId": changeMe,
+    "version": "2.4.0",
+    "sessionID": "4"
+  })
+</script>
+----
+
+* Modify parameters programmatically after page load
+* Pass data from forms, cookies, or browser storage
+
+[.notes]
+--
+The options() API method lets you override configuration at runtime.
+This is useful when you need to set userId from a login form, or update
+the session ID based on application state. You can call it multiple
+times as context changes.
+--
+
+== The UserALE.js API: Callbacks
+
+[source,javascript]
+----
+window.userale.addCallbacks({
+  filter(log) {
+    // Return false to drop a log
+    if (log.type === "mouseover") return false;
+    return log;
+  },
+  addCustomFields(log, event) {
+    return Object.assign({}, log, {
+      customLabel: "my-label"
+    });
+  }
+});
+----
+
+[.notes]
+--
+Callbacks are the most powerful customization mechanism. Use filter callbacks
+to drop events you don't need, reducing data volume. Use custom field
+callbacks to enrich logs with application-specific context like feature flags,
+A/B test groups, or business-domain labels.
+--
+
+== The WebExtension
+
+* Injects UserALE.js into *every* web page the user visits
+* Perfect for user testing and research scenarios
+* Available for Firefox and Chrome
+* Configurable via browser extension options page
+
+[.notes]
+--
+The WebExtension is ideal for research settings where you want to log
+user behavior across all pages, not just your own application. Load it
+as an unpacked extension in developer mode, configure the logging endpoint,
+and it automatically instruments every page the participant visits.
+--
+
+== Backend: Elasticsearch
+
+* UserALE.js sends logs as JSON to a configurable URL
+* Elasticsearch is the recommended storage backend
+* Scales horizontally for enterprise deployments
+* Kibana provides visualization out of the box
+
+[.notes]
+--
+While UserALE.js can send logs to any HTTP endpoint, the Flagon stack
+is optimized for Elasticsearch. This gives you full-text search over
+log fields, powerful aggregations, and Kibana dashboards for real-time
+monitoring of user behavior patterns.
+--
+
+// ============================================================
+// PART 3: COMMUNITY
+// ============================================================
+
+== Project Status
+
+* Graduated to Top-Level Project: March 2023
+* PMC: 12 members
+* Current release: UserALE.js 2.4.0, Distill 0.1.0
+* 7 repositories on Apache GitBox / GitHub
+* Active development on UserALE.js
+
+[.notes]
+--
+Flagon graduated from the Apache Incubator to become a Top-Level Project
+in March 2023. The project has a 12-member PMC with contributors from
+both industry and academia. UserALE.js is the most actively developed
+component with version 2.4.0 being the latest release. Distill is
+currently being refactored.
+--
+
+== Mailing Lists
+
+* *User list* — New releases, community highlights
+** Subscribe: `user-subscribe@flagon.apache.org`
+* *Dev list* — Design and development discussions
+** Subscribe: `dev-subscribe@flagon.apache.org`
+* *Commits list* — Emails on every commit
+** Subscribe: `commits-subscribe@flagon.apache.org`
+
+[.notes]
+--
+Mailing lists are the primary communication channel for Apache Flagon.
+The dev list is where design decisions are made and where you should go
+if you're interested in contributing. The user list is lower traffic and
+focused on release announcements and usage questions.
+--
+
+== Getting Involved
+
+* Find the code on GitHub (Apache Flagon organization)
+* Submit issues for bugs or feature requests
+* Pull requests welcomed and encouraged
+* Ask questions on StackOverflow with the `apache-flagon` tag
+
+[.notes]
+--
+Contributing to Flagon follows standard Apache processes. Start by
+subscribing to the dev mailing list. Look at open issues on GitHub for
+good first contributions. The project team is welcoming and will work with
+you to incorporate your contributions.
+--
+
+== Use Cases
+
+* Business analytics — understand feature adoption
+* Enterprise application monitoring — track usage patterns
+* Usability testing — observe real user workflows
+* Scientific research — study human-computer interaction
+* A/B testing — compare interaction patterns across variants
+
+[.notes]
+--
+Flagon's granular behavioral data supports a wide range of use cases.
+Unlike traditional analytics that tell you "what" happened, Flagon tells
+you "how" it happened. This is particularly valuable for complex enterprise
+applications where understanding user workflow efficiency directly impacts
+productivity.
+--
+
+== Resources
+
+* Website: https://flagon.apache.org
+* GitHub: https://github.com/apache?q=flagon
+* NPM: `npm install flagon-userale`
+* PyPI: `pip install flagon-distill`
+* Dev list: `dev-subscribe@flagon.apache.org`
+
+[.notes]
+--
+These are the key entry points for working with Apache Flagon. The website
+has documentation and a live demo. GitHub has the source code and issue
+tracker. NPM and PyPI provide the packaged releases for JavaScript and
+Python respectively.
+--
+
+== Thank You!
+
+*Instrument Software. Understand Humans.*
+
+https://flagon.apache.org
+
+[.notes]
+--
+Thank you for attending this overview of Apache Flagon. Remember, the project
+welcomes contributors at all levels. Whether you're a developer who wants to
+add features, a data scientist interested in behavioral analytics, or a
+researcher studying human-computer interaction, there's a place for you
+in the Flagon community.
+--
