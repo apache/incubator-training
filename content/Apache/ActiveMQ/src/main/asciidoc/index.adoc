@@ -1,0 +1,394 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+:presenter_name: Your Name
+:presenter_company: Your Company
+:description: Introduction to Apache ActiveMQ
+:keywords: Apache, ActiveMQ, Messaging, JMS
+:author: Your Name
+:email: Your email
+:position: Your role
+
+== Apache ActiveMQ
+
+image::project-logo.png[Apache ActiveMQ, 500]
+
+*The original open source message broker*
+
+[.notes]
+--
+Title slide. Apache ActiveMQ is one of the most mature and widely deployed
+open source message brokers, powering enterprise messaging for nearly two decades.
+--
+
+== What is Apache ActiveMQ?
+
+* Open source message broker written in Java
+* Enables asynchronous communication between applications
+* Implements JMS 1.1 and JMS 2.0
+* Multi-protocol: OpenWire, AMQP, MQTT, STOMP, REST
+
+[.notes]
+--
+ActiveMQ decouples producers and consumers so systems can communicate
+without being directly connected or available at the same time. It's the
+reference implementation for many Java messaging patterns.
+--
+
+== The Problem it Solves
+
+* Applications need to communicate without tight coupling
+* Producers and consumers may run at different speeds
+* Systems need reliable delivery even when components fail
+* Multiple consumers may need the same message
+
+[.notes]
+--
+Without a broker, every service must know the address and availability
+of every other service. A broker centralizes routing, buffering, and
+delivery guarantees.
+--
+
+== Project History
+
+* **2004** — Created at LogicBlaze
+* **2007** — Graduated to Apache TLP
+* **2025** — Artemis graduated to its own separate TLP
+* 29 PMC members, mature and stable community
+
+[.notes]
+--
+ActiveMQ has been in production use for nearly 20 years. Apache Artemis,
+originally a sub-project, graduated to its own independent Top-Level
+Project in late 2025.
+--
+
+== Supported Protocols
+
+* **OpenWire** — native high-performance binary protocol
+* **AMQP 1.0** — cross-platform standard
+* **MQTT** — lightweight IoT messaging
+* **STOMP** — simple text-based protocol
+* **REST** — HTTP-based messaging API
+
+[.notes]
+--
+OpenWire is the default for Java clients and offers the best performance.
+AMQP and MQTT allow polyglot environments. STOMP is useful for scripting
+and simple integrations.
+--
+
+== Core Messaging Patterns
+
+* **Point-to-Point (Queues)** — one message, one consumer
+* **Publish/Subscribe (Topics)** — one message, many consumers
+* **Request/Reply** — synchronous-style over async transport
+* **Virtual Destinations** — route between queues and topics
+
+[.notes]
+--
+Queues provide load balancing across consumers. Topics provide fan-out.
+Virtual destinations let you combine both patterns flexibly.
+--
+
+== Key Features
+
+* Persistent and non-persistent delivery modes
+* Message groups and exclusive consumers
+* Pluggable persistence (KahaDB, JDBC, LevelDB)
+* Network of brokers for clustering and HA
+
+[.notes]
+--
+KahaDB is the default file-based store — fast and reliable for most
+workloads. JDBC is available for environments that require database-backed
+persistence. Networks of brokers allow scaling beyond a single node.
+--
+
+== Use Cases
+
+* Enterprise application integration (EAI)
+* Microservice event-driven communication
+* IoT device telemetry collection (via MQTT)
+* Order processing and workflow orchestration
+
+[.notes]
+--
+ActiveMQ is used across finance, logistics, telecom, and manufacturing.
+Its JMS compliance makes it a drop-in replacement in many Java EE stacks.
+--
+
+== Architecture Overview
+
+* Broker receives, stores, and delivers messages
+* Connectors expose protocols (OpenWire, AMQP, MQTT)
+* Persistence layer (KahaDB) ensures durability
+* Web console provides monitoring and management
+
+[.notes]
+--
+The broker is a single Java process. Multiple connectors can run
+simultaneously on different ports. KahaDB journals provide fast
+sequential writes for persistence.
+--
+
+== Prerequisites
+
+* Java Runtime Environment (JRE) 8 or higher
+* ~60 MB disk space for the binary distribution
+* JAVA_HOME environment variable set
+
+[.notes]
+--
+ActiveMQ runs on any platform with a JRE — Windows, Linux, macOS.
+No other dependencies are required for the binary distribution.
+--
+
+== Install: Download and Extract
+
+[source,bash]
+----
+# Download from activemq.apache.org/download
+tar xzf apache-activemq-5.x.x-bin.tar.gz
+cd apache-activemq-5.x.x
+----
+
+Verify checksums: https://www.apache.org/info/verification.html
+
+[.notes]
+--
+Always verify the download signature. Binaries are available as
+tar.gz for Unix and zip for Windows.
+--
+
+== Starting ActiveMQ
+
+[source,bash]
+----
+# Start the broker
+./bin/activemq start
+
+# Check status
+./bin/activemq status
+
+# Stop the broker
+./bin/activemq stop
+----
+
+[.notes]
+--
+The start command launches ActiveMQ as a background daemon. Use
+'console' instead of 'start' to run in the foreground for debugging.
+--
+
+== Web Console
+
+* URL: http://localhost:8161/admin
+* Default credentials: `admin` / `admin`
+* Monitor queues, topics, connections, and subscribers
+* Send test messages directly from the browser
+
+[.notes]
+--
+The web console is Jetty-based and enabled by default. Change
+credentials in conf/jetty-realm.properties before production use.
+--
+
+== Docker Quick Start
+
+[source,bash]
+----
+docker run -d --name activemq \
+  -p 61616:61616 \
+  -p 8161:8161 \
+  apache/activemq-classic
+----
+
+* Port 61616: OpenWire broker
+* Port 8161: Web console
+
+[.notes]
+--
+The Docker image includes a default configuration suitable for
+development and testing. Mount a volume for conf/ to customize.
+--
+
+== Hello World: Send a Message
+
+[source,java]
+----
+ConnectionFactory factory =
+    new ActiveMQConnectionFactory("tcp://localhost:61616");
+Connection conn = factory.createConnection();
+Session session = conn.createSession(false, AUTO_ACKNOWLEDGE);
+Queue queue = session.createQueue("HELLO");
+MessageProducer producer = session.createProducer(queue);
+producer.send(session.createTextMessage("Hello, ActiveMQ!"));
+----
+
+[.notes]
+--
+This is standard JMS 1.1 code. ActiveMQ's client library implements
+the javax.jms interfaces. The connection factory URL uses the
+OpenWire protocol on the default port.
+--
+
+== Hello World: Receive a Message
+
+[source,java]
+----
+Connection conn = factory.createConnection();
+conn.start();
+Session session = conn.createSession(false, AUTO_ACKNOWLEDGE);
+Queue queue = session.createQueue("HELLO");
+MessageConsumer consumer = session.createConsumer(queue);
+TextMessage msg = (TextMessage) consumer.receive(5000);
+System.out.println(msg.getText());
+----
+
+[.notes]
+--
+The receive(5000) call blocks for up to 5 seconds. For production,
+use a MessageListener for asynchronous consumption.
+--
+
+== Configuration
+
+* Main config: `conf/activemq.xml`
+* Transport connectors (ports and protocols)
+* Persistence adapter (KahaDB or JDBC)
+* Security (authentication and authorization)
+
+[.notes]
+--
+The activemq.xml file uses Spring XML syntax. Most changes require a
+broker restart. The default configuration is suitable for development
+but should be hardened for production.
+--
+
+== Maven Dependency
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.activemq</groupId>
+  <artifactId>activemq-client</artifactId>
+  <version>5.18.x</version>
+</dependency>
+----
+
+[.notes]
+--
+Use activemq-client for JMS producer/consumer code. For embedded
+broker scenarios, use activemq-broker instead. Spring Boot users
+can use spring-boot-starter-activemq for auto-configuration.
+--
+
+== Communication Channels
+
+* **users@activemq.apache.org** — end-user support
+* **dev@activemq.apache.org** — development discussion
+* **GitHub Discussions** — Q&A and community chat
+* **Stack Overflow** — tag `activemq`
+
+[.notes]
+--
+The mailing lists are the official channels of record. Subscribe by
+sending an empty email to users-subscribe@activemq.apache.org.
+--
+
+== Source Code & Issues
+
+* GitHub: https://github.com/apache/activemq
+* Jira: https://issues.apache.org/jira/browse/AMQ
+* Good first issues labeled in Jira
+
+[.notes]
+--
+Pull requests go to GitHub. Jira is used for issue tracking and
+release planning. Link your PR to a Jira ticket for traceability.
+--
+
+== How to Contribute
+
+. Find an issue in Jira (or report a new one)
+. Discuss your approach on dev@
+. Fork the repo, create a branch
+. Submit a PR referencing the Jira ticket
+. Respond to code review feedback
+
+[.notes]
+--
+Contributions don't have to be code. Documentation improvements,
+test cases, and bug reports are equally valued.
+--
+
+== Project Governance
+
+* 29 PMC members oversee releases and direction
+* Committers have write access (earned through contribution)
+* Decisions via lazy consensus on dev@ mailing list
+* The Apache Way: community over code
+
+[.notes]
+--
+Anyone can contribute. Consistent, quality contributions lead to
+committer invitations. The PMC votes on releases and new committers.
+--
+
+== Beyond Code
+
+* **Documentation** — improve guides, fix examples
+* **Testing** — reproduce bugs, write test cases
+* **User support** — answer questions on users@
+* **Evangelism** — blog posts, conference talks
+
+[.notes]
+--
+The project especially values help with documentation and user
+support on the mailing lists. These are great ways to get involved
+without deep broker internals knowledge.
+--
+
+== Further Resources
+
+* Website: https://activemq.apache.org
+* Documentation: https://activemq.apache.org/components/classic/
+* Examples: included in the distribution under `examples/`
+* Stack Overflow: tag `activemq`
+
+[.notes]
+--
+The examples directory in the binary distribution contains working
+JMS, AMQP, MQTT, and STOMP client examples in multiple languages.
+--
+
+== Questions?
+
+image::project-logo.png[Apache ActiveMQ, 300]
+
+* users@activemq.apache.org
+* https://activemq.apache.org
+
+[.notes]
+--
+Open the floor for questions. Remind attendees they can reach
+the community on the mailing lists.
+--
