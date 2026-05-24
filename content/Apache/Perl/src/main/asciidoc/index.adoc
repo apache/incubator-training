@@ -1,0 +1,388 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+== Apache mod_perl
+
+image::project-logo.png[Apache mod_perl, 500]
+
+The full power of Perl embedded in the Apache HTTP Server
+
+[.notes]
+--
+mod_perl brings together the full power of the Perl programming language and the Apache HTTP server. It is an Apache Software Foundation project, established in March 2000, licensed under the Apache Software License.
+--
+
+== What We'll Cover
+
+* *Part I* — What Is mod_perl?
+* *Part II* — Getting Started
+* *Part III* — Community & Resources
+
+[.notes]
+--
+This presentation introduces mod_perl — what it does, how to get started, and where to find the community. It targets newcomers as well as experienced developers looking to understand the project's current state.
+--
+
+== A Persistent Perl Interpreter
+
+* Embeds a persistent Perl interpreter inside httpd
+* Eliminates startup overhead of external CGI processes
+* Gives Perl code direct access to the Apache C API
+* Your existing CGI scripts still work — just faster
+
+[.notes]
+--
+mod_perl gives you a persistent Perl interpreter embedded in your web server. This lets you avoid the overhead of starting an external interpreter and avoids the penalty of Perl start-up time, giving you super-fast dynamic content.
+--
+
+== More Than CGI on Steroids
+
+* Manage Apache configuration from Perl
+* Create custom authentication systems
+* Build smart proxies and filters
+* Implement stateful session management
+* Customize every phase of the request lifecycle
+
+[.notes]
+--
+As the project homepage says: "mod_perl is more than CGI scripting on steroids. It is a whole new way to create dynamic content by utilizing the full power of the Apache web server to create stateful sessions, customized user authentication systems, smart proxies and much more."
+--
+
+== How It Works
+
+[source,text]
+----
+Client Request
+     |
+     v
+Apache HTTP Server (httpd)
+     |
+     v
+mod_perl (embedded Perl interpreter)
+     |
+     v
+Your Perl Handler Module
+     |
+     v
+Response
+----
+
+[.notes]
+--
+A request comes in to Apache. Instead of forking an external Perl process (as traditional CGI does), mod_perl has a persistent Perl interpreter already loaded inside the server process. Your handler code runs in-process, with full access to the Apache API.
+--
+
+== Two Generations
+
+[cols="1,1"]
+|===
+| mod_perl 1.0 | mod_perl 2.0
+
+| For Apache 1.3.x
+| For Apache 2.0.x / 2.2.x / 2.4.x
+
+| Version 1.31 (May 2009)
+| Version 2.0.13 (October 2023)
+
+| Stable, legacy
+| Current recommended version
+|===
+
+[.notes]
+--
+mod_perl 1.0 targets the legacy Apache 1.3.x series. mod_perl 2.0 is the current active line, supporting the modern Apache 2.x series. The latest release is version 2.0.13, released in October 2023.
+--
+
+== Key Benefits
+
+* *Performance* — no fork/exec overhead per request
+* *Full API access* — hook into every Apache phase
+* *Rich ecosystem* — hundreds of Apache::* / Apache2::* modules
+* *Backward compatible* — CGI scripts run unmodified
+
+[.notes]
+--
+The performance gain is the most immediate benefit, but the real power lies in accessing all phases of Apache's request processing: URI translation, authentication, authorization, content generation, logging, and more.
+--
+
+== Who Uses mod_perl?
+
+* Proven at massive scale on high-traffic sites
+* Used for dynamic content delivery and templating
+* Powers custom authentication and authorization layers
+* Drives content management and publishing pipelines
+
+[.notes]
+--
+Web sites like Slashdot and Wired Magazine have historically used mod_perl. The project's success stories page documents many high-traffic deployments.
+--
+
+== Prerequisites
+
+* Apache HTTP Server (2.0.x, 2.2.x, or 2.4.x) — built and installed
+* Perl (5.x) — with development headers
+* `apxs` — the Apache extension tool (usually in httpd's `bin/` directory)
+* C compiler (gcc or equivalent)
+
+[.notes]
+--
+Before installing mod_perl, you need the prerequisites: Apache httpd already installed with development headers, and a working Perl installation. The apxs tool is essential — it tells mod_perl how Apache was built.
+--
+
+== Download
+
+* Current release: **mod_perl 2.0.13** (October 2023)
+* Source: https://perl.apache.org/download/index.html
+* Always verify integrity with PGP, SHA256, or SHA512 signatures
+* Binary distributions also available for some platforms
+
+[.notes]
+--
+The download page at perl.apache.org provides source tarballs with cryptographic signatures. Always verify your download. Some OS package managers also ship mod_perl as a binary package.
+--
+
+== Building mod_perl
+
+[source,bash]
+----
+tar -xvzf mod_perl-2.0.13.tar.gz
+cd modperl-2.0
+perl Makefile.PL MP_APXS=/path/to/bin/apxs
+make && make test && make install
+----
+
+[.notes]
+--
+The build process is straightforward. The key parameter is MP_APXS, which should point to the apxs executable in your Apache installation. The test suite validates that everything works before installing.
+--
+
+== Enabling mod_perl in httpd
+
+[source,apache]
+----
+# In httpd.conf:
+LoadModule perl_module modules/mod_perl.so
+----
+
+* Restart Apache after enabling the module
+* Check `error_log` for the mod_perl version string
+
+[.notes]
+--
+Once installed, you enable mod_perl by adding the LoadModule directive to httpd.conf. On restart, the error log will confirm the loaded version, showing something like "mod_perl/2.0.13 Perl/v5.x.x configured".
+--
+
+== Your First Registry Script
+
+[source,apache]
+----
+Alias /perl/ /home/httpd/perl/
+<Location /perl/>
+    SetHandler perl-script
+    PerlResponseHandler ModPerl::Registry
+    PerlOptions +ParseHeaders
+    Options +ExecCGI
+</Location>
+----
+
+[.notes]
+--
+ModPerl::Registry lets your existing CGI scripts run under mod_perl with minimal changes. The Alias maps a URL path to a filesystem directory, and the Location block tells Apache to handle requests there through mod_perl's Registry handler.
+--
+
+== A Simple Registry Script
+
+[source,perl]
+----
+#!/usr/bin/perl
+print "Content-type: text/plain\n\n";
+print "mod_perl 2.0 rocks!\n";
+----
+
+* Save as `/home/httpd/perl/rock.pl`
+* Make executable: `chmod a+rx rock.pl`
+* Access: `http://localhost/perl/rock.pl`
+
+[.notes]
+--
+This is the simplest possible registry script — it looks exactly like a CGI script. The difference is that under mod_perl, the Perl interpreter stays loaded between requests, eliminating startup time.
+--
+
+== Writing a Handler Module
+
+[source,perl]
+----
+package MyApache2::Rocks;
+use strict;
+use warnings;
+
+use Apache2::RequestRec ();
+use Apache2::RequestIO ();
+use Apache2::Const -compile => qw(OK);
+
+sub handler {
+    my $r = shift;
+    $r->content_type('text/plain');
+    print "mod_perl 2.0 rocks!\n";
+    return Apache2::Const::OK;
+}
+1;
+----
+
+[.notes]
+--
+A handler module is the idiomatic mod_perl approach. The handler subroutine receives the request object ($r) which provides full access to the Apache API. This is where mod_perl really shines — you have access to every detail of the request and response.
+--
+
+== Configuring a Handler
+
+[source,apache]
+----
+PerlRequire /home/httpd/perl/startup.pl
+
+<Location /rocks>
+    SetHandler perl-script
+    PerlResponseHandler MyApache2::Rocks
+</Location>
+----
+
+The startup file sets up `@INC`:
+
+[source,perl]
+----
+use lib qw(/home/httpd/perl);
+1;
+----
+
+[.notes]
+--
+PerlRequire loads a startup script at server start that sets up library paths. Then the Location block maps a URL to your handler module. Apache routes matching requests to your handler subroutine.
+--
+
+== Apache Request Phases
+
+* URI Translation (`PerlTransHandler`)
+* Authentication (`PerlAuthenHandler`)
+* Authorization (`PerlAuthzHandler`)
+* Content Generation (`PerlResponseHandler`)
+* Logging (`PerlLogHandler`)
+
+[.notes]
+--
+mod_perl lets you hook into every phase of Apache's request processing lifecycle. Most people start with PerlResponseHandler for content generation, but you can customize authentication, URL mapping, logging, and more — all in Perl.
+--
+
+== Migration: 1.0 to 2.0
+
+* Enable the compatibility layer: `PerlModule Apache2::compat`
+* Namespace changed: `Apache::` → `Apache2::`
+* Constants moved: `use Apache2::Const`
+* Full migration guide in the documentation
+
+[.notes]
+--
+If you have existing mod_perl 1.0 code, the compatibility layer helps during transition. The main changes are namespace updates from Apache:: to Apache2:: and a new constants system. The project provides a comprehensive migration guide.
+--
+
+== Project Governance
+
+* Apache Software Foundation project since *March 2000*
+* PMC with *11 members*
+* Licensed under the Apache License 2.0
+* Reports to the ASF Board on a regular cycle
+
+[.notes]
+--
+mod_perl has been an ASF project since March 2000, making it one of the older Apache projects. The PMC currently has 11 members who oversee the project's direction, releases, and community health.
+--
+
+== Documentation
+
+* Comprehensive docs for both mod_perl 1.0 and 2.0
+* Getting started guide — "Getting Your Feet Wet"
+* API reference for all Apache2::* modules
+* Tutorials covering related topics for mod_perl programmers
+* https://perl.apache.org/docs/
+
+[.notes]
+--
+The project features extensive documentation at perl.apache.org/docs/. The "Getting Your Feet Wet" quickstart guide gets you up and running with the minimum information needed. Deeper documentation covers every API and configuration option.
+--
+
+== Mailing Lists
+
+* *modperl@perl.apache.org* — users and developers list
+** Subscribe: `modperl-subscribe@perl.apache.org`
+** Digest available: `modperl-subscribe-digest@perl.apache.org`
+* Archives available on multiple sites
+* Help: `modperl-help@perl.apache.org`
+
+[.notes]
+--
+The modperl mailing list is the primary community channel for questions, discussion, and announcements. Both users and developers participate. Send an empty email to the subscribe address to join.
+--
+
+== Source Repository
+
+* SVN repository: https://svn.apache.org/repos/asf/perl/
+* Bug reports via the project's Bugzilla
+* Contributions welcome: documentation, code, or testing
+
+[.notes]
+--
+The source code lives in the ASF Subversion repository. The project accepts contributions in many forms — code patches, documentation improvements, and testing help. See the Contribute page on perl.apache.org for details.
+--
+
+== Contributing
+
+* Help others on the mailing list
+* Improve or add documentation
+* Submit bug reports with reproducible test cases
+* Contribute code via SVN patches
+* Read the mod_perl 2.0 Developer's Guide
+
+[.notes]
+--
+There are many ways to contribute to mod_perl. The project's contribute page outlines three main paths: helping on the mailing list, contributing documentation, and sharing code. The Developer's Guide is recommended reading for code contributors.
+--
+
+== Related Ecosystem
+
+* *ModPerl::Registry* — run CGI scripts under mod_perl
+* *Apache2::Request* (libapreq2) — parse request data
+* *Template Toolkit*, *Mason*, *HTML::Template* — templating
+* Hundreds of CPAN modules for mod_perl
+
+[.notes]
+--
+The Perl community has built a rich ecosystem around mod_perl. The Products page on perl.apache.org lists software ready to run with mod_perl or assist with your development projects. CPAN is the primary source for add-on modules.
+--
+
+* https://perl.apache.org/docs/
+== Thank You!
+
+* Questions?
+* https://perl.apache.org/
+* modperl@perl.apache.org
+
+[.notes]
+--
+Thank you for attending. The best next step is to download mod_perl, try the quickstart guide, and join the mailing list if you have questions.
+--
