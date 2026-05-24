@@ -1,0 +1,383 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+
+== Apache Allura
+
+image::project-logo.png[Apache Allura, 500]
+
+Open source project hosting platform
+
+[.notes]
+--
+Welcome to this introduction to Apache Allura — an open source implementation of a software forge. Allura lets you host and manage any number of software projects, providing repositories, issue tracking, wikis, discussion forums, blogs, and more — all from a single platform.
+--
+
+== What Is a Software Forge?
+
+* A web platform that manages the full lifecycle of software projects
+* Hosts source code repositories, bug reports, discussions, and documentation
+* Provides project discovery and community collaboration
+* Think: self-hosted alternative to GitHub/GitLab
+
+[.notes]
+--
+A software forge is a complete project hosting solution. It's the infrastructure that open source and enterprise teams use to collaborate on code. Apache Allura is the Apache Software Foundation's open source implementation of this concept.
+--
+
+== Project Vital Stats
+
+* **Latest release:** v1.18.0 (August 2025)
+* **License:** Apache License 2.0
+* **Language:** Python
+* **Database:** MongoDB
+* **PMC established:** March 2014
+* **Self-hosted at:** https://forge-allura.apache.org/
+
+[.notes]
+--
+Allura is a mature project — it became a top-level Apache project in March 2014. It's written in Python and uses MongoDB as its backing store. The project itself is hosted on an Allura instance, so it truly eats its own dog food.
+--
+
+== Core Features
+
+* Source code repositories (Git, Mercurial, Subversion)
+* Issue / ticket tracking
+* Threaded discussion forums
+* Wiki documentation
+* Blogs
+* User feedback and star ratings
+
+[.notes]
+--
+Allura provides the complete set of tools you'd expect from a modern forge. It supports all three major version control systems — Git, Hg, and SVN — and includes integrated issue tracking, forums, wikis, and blogs. Each of these is implemented as a separate "tool" that can be enabled per project.
+--
+
+== Source Code Repositories
+
+* Host code with **Git**, **Mercurial (Hg)**, or **Subversion (SVN)**
+* Browser-based code browsing with syntax highlighting
+* Color-coded commit diffs
+* Forking and merge requests (Git and Hg)
+* Commit history graph visualization
+
+[.notes]
+--
+Code hosting is at the heart of any forge. Allura supports all three major SCMs. Git and Mercurial support forking and merge requests for collaborative workflows. The built-in code browser provides syntax-highlighted views and color-coded diffs right in the web UI.
+--
+
+== Issue Tracking
+
+* Markdown formatting and file attachments
+* Organize with milestones, custom fields, and labels
+* Simple and advanced search syntax
+* Save favorite searches for frequent use
+* Threaded discussion on every ticket
+
+[.notes]
+--
+The issue tracker was rethought from the ground up. Tickets support rich markdown, attachments, custom fields, milestones, and labels. There's an advanced search syntax, and you can save searches for quick access. Every ticket has threaded discussion built in, and you can subscribe by email or RSS.
+--
+
+== Discussion Forums
+
+* Full threaded discussions with email/RSS subscriptions
+* Reply to forum posts by email
+* Admin moderation controls
+* Spam bot protection built in
+* Configurable access: anonymous, logged-in, or specific users
+
+[.notes]
+--
+Discussion forums are first-class citizens in Allura. They support threaded conversations, email-based replies, and fine-grained access control. Admins can moderate posts, and there's built-in spam protection. You can even replace forums with a traditional mailing list if your project prefers that model.
+--
+
+== Wiki, Blog, and More
+
+* **Wiki:** Markdown, attachments, threaded discussion, tags, custom macros
+* **Blog:** Draft mode, full threaded discussion, artifact linking
+* **User mentions** in discussions and artifacts
+* **User feedback:** Star ratings and review comments
+* Cross-tool **artifact linking** throughout projects
+
+[.notes]
+--
+The wiki supports markdown with syntax highlighting, attachments, and tagging. Blog posts can be saved as drafts before publishing. A unique feature is artifact linking — you can link between any objects across all tools in a project (commits, tickets, wiki pages, etc.) and Allura tracks the backlinks automatically.
+--
+
+== Tool-Based Architecture
+
+* Every feature is a pluggable "tool" (based on `allura.app.Application`)
+* Tools can be installed independently per project
+* Extensible with custom tools, themes, and authentication plugins
+* REST API for programmatic access to all tools
+
+[.notes]
+--
+Under the hood, Allura's architecture is built on the concept of "tools." Each feature — issue tracker, wiki, repo browser — is a separate tool that inherits from allura.app.Application. Project admins choose which tools to enable. Developers can create entirely new tools and plug them in. There are also pluggable APIs for themes and authentication.
+--
+
+== Feature Comparison
+
+[cols="3,1,1,1,1"]
+|===
+| Feature | Allura | GitLab | Redmine | Trac
+
+| Git/Hg/SVN
+| ✓/✓/✓
+| ✓/✗/✗
+| ✓/✓/✓
+| ✓/✓/✓
+
+| Tickets
+| ✓
+| ✓
+| ✓
+| ✓
+
+| Wiki
+| ✓
+| ✓
+| ✓
+| ✓
+
+| Forums
+| ✓
+| ✗
+| ✗
+| Plugin
+
+| Blog
+| ✓
+| ✗
+| ✗
+| Plugin
+|===
+
+[.notes]
+--
+Here's a comparison with other open source forge software. Allura's standout features include built-in support for all three SCMs, native forums and blogs (not plugins), and multi-project hosting. Data sourced from the Allura project's own feature comparison wiki page.
+--
+
+== Part II: Getting Started
+
+image::project-logo.png[Apache Allura, 300]
+
+Installation, configuration, and first project
+
+[.notes]
+--
+Now let's look at how to get Allura up and running. We'll cover the quick-start Docker approach and the full installation process.
+--
+
+== Prerequisites
+
+* Python environment
+* MongoDB
+* Git (and optionally Hg/SVN)
+* SMTP server for email notifications
+* Docker (for quick-start method)
+
+[.notes]
+--
+Allura is a Python application backed by MongoDB. You'll need Git installed for repository hosting, and optionally Mercurial or SVN if you want to support those SCMs. An SMTP server enables email notifications and forum replies. For evaluation, the Docker quick-start is the fastest path.
+--
+
+== Quick Start with Docker
+
+[source,bash]
+----
+# Clone the Allura repository
+git clone https://gitbox.apache.org/repos/asf/allura.git
+
+# Start containers with Docker Compose
+cd allura
+docker compose up -d
+
+# Access the forge at http://localhost:8080
+----
+
+[.notes]
+--
+The fastest way to try Allura is using Docker containers. Clone the repository, run docker compose up, and you'll have a fully functional forge running on localhost. This is great for evaluation and development, but for production you'll want a proper installation.
+--
+
+== Step-by-Step Installation
+
+* Full installation guide available in the documentation
+* Key steps:
+** Install Python dependencies (`requirements.txt`)
+** Configure MongoDB connection
+** Set up the application ini file
+** Initialize the database
+** Configure a web server (e.g., Apache with mod_wsgi)
+
+[.notes]
+--
+For production deployments, the step-by-step installation guide walks you through the complete process. Allura uses standard Python packaging, so you install dependencies from requirements files, configure your database connection, and set up a WSGI-compatible web server to serve the application.
+--
+
+== Creating Your First Project
+
+* Log in to your Allura instance as an admin
+* Use the "Create Project" interface
+* Select which tools to enable (Git, Wiki, Tickets, etc.)
+* Configure project metadata and permissions
+* Invite team members
+
+[.notes]
+--
+Once your forge is running, creating a project is straightforward through the web UI. You choose a project name, select which tools to enable, and set permissions. Each project gets its own namespace with independently configured tools. You can have as many projects as you want on a single Allura instance.
+--
+
+== REST API
+
+[source,bash]
+----
+# List project tools
+curl https://forge-allura.apache.org/rest/p/allura/
+
+# Get ticket details
+curl https://forge-allura.apache.org/rest/p/allura/tickets/1234
+
+# Create a wiki page (authenticated)
+curl -X POST \
+  -d "text=Hello World" \
+  https://your-forge/rest/p/myproject/wiki/NewPage
+----
+
+[.notes]
+--
+Allura provides a comprehensive REST API for programmatic access. You can list projects, manage tickets, create wiki pages, interact with repositories — all via standard HTTP calls. The API documentation is available at the /rest endpoint of any Allura instance.
+--
+
+== Extending Allura
+
+* Write custom tools (Python, extending `allura.app.Application`)
+* Create custom themes for branding
+* Pluggable authentication (LDAP, OAuth, custom)
+* Webhooks for CI/CD integration
+* Custom wiki macros
+
+[.notes]
+--
+Allura is designed to be extended. The most powerful extension point is creating custom tools — Python classes that inherit from allura.app.Application. You can also customize the look with themes, integrate with your organization's authentication system, and use webhooks to trigger CI/CD pipelines on code events.
+--
+
+== Part III: Community
+
+image::project-logo.png[Apache Allura, 300]
+
+Getting involved with the Allura project
+
+[.notes]
+--
+Let's look at how the Allura community operates and how you can get involved — whether as a user seeking help or a developer wanting to contribute.
+--
+
+== Project Resources
+
+* **Website:** https://allura.apache.org/
+* **Source:** https://gitbox.apache.org/repos/asf/allura.git
+* **Issues:** https://forge-allura.apache.org/p/allura/tickets/
+* **Wiki:** https://forge-allura.apache.org/p/allura/wiki/
+* **CI:** Jenkins build
+
+[.notes]
+--
+All Allura development happens in the open. The source is hosted on ASF GitBox, issues are tracked on their own Allura instance, and there's extensive wiki documentation. The project uses Jenkins for continuous integration builds.
+--
+
+== Communication Channels
+
+* **Mailing list:** dev@allura.apache.org
+* Subscribe at: dev-subscribe@allura.apache.org
+* Archives available online
+* Best place for questions, proposals, and discussion
+
+[.notes]
+--
+The primary communication channel for Allura is the dev mailing list. This is where you ask questions, propose features, discuss design decisions, and coordinate contributions. As with all Apache projects, the mailing list is the canonical record of project decisions.
+--
+
+== Contributing to Allura
+
+* Read the Contributing Guide on the wiki
+* Pick an issue from the ticket tracker
+* Fork the repo on Git, make your changes
+* Submit a merge request
+* All contributions welcome: code, docs, testing, design
+
+[.notes]
+--
+Contributing to Allura follows standard Apache practices. The wiki has a detailed contributing guide. You can fork the repository, work on an issue, and submit a merge request. The project welcomes all types of contributions — not just code. Documentation, testing, UI/UX design, and bug reports are all valued.
+--
+
+== The Allura PMC
+
+* Top-level Apache project since March 2014
+* 19 PMC members
+* Active development with regular releases
+* Originally developed at SourceForge, donated to Apache
+* Self-governing community following the Apache Way
+
+[.notes]
+--
+Allura graduated from the Apache Incubator to become a top-level project in March 2014. The PMC has 19 members and continues active development with regular releases — the latest being v1.18.0 in August 2025. The project follows the Apache Way with consensus-based decision making on the mailing list.
+--
+
+== How to Get Help
+
+* Search the wiki documentation first
+* Ask on the dev@allura mailing list
+* File a ticket for bugs or feature requests
+* Check the Developer Docs for API references
+* Review the FAQ and existing tickets
+
+[.notes]
+--
+If you need help, start with the extensive wiki documentation. For questions that aren't covered, the dev mailing list is the best place to ask — the community is welcoming and responsive. For bugs or feature requests, file a ticket on the tracker. The developer documentation covers the REST API and extension points.
+--
+
+== Summary
+
+* Apache Allura is a **full-featured software forge**
+* Hosts any number of projects with **Git, Hg, and SVN**
+* **Tool-based architecture** makes it highly extensible
+* **Quick start with Docker** for evaluation
+* Active Apache community with regular releases
+
+[.notes]
+--
+To recap: Apache Allura is a mature, full-featured software forge that you can self-host. It supports all major version control systems, provides integrated issue tracking, forums, wikis, and blogs, and is designed to be extended with custom tools. Try the Docker quick-start to evaluate it, and join the mailing list to get involved.
+--
+
+== Resources
+
+* https://allura.apache.org/[Apache Allura Website]
+* https://forge-allura.apache.org/p/allura/wiki/[Allura Wiki]
+* https://forge-allura.apache.org/p/allura/git/[Source Code]
+* https://forge-allura.apache.org/p/allura/tickets/[Issue Tracker]
+* dev@allura.apache.org (mailing list)
+
+[.notes]
+--
+Here are the key links to get started. The website has the latest downloads and news. The wiki contains extensive documentation including installation guides, developer docs, and the contributing guide. Subscribe to the dev mailing list to engage with the community. Thank you for attending!
+--
