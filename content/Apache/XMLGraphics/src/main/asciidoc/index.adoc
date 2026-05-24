@@ -1,0 +1,457 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+
+== Apache XML Graphics
+
+image::project-logo.png[Apache XML Graphics, 500]
+
+Conversion from XML to graphical output
+
+[.notes]
+--
+Welcome to the Apache XML Graphics training module. This project is responsible for
+software intended for the creation and maintenance of tools that convert XML to
+graphical output. It has been part of the ASF since October 2004.
+--
+
+== What We'll Cover
+
+* *Part 1* — What Is Apache XML Graphics?
+* *Part 2* — Getting Started
+* *Part 3* — Community
+
+[.notes]
+--
+We'll walk through the three sub-projects, how to get started using them,
+and how to participate in the community.
+--
+
+== Project Overview
+
+* Umbrella project for XML-to-graphics conversion tools
+* Three sub-projects under one PMC:
+** Apache Batik — SVG toolkit
+** Apache FOP — XSL-FO processor
+** Apache XML Graphics Commons — shared library
+* All written in Java
+* Established at the ASF in October 2004
+
+[.notes]
+--
+Apache XML Graphics is not a single tool but rather an umbrella project
+that manages three closely related Java sub-projects, all focused on
+converting XML-based formats into graphical or print output.
+--
+
+== The Charter
+
+[quote]
+____
+Apache XML Graphics exists to promote the use of XML. We view XML as a
+compelling paradigm that structures data as information, thereby
+facilitating the exchange, transformation, and presentation of knowledge.
+____
+
+[.notes]
+--
+This is from the project's official charter. The key goal is building freely
+available products for the conversion of XML to graphical output.
+--
+
+== Apache Batik — SVG Toolkit
+
+* Java-based toolkit for Scalable Vector Graphics (SVG)
+* Display, generate, and manipulate SVG images in Java
+* Core modules: SVG Parser, SVG Generator, SVG DOM, Transcoder API
+* Tools: Squiggle SVG browser, Rasterizer (SVG → PNG/JPEG/TIFF)
+* Latest release: Batik 1.19 (May 2025)
+
+[.notes]
+--
+Batik is a comprehensive SVG toolkit. It lets developers render SVG in Java
+applications, generate SVG from Java2D calls, and manipulate SVG documents
+programmatically. Squiggle is a standalone SVG browser, and the rasterizer
+converts SVG to PNG/JPEG/TIFF from the command line.
+--
+
+== Apache FOP — XSL-FO Processor
+
+* Print formatter driven by XSL formatting objects (XSL-FO)
+* Reads an FO tree and renders to output formats
+* Primary output target: PDF
+* Also supports: PS, PCL, AFP, SVG, XML, Print, AWT, PNG
+* Latest release: FOP 2.11 (May 2025)
+
+[.notes]
+--
+FOP — Formatting Objects Processor — is the world's first print formatter
+driven by XSL-FO. It takes an XML formatting-object tree and produces
+paginated output. PDF is the main target but there are many others.
+--
+
+== FOP Output Formats
+
+[cols="2*", options="header"]
+|===
+| Format | Description
+
+| PDF | Portable Document Format
+| PS | Adobe PostScript
+| PCL | Printer Control Language
+| AFP | MO:DCA
+| SVG | Scalable Vector Graphics
+| PNG | Raster image
+| RTF | Rich Text Format (limited)
+| TXT | Plain text
+|===
+
+[.notes]
+--
+FOP is remarkably versatile in its output targets. PDF and PostScript
+are the most commonly used, but the same XSL-FO input can produce
+any of these formats without code changes.
+--
+
+== Typical FOP Workflow
+
+[source, text]
+----
+XML Data + XSLT Stylesheet → XSL-FO Document
+                |
+                v
+        Apache FOP Processor
+        |
+        v
+  PDF / PS / PCL / ...
+----
+
+[.notes]
+--
+The common pattern: you have XML data, transform it via XSLT into an
+XSL-FO document, then feed that to FOP. FOP handles pagination, font
+management, and output generation. This separates content from presentation.
+--
+
+== Apache XML Graphics Commons
+
+* Shared library used by both Batik and FOP
+* Reusable components usable independently
+* Key components:
+** Image codecs (PNG, TIFF)
+** Graphics2D implementations for PS and EPS output
+** PostScript helper classes and DSC parser
+** XMP metadata framework
+** Image loader framework
+* Latest release: Commons 2.11 (May 2025)
+
+[.notes]
+--
+XML Graphics Commons is the shared foundation. It extracts reusable pieces
+from Batik and FOP into a standalone library. You can use these components
+in your own projects without pulling in all of Batik or FOP.
+--
+
+== How the Sub-Projects Relate
+
+[source, text]
+----
++----------------+     +----------------+
+| Apache Batik   |     |  Apache FOP    |
+| (SVG Toolkit)  |     | (XSL-FO→PDF)  |
++-------+--------+     +--------+-------+
+        |                       |
+        +----------+  +---------+
+                   v  v
+     +-- Apache XML Graphics Commons --+
+----
+
+[.notes]
+--
+Both Batik and FOP depend on XML Graphics Commons for shared functionality
+like PostScript generation, image loading, and codec support. They can also
+interact — for example, FOP uses Batik to handle SVG content in XSL-FO documents.
+--
+
+== Getting Batik
+
+* Download from https://xmlgraphics.apache.org/batik/
+* Binary distribution includes all dependencies
+* Requires Java Runtime Environment 1.8 or later
+* Maven coordinates:
+[source, xml]
+----
+<dependency>
+  <groupId>org.apache.xmlgraphics</groupId>
+  <artifactId>batik-all</artifactId>
+  <version>1.19</version>
+</dependency>
+----
+
+[.notes]
+--
+The binary distribution is self-contained — all dependencies are bundled.
+For Maven projects, you can pull in batik-all or individual modules like
+batik-transcoder, batik-svg-dom, etc.
+--
+
+== Getting FOP
+
+* Download from https://xmlgraphics.apache.org/fop/
+* Binary or source distribution available
+* Requires Java 1.8 or later
+* Maven coordinates:
+[source, xml]
+----
+<dependency>
+  <groupId>org.apache.xmlgraphics</groupId>
+  <artifactId>fop</artifactId>
+  <version>2.11</version>
+</dependency>
+----
+
+[.notes]
+--
+Like Batik, FOP is available as a binary download or via Maven. The binary
+distribution includes command-line scripts for quick use. FOP also has an
+Ant task for build-tool integration.
+--
+
+== FOP Quick Start — Hello World
+
+1. Unpack the binary distribution
+2. Create an XML data file (`name.xml`)
+3. Create an XSLT stylesheet that transforms to XSL-FO
+4. Run FOP:
+
+[source, bash]
+----
+fop -xml name.xml -xsl name2fo.xsl -pdf name.pdf
+----
+
+[.notes]
+--
+The quickest way to see FOP in action: create a simple XML file, write an
+XSLT stylesheet that outputs XSL-FO, then run the fop command. You'll have
+a PDF in seconds. The FOP Quick Start Guide on the website walks through
+this in detail.
+--
+
+== Embedding FOP in Java
+
+[source, java]
+----
+FopFactory fopFactory = FopFactory.newInstance(
+    new File("fop.xconf"));
+FOUserAgent foUserAgent =
+    fopFactory.newFOUserAgent();
+OutputStream out = new FileOutputStream("out.pdf");
+Fop fop = fopFactory.newFop(
+    MimeConstants.MIME_PDF, foUserAgent, out);
+----
+
+[.notes]
+--
+For programmatic use, you create a FopFactory, configure it, obtain a
+FOUserAgent, and create a Fop instance bound to your desired output format.
+Then you feed it a SAX stream or FO document via a Transformer.
+--
+
+== Using Batik — SVG Rasterizer
+
+[source, bash]
+----
+java -jar batik-rasterizer.jar input.svg
+----
+
+* Converts SVG to PNG by default
+* Options for JPEG, TIFF, PDF output
+* Batch mode: pass multiple files or a directory
+
+[.notes]
+--
+The Batik rasterizer is a handy command-line tool for converting SVG files
+to raster images. It supports customizing output resolution, area, and format.
+Great for batch-processing SVG assets in a build pipeline.
+--
+
+== Using Batik — SVG Generator
+
+[source, java]
+----
+DOMImplementation domImpl =
+    GenericDOMImplementation.getDOMImplementation();
+Document document = domImpl.createDocument(
+    SVGConstants.SVG_NAMESPACE_URI, "svg", null);
+SVGGraphics2D svgGenerator =
+    new SVGGraphics2D(document);
+// Paint using standard Java2D calls
+myComponent.paint(svgGenerator);
+----
+
+[.notes]
+--
+The SVG Generator lets you take any Java2D drawing code and produce SVG
+output. You simply instantiate SVGGraphics2D and use it as your Graphics2D
+context. Then serialize the resulting DOM to get an SVG file.
+--
+
+== Source Repositories
+
+[cols="2*", options="header"]
+|===
+| Repository | Content
+
+| xmlgraphics-batik | Apache Batik source
+| xmlgraphics-fop | Apache FOP source
+| xmlgraphics-commons | Shared commons library
+| xmlgraphics-website | Project website
+|===
+
+All hosted at https://gitbox.apache.org/repos/asf/ and mirrored on GitHub.
+
+[.notes]
+--
+The source code lives in Git repositories on ASF Gitbox, with read-only
+mirrors on GitHub. Contributors can submit patches or pull requests
+through either path.
+--
+
+== Building from Source
+
+[source, bash]
+----
+git clone https://gitbox.apache.org/repos/asf/\
+    xmlgraphics-fop.git
+cd xmlgraphics-fop
+mvn clean install
+----
+
+* All sub-projects use Apache Maven
+* Java 8+ required for building
+
+[.notes]
+--
+Building from source follows standard Maven conventions. Clone the repo,
+run mvn clean install, and you're set. Integration tests may require
+additional setup — check each sub-project's README.
+--
+
+== Project Governance
+
+* Apache Software Foundation Top-Level Project (TLP)
+* PMC (Project Management Committee) with 12 members
+* Established October 2004
+* Operates on meritocracy — contributions earn responsibility
+* Reports to the ASF Board on a quarterly cycle
+
+[.notes]
+--
+XML Graphics is a mature TLP. The PMC currently has 12 members who
+oversee releases, community, and project direction. Like all ASF projects,
+it follows the Apache Way — open, transparent, and community-driven.
+--
+
+== Mailing Lists
+
+* `general@xmlgraphics.apache.org` — cross-project discussions
+* `batik-users@xmlgraphics.apache.org` — Batik user questions
+* `batik-dev@xmlgraphics.apache.org` — Batik development
+* `fop-users@xmlgraphics.apache.org` — FOP user questions
+* `fop-dev@xmlgraphics.apache.org` — FOP development
+
+[.notes]
+--
+lists are the primary communication channel. The general list covers
+cross-project and XML Graphics Commons topics. Each sub-project has its own
+users and dev list. Archives are available via mail-archives.apache.org.
+--
+
+== Issue Tracking & Contributing
+
+* Batik: https://issues.apache.org/jira/browse/BATIK
+* FOP: https://issues.apache.org/jira/browse/FOP
+* Commons: https://issues.apache.org/jira/browse/XGC
+* Subscribe to the dev list → find an issue → submit a patch
+* Pull requests accepted on GitHub mirrors
+
+[.notes]
+--
+Bug reports and feature requests go through ASF JIRA. The path to
+contribution: subscribe to the dev list, find an issue, submit a patch
+or pull request via GitHub mirrors. Code review happens on the mailing list.
+--
+
+== Current Status (May 2025 Releases)
+
+* Batik 1.19 — bug fix release
+* FOP 2.11 — latest stable
+* XML Graphics Commons 2.11 — supports FOP 2.11
+* All released on May 6, 2025
+
+[.notes]
+--
+The project recently released coordinated updates across all three
+sub-projects. The Batik release focused on bug fixes, while FOP 2.11
+brings the latest stable feature set for XSL-FO processing.
+--
+
+== Key Use Cases
+
+* Generate PDF reports from XML data (FOP)
+* Render SVG in Java applications (Batik)
+* Convert SVG to raster images in build pipelines (Batik)
+* Produce PostScript output from Java2D (Commons)
+* Embed SVG graphics in XSL-FO documents (Batik + FOP)
+
+[.notes]
+--
+These are the most common real-world scenarios. Many organizations use FOP
+for automated PDF generation from business data. Batik is popular in
+diagram editors and visualization tools. The combination of all three
+covers the full pipeline from data to print-ready output.
+--
+
+== Resources
+
+* Website: https://xmlgraphics.apache.org/
+* Batik: https://xmlgraphics.apache.org/batik/
+* FOP: https://xmlgraphics.apache.org/fop/
+* Commons: https://xmlgraphics.apache.org/commons/
+* Wiki: https://cwiki.apache.org/confluence/display/XMLGRAPHICS
+
+[.notes]
+--
+Here are the key links for further exploration. The website has full
+documentation, tutorials, and API references for each sub-project.
+The wiki contains community plans and additional how-to guides.
+--
+
+== Thank You
+
+image::project-logo.png[Apache XML Graphics, 300]
+
+https://xmlgraphics.apache.org/
+
+[.notes]
+--
+Thank you for attending this session on Apache XML Graphics. Please visit
+the website, join the mailing lists, and consider contributing!
+--
