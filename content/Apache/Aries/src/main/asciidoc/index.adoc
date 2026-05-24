@@ -1,0 +1,492 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+:presenter_name: Your Name
+:presenter_company: Your Company
+:description: Introduction to Apache Aries
+:keywords: Apache, Aries, OSGi, Enterprise, Blueprint, SPI Fly, JAX-RS
+:author: Your Name
+:email: Your email
+:position: Your role
+
+== Apache Aries
+
+image::project-logo.png[Apache Aries, 500]
+
+Pluggable Java Components Enabling an Enterprise OSGi Application Programming Model
+
+[.notes]
+--
+Apache Aries provides a set of pluggable Java components that implement
+and extend Enterprise OSGi specifications. The project was established
+in December 2010 and implements specifications defined by the OSGi
+Alliance Enterprise Expert Group.
+--
+
+// ============================================================
+// PART 1: WHAT IS IT?
+// ============================================================
+
+== What is Apache Aries?
+
+* A set of *pluggable Java components* enabling an enterprise OSGi application programming model
+* Implements and extends *OSGi Alliance Enterprise specifications*
+* Specifications defined by the OSGi Alliance Enterprise Expert Group (EEG)
+* Deployed to a variety of OSGi-based runtimes
+
+[.notes]
+--
+Aries is not a single monolithic framework — it's a collection of
+independent subprojects, each implementing a specific Enterprise OSGi
+specification. This modular approach means you can pick and choose
+only the components you need.
+--
+
+== Enterprise OSGi Specifications Covered
+
+* *Blueprint* — Dependency injection for OSGi (Compendium R4.2)
+* *SPI Fly* — ServiceLoader Mediator (Enterprise R5, Chapter 133)
+* *JAX-RS Whiteboard* — REST services (JAX-RS Services Whiteboard 1.0)
+* *Remote Service Admin (RSA)* — Distributed OSGi services (R7)
+* *Transaction Control* — Scoped resource access with transactions
+
+[.notes]
+--
+These are the actively maintained subprojects. The project also includes
+implementations of JMX, JNDI, JPA, Subsystem, and other specifications,
+though some of those are in maintenance-only mode.
+--
+
+== Key Subprojects at a Glance
+
+[cols="1,2"]
+|===
+|Subproject |Purpose
+
+|Blueprint
+|Dependency injection framework for OSGi
+
+|SPI Fly
+|Makes java.util.ServiceLoader work in OSGi
+
+|JAX-RS Whiteboard
+|RESTful services via OSGi Whiteboard pattern
+
+|RSA
+|Transparent remote communication for OSGi services
+
+|Transaction Control
+|Scoped transactions and resource management
+|===
+
+[.notes]
+--
+Each subproject has its own release cycle and its own Git repository.
+The main aries repository on GitHub hosts Blueprint, SPI Fly, JMX,
+JNDI, JPA, Subsystem, and others. RSA, JAX-RS Whiteboard, CDI,
+and Transaction Control each have dedicated repositories.
+--
+
+== Why Aries? The Problem It Solves
+
+* Enterprise Java relies on patterns that *conflict with OSGi modularity*
+* ServiceLoader uses Thread Context ClassLoader — undefined in OSGi
+* Dependency injection frameworks assume flat classpath
+* Aries bridges the gap: *enterprise patterns inside OSGi*
+
+[.notes]
+--
+OSGi provides strong modularity with separate classloaders per bundle.
+But many Java enterprise patterns (ServiceLoader, JNDI, JPA provider
+lookup) assume a flat classpath or thread context classloader. Aries
+components solve these impedance mismatches so enterprise Java code
+works correctly in modular OSGi environments.
+--
+
+== Project History
+
+* *October 2009* — Entered Apache Incubator
+* *December 2010* — Graduated to Top-Level Project
+* *2013–2015* — Major releases of Blueprint, JMX, JNDI, Subsystem
+* *2018–2023* — Active development of SPI Fly, JAX-RS, CDI, RSA
+* *2025* — Latest releases: SPI Fly 1.3.7, JAX-RS 2.0.2, TypedEvent 1.0.1
+
+[.notes]
+--
+Aries has been a TLP for over 15 years. The project continues to
+produce releases, with the most recent being TypedEvent Parent 1.0.1
+in May 2025 and SPI Fly 1.3.7 in November 2023.
+--
+
+// ============================================================
+// PART 2: GETTING STARTED
+// ============================================================
+
+== Blueprint: Dependency Injection for OSGi
+
+* Standardized in *OSGi Compendium R4.2*
+* Designed for the *dynamic nature* of OSGi (services come and go)
+* Works with *Plain Old Java Objects (POJOs)*
+* Configuration via XML files in `OSGI-INF/blueprint/`
+
+[.notes]
+--
+Blueprint is probably the most widely known Aries component. It provides
+a dependency injection framework specifically designed for the challenges
+of the OSGi dynamic service model, where services can appear and
+disappear at any time during the application lifecycle.
+--
+
+== Blueprint: How It Works
+
+* An *extender bundle* watches for Blueprint bundles
+* Blueprint bundle = contains XML in `OSGI-INF/blueprint/`
+* The extender creates a *Blueprint Container* for each bundle
+* The container handles instantiation, wiring, and service registration
+
+[.notes]
+--
+The extender pattern is a common OSGi design pattern. The Blueprint
+extender monitors bundle lifecycle events and automatically creates
+Blueprint containers for bundles that contain Blueprint XML descriptors.
+--
+
+== Blueprint: Bean Definition
+
+[source,xml]
+----
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+  <bean id="accountOne"
+        class="org.apache.aries.simple.Account">
+    <argument value="1"/>
+    <property name="description"
+              value="My Account"/>
+  </bean>
+
+</blueprint>
+----
+
+[.notes]
+--
+Blueprint XML looks similar to Spring XML configuration. Beans are
+declared with the bean element, supporting constructor arguments,
+property injection, and factory methods. The container manages the
+full lifecycle of these objects.
+--
+
+== Blueprint: Service Registration
+
+[source,xml]
+----
+<service id="accountService"
+         ref="account"
+         interface="org.apache.aries.simple.Account"/>
+
+<bean id="account"
+      class="org.apache.aries.simple.AccountImpl"/>
+----
+
+* Services registered automatically in the *OSGi Service Registry*
+* Supports `auto-export` for interface detection
+* Service properties via `<service-properties>` element
+
+[.notes]
+--
+The service element registers a bean as an OSGi service. The interface
+attribute specifies which interface to register under. Blueprint can
+also auto-detect interfaces using the auto-export attribute.
+--
+
+== Blueprint: Service References
+
+[source,xml]
+----
+<reference id="accountRef"
+           interface="org.apache.aries.simple.Account"
+           timeout="20000"/>
+
+<bean id="accountClient"
+      class="org.apache.aries.simple.AccountClient">
+  <property name="account" ref="accountRef"/>
+</bean>
+----
+
+* Injected object is a *proxy* — survives service restarts
+* Configurable *timeout* (default 5 minutes)
+* `reference-list` for multiple matching services
+
+[.notes]
+--
+A key Blueprint feature is that injected service references are proxies.
+If the backing service goes away and comes back, the proxy remains valid.
+Calls to an unavailable service block until timeout, then throw
+ServiceUnavailableException.
+--
+
+== SPI Fly: ServiceLoader in OSGi
+
+* Reference implementation of *OSGi ServiceLoader Mediator* (Chapter 133)
+* Makes `java.util.ServiceLoader.load()` work in OSGi bundles
+* Supports `META-INF/services` discovery pattern
+* Also handles `FactoryFinder`, `javax.imageio`, `javax.sound`
+
+[.notes]
+--
+SPI Fly solves one of the most common pain points when migrating
+Java code to OSGi: the ServiceLoader pattern breaks because the
+Thread Context ClassLoader is not defined in OSGi. SPI Fly briefly
+sets the TCCL during ServiceLoader calls via bytecode weaving.
+--
+
+== SPI Fly: Two Configuration Modes
+
+* *OSGi Spec-Compliant* — portable, uses `Require-Capability` / `Provide-Capability`
+* *SPI Fly Proprietary* — more features, uses `SPI-Provider` / `SPI-Consumer` headers
+
+[source,manifest]
+----
+Require-Capability: \
+  osgi.extender; \
+    filter:="(osgi.extender=osgi.serviceloader.processor)"
+----
+
+[.notes]
+--
+The spec-compliant mode uses OSGi generic capabilities and is portable
+across implementations. The proprietary mode supports additional
+use cases like FactoryFinder and javax.imageio but ties you to the
+SPI Fly implementation.
+--
+
+== SPI Fly: Deployment Options
+
+* *Dynamic Weaving Bundle* — runtime bytecode weaving via WeavingHooks
+* *Dynamic Weaving Framework Extension* — attaches to system bundle
+* *Static Weaving* — pre-process bundles offline with a command-line tool
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.aries.spifly</groupId>
+  <artifactId>org.apache.aries.spifly.dynamic.bundle</artifactId>
+  <version>${spifly.version}</version>
+</dependency>
+----
+
+[.notes]
+--
+Most users prefer the dynamic weaving bundle for simplicity. The
+framework extension is useful when you need weaving to be active before
+any other bundles start. Static weaving is for environments that
+cannot use runtime bytecode modification.
+--
+
+== JAX-RS Whiteboard
+
+* Reference implementation of *OSGi JAX-RS Services Whiteboard 1.0*
+* Register JAX-RS resources as *OSGi services* — no manual wiring
+* Configured via *Configuration Admin*
+* Includes integrations for common JAX-RS libraries
+
+[.notes]
+--
+The JAX-RS Whiteboard follows the OSGi Whiteboard pattern: just register
+your JAX-RS resource or extension as an OSGi service with the right
+properties, and the whiteboard automatically picks it up and exposes it.
+--
+
+== Remote Service Admin (RSA)
+
+* Reference implementation of *OSGi Remote Services* and *Remote Service Admin* (R7)
+* Mark a service for export: `service.exported.interfaces=*`
+* Transparent remote invocation — consumer code unchanged
+* Pluggable transport and discovery providers
+
+[.notes]
+--
+RSA lets you distribute OSGi services across machines transparently.
+A service consumer doesn't need to know whether the service is local
+or remote. The RSA infrastructure handles serialization, transport,
+and discovery automatically.
+--
+
+== Transaction Control
+
+* Scoped resource access with *local or XA transactions*
+* Clean separation: transaction lifecycle vs resource access
+* Works with JDBC and JPA resources
+* No container dependency — works in any OSGi framework
+
+[.notes]
+--
+Transaction Control provides a lightweight, OSGi-native approach to
+transaction management. Unlike JTA which requires a heavy container,
+Transaction Control lets you manage transactional resources in any
+OSGi environment with a clean programmatic API.
+--
+
+// ============================================================
+// PART 3: COMMUNITY
+// ============================================================
+
+== Getting the Code
+
+* *Main repository:* https://github.com/apache/aries
+* Subprojects with dedicated repos:
+** `aries-jax-rs-whiteboard`
+** `aries-rsa`
+** `aries-cdi`
+** `aries-tx-control`
+** `aries-jpa`
+** `aries-component-dsl`
+
+[.notes]
+--
+The main Aries repository hosts Blueprint, SPI Fly, JMX, JNDI,
+Subsystem, and other components. Several active subprojects have
+their own dedicated repositories for independent release management.
+All are on GitHub under the apache organization.
+--
+
+== Building Aries
+
+[source,bash]
+----
+# Clone the main repository
+git clone https://github.com/apache/aries.git
+
+# Build a specific subproject (recommended)
+cd aries/spi-fly
+mvn clean install
+
+# Or build everything (takes longer)
+cd aries
+mvn clean install
+----
+
+[.notes]
+--
+Because the main repository hosts many subprojects, it's recommended
+to build only the specific subproject you need rather than the entire
+tree. Each subproject directory is a self-contained Maven module.
+--
+
+== Maven Coordinates
+
+[source,xml]
+----
+<!-- Blueprint -->
+<dependency>
+  <groupId>org.apache.aries.blueprint</groupId>
+  <artifactId>org.apache.aries.blueprint.core</artifactId>
+  <version>1.10.3</version>
+</dependency>
+
+<!-- SPI Fly -->
+<dependency>
+  <groupId>org.apache.aries.spifly</groupId>
+  <artifactId>org.apache.aries.spifly.dynamic.bundle</artifactId>
+  <version>1.3.7</version>
+</dependency>
+----
+
+[.notes]
+--
+Aries components are published to Maven Central. Each subproject uses
+its own groupId and follows OSGi bundle naming conventions for
+artifactIds. Check Maven Central for the latest version of each
+component.
+--
+
+== Community Channels
+
+* *User mailing list:* user@aries.apache.org
+* *Developer mailing list:* dev@aries.apache.org
+* *Commits list:* commits@aries.apache.org
+* *Issue tracker:* https://issues.apache.org/jira/browse/ARIES
+* *Website:* https://aries.apache.org
+
+[.notes]
+--
+The user list is for questions about using any Aries subproject.
+The dev list is where developers discuss ongoing work, make decisions,
+and vote on technical issues. There is one dev list for all Aries
+subprojects.
+--
+
+== Project Governance
+
+* *Top-Level Project* since December 2010
+* *38 PMC members*
+* Reports to the Apache Board quarterly
+* Apache License 2.0
+
+[.notes]
+--
+Aries has a large PMC reflecting its long history and broad scope.
+The project follows standard Apache governance — decisions made by
+lazy consensus on the mailing list, with formal votes for releases
+and new committers.
+--
+
+== How to Contribute
+
+* Subscribe to dev@aries.apache.org
+* Check JIRA for open issues labeled "newbie" or "easy"
+* Fork on GitHub, submit Pull Requests
+* Follow the Apache Contributor License Agreement (CLA) process
+* Build and test locally before submitting
+
+[.notes]
+--
+As with all Apache projects, contributions start with the mailing list.
+Introduce yourself, find an issue to work on, and submit a patch or
+PR. The community is welcoming to newcomers and will help guide you
+through the contribution process.
+--
+
+== Summary
+
+* Aries = *enterprise Java patterns made OSGi-compatible*
+* Key components: Blueprint, SPI Fly, JAX-RS Whiteboard, RSA
+* Modular — use only what you need
+* Active community with ongoing releases
+* https://aries.apache.org
+
+[.notes]
+--
+Apache Aries solves the fundamental tension between enterprise Java
+conventions and OSGi modularity. Whether you need dependency injection,
+ServiceLoader support, REST services, or distributed computing in OSGi,
+Aries has a component for it.
+--
+
+== Questions?
+
+image::project-logo.png[Apache Aries, 300]
+
+https://aries.apache.org
+
+[.notes]
+--
+Thank you for attending. Questions are welcome — you can also reach
+the Aries community on the mailing lists.
+--
