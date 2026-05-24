@@ -1,0 +1,450 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+
+== Apache Santuario
+
+image::project-logo.png[Apache Santuario, 500]
+
+Implementation of the primary security standards for XML
+
+[.notes]
+--
+Apache Santuario provides implementation of XML-Signature Syntax and Processing
+and XML Encryption Syntax and Processing. The project name comes from the
+Italian/Spanish/Portuguese word for "sanctuary" — a safe place for your XML.
+--
+
+== What Is Apache Santuario?
+
+* Implements W3C XML-Signature and XML Encryption standards
+* Provides the standard JSR-105 (Java XML Digital Signature) API
+* Offers both DOM-based and StAX-based (streaming) implementations
+* Licensed under the Apache License, Version 2.0
+* Established as an Apache project since June 2006
+
+[.notes]
+--
+Santuario is the reference implementation for XML security standards in the Java
+ecosystem. It's widely used in enterprise applications, web services (SOAP/WS-Security),
+and identity federation (SAML).
+--
+
+== Why XML Security?
+
+* Digital signatures prove authenticity and integrity of XML documents
+* XML Encryption protects confidential data within XML structures
+* Essential for SOAP/WS-Security web services
+* Required for SAML assertions in identity federation
+* Mandated by many government and financial industry standards
+
+[.notes]
+--
+Even in the age of REST/JSON APIs, XML security remains critical for enterprise
+integration, identity protocols like SAML, and regulatory compliance. Any system
+dealing with SAML SSO likely depends on Santuario under the hood.
+--
+
+== The Library: Apache XML Security for Java
+
+* Current release lines: **4.0.x**, **3.0.x**, and **2.3.x**
+* Latest stable releases: 4.0.4, 3.0.6, and 2.3.5 (April 2025)
+* Maven coordinates: `org.apache.santuario:xmlsec`
+* Java 11+ required for 4.x line
+
+[.notes]
+--
+The project maintains multiple active release lines to support different
+Java version requirements. The 4.x line requires Java 11+, uses System.Logger
+instead of SLF4J, and makes several types AutoCloseable. The 3.x and 2.x lines
+continue to receive security fixes.
+--
+
+== C++ Library Status
+
+* The C++ library has been **officially retired**
+* Code frozen at Apache — no further development
+* Codebase migrated to the Shibboleth Project
+* Shibboleth maintains it as an internal dependency only
+* Not supported for third-party use going forward
+
+[.notes]
+--
+After years of declining C++ maintainer participation, the PMC formally
+retired the C++ library. The Shibboleth project took over maintenance
+because their identity provider depends on it. For new C++ projects,
+look at alternatives like xmlsec1 or your platform's native crypto libraries.
+--
+
+== Three Approaches to XML Signature
+
+[cols="1,2"]
+|===
+| Approach | Description
+
+| JSR-105 API
+| Standard Java XML Digital Signature API (DOM-based under the hood)
+
+| Santuario DOM API
+| The older, pre-JSR-105 DOM API with full control
+
+| Santuario StAX API
+| Streaming API — lower memory for large XML trees
+|===
+
+[.notes]
+--
+For new projects, the JSR-105 API offers portability. If you need streaming
+performance for large documents, the StAX API (available since 2.0.0) is the
+way to go. The older DOM API is still available for legacy code.
+--
+
+== Two Approaches to XML Encryption
+
+[cols="1,2"]
+|===
+| Approach | Description
+
+| Santuario DOM API
+| In-memory DOM manipulation for encryption/decryption
+
+| Santuario StAX API
+| Streaming encryption/decryption for large documents
+|===
+
+[.notes]
+--
+XML Encryption allows encrypting portions of an XML document while leaving
+the structure visible, or encrypting entire elements. The StAX API is
+preferred for large documents to avoid loading the entire DOM into memory.
+--
+
+== Maven Dependency
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.santuario</groupId>
+  <artifactId>xmlsec</artifactId>
+  <version>4.0.4</version>
+</dependency>
+----
+
+* Available on Maven Central
+* Single artifact bundles signature + encryption
+* Transitive dependencies are minimal
+
+[.notes]
+--
+The Maven coordinates are straightforward. A single artifact gives you
+everything — both signature and encryption capabilities. Check Maven Central
+for the latest version number.
+--
+
+== Initializing the Library
+
+[source,java]
+----
+import org.apache.xml.security.Init;
+
+// Call once at application startup
+if (!Init.isInitialized()) {
+    Init.init();
+}
+----
+
+* Must be called before any cryptographic operations
+* Registers algorithm URIs and internal transforms
+* Thread-safe — safe to call from static initializer
+
+[.notes]
+--
+The Init.init() call sets up the algorithm registry and internal
+transforms. It's idempotent but must happen before you sign or encrypt
+anything. In a web application, do this in a ServletContextListener.
+--
+
+== Creating an XML Signature (JSR-105)
+
+[source,java]
+----
+XMLSignatureFactory fac =
+    XMLSignatureFactory.getInstance("DOM");
+Reference ref = fac.newReference("",
+    fac.newDigestMethod(DigestMethod.SHA256, null),
+    Collections.singletonList(
+        fac.newTransform(Transform.ENVELOPED, null)),
+    null, null);
+----
+
+[.notes]
+--
+This creates a reference that will digest the entire document using SHA-256
+with an enveloped signature transform. The empty URI "" means "sign the
+whole document." The enveloped transform excludes the signature element
+itself from the digest calculation.
+--
+
+== Signing the Document
+
+[source,java]
+----
+SignedInfo si = fac.newSignedInfo(fac.newCanonicalizationMethod(
+    CanonicalizationMethod.INCLUSIVE, null),
+    fac.newSignatureMethod(
+        SignatureMethod.RSA_SHA256, null),
+    List.of(ref));
+
+XMLSignature signature = fac.newXMLSignature(si, ki);
+signature.sign(signContext);
+----
+
+[.notes]
+--
+SignedInfo bundles the canonicalization method, signature algorithm, and
+references. The sign() call performs the actual cryptographic operation.
+The signature is inserted into the document at the location specified by
+the DOMSignContext.
+--
+
+== Verifying an XML Signature
+
+[source,java]
+----
+NodeList nl = doc.getElementsByTagNameNS(
+    XMLSignature.XMLNS, "Signature");
+DOMValidateContext valContext =
+    new DOMValidateContext(publicKey, nl.item(0));
+XMLSignature sig =
+    fac.unmarshalXMLSignature(valContext);
+boolean valid = sig.validate(valContext);
+----
+
+[.notes]
+--
+Verification locates the Signature element, unmarshals it, and validates
+both the signature value and each reference digest. The validate() method
+returns true only if everything checks out. Always verify before trusting
+signed XML content.
+--
+
+== XML Encryption Example
+
+[source,java]
+----
+XMLCipher cipher =
+    XMLCipher.getInstance(XMLCipher.AES_256_GCM);
+cipher.init(XMLCipher.ENCRYPT_MODE, symmetricKey);
+EncryptedData ed = cipher.getEncryptedData();
+ed.setType(EncryptedData.ELEMENT_TYPE);
+Document encrypted = cipher.doFinal(
+    doc, elementToEncrypt);
+----
+
+[.notes]
+--
+XML Encryption uses XMLCipher to encrypt individual elements or element
+content. AES-256-GCM is recommended for new applications. The encrypted
+result replaces the original element in the document with an EncryptedData
+structure.
+--
+
+== StAX Streaming API
+
+* Available since version 2.0.0
+* Uses far less memory for large XML trees
+* Processes documents as a stream of events
+* Supports both signature and encryption
+* Ideal for high-throughput scenarios
+
+[.notes]
+--
+The StAX API is a major differentiator for Santuario. Instead of loading
+the entire XML document into memory as a DOM tree, it processes the document
+as a stream. This is critical for services handling many large SOAP messages
+concurrently.
+--
+
+== Supported Algorithms
+
+* **Signature**: RSA-SHA256, ECDSA, EdDSA (since 3.0.2)
+* **Digest**: SHA-256, SHA-384, SHA-512; **Canonicalization**: Inclusive, Exclusive C14N
+* **Encryption**: AES-128/192/256-GCM, AES-CBC
+* **Key Agreement**: ECDH-ES (since 4.0.2)
+* **Key Transport**: RSA-OAEP
+
+[.notes]
+--
+Santuario supports modern cryptographic algorithms. EdDSA support was added
+in the 3.0.2 release, and ECDH-ES key agreement in 4.0.2. Legacy algorithms
+like SHA-1 and RSA-SHA1 are available but should not be used in new
+applications.
+--
+
+== Security Advisories
+
+* Project publishes advisories for vulnerabilities
+* Fixes released across all active branches simultaneously
+* October 2023: advisory fixed in 4.0.0, 3.0.3, 2.3.4, 2.2.6
+* Always update to latest patch release in your branch
+
+[.notes]
+--
+The Santuario team takes security seriously — they release fixes across all
+supported branches at the same time. Subscribe to the mailing list or watch
+the Security Advisories page on the project website to stay informed.
+--
+
+
+== Project Vital Statistics
+
+* Founded: June 2006 (19 years at Apache)
+* PMC Members: 7
+* Committers: 18
+* License: Apache License 2.0
+* Source: Git (GitHub mirror available)
+
+[.notes]
+--
+Santuario is a mature, focused project. Its relatively small PMC reflects
+the specialized nature of XML security. Despite its size, the project
+remains actively maintained with regular releases.
+--
+
+== Source Code
+
+* **Git Repository**: `https://gitbox.apache.org/repos/asf/santuario-xml-security-java.git`
+* **GitHub Mirror**: `https://github.com/apache/santuario-xml-security-java`
+* SVN repository available for historical reference
+* Pull requests accepted via GitHub
+
+[.notes]
+--
+The primary source is on ASF GitBox with a read-write GitHub mirror.
+Contributors can fork on GitHub and submit pull requests. The project
+also retains an SVN repository for historical artifacts.
+--
+
+== Mailing List
+
+* **dev@santuario.apache.org** — development discussions and user questions
+* Subscribe: send email to `dev-subscribe@santuario.apache.org`
+* Archives available at `lists.apache.org`
+* Single combined dev/user list
+
+[.notes]
+--
+Santuario uses a single mailing list for both development and user
+questions. Subscribe before posting. Search the archives first — your
+question may already be answered. Allow a few days for responses from
+this volunteer community.
+--
+
+== Issue Tracking
+
+* **GitHub Issues** on the santuario-xml-security-java repository
+* Historical issues in ASF Jira (project key: SANTUARIO)
+* Release notes published on GitHub
+* Check existing issues before filing new ones
+
+[.notes]
+--
+The project has transitioned to GitHub Issues for tracking. Historical
+issues remain in ASF Jira for reference. When filing a bug, include a
+minimal reproducer — the team is small and volunteers their time.
+--
+
+== How to Contribute
+
+* Subscribe to the mailing list and listen first
+* Test the library and report bugs
+* Submit patches via GitHub pull requests
+* Improve documentation
+* Answer questions from other users on the mailing list
+
+[.notes]
+--
+Contributions don't have to be code. Testing on different JDK versions,
+improving documentation, and helping other users are all valuable. Read
+the contributing guide on the project website for full details.
+--
+
+== Getting Help
+
+* Mailing list: dev@santuario.apache.org
+* Website: https://santuario.apache.org
+* GitHub: https://github.com/apache/santuario-xml-security-java
+* Download: https://santuario.apache.org/download.html
+* Security issues: security@santuario.apache.org (private)
+
+[.notes]
+--
+For general questions use the mailing list. For security vulnerabilities,
+use the private security@ address — never file security issues publicly.
+The website has links to documentation, release notes, and security
+advisories.
+--
+
+== Quick Reference
+
+[cols="1,2"]
+|===
+| Maven GAV | `org.apache.santuario:xmlsec:4.0.4`
+| Init | `org.apache.xml.security.Init.init()`
+| JSR-105 | `javax.xml.crypto.dsig.XMLSignatureFactory`
+| Encryption | `org.apache.xml.security.encryption.XMLCipher`
+| StAX | `org.apache.xml.security.stax.*`
+|===
+
+[.notes]
+--
+Keep this slide handy as a cheat sheet. The Maven coordinates, init call,
+and key entry-point classes are all you need to get started exploring the
+library in your IDE.
+--
+
+== Summary
+
+* Apache Santuario implements XML-Signature and XML Encryption
+* Mature project — 19 years at Apache, actively maintained
+* Three API options: JSR-105, DOM, and StAX (streaming)
+* Current release: 4.0.4 (Java 11+) / 3.0.6 (Java 8+)
+* Critical infrastructure for SAML, WS-Security, and more
+
+[.notes]
+--
+Santuario is one of those foundational libraries that many developers use
+without realizing it. Understanding how XML signatures and encryption work
+is valuable for anyone working with enterprise Java, identity federation,
+or secure document exchange.
+--
+
+== Thank You!
+
+image::project-logo.png[Apache Santuario, 300]
+
+https://santuario.apache.org
+
+[.notes]
+--
+Thank you for attending this introduction to Apache Santuario. Visit the
+project website to download the library, browse documentation, and join
+the mailing list. Questions?
+--
