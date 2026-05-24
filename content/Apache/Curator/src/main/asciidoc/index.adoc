@@ -1,0 +1,494 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+== Apache Curator
+
+image::project-logo.png[Apache Curator, 500]
+
+A ZooKeeper Keeper
+
+[.notes]
+--
+Curator is a keeper or custodian of a museum or other collection — a ZooKeeper Keeper.
+Apache Curator is a Java/JVM client library for Apache ZooKeeper that makes
+distributed coordination easier and more reliable.
+--
+
+== What Is Apache Curator?
+
+* Java/JVM client library for Apache ZooKeeper
+* High-level API framework and utilities
+* Makes using ZooKeeper much easier and more reliable
+* Includes recipes for common use cases
+* Extensions for service discovery and async DSL
+
+[.notes]
+--
+Apache Curator provides a high-level abstraction over raw ZooKeeper operations.
+It handles connection management, retry logic, and provides pre-built
+implementations of common distributed coordination patterns.
+--
+
+== The Problem Curator Solves
+
+* Raw ZooKeeper API is low-level and error-prone
+* Connection management is complex
+* Retry logic must be hand-coded
+* Common patterns (locks, elections) require boilerplate
+* Edge cases in distributed systems are hard to get right
+
+[.notes]
+--
+Without Curator, developers must handle connection loss, session expiration,
+and implement retry logic themselves. Curator abstracts all of this away
+and provides battle-tested implementations of common patterns.
+--
+
+== Project History
+
+* Developed at Netflix, donated to Apache
+* Entered the Apache Incubator
+* Graduated as a Top-Level Project in September 2013
+* PMC of 16 members
+* Current release: 5.9.0 (July 2025)
+
+[.notes]
+--
+Curator was originally created at Netflix to simplify their extensive use of
+ZooKeeper. It was donated to Apache and graduated as a top-level project.
+The project continues active development with regular releases.
+--
+
+== Curator Artifacts
+
+[cols="1,2"]
+|===
+| Artifact | Purpose
+
+| curator-recipes
+| All pre-built recipes (pulls in client + framework)
+
+| curator-framework
+| High-level API built on top of curator-client
+
+| curator-client
+| Replacement for ZooKeeper class with connection management
+
+| curator-async
+| Asynchronous DSL with O/R modeling and migrations
+
+| curator-x-discovery
+| Service Discovery implementation
+
+| curator-test
+| TestingServer and TestingCluster for testing
+|===
+
+[.notes]
+--
+For most users, curator-recipes is the only artifact needed. Maven will
+automatically pull in the framework and client dependencies.
+OSGi users have separate unshaded artifacts available with the osgi classifier.
+--
+
+== Maven Dependency
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.curator</groupId>
+  <artifactId>curator-recipes</artifactId>
+  <version>5.9.0</version>
+</dependency>
+----
+
+* Published to Maven Central
+* `curator-recipes` is the recommended starting artifact
+* Pulls in `curator-framework` and `curator-client` automatically
+
+[.notes]
+--
+Most users should start with curator-recipes which transitively includes
+the framework and client. Maven, Gradle, and other build tools will
+resolve the dependencies automatically.
+--
+
+== Creating a Connection
+
+[source,java]
+----
+RetryPolicy retryPolicy =
+    new ExponentialBackoffRetry(1000, 3);
+
+CuratorFramework client =
+    CuratorFrameworkFactory.newClient(
+        zookeeperConnectionString, retryPolicy);
+
+client.start();
+----
+
+* Uses Fluent Style API
+* One `CuratorFramework` per ZooKeeper cluster
+* Client must be started (and closed when done)
+
+[.notes]
+--
+CuratorFramework instances are allocated from the CuratorFrameworkFactory.
+You only need one instance per ZooKeeper cluster. The retry policy determines
+how Curator handles transient connection failures.
+--
+
+== Retry Policies
+
+* `ExponentialBackoffRetry` — increasing delay between retries
+* `RetryNTimes` — fixed number of retries
+* `RetryOneTime` — single retry
+* `RetryForever` — never give up
+* `RetryUntilElapsed` — retry until time limit
+
+[.notes]
+--
+Curator provides several built-in retry policies. ExponentialBackoffRetry
+is the most commonly used. You can also implement your own by implementing
+the RetryPolicy interface.
+--
+
+== Distributed Lock
+
+[source,java]
+----
+InterProcessMutex lock =
+    new InterProcessMutex(client, lockPath);
+
+if (lock.acquire(maxWait, waitUnit)) {
+    try {
+        // do work inside the critical section
+    } finally {
+        lock.release();
+    }
+}
+----
+
+* Fully distributed, globally synchronous
+* Reentrant — same thread can acquire multiple times
+
+[.notes]
+--
+The Shared Reentrant Lock is one of the most commonly used recipes.
+At any snapshot in time, no two clients think they hold the same lock.
+Curator also provides non-reentrant locks, read-write locks, and semaphores.
+--
+
+== Leader Election
+
+[source,java]
+----
+LeaderSelectorListener listener =
+    new LeaderSelectorListenerAdapter() {
+  public void takeLeadership(
+      CuratorFramework client) throws Exception {
+    // you are the leader
+    // exit this method to relinquish leadership
+  }
+};
+
+LeaderSelector selector =
+    new LeaderSelector(client, path, listener);
+selector.autoRequeue();
+selector.start();
+----
+
+[.notes]
+--
+Leader Election designates a single process as the coordinator of a task
+distributed among nodes. Curator provides two recipes: LeaderSelector
+(shown here) and LeaderLatch which is a simpler alternative.
+--
+
+== Lock Recipes
+
+* *Shared Reentrant Lock* — globally synchronous, reentrant
+* *Shared Lock* — non-reentrant version
+* *Shared Reentrant Read Write Lock* — readers/writer pattern across JVMs
+* *Shared Semaphore* — counting semaphore across JVMs
+* *Multi Shared Lock* — manages multiple locks as one entity
+* *Barrier / Double Barrier* — synchronize start and end of computations
+
+[.notes]
+--
+All lock and barrier recipes work across JVMs. The Shared Semaphore is mostly
+fair — each user gets a lease in the order requested from ZooKeeper's point of view.
+Barriers block a set of nodes until a condition is met, then all proceed together.
+--
+
+== Counters and Caches
+
+*Counters:*
+
+* Shared Counter — shared integer across clients
+* Distributed Atomic Long — atomic increments with optimistic locking
+
+*Caches:*
+
+* Curator Cache — keeps node data locally cached
+* Responds to update/create/delete events automatically
+
+[.notes]
+--
+The Distributed Atomic Long first tries optimistic locking and falls back
+to an InterProcessMutex if that fails. Curator Cache (for ZooKeeper 3.6+)
+replaces the older Path Cache, Node Cache, and Tree Cache.
+--
+
+== Queues
+
+* *Distributed Queue* — FIFO ordered via PERSISTENT_SEQUENTIAL
+* *Distributed ID Queue* — items have IDs, can be removed
+* *Distributed Priority Queue* — priority-based ordering
+* *Distributed Delay Queue* — time-delayed processing
+* *Simple Distributed Queue* — drop-in for ZK's built-in queue
+
+[.notes]
+--
+Items put into the queue are guaranteed to be ordered. If a single consumer
+takes items out, they will be ordered FIFO. If ordering is critical,
+use a LeaderSelector to nominate a single consumer.
+--
+
+== Service Discovery
+
+* Services register their availability in ZooKeeper
+* Clients locate instances of a particular service
+* Notifications when service instances change
+* Built-in strategies: Round Robin, Random, Sticky
+
+[.notes]
+--
+In SOA and distributed systems, services need to find each other. DNS is not
+flexible enough for constantly changing services. Curator Service Discovery
+provides registration, lookup, and notification of service instances.
+--
+
+== Service Discovery: Registering
+
+[source,java]
+----
+ServiceInstance<MyPayload> instance =
+    ServiceInstance.<MyPayload>builder()
+        .name("my-service")
+        .payload(new MyPayload(...))
+        .port(8080)
+        .build();
+
+ServiceDiscovery<MyPayload> discovery =
+    ServiceDiscoveryBuilder.builder(MyPayload.class)
+        .client(client)
+        .basePath("/services")
+        .thisInstance(instance)
+        .build();
+discovery.start();
+----
+
+[.notes]
+--
+ServiceInstances have a name, id, address, port, and an optional typed payload.
+They are serialized and stored as ZooKeeper nodes under a base path organized
+by service name.
+--
+
+== Service Discovery: Consuming
+
+[source,java]
+----
+ServiceProvider<MyPayload> provider =
+    discovery.serviceProviderBuilder()
+        .serviceName("my-service")
+        .build();
+provider.start();
+
+// Get one instance (round-robin by default)
+ServiceInstance<MyPayload> instance =
+    provider.getInstance();
+----
+
+* Always get a fresh instance — don't cache the result
+* Call `provider.noteError(instance)` on failures
+
+[.notes]
+--
+The ServiceProvider encapsulates the discovery service with a provider strategy.
+The provider strategies determine how one instance is selected from the available
+set. Always retrieve a fresh instance rather than holding a reference.
+--
+
+== Curator Async DSL
+
+[source,java]
+----
+AsyncCuratorFramework async =
+    AsyncCuratorFramework.wrap(client);
+
+async.checkExists()
+    .forPath(somePath)
+    .thenAccept(stat -> mySuccessOperation(stat));
+----
+
+* Uses Java 8 `CompletionStage` for chaining and composing
+* Natural functional style with lambdas
+* Available in `curator-x-async` artifact
+
+[.notes]
+--
+The Async DSL wraps existing CuratorFramework instances. It's entirely
+asynchronous and uses Java 8's CompletionStage mechanism. It also provides
+a cleaned-up and simplified version of Curator's original DSL.
+--
+
+== Modeled Curator
+
+[source,java]
+----
+ModeledFramework<Foo> modeled =
+    ModeledFramework.wrap(client, fooModelSpec);
+
+// Strongly typed set/get
+modeled.set(new Foo());
+----
+
+* Strongly typed DSL — maps ZK paths to serializable classes
+* Parameterized path substitutions
+* Configurable create/delete options, ACLs, compression
+
+[.notes]
+--
+Modeled Curator is part of the curator-x-async package. It provides a
+strongly typed alternative to working with raw byte arrays. You define a
+model spec that maps a path to a class with serialization, create modes,
+ACLs, and other options.
+--
+
+== Migrations
+
+* Pre-apply transactions in a staged manner
+* Ensures consistent state in ZooKeeper node hierarchy
+* Similar to database migration utilities (Flyway, Liquibase)
+* Part of the `curator-x-async` package
+
+[.notes]
+--
+Curator Migrations let you version your ZooKeeper node structure the same
+way you version database schemas. Migrations are applied in order and tracked
+so they only run once.
+--
+
+== Mailing Lists
+
+[cols="1,2"]
+|===
+| List | Purpose
+
+| user@curator.apache.org
+| Usage questions and help
+
+| dev@curator.apache.org
+| Development discussions
+
+| commits@curator.apache.org
+| Repository commit notifications
+|===
+
+Subscribe by emailing: `listname-subscribe@curator.apache.org`
+
+[.notes]
+--
+The mailing lists are the primary communication channel. You must subscribe
+before posting. The user list is the right place for usage questions.
+The dev list is for discussing changes to the project itself.
+--
+
+== Source Code and Issues
+
+* *GitHub Repository:* https://github.com/apache/curator
+* *Issue Tracker:* https://github.com/apache/curator/issues
+* *Website Repository:* https://github.com/apache/curator-site
+
+[.notes]
+--
+Curator uses GitHub for source code hosting and issue tracking. Bug reports
+and enhancement requests should be filed as GitHub issues. The website source
+is in a separate repository.
+--
+
+== How to Contribute
+
+* Use the project and provide feedback
+* Report bugs with reproducible test cases
+* Submit patches and pull requests
+* Contribute code and documentation
+* Help answer questions on the mailing list
+
+[.notes]
+--
+Every volunteer project obtains its strength from the people involved.
+You can participate as much or as little as you choose. Even filing
+well-documented bug reports is a valuable contribution.
+--
+
+== Important Compatibility Notes
+
+* Curator 5.x requires ZooKeeper 3.6+
+* Version 5.0 has breaking changes from 4.x
+* Use Curator Cache instead of older Path/Node/Tree Cache
+* OSGi bundles available (unshaded, classifier `osgi`)
+
+[.notes]
+--
+When upgrading to Curator 5.x, review the breaking changes documentation
+on the project website. The older cache recipes (PathChildrenCache,
+NodeCache, TreeCache) are for pre-3.6 ZooKeeper only — use CuratorCache instead.
+--
+
+== Resources
+
+* *Website:* https://curator.apache.org
+* *Getting Started:* https://curator.apache.org/docs/getting-started
+* *Recipes:* https://curator.apache.org/docs/recipes
+* *Stack Overflow:* Tag `apache-curator`
+* *Latest Release:* 5.9.0 (July 2025)
+
+[.notes]
+--
+The project website has comprehensive documentation for all recipes and
+extensions. Stack Overflow has many answered questions under the
+apache-curator tag. The getting-started guide is the best entry point for new users.
+--
+
+== Questions?
+
+image::project-logo.png[Apache Curator, 300]
+
+https://curator.apache.org
+
+[.notes]
+--
+Thank you for attending. Please visit the Apache Curator website for
+full documentation, and don't hesitate to reach out on the mailing lists
+with any questions.
+--
