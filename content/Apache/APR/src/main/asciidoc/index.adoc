@@ -1,0 +1,414 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+== Apache APR
+
+image::project-logo.png[Apache APR, 500]
+
+A predictable and consistent interface to underlying platform-specific implementations
+
+[.notes]
+--
+The Apache Portable Runtime (APR) project creates and maintains software
+libraries that provide a consistent cross-platform API. It was established
+in December 2000 and has been the foundation of Apache HTTP Server and
+many other projects ever since.
+--
+
+== What Is the Apache Portable Runtime?
+
+* Software libraries providing a *predictable, consistent interface* to platform-specific implementations
+* Relieves developers of coding special-case conditions for platform differences
+* Ensures *predictable if not identical behaviour* regardless of platform
+* Written in C — lightweight, fast, and portable
+
+[.notes]
+--
+This is straight from the APR project mission statement. The key value
+proposition: write your code once, and APR handles the platform differences.
+--
+
+== Why Does APR Exist?
+
+* Operating systems differ in APIs for files, networking, threads, etc.
+* POSIX helps — but is incomplete and inconsistently implemented
+* APR provides a *single C API* that works across Unix, Windows, macOS, and more
+* Originally extracted from Apache HTTP Server 2.0 development
+
+[.notes]
+--
+Before APR, httpd had platform-specific code scattered throughout.
+Extracting a portable runtime made httpd cleaner AND made the runtime
+available to other projects.
+--
+
+== The APR Family of Libraries
+
+[cols="1,3"]
+|===
+| Library | Purpose
+
+| *APR*
+| Base portability library (files, networking, threads, memory pools, etc.)
+
+| *APR-util*
+| Higher-level abstractions on top of APR (databases, XML, encoding, etc.)
+
+| *APR-iconv*
+| Portable iconv() implementation for platforms without native iconv
+|===
+
+Current releases: *APR 1.7.6* (May 2025) • *APR-util 1.6.3* (Feb 2023) • *APR-iconv 1.2.2* (Oct 2017)
+
+[.notes]
+--
+APR-iconv is primarily of interest on Windows where no system iconv is
+available. It enables the apr_xlate feature in APR-util.
+APR 1.7.6 is the current recommended release.
+--
+
+== Core API Areas
+
+* *Memory Pools* — hierarchical allocation and bulk cleanup
+* *File I/O* — open, read, write, lock, permissions, directory manipulation
+* *Network Routines* — sockets, multicast, address handling
+* *Threads* — creation, mutexes, condition variables, reader/writer locks
+* *Process Management* — fork/exec, signals, environment
+
+[.notes]
+--
+Memory pools are one of APR's signature features — allocate many objects
+from a pool and destroy them all at once. Very efficient for
+request-based processing.
+--
+
+== More API Areas
+
+* *Atomic Operations* — cross-platform atomic increment/decrement/CAS
+* *Poll Routines* — abstraction over select, poll, epoll, kqueue
+* *Shared Memory* — create and manage shared memory segments
+* *Hash Tables & Tables* — general-purpose data structures
+* *Time Routines* — time functions, formatting, timezone handling
+
+[.notes]
+--
+The poll abstraction is particularly important — it gives you the best
+available mechanism on each platform (epoll on Linux, kqueue on BSD/macOS).
+--
+
+== Memory Pools — Key Concept
+
+[source,c]
+----
+apr_pool_t *pool;
+apr_pool_create(&pool, NULL);
+
+/* Allocate from pool — no individual free needed */
+char *buf = apr_palloc(pool, 256);
+char *str = apr_pstrdup(pool, "Hello APR");
+
+/* Destroy pool — frees ALL allocations at once */
+apr_pool_destroy(pool);
+----
+
+[.notes]
+--
+Pools can be nested (parent/child) so a whole request's memory can be
+cleaned up in one shot. This is the foundation of httpd's memory model.
+--
+
+== File I/O Example
+
+[source,c]
+----
+apr_file_t *fp;
+apr_file_open(&fp, "/tmp/test.txt",
+    APR_FOPEN_CREATE | APR_FOPEN_WRITE,
+    APR_FPROT_OS_DEFAULT, pool);
+
+apr_file_puts("Hello from APR\n", fp);
+apr_file_close(fp);
+----
+
+[.notes]
+--
+The flags and permissions use APR constants rather than POSIX constants,
+providing a consistent interface across platforms including Windows.
+--
+
+== Network Socket Example
+
+[source,c]
+----
+apr_socket_t *sock;
+apr_sockaddr_t *sa;
+
+apr_sockaddr_info_get(&sa, "localhost",
+    APR_INET, 8080, 0, pool);
+apr_socket_create(&sock,
+    sa->family, SOCK_STREAM,
+    APR_PROTO_TCP, pool);
+apr_socket_connect(sock, sa);
+----
+
+[.notes]
+--
+APR handles the differences between IPv4/IPv6, and between
+Winsock and BSD sockets, behind a single clean interface.
+--
+
+== APR-util Highlights
+
+* *Database abstraction* (DBD) — MySQL, PostgreSQL, SQLite, Oracle, ODBC
+* *Bucket brigades* — efficient data pipeline model
+* *Encoding* — Base64, Base32, Base16
+* *Memcached & Redis clients*
+* *Crypto abstraction* — OpenSSL / NSS / CommonCrypto
+
+[.notes]
+--
+The DBD (database driver) framework lets you write database code once
+and swap drivers at runtime. APR-util 1.6.3 unbundled expat and updated
+support for recent OpenSSL and MySQL versions.
+--
+
+== Projects Using APR
+
+* *Apache HTTP Server* — the original consumer
+* *Apache Subversion* — version control system
+* *Apache Serf* — HTTP client library
+* *Apache Traffic Server* — caching proxy
+
+[.notes]
+--
+APR was born from httpd but has grown well beyond it. Subversion is
+one of the largest independent users. The project website lists
+additional users and invites projects to submit their names.
+--
+
+== Part 2: Getting Started
+
+image::project-logo.png[APR, 200]
+
+Building, installing, and using APR
+
+[.notes]
+--
+Now that we know what APR provides, let's look at how to get started.
+--
+
+== Downloading APR
+
+* Source: https://apr.apache.org/download.cgi
+* Unix tarballs: `.tar.gz` and `.tar.bz2`
+* Windows source: `-win32-src.zip`
+* *Always verify signatures* with PGP keys
+
+[.notes]
+--
+APR does not distribute binaries — you build from source. Many Linux
+distributions also package APR in their repositories.
+Verify signatures using keys from https://people.apache.org/keys/committer/
+--
+
+== Building on Unix/Linux
+
+[source,bash]
+----
+tar xzf apr-1.7.6.tar.gz
+cd apr-1.7.6
+./configure --prefix=/usr/local/apr
+make
+make test
+sudo make install
+----
+
+[.notes]
+--
+Standard autoconf build. The test suite runs platform-specific tests to
+verify correct behavior on your system. You can then point APR-util's
+configure at this installation with --with-apr=/usr/local/apr.
+--
+
+== Using APR in Your Project
+
+[source,c]
+----
+#include "apr.h"
+#include "apr_pools.h"
+#include "apr_file_io.h"
+
+int main(int argc, const char *argv[]) {
+    apr_initialize();
+    /* ... your code ... */
+    apr_terminate();
+    return 0;
+}
+----
+
+Compile with: `apr-1-config --cflags --cppflags --libs`
+
+[.notes]
+--
+Always call apr_initialize at startup and apr_terminate at shutdown.
+The apr-1-config script (installed with APR) provides the correct
+compiler and linker flags for your platform.
+--
+
+== Linking with apr-1-config
+
+[source,bash]
+----
+# Get compiler flags
+apr-1-config --cflags --cppflags --includes
+
+# Get linker flags
+apr-1-config --link-ld --libs
+
+# One-liner build
+gcc $(apr-1-config --cflags --cppflags --includes) \
+    myapp.c \
+    $(apr-1-config --link-ld --libs) -o myapp
+----
+
+[.notes]
+--
+apr-1-config is the standard way to discover APR build flags.
+For APR-util, there's a corresponding apu-1-config script.
+--
+
+== API Documentation
+
+* Generated Doxygen docs: https://apr.apache.org/docs/apr/1.7/
+* Tutorial: "An Introduction to APR" covers pools and basic concepts
+* Sample code available in the source tree
+* APR-util docs also available at https://apr.apache.org/docs/apr-util/1.6/
+
+[.notes]
+--
+The API docs are comprehensive and generated directly from the header
+file comments. Start with the pools tutorial and the sample code directory.
+--
+
+== Part 3: Community
+
+image::project-logo.png[APR, 200]
+
+How the APR project is organized
+
+[.notes]
+--
+Understanding the community structure helps you participate effectively.
+--
+
+== Project Governance
+
+* Apache Software Foundation Top-Level Project since *December 2000*
+* Governed by a Project Management Committee (PMC)
+* *43 PMC members*
+* Decisions made by lazy consensus on the dev mailing list
+
+[.notes]
+--
+APR is one of the older ASF projects. The PMC includes many long-time
+Apache contributors from httpd and Subversion.
+--
+
+== Mailing Lists
+
+[cols="1,2"]
+|===
+| List | Purpose
+
+| *dev@apr.apache.org*
+| Primary developer discussion — patches, design, releases
+
+| *bugs@apr.apache.org*
+| Automated bug tracker notifications
+
+| *commits@apr.apache.org*
+| Automated commit notifications from source repository
+|===
+
+Subscribe by emailing: `<list>-subscribe@apr.apache.org`
+
+[.notes]
+--
+The dev list is where everything happens. You must subscribe before
+posting. Archives are available via Apache Pony Mail.
+--
+
+== Source Code & Issue Tracking
+
+* *Source*: Subversion at https://svn.apache.org/repos/asf/apr/
+* Read-only Git mirror available
+* *Bugs*: https://bz.apache.org/bugzilla/ (Product: APR)
+* Patches welcome via Bugzilla or the dev mailing list
+
+[.notes]
+--
+APR is one of the few remaining ASF projects using Subversion as its
+primary VCS. When filing a bug, include your platform, APR version,
+and a minimal test case.
+--
+
+== How to Contribute
+
+* Subscribe to dev@apr.apache.org
+* Check existing bugs in Bugzilla
+* Review the CHANGES file for recent activity
+* Submit patches via Bugzilla or the dev list
+* Follow the existing code style and conventions
+
+[.notes]
+--
+APR has a mature codebase, so contributions often take the form of
+bug fixes, portability improvements, and performance enhancements
+rather than large new features.
+--
+
+== Summary
+
+* APR provides a *predictable, consistent* cross-platform C API
+* Covers file I/O, networking, threads, memory pools, and more
+* Foundation of Apache HTTP Server, Subversion, and other projects
+* Mature, stable project — established December 2000
+* Active PMC with 43 members
+
+[.notes]
+--
+APR is infrastructure software that quietly powers some of the most
+widely deployed open source projects in the world.
+--
+
+== Links & Resources
+
+* Website: https://apr.apache.org/
+* Downloads: https://apr.apache.org/download.cgi
+* API Docs: https://apr.apache.org/docs/apr/1.7/
+* Dev list: dev@apr.apache.org
+* Bugzilla: https://bz.apache.org/bugzilla/ (Product: APR)
+* Source: https://svn.apache.org/repos/asf/apr/
+
+[.notes]
+--
+All the links you need to get started with APR. Remember to subscribe
+to the dev list if you want to contribute or ask questions.
+--
