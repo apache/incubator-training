@@ -1,0 +1,242 @@
+//
+//  Licensed to the Apache Software Foundation (ASF) under one or more
+//  contributor license agreements.  See the NOTICE file distributed with
+//  this work for additional information regarding copyright ownership.
+//  The ASF licenses this file to You under the Apache License, Version 2.0
+//  (the "License"); you may not use this file except in compliance with
+//  the License.  You may obtain a copy of the License at
+//
+//      https://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+
+== Training Module Catalog
+
+Browse all available training modules. Use the tags below to filter by topic, technology, or audience.
+
+++++
+<style>
+  .catalog-search {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  .tag-filters {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tag-chip {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 13px;
+    cursor: pointer;
+    background: #e8e8e8;
+    color: #333;
+    border: 1px solid #ccc;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .tag-chip:hover {
+    background: #d0d0d0;
+  }
+  .tag-chip.active {
+    background: #d62d20;
+    color: white;
+    border-color: #d62d20;
+  }
+  .catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .module-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    background: #fafafa;
+    transition: box-shadow 0.2s;
+  }
+  .module-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+  .module-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+  }
+  .module-card h3 a {
+    color: #d62d20;
+    text-decoration: none;
+  }
+  .module-card h3 a:hover {
+    text-decoration: underline;
+  }
+  .module-card .description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  .module-card .meta {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .module-card .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .module-card .tags span {
+    font-size: 11px;
+    background: #eee;
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: #666;
+  }
+  .catalog-count {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  .no-results {
+    padding: 40px;
+    text-align: center;
+    color: #888;
+    font-size: 16px;
+  }
+</style>
+
+<input type="text" class="catalog-search" id="catalogSearch" placeholder="Search modules..." />
+
+<div class="tag-filters" id="tagFilters">
+  <!-- Tags populated by JavaScript -->
+</div>
+
+<div class="catalog-count" id="catalogCount"></div>
+
+<div class="catalog-grid" id="catalogGrid">
+  <!-- Cards populated by JavaScript -->
+</div>
+
+<script>
+(function() {
+  var catalog = null;
+  var activeTags = new Set();
+
+  function loadCatalog() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'catalog.json', true);
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        catalog = JSON.parse(xhr.responseText);
+        renderTags();
+        renderModules();
+      } else {
+        document.getElementById('catalogGrid').innerHTML =
+          '<div class="no-results">Could not load catalog. Run <code>python3 tools/generate-catalog.py</code> first.</div>';
+      }
+    };
+    xhr.onerror = function() {
+      document.getElementById('catalogGrid').innerHTML =
+        '<div class="no-results">Could not load catalog. Run <code>python3 tools/generate-catalog.py</code> first.</div>';
+    };
+    xhr.send();
+  }
+
+  function renderTags() {
+    var container = document.getElementById('tagFilters');
+    container.innerHTML = '';
+    catalog.tags.forEach(function(tag) {
+      var chip = document.createElement('span');
+      chip.className = 'tag-chip';
+      chip.textContent = tag;
+      chip.addEventListener('click', function() {
+        if (activeTags.has(tag)) {
+          activeTags.delete(tag);
+          chip.classList.remove('active');
+        } else {
+          activeTags.add(tag);
+          chip.classList.add('active');
+        }
+        renderModules();
+      });
+      container.appendChild(chip);
+    });
+  }
+
+  function renderModules() {
+    var grid = document.getElementById('catalogGrid');
+    var countEl = document.getElementById('catalogCount');
+    var searchTerm = (document.getElementById('catalogSearch').value || '').toLowerCase();
+
+    var filtered = catalog.modules.filter(function(mod) {
+      // Tag filter: module must have ALL active tags
+      if (activeTags.size > 0) {
+        var moduleTags = mod.tags || [];
+        var hasAll = true;
+        activeTags.forEach(function(t) {
+          if (moduleTags.indexOf(t) === -1) hasAll = false;
+        });
+        if (!hasAll) return false;
+      }
+      // Text search
+      if (searchTerm) {
+        var haystack = (mod.title + ' ' + mod.description + ' ' + (mod.tags || []).join(' ')).toLowerCase();
+        if (haystack.indexOf(searchTerm) === -1) return false;
+      }
+      return true;
+    });
+
+    countEl.textContent = filtered.length + ' of ' + catalog.count + ' modules';
+
+    if (filtered.length === 0) {
+      grid.innerHTML = '<div class="no-results">No modules match your filters. Try removing some tags.</div>';
+      return;
+    }
+
+    grid.innerHTML = filtered.map(function(mod) {
+      var meta = [];
+      if (mod.level) meta.push(mod.level);
+      if (mod.duration) meta.push(mod.duration);
+      if (mod.language) meta.push(mod.language);
+      if (mod.slides) meta.push(mod.slides + ' slides');
+
+      var tagsHtml = (mod.tags || []).map(function(t) {
+        return '<span>' + t + '</span>';
+      }).join('');
+
+      return '<div class="module-card">' +
+        '<h3><a href="' + mod.path + '" target="_blank">' + mod.title + '</a></h3>' +
+        '<div class="description">' + mod.description + '</div>' +
+        (meta.length ? '<div class="meta">' + meta.join(' · ') + '</div>' : '') +
+        '<div class="tags">' + tagsHtml + '</div>' +
+        '</div>';
+    }).join('');
+  }
+
+  // Search handler
+  document.getElementById('catalogSearch').addEventListener('input', function() {
+    if (catalog) renderModules();
+  });
+
+  // Load on page ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadCatalog);
+  } else {
+    loadCatalog();
+  }
+})();
+</script>
+++++

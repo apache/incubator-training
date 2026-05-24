@@ -1,0 +1,51 @@
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Training Module Metadata
+# ========================
+# Each training module should include a metadata.yaml file in its root directory.
+# This file is used to generate the site catalog with tag-based filtering.
+#
+# Required fields:
+#   title       - Display name of the module
+#   project_id  - Apache project identifier (lowercase)
+#   description - One-line summary (shown in catalog cards)
+#   tags        - List of tags for filtering (see standard tags below)
+#
+# Optional fields:
+#   duration    - Estimated presentation length (e.g., "45 min", "2 hours")
+#   level       - beginner | intermediate | advanced
+#   language    - Programming language focus (java, python, scala, etc.)
+#   updated     - Last updated date (YYYY-MM-DD)
+#   author      - Original author or contributor
+#   slides      - Number of slides
+#
+# Standard tags (use these where applicable for consistency):
+#   Domain:     big-data, streaming, messaging, database, web, ml-ai, iot,
+#               build-tools, libraries, security, search, cloud, governance
+#   Type:       intro, deep-dive, hands-on, overview
+#   Ecosystem:  hadoop-ecosystem, jvm, python-ecosystem
+#   Audience:   developer, operator, data-engineer, contributor
+
+title: "Template"
+project_id: template
+description: "Template for creating new Apache project training modules"
+tags:
+  - governance
+  - intro
+duration: "45-60 min"
+level: beginner
+slides: 25
+updated: "2026-05-24"

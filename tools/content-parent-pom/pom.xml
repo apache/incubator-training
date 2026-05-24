@@ -95,36 +95,36 @@
                 </executions>
                 <configuration>
                     <consoleOutput>true</consoleOutput>
-                    <excludes>
+                    <inputExcludes>
                         <!-- Maven related files -->
-                        <exclude>**/target/**</exclude>
+                        <inputExclude>**/target/**</inputExclude>
 
                         <!-- Eclipse related files -->
-                        <exclude>**/.project</exclude>
-                        <exclude>**/.settings/**</exclude>
-                        <exclude>**/.classpath</exclude>
+                        <inputExclude>**/.project</inputExclude>
+                        <inputExclude>**/.settings/**</inputExclude>
+                        <inputExclude>**/.classpath</inputExclude>
 
                         <!-- IntelliJ related files -->
-                        <exclude>**/.idea/**</exclude>
-                        <exclude>**/*.iml</exclude>
+                        <inputExclude>**/.idea/**</inputExclude>
+                        <inputExclude>**/*.iml</inputExclude>
 
                         <!-- Asciidoctor generated files -->
-                        <exclude>**/.asciidoctor/**</exclude>
+                        <inputExclude>**/.asciidoctor/**</inputExclude>
 
                         <!-- JSON doesn't like comments -->
-                        <exclude>**/*.json</exclude>
+                        <inputExclude>**/*.json</inputExclude>
                         <!-- Mermaid does't like comments -->
-                        <exclude>**/*.mmd</exclude>
+                        <inputExclude>**/*.mmd</inputExclude>
 
                         <!-- Output of the profiler maven extension -->
-                        <exclude>**/.profiler/**</exclude>
+                        <inputExclude>**/.profiler/**</inputExclude>
 
-                        <exclude>licenses/**</exclude>
-                        <exclude>README.md</exclude>
+                        <inputExclude>licenses/**</inputExclude>
+                        <inputExclude>README.md</inputExclude>
 
                         <!-- Exclude the Docker local repo -->
-                        <exclude>out/**</exclude>
-                    </excludes>
+                        <inputExclude>out/**</inputExclude>
+                    </inputExcludes>
                 </configuration>
             </plugin>
 

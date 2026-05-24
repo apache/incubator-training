@@ -74,20 +74,10 @@ html lang=(attr :lang, 'en' unless attr? :nolang)
     - unless (_docinfo = docinfo :head, '-revealjs.html').empty?
       =_docinfo
   body
-    / START ADDED For Apache Training
-    .header
-      .left
-      .right
-    / END ADDED For Apache Training
     .reveal
       / Any section element inside of this container is displayed as a slide
       .slides
         - yield_content :slides
-    / START ADDED For Apache Training
-    .footer
-      .left
-      .right
-    / END ADDED For Apache Training
     script src="#{revealjsdir}/dist/reveal.js"
     / Supports easy AsciiDoc syntax for background color
     javascript:

@@ -100,53 +100,7 @@
 
     <!-- Published presentations -->
     <menu name="Presentations">
-      <item name="Apache Airflow" href="presentations/apache/airflow/index.html" target="_blank"/>
-      <item name="Apache ComDev">
-        <item name="The ASF" href="presentations/apache/comdev/apache-intro/index.html" target="_blank"/>
-        <item name="Intro" href="presentations/apache/comdev/comdev-intro/index.html" target="_blank"/>
-        <item name="Working Groups" href="presentations/apache/comdev/working-groups/index.html" target="_blank"/>
-      </item>
-      <item name="Apache Druid" href="presentations/apache/druid/index.html" target="_blank"/>
-      <item name="Apache Flink" href="presentations/apache/flink/index.html" target="_blank"/>
-      <item name="Apache Hadoop" href="presentations/apache/hadoop/index.html" target="_blank"/>
-      <item name="Apache Hive" href="presentations/apache/hive/index.html" target="_blank"/>
-      <item name="Apache Ignite" href="presentations/apache/ignite/index.html" target="_blank"/>
-      <item name="Apache Incubator">
-        <item name="Podling Orientation" href="presentations/apache/incubator/PodlingOrientation/index.html" target="_blank"/>
-        <item name="ASF Values" href="presentations/apache/incubator/ASFvalues/index.html" target="_blank"/>
-        <item name="Incubator Releases" href="presentations/apache/incubator/incubator-releases/index.html" target="_blank"/>
-        <item name="Vendor Neutrality" href="presentations/apache/incubator/VendorNeutrality/index.html" target="_blank"/>
-        <item name="Branding and Identity" href="presentations/apache/incubator/BrandingIdentity/index.html" target="_blank"/>
-        <item name="Governance in Practice" href="presentations/apache/incubator/Goverance/index.html" target="_blank"/>
-        <item name="Voting And Consensus" href="presentations/apache/incubator/VotingAndConsensus/index.html" target="_blank"/>
-        <item name="Community Building" href="presentations/apache/incubator/CommunityBuilding/index.html" target="_blank"/>
-        <item name="IPMC Onboarding" href="presentations/apache/incubator/IPMC/index.html" target="_blank"/>
-        <item name="Mentors Onboarding" href="presentations/apache/incubator/mentors/index.html" target="_blank"/>
-        <item name="PPMC Onboarding" href="presentations/apache/incubator/PPMC/index.html" target="_blank"/>
-        <item name="Committers Onboarding" href="presentations/apache/incubator/committers/index.html" target="_blank"/>
-        <item name="Navigating ASF Incubator" href="presentations/apache/incubator/navigating-asf-incubation/index.html" target="_blank"/>
-        <item name="Release Checklist" href="presentations/apache/incubator/release-checklist/index.html" target="_blank"/>
-      </item>
-      <item name="Apache MyNewt" href="presentations/apache/mynewt/index_en.html" target="_blank"/>
-      <item name="Apache PLC4X">
-        <item name="Revolutionizing IIoT with Apache PLC4X" href="presentations/apache/plc4x/revolutionizing-iiot-with-plc4x/index.html" target="_blank"/>
-      </item>
-      <item name="Apache Pulsar" href="presentations/apache/pulsar/index.html" target="_blank"/>
-      <item name="Apache Samza" href="presentations/apache/samza/index.html" target="_blank"/>
-      <item name="Apache Spark">
-        <item name="Basics" href="presentations/apache/spark/basics/index.html" target="_blank"/>
-      </item>
-      <item name="Apache Training">
-        <!--item name="Demo" href="presentations/training/demo/index.html" target="_blank"/-->
-        <item name="Presentation" href="presentations/apache/training/presentation/index_en.html" target="_blank"/>
-      </item>
-      <item name="Apache Zookeeper" href="presentations/apache/zookeeper/index_en.html" target="_blank"/>
-      <item name="IoT">
-        <item name="Magic Industrial Data Acquisition" href="presentations/iot/magic-industrial-data-acquisition-with-apache-plc4x-tsfile-and-iotdb/index.html" target="_blank"/>
-        <!-- There are double-linked here -->
-        <item name="Apache MyNewt" href="presentations/apache/mynewt/index_en.html" target="_blank"/>
-        <item name="Revolutionizing IIoT with Apache PLC4X" href="presentations/apache/plc4x/revolutionizing-iiot-with-plc4x/index.html" target="_blank"/>
-      </item>
+      <item name="Browse Catalog" href="catalog.html"/>
     </menu>
 
     <!-- Users (Authors and presenters) -->

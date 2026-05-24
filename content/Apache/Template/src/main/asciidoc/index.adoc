@@ -1,0 +1,368 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+:presenter_name: Your Name
+:presenter_company: Your Company
+:description: Introduction to Apache PROJECT_NAME
+:keywords: Apache, PROJECT_NAME
+:author: Your Name
+:email: Your email
+:position: Your role
+
+// ============================================================
+// TEMPLATE INSTRUCTIONS
+// ============================================================
+// Replace all instances of PROJECT_NAME with the actual project name.
+// Replace PROJECT_ID with the lowercase project identifier (e.g., "kafka").
+// Replace PROJECT_LOGO_URL with the project's logo URL or local image path.
+// Fill in each section with project-specific content.
+// Remove this comment block before publishing.
+// ============================================================
+
+== Apache PROJECT_NAME
+
+image::PROJECT_LOGO_URL[width=400, align=center]
+
+Introduction to Apache PROJECT_NAME
+
+== Who am I?
+{author} +
+{position} +
+{email} +
+
+// ============================================================
+// PART 1: WHAT IS IT?
+// ============================================================
+
+== What is Apache PROJECT_NAME?
+
+// One-paragraph elevator pitch: what problem does it solve?
+// Example: "Apache Kafka is a distributed event streaming platform
+// used by thousands of companies for high-performance data pipelines,
+// streaming analytics, data integration, and mission-critical applications."
+
+TODO: Write a concise description of what the project does and why it exists.
+
+== The Problem it Solves
+
+// What pain point or gap existed before this project?
+// What were people using instead?
+
+TODO: Describe the problem space.
+
+[.notes]
+--
+Provide context on why this project was created.
+What alternatives existed? What was lacking?
+--
+
+== Key Features
+
+// Highlight 4-6 distinguishing capabilities
+
+* *Feature 1* — brief explanation
+* *Feature 2* — brief explanation
+* *Feature 3* — brief explanation
+* *Feature 4* — brief explanation
+
+[.notes]
+--
+Expand on each feature with examples or use cases.
+--
+
+== Architecture Overview
+
+// High-level architecture diagram or description.
+// Use an image if possible.
+
+image::architecture.png[]
+
+[.notes]
+--
+Describe the major components and how they interact.
+Keep it high-level — this is an intro, not a deep-dive.
+--
+
+== Use Cases
+
+// Who uses this and for what?
+
+[cols="2*", options="header"]
+|===
+| Use Case | Example Users
+
+| TODO: Use case 1
+| TODO: Example companies/projects
+
+| TODO: Use case 2
+| TODO: Example companies/projects
+
+| TODO: Use case 3
+| TODO: Example companies/projects
+|===
+
+== Project History
+
+// Brief timeline: inception, incubation, TLP graduation, major milestones.
+
+* *YYYY* — Project created at / donated by ___
+* *YYYY* — Entered Apache Incubator
+* *YYYY* — Graduated to Top-Level Project
+* *YYYY* — Major milestone (1.0 release, etc.)
+
+// ============================================================
+// PART 2: INSTALLATION & GETTING STARTED
+// ============================================================
+
+== Getting Started
+
+// What does a newcomer need to get up and running?
+
+=== Prerequisites
+
+* Operating System: ___
+* Language/Runtime: ___ (version ___)
+* Other dependencies: ___
+
+=== Installation Methods
+
+// List the common installation methods
+
+== Method 1: Package Manager
+
+// e.g., brew, apt, yum, pip, mvn dependency
+
+[source,bash]
+----
+# TODO: Add package manager install command
+# Example: brew install project_id
+----
+
+== Method 2: Download Binary Release
+
+* Download from: https://PROJECT_ID.apache.org/downloads.html
+* Verify checksums and signatures (https://www.apache.org/info/verification.html[ASF verification guide])
+
+[source,bash]
+----
+# TODO: Extract and run commands
+tar -xzf apache-PROJECT_ID-X.Y.Z-bin.tar.gz
+cd apache-PROJECT_ID-X.Y.Z
+./bin/start.sh
+----
+
+== Method 3: Docker
+
+[source,bash]
+----
+# TODO: Docker run command
+docker run -d --name project_id apache/PROJECT_ID:latest
+----
+
+== Method 4: Build from Source
+
+[source,bash]
+----
+git clone https://github.com/apache/PROJECT_ID.git
+cd PROJECT_ID
+# TODO: Build commands (mvn, gradle, make, etc.)
+----
+
+== Verifying the Installation
+
+// How does the user confirm it's working?
+
+[source,bash]
+----
+# TODO: Verification command
+# Example: project_id --version
+# Example: curl http://localhost:8080/health
+----
+
+== Hello World
+
+// Minimal working example — the simplest possible use of the project.
+
+[source,java]
+----
+// TODO: Replace with a minimal code example in the project's
+// primary language. Keep it under 20 lines.
+----
+
+[.notes]
+--
+This should be something the learner can type in and see
+results within 2 minutes of completing installation.
+--
+
+== Configuration Basics
+
+// What are the most important configuration knobs a beginner
+// needs to know about?
+
+* *Config file location*: ___
+* *Key setting 1*: what it controls
+* *Key setting 2*: what it controls
+* *Key setting 3*: what it controls
+
+== Next Steps
+
+// Where does the learner go after "Hello World"?
+
+* Official tutorials: https://PROJECT_ID.apache.org/docs/tutorial
+* Example projects: https://github.com/apache/PROJECT_ID/tree/main/examples
+* API documentation: https://PROJECT_ID.apache.org/docs/api
+
+// ============================================================
+// PART 3: PARTICIPATING IN THE COMMUNITY
+// ============================================================
+
+== The Apache PROJECT_NAME Community
+
+// Brief overview of community size, activity level, governance.
+
+* PMC members: ___ | Committers: ___ | Contributors: ___
+* Releases per year: ___
+* Active since: ___
+
+== Communication Channels
+
+// Where does discussion happen?
+
+[cols="3*", options="header"]
+|===
+| Channel | URL | Purpose
+
+| Dev mailing list
+| https://lists.apache.org/list.html?dev@PROJECT_ID.apache.org[Archive] — mailto:dev-subscribe@PROJECT_ID.apache.org[Subscribe]
+| Technical discussion, design proposals, releases
+
+| User mailing list
+| https://lists.apache.org/list.html?user@PROJECT_ID.apache.org[Archive] — mailto:user-subscribe@PROJECT_ID.apache.org[Subscribe]
+| End-user questions and support
+
+| Slack / Discord / IRC
+| TODO: Link if applicable
+| Real-time chat (informal)
+
+| GitHub Discussions
+| TODO: Link if applicable
+| Longer-form Q&A
+|===
+
+[.notes]
+--
+At Apache, the mailing list is the official channel of record.
+Decisions made elsewhere (Slack, etc.) must be brought back to
+the mailing list to be binding ("if it didn't happen on the
+mailing list, it didn't happen").
+--
+
+== Issue Tracking
+
+* *Bug reports*: TODO: Jira or GitHub Issues link
+* *Feature requests*: TODO: Same or separate link
+* *Good first issues*: TODO: Filtered link for newcomers
+
+== How to Contribute
+
+=== The Apache Way (quick overview)
+
+* Community over code
+* Earned authority (meritocracy)
+* Lazy consensus
+* Open development — all discussion on public mailing lists
+
+=== Contribution Workflow
+
+. *Find an issue* — browse "good first issue" labels or ask on dev@
+. *Discuss your approach* — email the dev list or comment on the issue
+. *Fork and branch* — `git checkout -b my-feature`
+. *Make your change* — follow the project's coding standards
+. *Test* — run the project's test suite
+. *Submit a PR* — reference the issue number
+. *Respond to review* — iterate based on feedback
+. *Celebrate* 🎉 — your contribution is merged!
+
+== Beyond Code
+
+// Not all contributions require writing code.
+
+* *Documentation* — fix typos, improve guides, translate
+* *Testing* — reproduce bugs, write test cases
+* *Triage* — help categorize and prioritize issues
+* *User support* — answer questions on the user@ list
+* *Evangelism* — write blog posts, give talks, create tutorials
+
+== Governance & Roles
+
+[cols="2*", options="header"]
+|===
+| Role | Description
+
+| *User*
+| Anyone using the software
+
+| *Contributor*
+| Someone who has submitted patches or helped the project
+
+| *Committer*
+| Earned write access to the repository (voted in by PMC)
+
+| *PMC Member*
+| Project Management Committee — responsible for releases, community health, and project direction
+
+| *PMC Chair*
+| Administrative liaison to the ASF Board
+|===
+
+== Code of Conduct
+
+The Apache Software Foundation follows the
+https://www.apache.org/foundation/policies/conduct.html[ASF Code of Conduct].
+
+All participants are expected to be respectful, constructive, and inclusive.
+
+// ============================================================
+// WRAP-UP
+// ============================================================
+
+== Further Resources
+
+* *Project website*: https://PROJECT_ID.apache.org
+* *Documentation*: https://PROJECT_ID.apache.org/docs
+* *Source code*: https://github.com/apache/PROJECT_ID
+* *Blog*: https://PROJECT_ID.apache.org/blog (if applicable)
+* *ASF-wide resources*:
+** https://community.apache.org[Apache Community Development]
+** https://www.apache.org/foundation/how-it-works.html[How the ASF Works]
+
+== Questions?
+
+image::PROJECT_LOGO_URL[width=200, align=center]
+
+* dev@PROJECT_ID.apache.org
+* https://PROJECT_ID.apache.org
+
+[.notes]
+--
+Open the floor for questions.
+Remind attendees they can reach the community on the mailing list.
+--
