@@ -1,0 +1,465 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+:title: Apache Empire-db
+
+== Apache Empire-db
+
+image::project-logo.png[Apache Empire-db, 500]
+
+Unleash the full power of your RDBMS in Java — with "No Strings Attached"
+
+[.notes]
+--
+Welcome to this introduction to Apache Empire-db. Empire-db is a lightweight
+relational database access library for Java that takes an SQL-centric approach.
+The tagline "No Strings Attached" refers to the fact that you never use string
+literals for column names or table names in your queries — everything is
+type-safe Java code.
+--
+
+== Part 1: What Is It?
+
+image::project-logo.png[Apache Empire-db, 200]
+
+Understanding Apache Empire-db
+
+[.notes]
+--
+In this first section, we'll explore what Empire-db is, what problems it
+solves, and how it differs from traditional ORM solutions like Hibernate
+or JPA.
+--
+
+== The Problem with ORM
+
+* ORM shields you from SQL — limiting control over queries
+* Lazy vs. Eager loading creates performance surprises
+* Bytecode proxies and "black box magic" obscure behavior
+* Mapping files and annotation overload add complexity
+* Complex queries require falling back to native SQL strings
+
+[.notes]
+--
+Object-Relational Mapping is the dominant approach for database access in Java.
+Products like Hibernate, OpenJPA, and Cayenne map tables to Java classes. But
+this abstraction has costs: you lose fine-grained control over SQL, you deal
+with lazy/eager loading issues, and complex queries often require dropping
+back to error-prone string-based native SQL.
+--
+
+== What Is Apache Empire-db?
+
+* Lightweight relational database access library for Java
+* SQL-centric, no-compromise approach to RDBMS access
+* Uses a Java Object Model — no mapping files, no annotations
+* Full SQL freedom without string literals
+* DBMS vendor independent
+
+[.notes]
+--
+Apache Empire-db is NOT an ORM in the classical sense. It doesn't attempt to
+map database tables to Java Beans (POJOs). Instead, it provides a Java Object
+Model that represents your database schema, letting you write any SQL construct
+in pure, type-safe Java code.
+--
+
+== What Empire-db Is NOT
+
+* Not a traditional ORM (no JDO/JPA implementation)
+* Not a code generator that produces SQL strings
+* Not a thin JDBC wrapper
+* Not tied to any specific framework (Spring, Jakarta EE, etc.)
+* Not an opinionated "one size fits all" solution
+
+[.notes]
+--
+It's important to clarify what Empire-db is NOT. It does not implement JPA or
+JDO. It's not just a JDBC helper utility. It's a distinct approach to database
+access that gives SQL-native developers a type-safe way to express their
+queries in Java while maintaining full control.
+--
+
+== Supported Databases
+
+* Oracle
+* Microsoft SQL Server
+* PostgreSQL
+* MySQL / MariaDB
+* H2
+* HsqlDB (HyperSQL)
+* Apache Derby
+* ...and more via custom DBMSHandlers
+
+[.notes]
+--
+Empire-db supports all major relational databases through dedicated DBMS
+handlers. The handlers deal with dialect differences like identity columns,
+sequence generation, pagination syntax, and data type mappings. You can also
+write your own handler for databases not yet supported.
+--
+
+== Part 2: Getting Started
+
+image::project-logo.png[Apache Empire-db, 200]
+
+From zero to first query
+
+[.notes]
+--
+Now let's look at how to get started with Empire-db in your own projects.
+We'll cover Maven setup, defining a data model, creating a context, and
+executing queries.
+--
+
+== Maven Dependency
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.empire-db</groupId>
+  <artifactId>empire-db</artifactId>
+  <version>3.4.0</version>
+</dependency>
+----
+
+Latest release: *3.4.0* (October 2025)
+
+[.notes]
+--
+The simplest way to add Empire-db to your project is via Maven. The groupId
+is org.apache.empire-db and the core artifactId is empire-db. Version 3.4.0
+is the latest release as of October 2025. You can also download the full
+distribution from the project website to explore the examples.
+--
+
+== Additional Modules
+
+* `empire-db` — Core library
+* `empire-db-jsf2` — JSF 2.x extensions
+* `empire-db-jakarta-faces` — Jakarta Faces extensions
+* `empire-db-codegen` — Generate model from existing DB
+* `empire-db-maven-plugin` — Maven code generation plugin
+
+[.notes]
+--
+Beyond the core library, Empire-db provides several companion modules. The
+JSF and Jakarta Faces modules help build web UIs that leverage database
+metadata for automatic input control generation. The codegen module and
+Maven plugin let you generate the Java data model from an existing database
+schema — very useful for brownfield projects.
+--
+
+== Define Your Data Model
+
+[source,java]
+----
+public class MyDB extends DBDatabase {
+  public final Brands BRAND = new Brands();
+  public final Models MODEL = new Models();
+
+  public class Brands extends DBTable {
+    public final DBTableColumn WMI;
+    public final DBTableColumn NAME;
+  }
+}
+----
+
+[.notes]
+--
+In Empire-db, you define your database schema as a Java class hierarchy. Your
+database class extends DBDatabase, and each table is a nested class extending
+DBTable. Columns are public final fields. This gives you compile-time checked
+references to every schema element — misspell a column name and the compiler
+tells you immediately.
+--
+
+== Create a Context and Connect
+
+[source,java]
+----
+// Get DBMS handler (e.g., PostgreSQL)
+DBMSHandler dbms = new DBMSHandlerPostgreSQL();
+
+// Open database with a JDBC connection
+DataSource ds = ...;  // your connection pool
+DBContext context = new DBContext(myDB, dbms, ds);
+----
+
+[.notes]
+--
+To use Empire-db, you create a DBContext which ties together your database
+definition, a DBMS handler for your specific database vendor, and a JDBC
+DataSource. The context manages connections and transactions for you.
+--
+
+== Build a Query
+
+[source,java]
+----
+DBCommand cmd = context.createCommand()
+  .select(BRAND.NAME, MODEL.SPECIFICATION)
+  .select(SALES.PRICE.avg())
+  .join(MODEL.WMI.on(BRAND.WMI))
+  .joinLeft(MODEL.ID.on(SALES.MODEL_ID))
+  .where(MODEL.BASE_PRICE.isGreaterThan(30000))
+  .orderBy(BRAND.NAME.asc());
+----
+
+[.notes]
+--
+Here's a typical Empire-db query. Notice how every part — column references,
+joins, conditions, ordering — is expressed through Java method calls on typed
+objects. There are zero string literals. The IDE gives you auto-complete on
+every column, and refactoring tools work perfectly.
+--
+
+== Retrieve Results
+
+[source,java]
+----
+// Option 1: List of Java Beans
+List<CarResult> list = context.getUtils()
+    .queryBeanList(cmd, CarResult.class, null);
+
+// Option 2: DataListEntry objects
+DataListHead head = new DataListHead(cmd.getSelectExpressions());
+List<DataListEntry> entries =
+    context.getUtils().queryDataList(cmd, head);
+----
+
+[.notes]
+--
+Empire-db offers multiple ways to process query results. You can map directly
+to Java Beans if you have matching constructor or setter methods. Or you can
+use DataListEntry objects which provide dynamic, metadata-rich access to result
+rows. There's also a Reader pattern for streaming large result sets.
+--
+
+== Generated SQL
+
+[source,sql]
+----
+SELECT t1.NAME, t2.SPECIFICATION,
+       avg(t5.PRICE)
+FROM MODEL t2
+  INNER JOIN BRAND t1 ON t1.WMI = t2.WMI
+  LEFT JOIN SALES t5 ON t5.MODEL_ID = t2.ID
+WHERE t2.BASE_PRICE > 30000
+ORDER BY t1.NAME
+----
+
+DBMS-specific SQL generated automatically
+
+[.notes]
+--
+Empire-db generates proper SQL for your target database. The generated SQL
+uses short table aliases and proper vendor-specific syntax. You can always
+inspect the generated SQL for debugging — there's no hidden magic. What you
+see in Java corresponds directly to what runs on the database.
+--
+
+== Code Generation (Database First)
+
+[source,java]
+----
+CodeGenConfig config = new CodeGenConfig();
+config.setPackageName("com.mycompany.db");
+config.setDbClassName("MyDatabase");
+
+DBMSHandler dbms = new DBMSHandlerOracle();
+Connection conn = getJDBCConnection(config);
+
+CodeGenerator app = new CodeGenerator();
+app.generate(dbms, conn, config);
+----
+
+[.notes]
+--
+For existing databases, the code generator creates the Java data model
+classes from your live schema. You configure the package name, class naming
+conventions, and whether to generate nested classes or separate files. This
+is the recommended approach for brownfield projects.
+--
+
+== Identity Management & Concurrency
+
+* Automatic identity (auto-increment / sequence) management
+* Optimistic locking via timestamp columns
+* DBMS-independent concurrency control
+* Record-level change tracking
+* DDL operations at runtime
+
+[.notes]
+--
+Empire-db handles common persistence concerns like primary key generation
+(whether through auto-increment columns or database sequences), optimistic
+locking for concurrent access, and even DDL operations. These work
+consistently across all supported databases without vendor-specific code
+in your application.
+--
+
+== Example Projects Included
+
+* *Basic examples* — context, queries, Records, Readers, DataLists, Beans
+* *Advanced examples* — parameters, batch processing, DDL changes at runtime
+* *JSF Web example* — server-side web frontend with metadata-driven controls
+* *Jakarta Faces example* — same as JSF but with jakarta.faces namespace
+* *Vue REST example* — JSON metadata served to a Vue.js frontend
+* *Spring Boot example* — integration with Spring Boot REST + connection pooling
+
+[.notes]
+--
+The Empire-db distribution ships with several example projects that demonstrate
+progressively more advanced usage. Start with the basic examples to learn
+the core API, then explore the web and REST examples to see how Empire-db
+integrates with popular frameworks.
+--
+
+== Part 3: Community
+
+image::project-logo.png[Apache Empire-db, 200]
+
+Join the Empire-db community
+
+[.notes]
+--
+In this final section, we'll cover how to participate in the Apache Empire-db
+community, where to find help, and how to contribute.
+--
+
+== Project Status
+
+* Apache Top-Level Project since *January 2012*
+* Charter: "creation and maintenance of software related to Relational Data Persistence"
+* PMC: 10 members
+* Source: Git (Apache GitBox + GitHub mirror)
+* License: Apache License 2.0
+* 100% Open Source, 100% Free
+
+[.notes]
+--
+Empire-db graduated from the Apache Incubator and became a top-level project
+in January 2012. It has a dedicated PMC of 10 members who guide the project's
+direction. All code is available under the Apache License 2.0.
+--
+
+== Mailing Lists
+
+* *dev@empire-db.apache.org* — development discussions
+* *user@empire-db.apache.org* — user questions and support
+
+Subscribe: send email to `dev-subscribe@empire-db.apache.org`
+
+Archives: https://lists.apache.org/list.html?empire-db.apache.org
+
+[.notes]
+--
+The mailing lists are the primary communication channel for the Empire-db
+community. The dev list is for discussing changes to the project itself, while
+the user list is for questions about using Empire-db. To subscribe, send an
+empty email to the -subscribe address.
+--
+
+== Source Code & Issue Tracker
+
+* *Git Repository:* https://gitbox.apache.org/repos/asf/empire-db.git
+* *GitHub Mirror:* https://github.com/apache/empire-db
+* *Issue Tracker:* https://issues.apache.org/jira/browse/EMPIREDB
+
+Fork us on GitHub — Pull Requests welcome!
+
+[.notes]
+--
+The canonical source code lives on Apache GitBox, with a read-write mirror on
+GitHub. You can fork the GitHub repo, make changes, and submit pull requests.
+The JIRA issue tracker is used for bug reports and feature requests — look for
+issues labeled "newbie" or "good first issue" if you want to contribute.
+--
+
+== How to Contribute
+
+* Use Empire-db and report bugs
+* Answer questions on the mailing lists
+* Submit patches or pull requests
+* Improve documentation and examples
+* Write blog posts or conference talks
+
+[.notes]
+--
+There are many ways to contribute beyond writing code. Using the project and
+reporting issues helps improve quality. Answering questions on the mailing
+list helps grow the community. Writing documentation, examples, or blog posts
+helps new users get started. All contributions are valued.
+--
+
+== Release History (Recent)
+
+[cols="1,1"]
+|===
+| Version | Date
+
+| 3.4.0 | October 2025
+| 3.3.0 | March 2025
+| 3.2.0 | June 2024
+| 3.1.0 | April 2023
+| 3.0.0 | March 2022
+|===
+
+[.notes]
+--
+Empire-db maintains an active release cadence. The 3.x line represents a
+major evolution of the API with improved context management, better type
+safety, and Jakarta namespace support. The project has been consistently
+releasing new versions every 6-12 months.
+--
+
+== Resources
+
+* *Website:* https://empire-db.apache.org
+* *Download:* https://empire-db.apache.org/pages/download.html
+* *GitHub:* https://github.com/apache/empire-db
+* *Maven Central:* `org.apache.empire-db:empire-db:3.4.0`
+* *JIRA:* https://issues.apache.org/jira/browse/EMPIREDB
+
+[.notes]
+--
+Here are the key links for Apache Empire-db. The project website has
+documentation and getting started information. Downloads are available
+both from the Apache mirrors and Maven Central. The GitHub mirror makes
+it easy to browse code and submit contributions.
+--
+
+== Thank You!
+
+*Apache Empire-db*
+
+Unleash the full power of your RDBMS — with "No Strings Attached"
+
+https://empire-db.apache.org
+
+[.notes]
+--
+Thank you for attending this presentation on Apache Empire-db. I hope this
+has given you a good understanding of what Empire-db offers and how it
+compares to traditional ORM solutions. Give it a try in your next project
+where you need full SQL control with compile-time safety. Visit the website
+to explore the examples and documentation.
+--
