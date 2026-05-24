@@ -1,0 +1,392 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+
+== Apache BVal
+
+image::project-logo.png[Apache BVal, 500]
+
+Jakarta Bean Validation Implementation — TCK Compliant, Apache Licensed
+
+[.notes]
+--
+Apache BVal delivers an implementation of the Jakarta Bean Validation 3.0 Specification which is TCK compliant, works on Java SE 11 or later, and uses the Apache Software License v2.0.
+--
+
+== What Is Bean Validation?
+
+* A standard way to declare constraints on Java objects
+* Annotations on fields, methods, and classes
+* Validate data at any application layer
+* Part of the Jakarta EE platform
+
+[.notes]
+--
+Bean Validation provides a unified way to express constraints on your domain model using annotations. Instead of writing validation logic scattered throughout your code, you declare what valid data looks like right on the model class itself. It works in any Java SE or Jakarta EE environment.
+--
+
+== Why Do We Need It?
+
+* Data validation is everywhere — forms, APIs, persistence
+* Without a standard, validation logic gets duplicated
+* Each layer re-implements the same checks
+* Bean Validation: write once, validate anywhere
+
+[.notes]
+--
+Before Bean Validation existed, developers would write validation logic in the UI layer, then again in the service layer, then again before persistence. Each copy could diverge. Bean Validation consolidates this into a single set of constraint declarations that can be enforced at any tier.
+--
+
+== What Is Apache BVal?
+
+* Apache's implementation of Jakarta Bean Validation
+* Current release: 3.0.2 (Jakarta Bean Validation 3.0)
+* TCK (Technology Compatibility Kit) compliant
+* Licensed under Apache License 2.0
+
+[.notes]
+--
+Apache BVal is the ASF's implementation of the Jakarta Bean Validation specification. The current stable release is 3.0.2, released March 15, 2025, implementing Jakarta Bean Validation 3.0. It passes the official TCK tests, ensuring full specification compliance.
+--
+
+== Project History
+
+* Originally donated by Agimatec GmbH (SGA)
+* Incubated at the ASF
+* Became a top-level project: February 15, 2012
+* Active development continues on the master/3.1.x branch
+
+[.notes]
+--
+The initial 0.x/1.x codebase was donated to the ASF by a Software Grant Agreement from Agimatec GmbH. After a successful incubation period, Apache BVal graduated to become a top-level project on February 15, 2012. Current development targets Jakarta Validation 3.1 on the master branch.
+--
+
+== Release History
+
+[cols="1,1,1", options="header"]
+|===
+| Version | Bean Validation | Java Requirement
+
+| 3.0.x
+| Jakarta Bean Validation 3.0
+| Java 11+
+
+| 2.0.x
+| Bean Validation 2.0 (JSR-380)
+| Java 8+
+
+| 1.1.x
+| Bean Validation 1.1 (JSR-349)
+| Java 6+
+
+| 0.5
+| Bean Validation 1.0 (JSR-303)
+| Java 5+
+|===
+
+[.notes]
+--
+BVal has evolved through multiple specification versions. The 3.0.x line uses the Jakarta namespace (jakarta.validation). The 2.0.x line uses the older javax.validation namespace. Choose the version matching your application server or Jakarta EE level.
+--
+
+// ============================================================
+// PART 2: GETTING STARTED
+// ============================================================
+
+== Getting Started
+
+image::project-logo.png[Apache BVal, 300]
+
+Adding BVal to Your Project
+
+[.notes]
+--
+Let's walk through how to add Apache BVal to a Maven project and start validating beans. The setup is straightforward since BVal artifacts are published to Maven Central under the org.apache.bval groupId.
+--
+
+== Maven Dependencies
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.bval</groupId>
+  <artifactId>bval-jsr</artifactId>
+  <version>3.0.2</version>
+</dependency> <!-- also: bval-extras, bval-bundle -->
+----
+* **bval-jsr** — Core validation provider
+* **bval-extras** — Additional constraints beyond the spec
+* **bval-bundle** — OSGi bundle (includes bval-jsr)
+
+[.notes]
+--
+Add bval-jsr to your pom.xml to get started. Maven will pull in the Jakarta Validation API and transitive dependencies automatically. The groupId is org.apache.bval for all modules. The bval-extras module provides additional constraints beyond the spec. The bval-bundle artifact packages everything with OSGi metadata for modular environments.
+--
+
+== Basic Usage: Create a Validator
+
+[source,java]
+----
+ValidatorFactory validatorFactory = Validation
+    .byProvider(ApacheValidationProvider.class)
+    .configure()
+    .buildValidatorFactory();
+
+Validator validator =
+    validatorFactory.getValidator();
+----
+
+[.notes]
+--
+This code explicitly requests the Apache BVal provider. You can also use Validation.buildDefaultValidatorFactory() which will discover BVal through the ServiceLoader mechanism if it's on the classpath. The explicit form shown here is useful when multiple providers are available.
+--
+
+== Basic Usage: Validate a Bean
+
+[source,java]
+----
+Set<ConstraintViolation<MyBean>> violations =
+    validator.validate(myBean);
+
+for (ConstraintViolation<MyBean> v : violations) {
+    System.out.println(
+        v.getPropertyPath() + ": "
+        + v.getMessage());
+}
+----
+
+[.notes]
+--
+Call validator.validate() passing your annotated bean. It returns a Set of ConstraintViolation objects — one per failed constraint. Each violation tells you which property failed and the error message. An empty set means the bean is valid.
+--
+
+== Built-in Constraints (Jakarta Spec)
+
+* `@NotNull`, `@NotBlank`, `@NotEmpty`, `@Size`
+* `@Min`, `@Max`, `@DecimalMin`, `@DecimalMax`
+* `@Pattern(regexp=)`, `@Email`
+* `@Past`, `@Future`, `@PastOrPresent`, `@FutureOrPresent`
+* `@Positive`, `@Negative`, `@Digits`, `@AssertTrue`
+
+[.notes]
+--
+These are the standard constraints defined by the Jakarta Bean Validation specification. Any compliant implementation, including BVal, supports all of these out of the box. They cover nullability, size, numeric ranges, regex patterns, email format, temporal checks, sign constraints, and boolean assertions.
+--
+
+== Annotated Bean Example
+
+[source,java]
+----
+public class User {
+    @NotBlank private String name;
+    @Email @NotNull private String email;
+    @Min(18) @Max(150) private int age;
+    @Past private LocalDate birthDate;
+    @Size(max = 100) private String bio;
+}
+----
+
+[.notes]
+--
+Here's a practical example. The User class declares that name must not be blank, email must be a valid email and not null, and age must be between 18 and 150. When you validate an instance of this class, BVal checks all these constraints and reports any violations.
+--
+
+== Custom Constraints
+
+[source,java]
+----
+@Target({FIELD, METHOD})
+@Retention(RUNTIME)
+@Constraint(validatedBy = PhoneValidator.class)
+public @interface ValidPhone {
+    String message() default "Invalid phone";
+    Class<?>[] groups() default {};
+}
+----
+
+[.notes]
+--
+You can define your own constraint annotations. Create an annotation with @Constraint pointing to a validator class. The message, groups, and payload attributes are required by the spec. Your custom validator implements ConstraintValidator and provides the isValid() logic.
+--
+
+== Validation Groups
+
+[source,java]
+----
+public interface OnCreate {}
+public interface OnUpdate {}
+
+public class Order {
+    @Null(groups = OnCreate.class)
+    @NotNull(groups = OnUpdate.class)
+    private Long id;
+}
+----
+
+* Apply different rules in different contexts
+* Pass groups to `validator.validate(bean, OnCreate.class)`
+
+[.notes]
+--
+Groups let you apply different validation rules depending on the context. For example, an ID should be null when creating a new entity but required when updating. You specify which groups to validate by passing them to the validate method.
+--
+
+== Integration with Jakarta EE
+
+* Works with CDI — inject ValidatorFactory
+* JAX-RS validates request/response automatically
+* JPA can trigger validation on persist/update
+* Works in any Jakarta EE compliant server
+
+[.notes]
+--
+Bean Validation integrates deeply with the Jakarta EE platform. CDI containers can inject validators. JAX-RS will validate annotated parameters automatically. JPA fires validation events on lifecycle callbacks. BVal works anywhere a Jakarta Bean Validation provider is expected.
+--
+
+// ============================================================
+// PART 3: COMMUNITY
+// ============================================================
+
+== Community
+
+image::project-logo.png[Apache BVal, 300]
+
+How to Get Involved
+
+[.notes]
+--
+Like all Apache projects, BVal is a community-driven effort. Let's look at how to connect with the project, report issues, and contribute.
+--
+
+== Mailing Lists
+
+* **dev@bval.apache.org** — Development discussions
+* **commits@bval.apache.org** — Source commit notifications
+* Subscribe via: dev-subscribe@bval.apache.org
+
+[.notes]
+--
+The dev mailing list is where design discussions, release votes, and community decisions happen. All development communication is done on-list for transparency. Subscribe by sending an empty email to dev-subscribe@bval.apache.org.
+--
+
+== Source Code
+
+* Git repository: https://gitbox.apache.org/repos/asf/bval.git
+* GitHub mirror: https://github.com/apache/bval
+* Branches:
+** `master` / `3.1.x` — Jakarta Validation 3.1 (Java 17+)
+** `3.0.x` — Jakarta Bean Validation 3.0 (Java 11+)
+** `2.x` — Bean Validation 2.0 (Java 8+)
+
+[.notes]
+--
+The canonical source is on ASF GitBox, with a read-only mirror on GitHub. The master branch targets the next major version — Jakarta Validation 3.1 requiring Java 17. If you need to patch the current stable release, work against the 3.0.x branch.
+--
+
+== Issue Tracker
+
+* JIRA: https://issues.apache.org/jira/browse/BVAL
+* File bugs, feature requests, improvements
+* Check existing issues before filing new ones
+
+[.notes]
+--
+Apache BVal uses the ASF JIRA instance for issue tracking. The project key is BVAL. Before filing a new issue, search existing ones to avoid duplicates. Include a minimal reproducer when reporting bugs — it dramatically speeds up diagnosis.
+--
+
+== Project Governance
+
+* Apache Software Foundation top-level project
+* PMC (Project Management Committee): 15 members
+* Established: February 2012
+* Decisions made by consensus on dev@ list
+
+[.notes]
+--
+BVal follows the standard Apache governance model. The PMC has 15 members who oversee releases, community health, and project direction. All binding decisions happen on the public mailing list. New committers and PMC members are nominated and voted on by existing PMC members.
+--
+
+== How to Contribute
+
+* Start by subscribing to dev@bval.apache.org
+* Look for open JIRA issues
+* Submit patches via GitHub pull requests
+* Follow the Apache contributor guidelines
+* No contribution is too small!
+
+[.notes]
+--
+The easiest way to start contributing is to pick up a bug or improvement from JIRA. Fork the GitHub mirror, make your changes, and submit a pull request. Introduce yourself on the dev list. Documentation improvements, test cases, and bug reports are all valuable contributions.
+--
+
+== Building from Source
+
+[source,bash]
+----
+git clone \
+  https://gitbox.apache.org/repos/asf/bval.git
+cd bval
+mvn clean install
+----
+
+* Standard Maven build
+* Requires Java 11+ (3.0.x branch) or Java 17+ (master)
+
+[.notes]
+--
+Building BVal from source is straightforward. Clone the repo and run mvn clean install. Make sure your JAVA_HOME points to the appropriate JDK version for the branch you're building. The TCK tests run as part of the normal build to verify compliance.
+--
+
+== Summary
+
+* Apache BVal = Jakarta Bean Validation implementation
+* TCK compliant, Apache 2.0 licensed
+* Current stable: 3.0.2 (Java 11+, Jakarta Bean Validation 3.0)
+* Next: 3.1.x (Java 17+, Jakarta Validation 3.1)
+* Community-driven ASF top-level project
+
+[.notes]
+--
+To recap: Apache BVal gives you a fully compliant, Apache-licensed implementation of Jakarta Bean Validation. It's lightweight, well-tested against the TCK, and actively maintained. Whether you're building microservices or enterprise applications, BVal provides reliable constraint validation for your Java beans.
+--
+
+== Resources
+
+* Website: https://bval.apache.org
+* Downloads: https://bval.apache.org/downloads.html
+* Source: https://github.com/apache/bval
+* Issues: https://issues.apache.org/jira/browse/BVAL
+* Dev list: dev@bval.apache.org
+
+[.notes]
+--
+Here are the key links for Apache BVal. The website has download links and documentation. The GitHub mirror is convenient for browsing code and submitting pull requests. The JIRA issue tracker is where bugs and features are tracked. And the dev mailing list is where the community conversation happens.
+--
+
+== Thank You
+
+image::project-logo.png[Apache BVal, 300]
+
+https://bval.apache.org
+
+[.notes]
+--
+Thank you for attending this session on Apache BVal. Visit bval.apache.org for more information, and consider joining the community if you're interested in contributing to a Jakarta Bean Validation implementation.
+--
