@@ -1,0 +1,407 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+== Apache Velocity
+
+image::project-logo.png[Apache Velocity, 500]
+
+A Java-based template engine
+
+[.notes]
+--
+Welcome to this introduction to Apache Velocity. Velocity is a mature Java-based template engine that lets you reference objects defined in Java code using a simple yet powerful template language. It has been an Apache project since 2006.
+--
+
+== What Is Apache Velocity?
+
+* A Java-based template engine
+* Uses the Velocity Template Language (VTL) to reference Java objects
+* Separates presentation from business logic (MVC)
+* Provides a viable alternative to JSPs or PHP
+* Free and open source under the Apache License 2.0
+
+[.notes]
+--
+Velocity permits anyone to use a simple yet powerful template language to reference objects defined in Java code. It cleanly separates the view layer from the model and controller, making web sites more maintainable over their lifespan.
+--
+
+== Why Use Velocity?
+
+* Web designers and Java developers work in parallel
+* Templates are simpler and cleaner than JSPs
+* Not limited to web — generates SQL, PostScript, XML, source code
+* Works as a standalone utility or integrated component
+* Mature and battle-tested since the early 2000s
+
+[.notes]
+--
+Velocity's capabilities reach well beyond the web. It can generate SQL, PostScript, and XML from templates. It can be used as a standalone utility for generating source code and reports, or as an integrated component of other systems.
+--
+
+== The Apache Velocity Project
+
+* Two main sub-projects:
+** **Velocity Engine** — the core templating engine
+** **Velocity Tools** — tools and infrastructure for web and non-web apps
+* Current releases:
+** Engine 2.4.1 (October 2024)
+** Tools 3.1
+
+[.notes]
+--
+The Apache Velocity Project is charged with the creation and maintenance of open-source software related to the Apache Velocity Engine. It provides two main deliverables: the Engine itself, and the Tools project which contains useful infrastructure for building applications.
+--
+
+== Engine and Tools Modules
+
+* **Engine**: `velocity-engine-core`, `velocity-engine-scripting` (JSR223), `spring-velocity-support`
+* **Tools**: `velocity-tools-generic`, `velocity-tools-view`, `velocity-tools-view-jsp`
+* Maven group IDs: `org.apache.velocity` (engine), `org.apache.velocity.tools` (tools)
+
+[.notes]
+--
+The Engine project is modular — core is the only required dependency, with optional scripting and Spring support. Velocity Tools provides ready-made utilities: generic tools work anywhere, view tools are for web apps, and there's a JSP layer too.
+--
+
+== Maven Dependency
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.velocity</groupId>
+  <artifactId>velocity-engine-core</artifactId>
+  <version>2.4.1</version>
+</dependency>
+----
+
+* Requires Java 1.7 or newer
+* SLF4J API is a required runtime dependency
+* Add an SLF4J binding (e.g., Logback, Log4J adapter)
+
+[.notes]
+--
+Getting started is as simple as adding the Maven dependency. Velocity requires Java 1.7+ and uses SLF4J for logging, so you'll need to include an SLF4J binding in your runtime classpath.
+--
+
+== The Fundamental Pattern
+
+[source,java]
+----
+// 1. Initialize Velocity
+Velocity.init();
+// 2. Create a Context and add data
+VelocityContext context = new VelocityContext();
+context.put("name", "World");
+// 3. Get a template
+Template t = Velocity.getTemplate("hello.vm");
+// 4. Merge template and data
+StringWriter sw = new StringWriter();
+t.merge(context, sw);
+----
+
+[.notes]
+--
+The fundamental pattern is: initialize Velocity, create a context with your data, get a template, and merge them together. The context acts as a carrier of data between Java code and the template layer.
+--
+
+== Singleton vs. Separate Instance
+
+* **Singleton** (`Velocity` class) — one shared engine per JVM/webapp
+* **Separate Instance** (`VelocityEngine` class) — multiple independent engines
+* Use Singleton for simple apps with shared configuration
+* Use Separate Instance when you need different configs (template dirs, loggers)
+
+[.notes]
+--
+Velocity offers two usage patterns. The singleton pattern shares one engine across your application, which is convenient for web apps. The separate instance pattern lets you create multiple independently configured engines in the same JVM.
+--
+
+== VelocityEngine Example
+
+[source,java]
+----
+VelocityEngine ve = new VelocityEngine();
+ve.setProperty(VelocityEngine.RUNTIME_LOG_NAME,
+    "myapp");
+ve.init();
+
+Template t = ve.getTemplate("greeting.vm");
+VelocityContext ctx = new VelocityContext();
+ctx.put("user", currentUser);
+StringWriter out = new StringWriter();
+t.merge(ctx, out);
+----
+
+[.notes]
+--
+Here's the separate instance approach using VelocityEngine. You create an engine, configure it, initialize it, then use it just like the singleton. This gives you full control over each engine's configuration.
+--
+
+== VTL References
+
+* **Variables**: `$foo`, `$!foo` (silent), `${foo}` (formal)
+* **Properties**: `$customer.Address`
+* **Methods**: `$page.setTitle("Home")`
+* Alternate values: `${name|'default'}`
+
+[.notes]
+--
+References are the core of VTL. Variables use the dollar sign prefix, properties use dot notation, and methods look like Java method calls. The silent notation with exclamation mark suppresses output when a reference is null.
+--
+
+== Setting Values
+
+[source,velocity]
+----
+#set( $greeting = "Hello" )
+#set( $count = 42 )
+#set( $items = ["apple", "banana", "cherry"] )
+#set( $map = {"key1": "val1", "key2": "val2"} )
+#set( $total = $price * $quantity )
+----
+
+* Supports strings, numbers, lists, maps, and expressions
+* Arithmetic: `+`, `-`, `*`, `/`, `%`
+
+[.notes]
+--
+The #set directive assigns values to references. It supports strings, numbers, object lists, maps, ranges, and arithmetic expressions. If the right-hand side evaluates to null, the assignment does not occur.
+--
+
+== Conditionals
+
+[source,velocity]
+----
+#if( $user.isAdmin() )
+  <h1>Welcome, Administrator</h1>
+#elseif( $user.isEditor() )
+  <h1>Welcome, Editor</h1>
+#else
+  <h1>Welcome, $user.Name</h1>
+#end
+----
+
+* Comparison operators: `==`, `!=`, `>`, `<`, `>=`, `<=`
+* Also available as words: `eq`, `ne`, `gt`, `lt`, `ge`, `le`
+* Boolean NOT: `!` or `not`
+
+[.notes]
+--
+Conditionals work as you'd expect. Velocity provides both symbolic and word-based comparison operators. A null reference evaluates to false, and Velocity checks for Boolean values, emptiness, and zero-ness of collections.
+--
+
+== Loops with #foreach
+
+[source,velocity]
+----
+<ul>
+#foreach( $product in $products )
+  <li>$foreach.count. $product.Name
+      - $$product.Price</li>
+#else
+  <li>No products available</li>
+#end
+</ul>
+----
+
+* Loop helpers: `$foreach.count`, `$foreach.index`, `$foreach.first`, `$foreach.last`, `$foreach.hasNext`
+
+[.notes]
+--
+The #foreach directive iterates over arrays, Collections, Maps, and Iterators. It provides useful helper properties like count, index, first, and last. The #else clause handles the case when the collection is empty.
+--
+
+== Velocimacros
+
+[source,velocity]
+----
+#macro( tableRow $item $class )
+<tr class="$class">
+  <td>$item.Name</td>
+  <td>$item.Value</td>
+</tr>
+#end
+
+## Usage:
+#tableRow( $product "highlight" )
+----
+
+* Reusable template fragments (like functions)
+* Support default argument values
+* Can be defined inline or in a macro library
+
+[.notes]
+--
+Velocimacros let you define reusable template segments. They accept arguments, support default values, and can be defined either inline in a template or in a shared library file.
+--
+
+== Other Useful Directives
+
+* `#include("file.txt")` — inserts file content without parsing
+* `#parse("header.vm")` — includes and parses another template
+* `#stop` — halts template rendering (useful for debugging)
+* `#break` — exits the current directive (e.g., a loop)
+* `#evaluate($expr)` — dynamically evaluates a VTL string
+* `#define($block)...#end` — assigns a VTL block to a reference
+
+[.notes]
+--
+Beyond the basics, VTL provides directives for including files, parsing sub-templates, stopping execution, breaking out of loops, and dynamically evaluating expressions. These give you fine-grained control over template processing.
+--
+
+== Comments and Unparsed Content
+
+[source,velocity]
+----
+## This is a single-line comment
+
+#*
+  This is a multi-line comment.
+  It won't appear in output.
+*#
+
+#[[
+  This content is rendered but NOT parsed.
+  Even $variables and #directives are literal.
+]]#
+----
+
+[.notes]
+--
+VTL supports single-line and multi-line comments. The unparsed content block using #[[ and ]]# lets you include literal text that Velocity won't try to interpret — useful for JavaScript or other content containing dollar signs or hash marks.
+--
+
+== Web Application Integration
+
+* **VelocityViewServlet** — standalone servlet for Velocity-based web apps
+* Spring Framework integration via `spring-velocity-support`
+* Compatible with many third-party frameworks
+* True MVC separation: designers do templates, developers do Java
+
+[.notes]
+--
+The easiest way to use Velocity in a web app is with VelocityViewServlet from the Velocity Tools project. There's also first-class Spring integration. Web designers can focus on creating templates while Java programmers work on the code — true MVC.
+--
+
+== Velocity Tools for Web Apps
+
+* Automatic tool loading and configuration
+* Request/session/application scoped tools
+* Built-in tools for common web tasks:
+** Link generation, parameter handling
+** Date/number formatting, escaping
+** Cookie management, context access
+
+[.notes]
+--
+Velocity Tools provides pre-built utilities that are automatically loaded into the template context. Tools can be scoped to the request, session, or application level, providing convenient access to common web functionality.
+--
+
+== Security Considerations
+
+* Template loaders must come from trusted sources
+* If configuration files are compromised, Velocity cannot prevent attacks
+* `SecureUberspector` helps restrict dangerous classes in templates
+* Always audit objects placed in the Velocity context
+* Application authors are responsible for context safety
+
+[.notes]
+--
+Security is a shared responsibility. Velocity provides SecureUberspector as a starting point for restricting access to dangerous classes in user-facing template editing scenarios. But it's the application author's responsibility to audit every object placed in the context.
+--
+
+== Mailing Lists
+
+* **general@velocity.apache.org** — project-wide announcements (low volume)
+* **user@velocity.apache.org** — questions about using Velocity (moderate volume)
+* **dev@velocity.apache.org** — development discussion, patches, bugs (low-moderate)
+* **commits@velocity.apache.org** — source code change notifications
+
+[.notes]
+--
+Velocity has four mailing lists. Most users should subscribe to the user list for help with templates and integration. The dev list is where Velocity development happens. All lists are publicly archived.
+--
+
+== Source Code and Issue Tracking
+
+* Git repositories on Apache Gitbox and GitHub mirrors:
+** `velocity-engine` — the template engine
+** `velocity-tools` — tools and web infrastructure
+** `velocity-site` — the project website
+* Bug tracking via JIRA at the ASF
+* Pull requests welcome on GitHub
+
+[.notes]
+--
+The source code lives in Git repositories hosted on Apache Gitbox with mirrors on GitHub. Bug reports go through JIRA, and pull requests are accepted on GitHub. This makes it easy to contribute.
+--
+
+== Project Governance
+
+* Apache Software Foundation top-level project (since 2006)
+* Project Management Committee (PMC) with 10 members
+* Meritocratic governance — contribute more, gain more responsibility
+* Reports quarterly to the ASF Board
+* All software released under the Apache License 2.0
+
+[.notes]
+--
+Velocity has been a top-level ASF project since October 2006. It operates on meritocratic principles — the more you contribute, the more responsibility and trust you earn. The PMC has 10 members who oversee the project.
+--
+
+== How to Get Involved
+
+* Subscribe to the mailing lists
+* Use Velocity and report bugs via JIRA
+* Submit patches and pull requests
+* Help improve documentation
+* Answer questions on the user mailing list
+* First step: join the lists and introduce yourself
+
+[.notes]
+--
+Getting involved is straightforward. Start by subscribing to the mailing lists, using Velocity in your projects, and reporting any issues you find. As you gain familiarity, contribute patches, improve documentation, and help other users.
+--
+
+== Resources
+
+* Website: https://velocity.apache.org
+* User Guide: https://velocity.apache.org/engine/devel/user-guide.html
+* VTL Reference: https://velocity.apache.org/engine/devel/vtl-reference.html
+* Downloads: https://velocity.apache.org/download.cgi
+* GitHub: https://github.com/apache/velocity-engine
+
+[.notes]
+--
+Here are the essential links for Apache Velocity. The User Guide and VTL Reference are the most important documentation resources. The download page has the latest releases and Maven coordinates.
+--
+
+== Summary
+
+* Velocity is a mature, simple, and powerful Java template engine
+* VTL is easy to learn for designers and developers alike
+* Engine 2.4.1 and Tools 3.1 are the current stable releases
+* Active ASF community with clear paths to contribution
+* Great for web apps, code generation, reports, and more
+
+[.notes]
+--
+Apache Velocity remains a solid choice for Java templating. Its simplicity, maturity, and clean separation of concerns make it a reliable tool for web development, code generation, and many other text-generation tasks.
+--
