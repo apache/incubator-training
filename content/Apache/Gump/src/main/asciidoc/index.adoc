@@ -1,0 +1,477 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+:presenter_name: Your Name
+:presenter_company: Your Company
+:description: Introduction to Apache Gump
+:keywords: Apache, Gump, continuous integration, cross-project testing
+:author: Your Name
+:email: your@email.org
+:position: Your role
+
+== Apache Gump
+
+image::project-logo.png[Apache Gump, 500]
+
+The First Continuous Integration Tool at the ASF
+
+[.notes]
+--
+Apache Gump is the original continuous integration system built at the
+Apache Software Foundation. It tests the latest development versions of
+projects together to catch incompatible changes early.
+--
+
+== Who am I?
+{author} +
+{position} +
+{email} +
+
+// ============================================================
+// PART 1: WHAT IS IT?
+// ============================================================
+
+== What is Apache Gump?
+
+* The *first* continuous integration tool developed at the Apache Software Foundation
+* Written in *Python*
+* Builds software against the *latest development versions* of dependencies
+* Detects *incompatible changes* within hours of a commit
+* Sends *notifications* to project teams with detailed reports
+
+[.notes]
+--
+Gump is unique because it doesn't just build a single project in isolation.
+It builds many projects together, using the latest code from version control,
+to detect cross-project incompatibilities as early as possible.
+--
+
+== The Problem Gump Solves
+
+* Projects develop in isolation, unaware of downstream breakage
+* A change in library A may break projects B, C, and D
+* Without cross-project CI, breakage is discovered *too late* — at release time
+* Manual integration testing doesn't scale across hundreds of projects
+
+[.notes]
+--
+Before Gump, there was no systematic way to know that your commit to one
+project would break another project that depends on you. Gump fills that
+gap by building the entire dependency tree from source, every day.
+--
+
+== How Gump is Unique
+
+* Builds projects against the *latest tip* of their dependencies
+* Not just "does my project build?" — but "does the *ecosystem* build?"
+* Tests cross-project compatibility *continuously*
+* Covers Apache Ant, Apache Maven (1.x to 3.x), Gradle, and Makefiles
+
+[.notes]
+--
+Most CI systems test a project against its declared dependency versions.
+Gump instead uses the latest source of everything — including the latest
+Ant, the latest JUnit, the latest XML parser — to find problems early.
+--
+
+== How Does Gump Work?
+
+. Project definitions are mapped from *XML* into in-memory objects
+. SCM update commands fetch the latest source for every module
+. Builds are invoked in *dependency order*
+. Build outputs feed into dependent projects
+. Results are captured into *HTML reports*
+
+[.notes]
+--
+Gump processes workspace XML descriptors that define modules, projects,
+and their dependencies. It figures out the correct build order, updates
+sources from version control, and builds each project in sequence.
+--
+
+== Build Tool Support
+
+[cols="2*", options="header"]
+|===
+| Build Tool | How Gump Integrates
+
+| Apache Ant
+| Sets `build.sysclasspath=only`, manages system classpath
+
+| Maven 1.x
+| Runs with `--offline`, uses jar overrides
+
+| Maven 2.x / 3.x
+| Uses a *proxy server* for repository access
+
+| Gradle
+| Hooks into Maven's local repository and proxy
+
+| Makefiles (e.g., httpd)
+| Passes paths to freshly-built dependencies via command-line options
+|===
+
+[.notes]
+--
+Each build tool requires a different integration strategy. Gump's key
+trick is ensuring that its freshly-built jars are used instead of
+whatever the project might have checked into version control.
+--
+
+== Ant Integration Detail
+
+* Gump sets the `build.sysclasspath` property to `only`
+* This tells Ant: "ignore classpaths in build files; use the system classpath"
+* Gump *manages* the system classpath to point to freshly-built jars
+* Uses the latest Ant itself — built from tip of the master branch
+
+[.notes]
+--
+To quote the Ant manual: "Only the system classpath is used and classpaths
+specified in build files, etc are ignored. This situation could be considered
+as the person running the build file knows more about the environment than
+the person writing the build file."
+--
+
+== The Net Effect
+
+[quote]
+Every project is built every day with the latest version of every dependency — including the latest Ant, latest JUnit, latest XML parser.
+
+* Results captured into *color-coded HTML pages*
+* Extensive *hypertext links* for quick navigation
+* Failures trigger *email notifications* to project teams
+
+[.notes]
+--
+This is the core value proposition. It's like building the entire open source
+stack from source, every single day, and telling you immediately when
+something breaks.
+--
+
+== Where Does Gump Run?
+
+[cols="3*", options="header"]
+|===
+| Site | JVM | Schedule
+
+| vmgump (Ubuntu Linux 18.04)
+| OpenJDK 11
+| Up to 4 times daily
+|===
+
+* The Gump project maintains its own *dedicated server*
+* You can also run Gump on your *own machine* for your own projects
+
+[.notes]
+--
+The "official" Gump instance runs on vmgump, an Ubuntu machine maintained
+by the Gump PMC. It builds many Apache projects and their external
+dependencies multiple times each day.
+--
+
+== Project History
+
+* *2000* — Created to solve integration pain building Apache Cocoon
+* *2004* — Became an Apache Top-Level Project (February)
+* Named after *Forrest Gump* — "GUBA" (Generate, Update, Build All) sounded like "Bubba Gump"
+* First continuous integration tool at the ASF
+
+[.notes]
+--
+The name has many fitting connections to the movie: the feather (adapted
+for the original Gump icon mirrors the Apache feather), "Stupid is as
+Stupid does" (captures many build errors), and "Life is like a box of
+chocolates" — an apt description of building the latest versions of
+everything together!
+--
+
+// ============================================================
+// PART 2: GETTING STARTED
+// ============================================================
+
+== Getting Started with Gump
+
+=== What you need:
+
+* *Python* runtime
+* *Subversion* (for checking out Gump itself and workspace descriptors)
+* A Unix-like environment (Linux recommended)
+* Familiarity with XML for writing project descriptors
+
+[.notes]
+--
+Gump is written in Python and uses XML workspace descriptors to
+define what to build. The official instance uses Subversion for
+both the Gump source and the workspace definitions.
+--
+
+== Source Repository
+
+* Gump source is in the ASF *Subversion* repository:
+** `https://svn.apache.org/repos/asf/gump/`
+* Workspace descriptors define what gets built
+* Project metadata lives in XML files
+
+[source,bash]
+----
+svn checkout \
+  https://svn.apache.org/repos/asf/gump/trunk \
+  gump-trunk
+----
+
+[.notes]
+--
+The repository contains both the Gump engine (Python code) and the
+workspace definitions (XML files describing projects and dependencies).
+--
+
+== Workspace Descriptors
+
+* XML files that define *modules*, *projects*, and *dependencies*
+* A module maps to a source repository checkout
+* A project maps to a buildable unit within a module
+* Dependencies link projects together
+
+[source,xml]
+----
+<module name="ant">
+  <svn repository="ant-svn"
+       path="ant/core/trunk"/>
+  <project name="ant">
+    <ant basedir="src/main" target="dist"/>
+  </project>
+</module>
+----
+
+[.notes]
+--
+This is a simplified example. Real descriptors include dependency
+declarations, output artifacts, and notification settings. The XML
+format is specific to Gump — it is not a Maven POM or Ant build file.
+--
+
+== Defining Dependencies
+
+[source,xml]
+----
+<project name="my-project">
+  <ant basedir="." target="build"/>
+  <depend project="ant" inherit="all"/>
+  <depend project="junit"/>
+  <depend project="commons-logging"/>
+</project>
+----
+
+* `inherit="all"` — inherit the dependency's outputs onto the classpath
+* Gump resolves the *full transitive graph* and builds in correct order
+
+[.notes]
+--
+When you declare a dependency, Gump ensures that project is built first
+and its outputs are available on the classpath. This is how cross-project
+testing works — everything chains together.
+--
+
+== Running Your Own Gump Instance
+
+. Check out the Gump source from SVN
+. Configure your workspace descriptors (XML)
+. Point Gump at your workspace
+. Run the Gump Python scripts
+. Review HTML output reports
+
+// TODO: Human review — verify exact commands for running a local instance
+
+[.notes]
+--
+While the official instance builds Apache projects, you can set up
+your own Gump to test your own project ecosystem. This is useful
+if you maintain multiple interdependent libraries.
+--
+
+== Reading the Results
+
+* *Green* — project built successfully
+* *Red* — build failed
+* Detailed per-project pages show:
+** Build command output
+** Which dependencies were used
+** What changed since last run
+* Email notifications reference the online reports
+
+[.notes]
+--
+The HTML reports are richly hyperlinked. From the main summary page
+you can drill down into any failing project to see exactly what
+happened and what changed.
+--
+
+// ============================================================
+// PART 3: COMMUNITY
+// ============================================================
+
+== The Apache Gump Community
+
+* *10* PMC members
+* *16* committers
+* Active since *2004* as a TLP
+* Project roots go back to *~2000*
+
+[.notes]
+--
+Gump has a small but dedicated community. It's one of the older projects
+at the ASF, having been instrumental in establishing continuous integration
+practices across the Foundation.
+--
+
+== Communication Channels
+
+[cols="2*", options="header"]
+|===
+| Channel | Link
+
+| General mailing list
+| general@gump.apache.org — https://lists.apache.org/list.html?general@gump.apache.org[Archive]
+
+| Notifications list
+| notifications@gump.apache.org
+
+| Issue tracker
+| https://issues.apache.org/jira/browse/GUMP[ASF JIRA — GUMP]
+
+| Source (SVN)
+| https://svn.apache.org/repos/asf/gump/
+|===
+
+[.notes]
+--
+The general@ list is where project discussion happens. The notifications@
+list receives automated build result emails. As with all ASF projects,
+the mailing list is the official record.
+--
+
+== How to Contribute
+
+* *Report issues* — file bugs or feature requests in JIRA
+* *Improve documentation* — the website and workspace descriptors
+* *Add project descriptors* — help Gump cover more of the open source ecosystem
+* *Fix bugs* — the engine is Python, contributions welcome
+* *Test and validate* — run Gump locally and report problems
+
+[.notes]
+--
+One of the easiest ways to contribute is adding workspace descriptors
+for projects that Gump doesn't currently build. This expands the
+cross-project coverage without needing to modify the engine itself.
+--
+
+== Contributing a Project Descriptor
+
+. Identify a project and its dependencies
+. Write an XML workspace descriptor
+. Test it with a local Gump run
+. Submit a patch to the general@ mailing list
+. Iterate based on feedback
+
+[.notes]
+--
+Adding descriptor files is a great "good first contribution" because
+it exercises your understanding of the project's build without requiring
+Python coding skills.
+--
+
+== The Apache Way & Gump
+
+* *Community over code* — the people matter more than the software
+* *Open development* — discussion happens on public mailing lists
+* *Earned authority* — commit access is earned through contributions
+* *Lazy consensus* — silence is consent; object if you disagree
+
+[.notes]
+--
+Like all ASF projects, Gump follows The Apache Way. The mailing list
+is the canonical place where decisions are made. If it didn't happen
+on the list, it didn't happen.
+--
+
+== Governance & Roles
+
+[cols="2*", options="header"]
+|===
+| Role | Description
+
+| *User*
+| Anyone using Gump or reading its reports
+
+| *Contributor*
+| Someone who submits patches or workspace descriptors
+
+| *Committer*
+| Earned write access to the repository
+
+| *PMC Member*
+| Oversees releases, community health, and project direction
+
+| *PMC Chair*
+| Administrative liaison to the ASF Board
+|===
+
+// ============================================================
+// WRAP-UP
+// ============================================================
+
+== Why Gump Still Matters
+
+* Cross-project integration testing remains an *unsolved problem* at scale
+* Most CI only tests within project boundaries
+* Gump's philosophy: catch incompatibilities *before* release
+* Valuable model for any ecosystem of interdependent libraries
+
+[.notes]
+--
+Even with modern CI/CD, the problem Gump solves — testing across project
+boundaries using the latest source — is still largely unique. If you
+maintain a set of interdependent libraries, Gump's approach is worth
+studying.
+--
+
+== Further Resources
+
+* *Project website*: https://gump.apache.org
+* *Source code*: https://svn.apache.org/repos/asf/gump/
+* *Issue tracker*: https://issues.apache.org/jira/browse/GUMP
+* *Mailing list*: https://lists.apache.org/list.html?general@gump.apache.org
+* *ASF-wide resources*:
+** https://community.apache.org[Apache Community Development]
+** https://www.apache.org/foundation/how-it-works.html[How the ASF Works]
+
+== Questions?
+
+image::project-logo.png[Apache Gump, 200]
+
+* general@gump.apache.org
+* https://gump.apache.org
+
+[.notes]
+--
+Open the floor for questions.
+Remind attendees they can reach the community on the mailing list.
+--
