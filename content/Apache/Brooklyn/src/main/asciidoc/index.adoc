@@ -1,0 +1,449 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+
+== Apache Brooklyn
+
+image::project-logo.png[Apache Brooklyn, 500]
+
+Your applications, any clouds, any containers, anywhere.
+
+[.notes]
+--
+Apache Brooklyn is a framework for modeling, monitoring, and managing
+applications through autonomic blueprints. It lets you describe complex
+multi-cloud deployments as code and manage them with policy-driven automation.
+--
+
+== What We Will Cover
+
+* *Part 1* — What Is Apache Brooklyn?
+* *Part 2* — Getting Started
+* *Part 3* — Community
+
+[.notes]
+--
+This session covers Brooklyn at a high level — what it does, how to get
+started deploying applications with it, and how to participate in the
+community.
+--
+
+// ===== PART 1: WHAT IS IT =====
+
+== What Is Apache Brooklyn?
+
+* A framework for modeling, monitoring, and managing applications
+* Uses *autonomic blueprints* to describe application topology
+* Deploys to 20+ public clouds, private clouds, bare metal, and containers
+* Provides policy-driven management (autoscaling, failover, restart)
+* Web console and REST API for runtime control
+
+[.notes]
+--
+Brooklyn is sometimes described as an "application blueprint engine."
+You define what your application looks like in a YAML blueprint and
+Brooklyn handles provisioning, configuration, and ongoing management.
+--
+
+== The Problem Brooklyn Solves
+
+* Multi-cloud deployments are complex and manual
+* Application components need cross-machine configuration and wiring
+* Runtime management (scaling, failover) is often bolted on
+* No single tool covers deploy + monitor + manage lifecycle
+
+[.notes]
+--
+Without Brooklyn, teams stitch together provisioning tools, config
+management, monitoring, and custom scripts. Brooklyn unifies all of
+this into a single declarative model.
+--
+
+== Key Capabilities
+
+* *Blueprinting* — Describe applications as composable YAML
+* *Deployment* — Provision across clouds, containers, bare metal
+* *Monitoring* — Collect real-time metrics from deployed entities
+* *Policy-Driven Management* — Autoscale, restart, replace, follow-the-sun
+
+[.notes]
+--
+These four capabilities form the core lifecycle that Brooklyn manages.
+Blueprints are the central artifact — everything else flows from them.
+--
+
+== Blueprints Are Code
+
+* YAML format following the CAMP standard
+* Store in version control alongside application source
+* Compose from a curated catalog of entity types
+* Extend with bash scripts, Chef recipes, Docker, or Java
+
+[source,yaml]
+----
+name: My Web App
+services:
+  - type: webapp-cluster
+    brooklyn.config:
+      initialSize: 3
+      war: http://example.com/app.war
+----
+
+[.notes]
+--
+CAMP is the Cloud Application Management for Platforms standard from
+OASIS. Brooklyn's blueprint syntax is a superset of CAMP YAML. You can
+treat blueprints just like source code — version them, review them, test
+them in CI.
+--
+
+== Blueprint Composition
+
+* Choose building blocks from a large curated catalog
+* Compose them into new blueprints
+* Customize with configuration keys
+* Publish new blueprints back to the catalog
+
+[.notes]
+--
+Brooklyn ships with dozens of supported components — web servers,
+databases, message queues, load balancers, and more. You compose
+these like building blocks and add your own customizations.
+--
+
+== Dependency Injection Between Entities
+
+* Connect entities using *sensors* published at runtime
+* Just-in-time resolution for shell variables, templates, REST calls
+* Supports "happens-before" and "on-change" semantics
+
+[source,yaml]
+----
+shell.env:
+  DB_URL:
+    $brooklyn:entity("my-db").
+      attributeWhenReady("db.url")
+----
+
+[.notes]
+--
+Sensors are the runtime attributes that Brooklyn entities publish.
+Other entities can subscribe to these and get notified of changes.
+This is how Brooklyn wires multi-tier applications together without
+hardcoding connection strings.
+--
+
+== Multi-Cloud Portability
+
+* Amazon Web Services, Microsoft Azure, Google Cloud Platform
+* OpenStack, VMware vSphere, bare metal servers
+* Docker containers
+* Mix and match — deploy different tiers to different clouds
+
+[.notes]
+--
+Brooklyn uses Apache jclouds under the hood for cloud portability. A
+single blueprint can target any supported cloud just by changing the
+location configuration.
+--
+
+== Policy-Driven Autonomic Management
+
+* *Autoscaler* — scale based on real-time metrics
+* *Restarter & Replacer* — recover from component failures
+* *Follow-the-Sun* — geographic load steering
+* *Load Balancing* — distribute traffic across instances
+
+[source,yaml]
+----
+brooklyn.policies:
+  - type: autoscaler
+    brooklyn.config:
+      metric: webapp.reqs.perSec.perNode
+      metricLowerBound: 400
+      metricUpperBound: 600
+----
+
+[.notes]
+--
+Policies subscribe to sensor feeds and autonomically adjust the
+application. The autoscaler watches a metric and adds or removes
+nodes. The restarter detects failures and relaunches components.
+--
+
+== Web Console
+
+* Visual topology of deployed applications
+* Real-time sensor dashboards
+* Invoke effectors (operations) on any entity
+* Manage blueprints and catalog entries
+
+[.notes]
+--
+The web console provides a graphical view of everything Brooklyn
+manages. You can see the application topology, drill into individual
+entities, watch metrics update in real time, and trigger operations.
+--
+
+== REST API
+
+* Full programmatic access to all Brooklyn features
+* Deploy, manage, and monitor applications
+* Query sensors, invoke effectors, manage policies
+* Automate with scripts or integrate with CI/CD pipelines
+
+[.notes]
+--
+Everything the web console can do is also available via the REST API.
+This makes Brooklyn easy to integrate with existing automation and
+CI/CD tooling.
+--
+
+// ===== PART 2: GETTING STARTED =====
+
+== Getting Started
+
+* Download the distribution (tarball, zip, RPM, or DEB)
+* Requires Java 1.8+ (OpenJDK, Oracle, or IBM)
+* Also available as Vagrant box for evaluation
+* Latest stable release: *1.1.0*
+
+[.notes]
+--
+Brooklyn is distributed as a standalone package that includes all
+dependencies. The Vagrant option is great for a quick evaluation
+without modifying your local environment.
+--
+
+== Quick Start with Vagrant
+
+[source,bash]
+----
+curl -SL --output apache-brooklyn-1.1.0-vagrant.tar.gz \
+  "https://www.apache.org/dyn/closer.lua?action=download\
+&filename=brooklyn/apache-brooklyn-1.1.0/\
+apache-brooklyn-1.1.0-vagrant.tar.gz"
+
+tar xvf apache-brooklyn-1.1.0-vagrant.tar.gz
+cd apache-brooklyn-1.1.0-vagrant
+vagrant up brooklyn
+----
+
+[.notes]
+--
+This downloads and starts Brooklyn in a Vagrant VM. After it boots,
+the web console will be available at https://localhost:8443. Default
+credentials are shown on the console output.
+--
+
+== Quick Start with Distribution
+
+[source,bash]
+----
+tar xvf apache-brooklyn-1.1.0-bin.tar.gz
+cd apache-brooklyn-1.1.0
+bin/brooklyn launch
+----
+
+* Web console at *https://localhost:8443*
+* Default credentials shown in console output
+
+[.notes]
+--
+The binary distribution is a simple extract-and-run affair. Brooklyn
+launches an embedded web server and is ready to accept blueprints
+within seconds.
+--
+
+== Your First Blueprint
+
+[source,yaml]
+----
+name: Hello World
+location: localhost
+services:
+  - type: org.apache.brooklyn.entity.webapp.tomcat.TomcatServer
+    brooklyn.config:
+      wars.root:
+        http://search.maven.org/remotecontent?filepath=\
+org/apache/brooklyn/example/brooklyn-example-hello-world-webapp/\
+0.12.0/brooklyn-example-hello-world-webapp-0.12.0.war
+----
+
+[.notes]
+--
+This minimal blueprint deploys a Tomcat server on localhost with a
+sample WAR file. It demonstrates the basics: naming your application,
+specifying a location, and configuring a service entity.
+--
+
+== Deploying a Blueprint
+
+* Use the web console: click *Deploy* and paste YAML
+* Or use the REST API:
+
+[source,bash]
+----
+curl -X POST https://localhost:8443/v1/applications \
+  -H "Content-Type: application/yaml" \
+  -d @my-blueprint.yaml
+----
+
+[.notes]
+--
+The web console is the easiest way to get started — just paste your
+YAML and hit deploy. For automation, the REST API accepts the same
+YAML as a POST body.
+--
+
+== CLI Client
+
+* Standalone command-line interface
+* Available for Linux, macOS, and Windows
+* Manage applications without the web console
+
+[.notes]
+--
+The CLI client is a separate download — a lightweight binary that
+talks to the Brooklyn REST API. It's useful for scripting and for
+operators who prefer the terminal.
+--
+
+== Architecture Overview
+
+* *Brooklyn Server* — core runtime, catalog, REST API
+* *Entities* — managed components (servers, apps, services)
+* *Sensors* — runtime attributes published by entities
+* *Effectors* — operations that can be invoked on entities
+* *Policies* — autonomic rules that react to sensor values
+
+[.notes]
+--
+Understanding these five concepts is key to working with Brooklyn.
+The server is the brain, entities are the things being managed,
+sensors are observations, effectors are actions, and policies are
+the decision-making rules.
+--
+
+// ===== PART 3: COMMUNITY =====
+
+== Apache Brooklyn Community
+
+* Top-level Apache project since *November 2015*
+* PMC with *19 members*
+* Active development across multiple repositories
+* Welcoming to new contributors
+
+[.notes]
+--
+Brooklyn graduated from the Apache Incubator in November 2015. The
+project has a healthy PMC and continues active development across
+its server, UI, library, and documentation repositories.
+--
+
+== Source Repositories
+
+* *brooklyn-server* — Core server runtime
+* *brooklyn-ui* — Web console interface
+* *brooklyn-library* — Curated entity catalog
+* *brooklyn-client* — CLI client
+* *brooklyn-docs* — Documentation
+* *brooklyn-dist* — Distribution packaging
+
+All hosted on Apache GitBox (mirrored to GitHub)
+
+[.notes]
+--
+The project is split across multiple repositories for modularity.
+Most contributors focus on brooklyn-server or brooklyn-library, but
+all repos welcome contributions.
+--
+
+== Mailing Lists
+
+* *user@brooklyn.apache.org* — User questions and discussions
+* *dev@brooklyn.apache.org* — Development discussions and proposals
+* Subscribe via brooklyn.apache.org/community
+
+[.notes]
+--
+The mailing lists are the primary communication channel for Brooklyn.
+All significant decisions happen on the dev list. The user list is a
+great place to ask questions and share experiences.
+--
+
+== Issue Tracker and Chat
+
+* JIRA: *BROOKLYN* project at issues.apache.org/jira
+* IRC: *#brooklyncentral* on Freenode
+// TODO: Human review — verify IRC channel is still active; may have moved to ASF Slack
+
+[.notes]
+--
+JIRA is used for bug reports and feature requests. The IRC channel is
+available for real-time chat with community members. Check the
+community page for current chat options.
+--
+
+== How to Contribute
+
+* Start with the Developer's Section on brooklyn.apache.org
+* Pick a JIRA issue labeled "newbie" or "help-wanted"
+* Fork on GitHub, submit a pull request
+* Subscribe to dev@brooklyn.apache.org to discuss
+
+[.notes]
+--
+The community is welcoming to new contributors. The developer
+documentation covers setting up your build environment and the
+contribution workflow. Start small — documentation fixes and
+beginner issues are great first contributions.
+--
+
+== Learn More
+
+* *Website:* https://brooklyn.apache.org
+* *User Guide:* brooklyn.apache.org/documentation
+* *Downloads:* brooklyn.apache.org/download
+* *Source:* github.com/apache/brooklyn-server
+* *Issues:* issues.apache.org/jira/browse/BROOKLYN
+
+[.notes]
+--
+These are the key starting points for learning more about Brooklyn.
+The user guide is organized by release version — make sure to pick
+the version you're running.
+--
+
+== Summary
+
+* Apache Brooklyn: model, deploy, monitor, and manage applications
+* Autonomic blueprints in YAML — treat infrastructure as code
+* Multi-cloud portability with policy-driven automation
+* Active Apache community since 2015
+
+*Your applications, any clouds, any containers, anywhere.*
+
+[.notes]
+--
+Brooklyn brings together deployment, monitoring, and management in a
+single framework driven by declarative blueprints. It's a powerful
+tool for teams managing complex multi-cloud applications.
+--
