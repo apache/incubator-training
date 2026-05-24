@@ -1,0 +1,470 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+
+== Apache DataFu
+
+image::project-logo.png[Apache DataFu, 500]
+
+Well-tested libraries for working with large-scale data in Hadoop
+
+[.notes]
+--
+Apache DataFu is a collection of libraries for working with large-scale data in Hadoop.
+The project was inspired by the need for stable, well-tested libraries for data mining and statistics.
+It originated at LinkedIn and was open sourced in 2010, graduating to a top-level Apache project in February 2018.
+--
+
+== What Is Apache DataFu?
+
+* A collection of libraries for large-scale data processing in Hadoop
+* Inspired by the need for stable, well-tested data mining and statistics libraries
+* Originally developed at LinkedIn, open sourced in 2010
+* Graduated to Apache Top-Level Project in February 2018
+* Production-proven at LinkedIn and PayPal
+
+[.notes]
+--
+DataFu fills the gap between raw Hadoop frameworks and the utility functions developers need daily.
+Rather than re-implementing common operations, DataFu provides battle-tested implementations
+that have been running in production at LinkedIn since 2010 and PayPal since 2017.
+--
+
+== Three Libraries, One Project
+
+* **Apache DataFu Spark** — Utils and UDFs for Apache Spark
+* **Apache DataFu Pig** — User-defined functions and macros for Apache Pig
+* **Apache DataFu Hourglass** — Incremental processing framework for MapReduce
+
+[.notes]
+--
+DataFu is organized into three distinct libraries, each targeting a different processing framework.
+DataFu Spark is the newest and most actively developed, based on an internal PayPal project open sourced in 2019.
+DataFu Pig has been stable since reaching 1.0 in September 2013.
+DataFu Hourglass provides specialized support for incremental computations over sliding windows.
+--
+
+// =============================================================
+// PART 1: DataFu Spark
+// =============================================================
+
+== DataFu Spark — Overview
+
+* Collection of utils and UDFs for Apache Spark
+* Based on an internal PayPal project, open sourced in 2019
+* In production at PayPal since 2017
+* Supports Spark 3.0.x through 3.4.2 (Scala 2.12)
+* Callable from both Scala and PySpark
+
+[.notes]
+--
+DataFu Spark is the most modern component of the project. It addresses common DataFrame
+operations that Spark doesn't provide out of the box, like deduplication with ordering,
+skewed joins, and range joins. All code is unit tested.
+--
+
+== DataFu Spark — Key Features
+
+* **Deduplication** — Remove duplicates by key with custom ordering
+* **Skewed Joins** — Efficient joins when data is heavily skewed
+* **Range Joins** — Join a point value against a range (min/max)
+* **Count Distinct Up To** — Efficient minimum-threshold counting
+* **PySpark Bridge** — Call Scala DataFu from Python
+
+[.notes]
+--
+These features address real-world data engineering pain points.
+Deduplication with ordering is the most common use case — getting the most recent record per key.
+Skewed joins handle the case where standard joins fail because one key dominates the data distribution.
+--
+
+== Dedup With Order — The Problem
+
+A common scenario: multiple rows representing updates for the same record
+
+[source,text]
+----
+id | name  | date_updated
+---+-------+-------------
+ 1 | Alice | 2024-01-01
+ 1 | Alice | 2024-03-15
+ 2 | Bob   | 2024-02-01
+ 3 | Carol | 2024-01-15
+ 3 | Carol | 2024-04-01
+----
+
+Goal: Keep only the most recent record per customer
+
+[.notes]
+--
+This is extremely common in data lakes where events arrive as append-only records.
+You need to "deduplicate" to get the current state of each entity.
+Without DataFu, you'd need window functions and multiple transformation steps.
+--
+
+== Dedup With Order — Scala Solution
+
+[source,scala]
+----
+import datafu.spark.DataFrameOps._
+
+val customers = spark.read.format("csv")
+  .option("header", "true").load("customers.csv")
+customers.dedupWithOrder(
+  $"id", $"date_updated".desc
+).show
+----
+
+[.notes]
+--
+The dedupWithOrder method takes a grouping column and ordering columns.
+It returns only the top record per group according to the specified order.
+There's also dedupWithCombiner which uses a UDAF for map-side aggregation,
+and dedupTopN which retains more than one record per key.
+--
+
+== Dedup With Order — PySpark Solution
+
+[source,python]
+----
+from pyspark_utils import df_utils
+df_utils.activate()
+
+df_dedup = df_people.dedup_with_order(
+    group_col=df_people.id,
+    order_cols=[df_people.age.desc()]
+)
+df_dedup.show()
+----
+
+[.notes]
+--
+To call DataFu from PySpark, you need to set PYTHONPATH to include the DataFu JAR
+and pass it via --jars and spark.executorEnv.PYTHONPATH when launching pyspark.
+The activate() call adds convenience methods directly onto DataFrames.
+--
+
+== Skewed Joins
+
+When one side of a join has highly skewed keys:
+
+* `broadcastJoinSkewed` — One DataFrame is skewed, the other is not
+* Splits both DataFrames by skewed keys
+* Processes skewed and non-skewed partitions separately
+* Avoids OOM errors from standard broadcast joins
+
+[.notes]
+--
+In real-world data, some keys appear far more frequently than others.
+For example, a "transactions" table where 90% of rows belong to one company.
+Standard joins will cause that partition to explode. DataFu's skewed join
+splits the problem intelligently.
+--
+
+== Range Joins
+
+Join a point value against a range (min/max):
+
+[source,scala]
+----
+// grades: student -> numeric score
+// scoring: letter grade -> min, max range
+
+skewed.joinWithRange(
+  "grade", notskewed, "min", "max", 2
+).show
+----
+
+* No need to explode the range column
+* Uses a decrease factor for efficiency
+* `joinWithRangeAndDedup` for overlapping ranges
+
+[.notes]
+--
+A naive solution would explode range columns into individual values, making tables huge.
+DataFu's joinWithRange uses a decrease factor to handle this efficiently.
+The decrease factor should relate to the minimum range size.
+If ranges overlap, joinWithRangeAndDedup picks the largest or smallest matching range.
+--
+
+// =============================================================
+// PART 2: DataFu Pig
+// =============================================================
+
+== DataFu Pig — Function Categories
+
+* Open sourced in 2010, in production at LinkedIn since 2010
+* **Statistics & Sets** — Quantiles, median, variance; intersection, union, difference
+* **Bag Functions** — Enumerate, append, prepend, concat, distinct
+* **Sessions & Estimation** — Sessionize events, streaming quantiles
+* **Sampling & Link Analysis** — Random sampling, PageRank
+
+// Included in Cloudera's CDH and Apache Bigtop
+[.notes]
+--
+These categories cover the most common analytical operations.
+The statistics functions are particularly well-tested and production-proven.
+Session functions are useful for web analytics and user behavior tracking.
+Estimation functions trade exactness for dramatically lower memory usage.
+--
+
+== DataFu Pig — Computing Median
+
+[source,pig]
+----
+register datafu-pig-1.6.1.jar
+DEFINE Median
+  datafu.pig.stats.StreamingMedian();
+
+data = LOAD 'input' using PigStorage() as (val:int);
+data = FOREACH (GROUP data ALL)
+  GENERATE Median(data);
+DUMP data
+----
+
+Result: `((2.0))`
+
+[.notes]
+--
+StreamingMedian computes an estimate of the median without requiring the data to be sorted.
+This is a streaming algorithm, so it works efficiently even on very large datasets.
+For exact median computation, DataFu also provides a Median UDF that requires sorted input.
+--
+
+// =============================================================
+// PART 3: DataFu Hourglass
+// =============================================================
+
+== DataFu Hourglass — Overview
+
+* Incremental processing framework for Hadoop MapReduce
+* Designed for efficient sliding window computations
+* Yields 50-95% reductions in computational resources
+* Presented at IEEE BigData 2013
+* In production at LinkedIn
+
+[.notes]
+--
+Hourglass was created to solve a specific problem: daily computations over sliding windows
+waste resources by reprocessing data that hasn't changed.
+A 30-day sliding window dashboard recomputes 29 days of unchanged data every day.
+Hourglass makes these computations incremental, processing only new data.
+--
+
+== The Sliding Window Problem
+
+Daily dashboard: visitors to every page over the last 30 days
+
+* **Naive approach**: Reprocess all 30 days every day
+* **Problem**: Only 1 day of data changed, but we recompute all 30
+* **Hourglass solution**: Update previous output by adding/subtracting
+
+[.notes]
+--
+Consider a dashboard showing page visits over the last 30 days.
+Each day, a new day enters the window and the oldest day leaves.
+Instead of reprocessing all 30 days, we can:
+1. Take yesterday's output
+2. Add today's new data
+3. Subtract the day that fell off the window
+This simple arithmetic approach dramatically reduces compute costs.
+--
+
+== How Hourglass Works
+
+* Automatically plans the most efficient computation
+* Compares cost of full recompute vs. incremental update
+* Chooses the plan that consumes fewer bytes
+* Input data partitioned by day: `/data/event/yyyy/MM/dd`
+* Output is date-stamped for reuse
+
+[.notes]
+--
+Hourglass is smart about choosing its execution plan.
+It considers two alternatives: consuming all available input from scratch,
+or reusing the previous output and merging only new input.
+It picks whichever requires fewer bytes to be consumed.
+This means it automatically handles bootstrap (first run) vs. incremental updates.
+--
+
+== Hourglass — Example Use Cases
+
+* Count events per user ID over a rolling window
+* Estimate cardinality (distinct counts) with HyperLogLog
+* Rolling aggregations for dashboards and reporting
+* Any computation where most input data is unchanged day-over-day
+
+[.notes]
+--
+The two canonical examples are CountById (counting events per key incrementally)
+and EstimateCardinality (using HyperLogLog to count distinct values incrementally).
+Both are provided as sample implementations in the DataFu source code.
+The HyperLogLog example serializes estimator state, allowing incremental merging
+across days without re-reading raw input.
+--
+
+// =============================================================
+// PART 4: Getting Started
+// =============================================================
+
+== Getting Started — Maven Dependency
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.datafu</groupId>
+  <artifactId>datafu-spark_2.12</artifactId>
+  <version>2.1.0</version>
+</dependency>
+----
+
+Gradle: `compile "org.apache.datafu:datafu-spark:2.1.0"`
+
+SBT: `"org.apache.datafu" %% "datafu-spark" % "2.1.0" intransitive`
+
+[.notes]
+--
+DataFu artifacts are published to Apache's Maven Repository.
+For Spark, use the artifact with the Scala version suffix matching your environment.
+The intransitive flag in SBT avoids pulling in Spark itself as a dependency,
+since it's typically provided by your cluster.
+--
+
+== Building from Source
+
+[source,bash]
+----
+git clone https://gitbox.apache.org/repos/asf/datafu.git
+cd datafu
+gradle -b bootstrap.gradle
+./gradlew assemble
+----
+
+JARs produced in:
+
+* `datafu-spark/build/libs`
+* `datafu-pig/build/libs` | `datafu-hourglass/build/libs`
+
+Run tests: `./gradlew test` (or `:datafu-spark:test` for one module)
+
+[.notes]
+--
+DataFu uses Gradle as its build system. The bootstrap step sets up the specific
+Gradle version that DataFu is intended to be built with.
+After building, install to your local Maven repo with ./gradlew install.
+All code is unit tested — run ./gradlew test before submitting patches.
+--
+
+// =============================================================
+// PART 5: Community
+// =============================================================
+
+== Project Status
+
+* Apache Top-Level Project since February 2018
+* 12 PMC members
+* Source repository: `https://gitbox.apache.org/repos/asf/datafu.git`
+* License: Apache License 2.0
+* Build system: Gradle
+
+[.notes]
+--
+DataFu graduated from the Apache Incubator in February 2018.
+The PMC has 12 members with diverse backgrounds including LinkedIn, PayPal, and others.
+The project uses the standard Apache governance model with lazy consensus.
+--
+
+== Mailing Lists
+
+* **dev@datafu.apache.org** — Development discussion and help
+** Subscribe: dev-subscribe@datafu.apache.org
+* **commits@datafu.apache.org** — Commit notifications
+** Subscribe: commits-subscribe@datafu.apache.org
+* **private@datafu.apache.org** — Private PMC matters
+
+[.notes]
+--
+The dev list is the right place for questions about using DataFu,
+proposing new features, or discussing patches.
+All technical discussion should happen on the public dev list.
+The private list is reserved for matters that cannot be discussed publicly,
+such as security issues or personnel matters.
+--
+
+== Contributing
+
+* Source: `https://gitbox.apache.org/repos/asf/datafu.git`
+* Guide: https://cwiki.apache.org/confluence/display/DATAFU/Contributing+to+Apache+DataFu
+* Build with Gradle: `./gradlew assemble`
+* Run tests: `./gradlew test`
+* Generate Eclipse files: `./gradlew eclipse`
+
+[.notes]
+--
+The contributing guide on the wiki covers the full workflow for submitting patches.
+The project uses Git with mirrors on GitHub. The canonical repository is on gitbox.
+New contributors should start by picking up issues marked as good first issues,
+or by improving documentation and tests.
+--
+
+== Resources
+
+* Website: https://datafu.apache.org
+* Source: https://gitbox.apache.org/repos/asf/datafu.git
+* Spark Guide: https://datafu.apache.org/docs/spark/guide.html
+* Pig Guide: https://datafu.apache.org/docs/datafu/guide.html
+* Downloads: https://datafu.apache.org/docs/download.html
+
+[.notes]
+--
+These are the key resources for getting started with DataFu.
+The Spark and Pig guides provide detailed documentation for each library's features.
+The download page has links to source releases and Maven coordinates for binary artifacts.
+--
+
+== Summary
+
+* Apache DataFu provides production-tested data processing utilities
+* **DataFu Spark**: Dedup, skewed joins, range joins for Spark 3.x
+* **DataFu Pig**: Statistics, sets, bags, sessions for Apache Pig
+* **DataFu Hourglass**: Incremental MapReduce for sliding windows
+* Battle-tested at LinkedIn (since 2010) and PayPal (since 2017)
+
+[.notes]
+--
+DataFu's value proposition is stability and production readiness.
+These are not experimental utilities — they've been running in production
+at major tech companies for over a decade.
+If you're working with Spark, start with DataFu Spark and its dedup/join features.
+--
+
+== Questions?
+
+image::project-logo.png[Apache DataFu, 300]
+
+* Website: https://datafu.apache.org
+* Dev list: dev@datafu.apache.org
+* Source: https://gitbox.apache.org/repos/asf/datafu.git
+
+[.notes]
+--
+Thank you for attending. Feel free to ask questions now or reach out on the dev mailing list.
+The mailing list is the best place for longer discussions or feature requests.
+--
