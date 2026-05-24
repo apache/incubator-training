@@ -1,0 +1,485 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+
+== Apache Xerces
+
+image::project-logo.png[Apache Xerces, 500]
+
+XML Parsers in Java, C++ and Perl
+
+[.notes]
+--
+Welcome to this introduction to Apache Xerces. The Xerces project provides
+high-performance, standards-compliant XML parsers in multiple programming
+languages. It has been a top-level Apache project since 2005 and traces its
+origins to 1999.
+--
+
+== What We Will Cover
+
+* *Part 1* — What Is Apache Xerces?
+* *Part 2* — Getting Started
+* *Part 3* — Community
+
+[.notes]
+--
+This presentation is divided into three parts. First, we'll look at what
+Xerces is and its sub-projects. Then we'll explore how to get started
+using it. Finally, we'll discuss the community around the project.
+--
+
+== The Apache Xerces Project
+
+* Responsible for creation and maintenance of XML parsers
+* Provides parsing, validating, serializing and manipulating XML
+* Implementations in Java, C++ and Perl
+* Top-level Apache project since February 2005
+
+[.notes]
+--
+The Apache Xerces Project is responsible for software intended for the
+creation and maintenance of XML parsers. It became a top-level project
+at the ASF in February 2005, after starting as part of the Apache XML
+project. The project originated from code donations in 1999.
+--
+
+== Sub-Projects
+
+[cols="1,3"]
+|===
+| Sub-Project | Description
+
+| Xerces2 Java
+| Parsing, validating and manipulating XML in Java
+
+| Xerces-C++
+| Parsing, validating, serializing and manipulating XML in C++
+
+| Xerces Perl
+| Perl API to the Xerces C++ parser (XML::Xerces)
+
+| XML Commons
+| Collection of XML components including a catalog resolver
+|===
+
+[.notes]
+--
+Xerces consists of four sub-projects. Xerces2 Java and Xerces-C++ are
+the primary active components. Xerces Perl provides Perl bindings to
+the C++ parser. XML Commons provides shared utilities including an
+OASIS XML Catalog resolver used by many Apache projects.
+--
+
+== Xerces2 Java — Overview
+
+* High-performance, fully compliant XML parser
+* Built on the Xerces Native Interface (XNI) framework
+* XNI is modular and easy to extend
+* Current release: *2.12.2*
+* Supports XML 1.0 (4th Ed.) and XML 1.1 (2nd Ed.)
+
+[.notes]
+--
+Xerces2 Java is the flagship sub-project. It introduced the Xerces Native
+Interface, a complete framework for building parser components and
+configurations. Application developers use standard APIs like JAXP, DOM
+and SAX — XNI is the internal framework for those who need more power
+and flexibility.
+--
+
+== Xerces2 Java — Standards Support
+
+* XML Schema 1.0 (2nd Ed.) and XML Schema 1.1
+* DOM Level 3 Core, Load and Save
+* DOM Level 2 Core, Events, Traversal and Range
+* SAX 2.0.2 Core and Extensions
+* JAXP 1.4 and StAX 1.0 Event API
+* XInclude 1.0 (2nd Ed.) and OASIS XML Catalogs 1.1
+
+[.notes]
+--
+Xerces2 Java provides extensive standards support. It is one of the few
+parsers offering both XML Schema 1.0 and 1.1 support. The DOM Level 3
+implementation covers Core and Load/Save. It also supports XInclude and
+OASIS XML Catalogs for entity resolution.
+--
+
+== Xerces-C++ — Overview
+
+* Validating XML parser written in portable C++
+* Current release: *3.3.0* (source-only distribution)
+* Supports DOM, SAX and SAX2 APIs
+* XML 1.0 (3rd Ed.), XML 1.1, W3C XML Schema, DOM Level 3
+* Minimal use of templates, no RTTI, minimal #ifdefs
+
+[.notes]
+--
+Xerces-C++ provides a shared library for parsing, generating,
+manipulating and validating XML documents. It emphasizes portability.
+Note that the project currently notes it lacks active maintainers.
+It supports DOM Level 3, XML Schema, XInclude, Namespaces, and
+Element Traversal among other standards.
+--
+
+== Common Use Cases
+
+* Building XML-savvy web servers
+* Validating XML data in enterprise applications
+* Ensuring integrity of XML-based data exchange
+* On-the-fly validation for XML editors
+* Building internationalized XML applications
+
+[.notes]
+--
+These use cases come directly from the Xerces project documentation.
+XML parsing and validation remains essential in enterprise environments,
+configuration systems, document interchange, and web services.
+--
+
+== Getting Xerces2 Java
+
+* Download from https://xerces.apache.org/mirrors.cgi[Apache mirrors] (`.tar.gz` / `.zip`)
+* Two packages available:
+** Standard: XML Schema 1.0 support
+** XML Schema 1.1: adds Schema 1.1 and SCD support
+* Key JARs: `xercesImpl.jar` (parser), `xml-apis.jar` (APIs)
+* Also includes `resolver.jar` and `serializer.jar`
+
+[.notes]
+--
+Xerces2 Java is distributed from the Apache mirrors in two variants.
+The standard package supports XML Schema 1.0. The XML Schema 1.1
+package adds Schema 1.1 and SCD support. The key jars are
+xercesImpl.jar (parser implementation) and xml-apis.jar (DOM Level 3,
+SAX 2.0.2, JAXP 1.4 interfaces).
+--
+
+== Java: Parsing with JAXP
+
+[source,java]
+----
+import javax.xml.parsers.*;
+import org.w3c.dom.*;
+
+DocumentBuilderFactory factory =
+    DocumentBuilderFactory.newInstance();
+factory.setNamespaceAware(true);
+factory.setValidating(true);
+
+DocumentBuilder builder = factory.newDocumentBuilder();
+Document doc = builder.parse("catalog.xml");
+----
+
+[.notes]
+--
+The simplest way to use Xerces2 Java is through the JAXP API. This
+example creates a namespace-aware, validating parser and parses an
+XML document into a DOM tree. JAXP provides portability — you can
+swap parser implementations without changing code.
+--
+
+== Java: SAX Parsing
+
+[source,java]
+----
+import javax.xml.parsers.*;
+import org.xml.sax.helpers.DefaultHandler;
+
+SAXParserFactory factory =
+    SAXParserFactory.newInstance();
+factory.setNamespaceAware(true);
+
+SAXParser parser = factory.newSAXParser();
+parser.parse("catalog.xml", new DefaultHandler() {
+    // Override callback methods here
+});
+----
+
+[.notes]
+--
+SAX parsing is event-driven and memory-efficient for large documents.
+You extend DefaultHandler and override callback methods like
+startElement, endElement and characters. Xerces2 supports SAX 2.0.2
+Core and Extensions.
+--
+
+== Getting Xerces-C++
+
+* Source distribution only: `xerces-c-3.3.0.zip`
+* Download from https://xerces.apache.org/xerces-c/download.cgi[Apache mirrors]
+* Build with CMake (recommended)
+* Verify downloads using PGP signatures or SHA digests
+
+[.notes]
+--
+Xerces-C++ 3.3.0 is available as a source-only distribution. You'll
+need to build it yourself using CMake. Always verify the integrity of
+downloads using the PGP signatures available alongside the distribution.
+--
+
+== C++: Basic Initialization
+
+[source,cpp]
+----
+#include <xercesc/util/PlatformUtils.hpp>
+using namespace xercesc;
+
+int main(int argc, char* argv[]) {
+    try {
+        XMLPlatformUtils::Initialize();
+    } catch (const XMLException& e) {
+        return 1;
+    }
+    // Work with Xerces-C++ here
+    XMLPlatformUtils::Terminate();
+    return 0;
+}
+----
+
+[.notes]
+--
+Every application using Xerces-C++ must call Initialize before using
+any API and Terminate when done. These must be called at least once
+per process. You can call them multiple times, but each Initialize
+must be matched with a Terminate call.
+--
+
+== C++: DOM Parsing
+
+[source,cpp]
+----
+#include <xercesc/parsers/XercesDOMParser.hpp>
+#include <xercesc/dom/DOM.hpp>
+using namespace xercesc;
+
+XercesDOMParser* parser = new XercesDOMParser();
+parser->setValidationScheme(
+    XercesDOMParser::Val_Always);
+parser->parse("catalog.xml");
+DOMDocument* doc = parser->getDocument();
+// Traverse the DOM tree
+delete parser;
+----
+
+[.notes]
+--
+This shows basic DOM parsing with Xerces-C++. You create a parser,
+configure validation, parse the document, then work with the resulting
+DOM tree. The parser provides high performance and modularity, with
+support for pluggable validators and encodings.
+--
+
+== C++: SAX2 Parsing
+
+[source,cpp]
+----
+#include <xercesc/sax2/SAX2XMLReader.hpp>
+#include <xercesc/sax2/XMLReaderFactory.hpp>
+using namespace xercesc;
+
+SAX2XMLReader* reader =
+    XMLReaderFactory::createXMLReader();
+reader->setFeature(
+    XMLUni::fgSAX2CoreValidation, true);
+reader->setContentHandler(myHandler);
+reader->parse("catalog.xml");
+delete reader;
+----
+
+[.notes]
+--
+SAX2 parsing in Xerces-C++ uses the XMLReaderFactory to create a
+reader, then configures features and sets your custom content handler.
+This is the preferred SAX API — SAX1 is also available but SAX2 is
+recommended for new applications.
+--
+
+== XML Schema Validation (Java)
+
+[source,java]
+----
+import javax.xml.validation.*;
+import javax.xml.transform.stream.StreamSource;
+
+SchemaFactory sf = SchemaFactory.newInstance(
+    "http://www.w3.org/2001/XMLSchema");
+Schema schema = sf.newSchema(
+    new StreamSource("schema.xsd"));
+Validator validator = schema.newValidator();
+validator.validate(new StreamSource("doc.xml"));
+----
+
+[.notes]
+--
+Xerces2 Java provides the reference implementation for XML Schema
+validation through JAXP. This shows standalone schema validation using
+the javax.xml.validation API. Xerces supports both XML Schema 1.0 and
+1.1 — Schema 1.1 is available in the separate distribution package.
+--
+
+== Programming Guides
+
+* *Xerces2 Java:* DOM, SAX, JAXP, StAX interfaces
+* *Xerces-C++:* DOM, SAX and SAX2 Programming Guides
+* Sample programs included in both distributions
+* Java samples: `dom.Counter`, `dom.Writer`, `sax.Counter`
+* C++ samples: `SAXCount`, `DOMCount`, `DOMPrint`
+
+[.notes]
+--
+Both Xerces2 Java and Xerces-C++ ship with programming guides and
+sample programs. The samples demonstrate common tasks like counting
+elements, writing DOM trees, and validating documents. They serve as
+excellent starting points for new users.
+--
+
+== Project Governance
+
+* Top-level Apache project since February 2005
+* Originally part of the Apache XML project (1999)
+* PMC with 15 members
+* Licensed under Apache License, Version 2.0
+
+[.notes]
+--
+Xerces has been a top-level project at the ASF since 2005. It was
+originally part of the Apache XML project when the initial code
+donations arrived in 1999. The PMC currently has 15 members who
+oversee the direction and releases of all sub-projects.
+--
+
+== Mailing Lists
+
+[cols="1,2"]
+|===
+| List | Purpose
+
+| general@xerces.apache.org
+| Cross-project discussions
+
+| j-users@xerces.apache.org
+| Xerces Java user questions
+
+| j-dev@xerces.apache.org
+| Xerces Java development
+
+| c-users@xerces.apache.org
+| Xerces C++ user questions
+
+| c-dev@xerces.apache.org
+| Xerces C++ development
+|===
+
+[.notes]
+--
+Xerces maintains separate mailing lists for each sub-project, divided
+into user and developer lists. The general list handles cross-project
+topics. Subscribe by sending email to the list name with -subscribe
+appended, e.g., j-users-subscribe@xerces.apache.org.
+--
+
+== Source Repositories
+
+* *Xerces2 Java:* https://gitbox.apache.org/repos/asf/xerces-j.git
+* *Xerces-C++:* https://gitbox.apache.org/repos/asf/xerces-c.git
+* Also mirrored on GitHub (apache/xerces-j, apache/xerces-c)
+* Legacy SVN repository still available
+
+[.notes]
+--
+The source code is hosted in Git repositories on Apache GitBox and
+mirrored to GitHub. The project moved from SVN to Git, though the
+legacy SVN repository remains accessible for historical reference.
+--
+
+== Issue Tracking
+
+* Xerces Java: https://issues.apache.org/jira/browse/XERCESJ[JIRA — XERCESJ]
+* Xerces-C++: https://issues.apache.org/jira/browse/XERCESC[JIRA — XERCESC]
+* Bug reports and feature requests welcome
+* Patches can be attached to JIRA issues
+
+[.notes]
+--
+Both main sub-projects use Apache JIRA for issue tracking. You can
+search existing issues, report bugs, or request features. Contributing
+patches is one of the best ways to get involved with the project.
+--
+
+== How to Contribute
+
+* Subscribe to the appropriate dev mailing list
+* Look for open JIRA issues
+* Submit patches or pull requests
+* Test pre-release builds and report results
+* Help improve documentation
+
+[.notes]
+--
+Contributions are welcome from everyone. Start by subscribing to the
+relevant dev list, then pick an issue to work on. Patches and pull
+requests are accepted. Testing and documentation improvements are
+also highly valued contributions.
+--
+
+== Important Notes
+
+* Xerces-C++ currently lacks active maintainers
+* May not promptly address all bugs and security risks
+* See the Xerces-C++ Security page for guidance
+* Xerces2 Java remains actively maintained
+
+[.notes]
+--
+It's important to be aware that as of the current release, Xerces-C++
+explicitly notes it lacks active maintainers. Users should consult
+the Security page for information about using Xerces-C++ securely.
+Xerces2 Java remains under active maintenance.
+--
+
+== Links and Resources
+
+* *Website:* https://xerces.apache.org
+* *Xerces2 Java:* https://xerces.apache.org/xerces2-j/
+* *Xerces-C++:* https://xerces.apache.org/xerces-c/
+* *XML Commons:* https://xerces.apache.org/xml-commons/
+* *Downloads:* https://xerces.apache.org/mirrors.cgi
+
+[.notes]
+--
+Here are the key links for getting started with Apache Xerces. The
+main website provides access to all sub-projects. Download pages
+link to the Apache mirror system for reliable access to current
+releases.
+--
+
+== Questions?
+
+image::project-logo.png[Apache Xerces, 300]
+
+https://xerces.apache.org
+
+[.notes]
+--
+Thank you for attending this session on Apache Xerces. Please feel
+free to ask questions. For more information visit the project website
+or subscribe to the mailing lists.
+--
