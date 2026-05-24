@@ -1,0 +1,510 @@
+////
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+:presenter_name: Your Name
+:presenter_company: Your Company
+:description: Introduction to Apache Ant
+:keywords: Apache, Ant, Build Tool, Java
+:author: Your Name
+:email: Your email
+:position: Your role
+
+== Apache Ant
+
+image::https://ant.apache.org/images/ant_logo_large.gif[Apache Ant, width=400, align=center]
+
+Java's Original Build Tool
+
+== Who am I?
+
+* {presenter_name}
+* {presenter_company}
+* {position}
+* {email}
+
+== Table of Contents
+
+* *Part 1:* What is Apache Ant?
+* *Part 2:* Installation & Getting Started
+* *Part 3:* Community Participation
+
+// ==========================================================
+// PART 1: WHAT IS IT?
+// ==========================================================
+
+== What is Apache Ant?
+
+* A Java-based build tool for automating software build processes
+* One of the oldest and most established Apache projects
+* Top-Level Project (TLP) since November 2002
+* Uses XML-based build files (`build.xml`)
+
+[.notes]
+--
+Apache Ant ("Another Neat Tool") is a Java library and command-line tool
+whose mission is to drive processes described in build files as targets
+and extension points dependent upon each other. It is one of the most
+venerable projects at the ASF.
+--
+
+== History of Apache Ant
+
+* Created by *James Duncan Davidson* in 2000
+* Built while developing Apache Tomcat
+* Needed a cross-platform build tool (Make was Unix-centric)
+* Donated to the Apache Software Foundation
+* Predecessor to Maven and Gradle
+
+[.notes]
+--
+James Duncan Davidson created Ant because he was frustrated with
+Make's platform dependencies while building Tomcat. The name stands
+for "Another Neat Tool." It quickly became the standard Java build
+tool before Maven and later Gradle emerged. Still widely used in
+legacy and enterprise Java projects.
+--
+
+== Why Ant? The Problem with Make
+
+* `make` relies on shell commands — platform-dependent
+* Tab-sensitivity causes subtle, hard-to-debug errors
+* No native understanding of Java compilation model
+* Ant: Java-native, XML-driven, platform-independent
+
+[.notes]
+--
+Make was designed for C/Unix environments. Java projects needed
+something that understood classpaths, JARs, and could run identically
+on Windows, Linux, and macOS without relying on shell specifics.
+--
+
+== Key Features
+
+* *XML-based build files* — declarative, structured
+* *Platform independence* — runs anywhere Java runs
+* *Extensible* — custom tasks written in Java
+* *Rich built-in task library* — 150+ tasks
+* *Ivy* — optional dependency management
+
+[.notes]
+--
+Ant ships with over 150 built-in tasks. Custom tasks are simply
+Java classes that extend org.apache.tools.ant.Task. This makes
+Ant incredibly flexible for specialized build scenarios. JUnit
+integration provides first-class test support.
+--
+
+== How Ant Works
+
+[source,text]
+----
+┌─────────────┐     ┌──────────────┐     ┌──────────────┐
+│  build.xml  │────▶│  Ant Engine  │────▶│   Outputs    │
+│  (targets,  │     │  (resolves   │     │  (.class,    │
+│   tasks)    │     │   deps,      │     │   .jar,      │
+│             │     │   executes)  │     │   reports)   │
+└─────────────┘     └──────────────┘     └──────────────┘
+----
+
+* Ant reads `build.xml`, resolves target dependencies
+* Executes tasks in order, produces build artifacts
+
+== Ant vs. Make vs. Maven vs. Gradle
+
+[cols="1,1,1,1", options="header"]
+|===
+| Feature | Ant | Maven | Gradle
+| Config format | XML | XML | Groovy/Kotlin
+| Convention | None | Strong | Flexible
+| Dependency mgmt | Via Ivy | Built-in | Built-in
+| Flexibility | Very high | Opinionated | High
+|===
+
+[.notes]
+--
+Ant gives you maximum flexibility with zero conventions imposed.
+Maven took the opposite approach with "convention over configuration."
+Gradle tried to combine the best of both worlds.
+--
+
+== Sub-Projects
+
+* *Apache Ivy* — Dependency management (like Maven deps, but for Ant)
+* *Antlibs* — Libraries of reusable Ant tasks
+** antlib:compress, antlib:dotnet, antlib:svn, and more
+
+[.notes]
+--
+Ivy is the most significant sub-project. It brings transitive dependency
+resolution to Ant builds, allowing integration with Maven repositories.
+Antlibs provide optional task collections that extend Ant's capabilities
+without bloating the core distribution.
+--
+
+// ==========================================================
+// PART 2: INSTALLATION & GETTING STARTED
+// ==========================================================
+
+== Part 2: Installation & Getting Started
+
+image::https://ant.apache.org/images/ant_logo_large.gif[width=200, align=center]
+
+Prerequisites: *Java 8* or higher
+
+== Installation Methods
+
+*Download:* https://ant.apache.org/bindownload.cgi
+
+*Package managers:*
+
+[source,bash]
+----
+# macOS
+brew install ant
+# Debian/Ubuntu
+apt install ant
+# Windows (Chocolatey)
+choco install ant
+----
+
+== Environment Setup
+
+[source,bash]
+----
+# Set ANT_HOME
+export ANT_HOME=/usr/local/opt/ant/libexec
+# Add to PATH
+export PATH=$ANT_HOME/bin:$PATH
+# Verify installation
+ant -version
+----
+
+Expected output: `Apache Ant(TM) version 1.10.14`
+
+[.notes]
+--
+On macOS with Homebrew, ANT_HOME is typically set automatically.
+On Windows, set these as system environment variables.
+JAVA_HOME must also be set correctly.
+--
+
+== Your First build.xml (Part 1)
+
+[source,xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="HelloWorld" default="run" basedir=".">
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+</project>
+----
+
+* Properties define reusable values
+* Targets group related tasks
+
+== Your First build.xml (Part 2)
+
+[source,xml]
+----
+<target name="compile">
+    <mkdir dir="${build.dir}"/>
+    <javac srcdir="${src.dir}"
+           destdir="${build.dir}"
+           includeantruntime="false"/>
+</target>
+<target name="run" depends="compile">
+    <java classname="HelloWorld"
+          classpath="${build.dir}"/>
+</target>
+----
+
+* `depends` creates a target execution chain
+* Run with: `ant run` (or just `ant` since `run` is the default)
+
+== Key Concepts: Projects
+
+[source,xml]
+----
+<project name="MyApp" default="build" basedir=".">
+  ...
+</project>
+----
+
+* Every build file has exactly one `<project>` element
+* `name` — project identifier
+* `default` — target to run when none specified
+* `basedir` — base directory for path calculations
+
+== Key Concepts: Targets
+
+[source,xml]
+----
+<target name="compile" depends="init"
+        description="Compile Java sources">
+    ...
+</target>
+----
+
+* Named groups of tasks
+* Can depend on other targets (DAG execution)
+* `depends` — comma-separated prerequisite targets
+* `description` — shown with `ant -projecthelp`
+
+== Key Concepts: Tasks
+
+[source,xml]
+----
+<javac srcdir="src" destdir="build/classes"/>
+<jar destfile="dist/myapp.jar"
+     basedir="build/classes"/>
+<junit printsummary="yes" haltonfailure="yes">
+    <test name="com.example.MyTest"/>
+</junit>
+----
+
+* The actual units of work
+* 150+ built-in tasks (javac, jar, copy, delete, mkdir…)
+* Tasks are Java classes implementing `o.a.t.ant.Task`
+
+== Key Concepts: Properties
+
+[source,xml]
+----
+<property name="version" value="1.0.0"/>
+<property file="build.properties"/>
+<echo message="Building version ${version}"/>
+----
+
+* Immutable once set (first definition wins)
+* Can be loaded from files, environment, or CLI
+* CLI override: `ant -Dversion=2.0.0`
+
+== Common Commands
+
+[source,bash]
+----
+ant                    # run default target
+ant compile            # run specific target
+ant clean compile jar  # run multiple targets
+ant -projecthelp       # show available targets
+----
+
+== Common Commands (continued)
+
+[source,bash]
+----
+ant -verbose compile         # verbose output
+ant -Denv=production deploy  # pass a property
+ant -f other-build.xml       # different build file
+----
+
+== Real-World Build: Structure
+
+[source,xml]
+----
+<project name="webapp" default="dist">
+  <property name="src" value="src/main/java"/>
+  <property name="lib" value="lib"/>
+  <property name="build" value="build"/>
+  <path id="classpath">
+    <fileset dir="${lib}" includes="**/*.jar"/>
+  </path>
+  <target name="init">
+    <mkdir dir="${build}/classes"/>
+  </target>
+----
+
+== Real-World Build: Compile & Test
+
+[source,xml]
+----
+<target name="compile" depends="init">
+  <javac srcdir="${src}" destdir="${build}/classes"
+         classpathref="classpath"/>
+</target>
+<target name="test" depends="compile">
+  <junit printsummary="yes" haltonfailure="yes">
+    <classpath refid="classpath"/>
+  </junit>
+</target>
+----
+
+[.notes]
+--
+Note the dependency chain: dist → test → compile → init.
+This ensures proper ordering. The path element shows how
+to manage classpaths for compilation and testing.
+--
+
+== Real-World Build: Package
+
+[source,xml]
+----
+<target name="dist" depends="test">
+  <jar destfile="dist/webapp.jar"
+       basedir="${build}/classes"/>
+</target>
+----
+
+* Dependency chain: `dist` → `test` → `compile` → `init`
+* Running `ant dist` triggers the full build pipeline
+* Each target runs only once, even if depended on multiple times
+
+== Using Ivy for Dependencies
+
+[source,xml]
+----
+<ivy-module version="2.0">
+  <info organisation="com.example" module="myapp"/>
+  <dependencies>
+    <dependency org="junit" name="junit"
+                rev="4.13.2"/>
+    <dependency org="org.slf4j" name="slf4j-api"
+                rev="2.0.9"/>
+  </dependencies>
+</ivy-module>
+----
+
+* Resolves from Maven Central (and other repos)
+* In build.xml: `<ivy:retrieve/>`
+
+== Writing Custom Tasks
+
+[source,java]
+----
+public class HelloTask extends Task {
+    private String name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void execute() throws BuildException {
+        log("Hello, " + name + "!");
+    }
+}
+----
+
+== Using Custom Tasks
+
+[source,xml]
+----
+<taskdef name="hello"
+         classname="com.example.HelloTask"
+         classpath="custom-tasks.jar"/>
+<hello name="World"/>
+----
+
+* Any Java developer can extend Ant's capabilities
+* Ideal for organizations with unique build requirements
+
+[.notes]
+--
+Custom tasks are one of Ant's great strengths. Any Java developer
+can extend Ant's capabilities by writing a simple class. This makes
+it ideal for organizations with unique build requirements.
+--
+
+// ==========================================================
+// PART 3: COMMUNITY PARTICIPATION
+// ==========================================================
+
+== Part 3: Community Participation
+
+* Mailing lists
+* Issue tracker
+* Source code
+* How to contribute
+
+== Mailing Lists
+
+* *User list:* user@ant.apache.org
+** Ask questions, get help
+* *Dev list:* dev@ant.apache.org
+** Development discussions, patches, releases
+* *Announcements:* announcements@ant.apache.org
+
+[.notes]
+--
+As with all Apache projects, the mailing lists are the primary
+communication channel. "If it didn't happen on the mailing list,
+it didn't happen." Subscribe by emailing user-subscribe@ant.apache.org
+or dev-subscribe@ant.apache.org.
+--
+
+== Issue Tracking & Source Code
+
+* *Issue Tracker:* https://issues.apache.org/jira/browse/ANT
+* *GitHub:* https://github.com/apache/ant
+* *Ivy GitHub:* https://github.com/apache/ant-ivy
+* PRs are accepted and linked to JIRA issues
+
+[.notes]
+--
+The project uses JIRA for issue tracking. GitHub pull requests
+are also accepted and are linked to JIRA issues. The canonical
+source is in ASF Git, mirrored to GitHub.
+--
+
+== Project Vitals
+
+* *22 PMC members* — mature, stable community
+* *TLP since:* November 2002
+* *Sub-projects:* Ant core, Ivy, Antlibs
+* *Latest stable:* 1.10.x line
+
+== How to Contribute
+
+1. Subscribe to dev@ant.apache.org
+2. Pick an issue from JIRA ("newbie" or "easy-fix" labels)
+3. Fork on GitHub: https://github.com/apache/ant
+4. Make changes, write tests, submit a Pull Request
+5. Discuss on dev@ if needed
+
+[.notes]
+--
+Contributions don't have to be code! Documentation improvements,
+bug reports, and helping on the user mailing list are all valued
+contributions to the project.
+--
+
+== Non-Code Contributions
+
+* Answer questions on user@ant.apache.org
+* Improve documentation
+* Write tutorials and blog posts
+* Report bugs with clear reproduction steps
+* Test release candidates
+
+== Further Resources
+
+* *Ant Website:* https://ant.apache.org/
+* *Ant Manual:* https://ant.apache.org/manual/
+* *Ivy Website:* https://ant.apache.org/ivy/
+* *GitHub:* https://github.com/apache/ant
+
+== Summary
+
+* *What:* Java-based, XML-driven, platform-independent build tool
+* *Install:* Download or package manager, set ANT_HOME
+* *Use:* Write `build.xml` with projects, targets, tasks, properties
+* *Contribute:* Mailing lists, JIRA, GitHub PRs
