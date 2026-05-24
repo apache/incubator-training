@@ -1,0 +1,391 @@
+////
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+////
+
+include::_settings.adoc[]
+== Apache Flex
+
+image::project-logo.png[Apache Flex, 500]
+
+The open-source framework for building expressive web and mobile applications
+
+[.notes]
+--
+Apache Flex is a highly productive, open source application framework for
+building and maintaining expressive web applications that deploy consistently
+on all major browsers, desktops and devices. It entered the ASF in December
+2012, donated by Adobe.
+--
+
+== What Is Apache Flex?
+
+* Open-source application framework (Apache License 2.0)
+* Builds expressive web, desktop, and mobile applications
+* Uses MXML for layout and ActionScript 3 for logic
+* Deploys to Adobe Flash Player and Adobe AIR
+* Originally created by Macromedia, later donated by Adobe to ASF
+
+[.notes]
+--
+Flex was originally created by Macromedia in 2004, acquired by Adobe, and
+donated to the Apache Software Foundation in 2011. It became a top-level
+project in December 2012.
+--
+
+== One Codebase, Deploy Everywhere
+
+* **Browser** — via Adobe Flash Player
+* **Desktop** — via Adobe AIR (Windows, macOS, Linux)
+* **Mobile** — iOS, Android (native app stores)
+* **TV** — Smart TVs via Broadcom platform
+
+[.notes]
+--
+The key value proposition of Flex is write-once, deploy-everywhere.
+A single codebase can target browsers, desktop apps, mobile devices,
+and even smart TVs.
+--
+
+== Important Notice: Flash Player EOL
+
+* Adobe Flash Player support in browsers ended December 2020
+* All major browsers (Chrome, Firefox, Edge) removed Flash
+* For **browser** output → migrate to Apache Royale™
+* Desktop and mobile via Adobe AIR (provided by Harman) **still supported**
+
+[.notes]
+--
+This is critical context. Flash Player in the browser is dead. However,
+Flex apps that target AIR for desktop and mobile continue to work. For
+browser-targeted development, Apache Royale is the successor project.
+--
+
+== Apache Royale: The Browser Path Forward
+
+* Sister project at the ASF: https://royale.apache.org/
+* Allows continued use of ActionScript
+* Outputs native JavaScript and HTML
+* Designed for developers migrating from Flex browser apps
+
+[.notes]
+--
+Apache Royale grew out of the FlexJS project (originally part of Flex).
+It provides a migration path for developers who need browser deployment.
+--
+
+== The Flex SDK Stack
+
+* **Apache Flex SDK** — the core framework (current: 4.16.1)
+* **Apache FlexJS** — ActionScript to JavaScript compiler (beta)
+* **Apache FlexUnit** — unit testing framework
+* **BlazeDS** — Java-based remoting and messaging
+* **Squiggly** — spell checker library
+
+[.notes]
+--
+The Flex ecosystem includes several sub-projects beyond the core SDK.
+Each is available as a separate download from the Apache Flex website.
+--
+
+== Languages and Technologies
+
+* **MXML** — XML-based markup for UI layout and component declaration
+* **ActionScript 3** — ECMAScript-based language (similar to JavaScript)
+* Component-based architecture with data binding
+* Skinnable UI components with CSS-like styling
+
+[.notes]
+--
+MXML handles declarative layout while ActionScript handles logic.
+ActionScript 3 is strongly typed and class-based, making it familiar
+to Java and C# developers.
+--
+
+== Key Framework Features
+
+* Rich set of UI components (buttons, forms, data grids, lists)
+* Layout containers (HGroup, VGroup, TileGroup, BasicLayout)
+* Data binding and event-driven architecture
+* Skinning and theming with CSS
+* Accessibility support (Section 508 compliance)
+
+[.notes]
+--
+Flex's component library is one of its strongest features — a mature
+set of enterprise-grade UI widgets that took years to develop.
+--
+
+
+== Supported IDEs
+
+* **Adobe Flash Builder** (Eclipse-based)
+* **JetBrains IntelliJ IDEA**
+* **FlashDevelop** (Windows)
+* **FDT** (Eclipse-based)
+* Any text editor + command-line compiler
+
+[.notes]
+--
+While you can technically use any text editor, a dedicated IDE provides
+code completion, visual design tools, and integrated debugging.
+--
+
+== Installing the SDK
+
+1. Download the SDK Installer from https://flex.apache.org/
+2. Run the installer and choose an installation directory
+3. Accept the component licenses (Flash Player, AIR, etc.)
+4. Wait for all components to download
+5. Point your IDE to the new SDK directory
+
+[.notes]
+--
+The SDK Installer handles downloading all required dependencies
+including Flash Player, AIR SDK, and third-party libraries. This
+greatly simplifies what used to be a manual multi-step process.
+--
+
+== SDK Dependencies
+
+* Java SDK 1.7+ (for compilation)
+* Apache ANT 1.7.0+
+* Adobe AIR Integration Kit
+* Adobe Flash Player Content Debugger
+* Open Source Media Framework (OSMF)
+
+[.notes]
+--
+If you use the SDK Installer these are handled automatically. Only
+manual source builds need to worry about gathering these individually.
+--
+
+== Hello World: The Code
+
+[source,xml]
+----
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+               xmlns:s="library://ns.apache.org/flex/spark"
+               width="640" height="480">
+    <s:layout>
+        <s:BasicLayout />
+    </s:layout>
+    <s:Label text="Hello World!"
+             horizontalCenter="0"
+             verticalCenter="0" />
+</s:Application>
+----
+
+[.notes]
+--
+This is a minimal Flex application. The Application tag is the root,
+layout defines positioning strategy, and Label is a simple text component.
+Note the Spark namespace (library://ns.apache.org/flex/spark).
+--
+
+== Running Your Application
+
+1. Create a new Flex project in your IDE
+2. Set the SDK to Apache Flex 4.16.1
+3. Replace the generated MXML with Hello World code
+4. Click Debug/Run in the toolbar
+5. Application launches in your default browser
+
+[.notes]
+--
+The compile-debug cycle is fast. The compiler produces a SWF file that
+runs in Flash Player (browser) or can be packaged as an AIR app.
+--
+
+== Project Structure
+
+[source,text]
+----
+my-flex-app/
+├── src/
+│   └── MyApp.mxml          (main application)
+├── libs/                    (SWC libraries)
+├── bin-debug/               (debug output)
+├── bin-release/             (release output)
+└── build.xml                (ANT build, optional)
+----
+
+[.notes]
+--
+A typical Flex project is straightforward. Source goes in src/, compiled
+output in bin-debug or bin-release, and any third-party SWC libraries
+in libs/.
+--
+
+== Downloads Available
+
+* **SDK Installer** — recommended for application developers
+* **SDK Source Code** — for SDK contributors
+* **SDK Binaries** — pre-compiled (Mac, Linux, Windows)
+* **FlexUnit** — unit testing framework
+* **Tour De Flex** — component explorer and examples
+
+[.notes]
+--
+The SDK Installer at https://flex.apache.org/ is the recommended path
+for most developers. Binaries are available for those who prefer not
+to compile.
+--
+
+
+
+== Mailing Lists
+
+* **Users list** — help, discussion, how-to questions
+** Subscribe: users-subscribe@flex.apache.org
+* **Dev list** — SDK development, features, releases
+** Subscribe: dev-subscribe@flex.apache.org
+* **Commits list** — automated code change notifications
+* **Issues list** — JIRA issue notifications
+
+[.notes]
+--
+The users list is the right place for application developers. The dev
+list is for those working on the SDK itself. Archives are available on
+Markmail and lists.apache.org.
+--
+
+== Issue Tracker
+
+* JIRA: https://issues.apache.org/jira/browse/FLEX
+* Bug reports, feature requests, improvements
+* Anyone can file issues (requires ASF JIRA account)
+* Check existing issues before filing new ones
+
+[.notes]
+--
+JIRA is the official issue tracker for Apache Flex. You'll need to
+create an ASF JIRA account to file issues.
+--
+
+== Source Repositories
+
+* **flex-sdk** — core SDK framework
+* **flex-falcon** — next-generation compiler
+* **flex-blazeds** — Java remoting/messaging
+* **flex-flexunit** — unit testing
+* **flex-utilities** — SDK installer and tools
+* 16 repositories total on Apache GitBox
+
+[.notes]
+--
+All source code is available on Apache GitBox and mirrored to GitHub.
+The flex-sdk repo is the main framework codebase.
+--
+
+== Project Governance
+
+* Apache Software Foundation top-level project (since December 2012)
+* PMC with 45 members
+* Apache License, Version 2.0
+* Decisions made by consensus on dev@ mailing list
+* Meritocratic — contributions earn committer status
+
+[.notes]
+--
+Flex follows standard ASF governance. The PMC oversees releases and
+community health. New committers are nominated based on sustained
+contributions.
+--
+
+== How to Contribute
+
+* Subscribe to dev@flex.apache.org
+* Check JIRA for open issues tagged "newbie" or "easy"
+* Submit patches via GitHub pull requests
+* Improve documentation and examples
+* Help other users on the users@ mailing list
+
+[.notes]
+--
+Contributions don't have to be code. Documentation, testing, answering
+user questions, and triaging bugs are all valued contributions.
+--
+
+== Related Projects
+
+[cols="1,2"]
+|===
+| Project | Purpose
+
+| Apache Royale™
+| ActionScript to JavaScript/HTML (browser output)
+
+| BlazeDS
+| Java remoting and messaging for Flex
+
+| FlexUnit
+| Unit testing framework
+
+| Tour De Flex
+| Interactive component explorer
+|===
+
+[.notes]
+--
+Apache Royale is especially important as the migration path for
+browser-targeted Flex applications now that Flash Player is retired.
+--
+
+== Resources
+
+* Website: https://flex.apache.org/
+* Getting Started: https://flex.apache.org/doc-getstarted.html
+* API Documentation: https://flex.apache.org/asdoc/
+* Wiki: https://cwiki.apache.org/confluence/display/FLEX
+* Blog: https://blogs.apache.org/flex/
+
+[.notes]
+--
+The official website has comprehensive documentation including
+API references, video tutorials, and the FlexUnit tutorial.
+--
+
+== Summary
+
+* Apache Flex: mature, open-source application framework
+* MXML + ActionScript 3 for rich application development
+* Desktop and mobile deployment still active via Adobe AIR
+* Browser path forward: Apache Royale™
+* Active PMC with 45 members, Apache-governed
+
+[.notes]
+--
+While Flash Player in the browser has ended, Flex remains relevant for
+AIR-based desktop and mobile applications. Apache Royale provides the
+path forward for browser-targeted development.
+--
+
+== Questions?
+
+image::project-logo.png[Apache Flex, 300]
+
+* https://flex.apache.org/
+* users@flex.apache.org
+* dev@flex.apache.org
+
+[.notes]
+--
+Direct audience to the mailing lists for follow-up questions.
+The users list is appropriate for application development questions.
+--
